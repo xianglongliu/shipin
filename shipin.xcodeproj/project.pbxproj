@@ -21,6 +21,7 @@
 		EEDCB6071B6345AB00EB9135 /* VideoTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = EEDCB6041B6345AB00EB9135 /* VideoTableViewCell.m */; };
 		EEDCB6081B6345AB00EB9135 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EEDCB6061B6345AB00EB9135 /* ViewController.m */; };
 		EEDCB60C1B6366DE00EB9135 /* FilmModel.m in Sources */ = {isa = PBXBuildFile; fileRef = EEDCB60B1B6366DE00EB9135 /* FilmModel.m */; };
+		EEDCB6131B63864100EB9135 /* Tool.m in Sources */ = {isa = PBXBuildFile; fileRef = EEDCB6121B63864100EB9135 /* Tool.m */; };
 		F6C58D14318B2DFC028C7873 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 8CAB9D74EF1F717E2A228153 /* libPods.a */; };
 /* End PBXBuildFile section */
 
@@ -68,6 +69,8 @@
 		EEDCB6061B6345AB00EB9135 /* ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ViewController.m; path = viewController/FirstPage/ViewController.m; sourceTree = "<group>"; };
 		EEDCB60A1B6366D200EB9135 /* FilmModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FilmModel.h; path = Modle/FilmModel.h; sourceTree = "<group>"; };
 		EEDCB60B1B6366DE00EB9135 /* FilmModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FilmModel.m; path = Modle/FilmModel.m; sourceTree = "<group>"; };
+		EEDCB6111B63864100EB9135 /* Tool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Tool.h; path = Tool/Tool.h; sourceTree = "<group>"; };
+		EEDCB6121B63864100EB9135 /* Tool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Tool.m; path = Tool/Tool.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -136,12 +139,13 @@
 		EE87D20E1B58ADA4002A0DD8 /* shipin */ = {
 			isa = PBXGroup;
 			children = (
-				EEDCB6091B6366A300EB9135 /* Modle */,
+				EEDCB60D1B63860F00EB9135 /* Tool */,
 				EE87D2131B58ADA4002A0DD8 /* AppDelegate.h */,
 				EE87D2141B58ADA4002A0DD8 /* AppDelegate.m */,
 				EEDCB5BF1B6335CD00EB9135 /* Config */,
 				EEDCB5C61B63391000EB9135 /* ExView */,
 				EEDCB5D41B633E8B00EB9135 /* logic */,
+				EEDCB6091B6366A300EB9135 /* Modle */,
 				EE71843A1B58F49700C4EF24 /* Resource */,
 				EE87D2351B58DD42002A0DD8 /* ViewController */,
 			);
@@ -247,6 +251,15 @@
 				EEDCB60A1B6366D200EB9135 /* FilmModel.h */,
 			);
 			name = Modle;
+			sourceTree = "<group>";
+		};
+		EEDCB60D1B63860F00EB9135 /* Tool */ = {
+			isa = PBXGroup;
+			children = (
+				EEDCB6111B63864100EB9135 /* Tool.h */,
+				EEDCB6121B63864100EB9135 /* Tool.m */,
+			);
+			name = Tool;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -388,6 +401,7 @@
 				EEDCB6071B6345AB00EB9135 /* VideoTableViewCell.m in Sources */,
 				EEDCB5C51B6335ED00EB9135 /* Config.m in Sources */,
 				EEDCB6011B6344B600EB9135 /* BaseViewController.m in Sources */,
+				EEDCB6131B63864100EB9135 /* Tool.m in Sources */,
 				EE87D2151B58ADA4002A0DD8 /* AppDelegate.m in Sources */,
 				EEDCB6081B6345AB00EB9135 /* ViewController.m in Sources */,
 				EEDCB60C1B6366DE00EB9135 /* FilmModel.m in Sources */,
