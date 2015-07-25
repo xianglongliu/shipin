@@ -372,7 +372,7 @@ static char tapEventLoadedKey;
     {
         if([lk_imageDownloadDelegate respondsToSelector:@selector(lk_newURLWithClickURL:)])
         {
-            NSURL* oriURL = self.imageURL;
+            NSURL* oriURL = self.sd_imageURL;
             NSURL* newURL = [lk_imageDownloadDelegate lk_newURLWithClickURL:oriURL];
             if ([oriURL isEqual:newURL] == NO)
             {

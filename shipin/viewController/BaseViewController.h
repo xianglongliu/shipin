@@ -7,7 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "ExUINavigationBar.h"
 
 @interface BaseViewController : UIViewController
+
+@property (nonatomic,strong)    ExUINavigationBar       *_navigationBar;
+
 
 @end
