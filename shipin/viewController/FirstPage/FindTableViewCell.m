@@ -6,9 +6,9 @@
 //  Copyright (c) 2014年 dust. All rights reserved.
 //
 
-#import "VideoTableViewCell.h"
+#import "FindTableViewCell.h"
 
-@implementation VideoTableViewCell
+@implementation FindTableViewCell
 
 - (instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier
 {

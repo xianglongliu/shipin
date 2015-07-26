@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "FilmModel.h"
 
-@interface VideoTableViewCell : UITableViewCell
+@interface FindTableViewCell : UITableViewCell
 {
     UIImageView     *_imageView;
     UILabel         *_labelTitle;

@@ -18,10 +18,13 @@
 		EEDCB5D31B633E4200EB9135 /* navigationbar.png in Resources */ = {isa = PBXBuildFile; fileRef = EEDCB5D11B633E4200EB9135 /* navigationbar.png */; };
 		EEDCB5D71B633E9200EB9135 /* ImageUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = EEDCB5D61B633E9200EB9135 /* ImageUtil.m */; };
 		EEDCB6011B6344B600EB9135 /* BaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EEDCB6001B6344B600EB9135 /* BaseViewController.m */; };
-		EEDCB6071B6345AB00EB9135 /* VideoTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = EEDCB6041B6345AB00EB9135 /* VideoTableViewCell.m */; };
+		EEDCB6071B6345AB00EB9135 /* FindTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = EEDCB6041B6345AB00EB9135 /* FindTableViewCell.m */; };
 		EEDCB6081B6345AB00EB9135 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EEDCB6061B6345AB00EB9135 /* ViewController.m */; };
 		EEDCB60C1B6366DE00EB9135 /* FilmModel.m in Sources */ = {isa = PBXBuildFile; fileRef = EEDCB60B1B6366DE00EB9135 /* FilmModel.m */; };
 		EEDCB6131B63864100EB9135 /* Tool.m in Sources */ = {isa = PBXBuildFile; fileRef = EEDCB6121B63864100EB9135 /* Tool.m */; };
+		EEE161151B648E6600C9A0EF /* AllTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = EEE161141B648E6600C9A0EF /* AllTableViewCell.m */; };
+		EEE161181B64C53F00C9A0EF /* SetViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EEE161171B64C53F00C9A0EF /* SetViewController.m */; };
+		EEE1611B1B64C78F00C9A0EF /* HeadTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = EEE1611A1B64C78F00C9A0EF /* HeadTableViewCell.m */; };
 		F6C58D14318B2DFC028C7873 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 8CAB9D74EF1F717E2A228153 /* libPods.a */; };
 /* End PBXBuildFile section */
 
@@ -63,14 +66,20 @@
 		EEDCB5D61B633E9200EB9135 /* ImageUtil.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ImageUtil.m; path = logic/ImageUtil.m; sourceTree = "<group>"; };
 		EEDCB5FF1B6344B600EB9135 /* BaseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BaseViewController.h; path = viewController/BaseViewController.h; sourceTree = "<group>"; };
 		EEDCB6001B6344B600EB9135 /* BaseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BaseViewController.m; path = viewController/BaseViewController.m; sourceTree = "<group>"; };
-		EEDCB6031B6345AB00EB9135 /* VideoTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = VideoTableViewCell.h; path = viewController/FirstPage/VideoTableViewCell.h; sourceTree = "<group>"; };
-		EEDCB6041B6345AB00EB9135 /* VideoTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = VideoTableViewCell.m; path = viewController/FirstPage/VideoTableViewCell.m; sourceTree = "<group>"; };
+		EEDCB6031B6345AB00EB9135 /* FindTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FindTableViewCell.h; path = viewController/FirstPage/FindTableViewCell.h; sourceTree = "<group>"; };
+		EEDCB6041B6345AB00EB9135 /* FindTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FindTableViewCell.m; path = viewController/FirstPage/FindTableViewCell.m; sourceTree = "<group>"; };
 		EEDCB6051B6345AB00EB9135 /* ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ViewController.h; path = viewController/FirstPage/ViewController.h; sourceTree = "<group>"; };
 		EEDCB6061B6345AB00EB9135 /* ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ViewController.m; path = viewController/FirstPage/ViewController.m; sourceTree = "<group>"; };
 		EEDCB60A1B6366D200EB9135 /* FilmModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FilmModel.h; path = Modle/FilmModel.h; sourceTree = "<group>"; };
 		EEDCB60B1B6366DE00EB9135 /* FilmModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FilmModel.m; path = Modle/FilmModel.m; sourceTree = "<group>"; };
 		EEDCB6111B63864100EB9135 /* Tool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Tool.h; path = Tool/Tool.h; sourceTree = "<group>"; };
 		EEDCB6121B63864100EB9135 /* Tool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Tool.m; path = Tool/Tool.m; sourceTree = "<group>"; };
+		EEE161131B648E6600C9A0EF /* AllTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AllTableViewCell.h; path = viewController/FirstPage/AllTableViewCell.h; sourceTree = "<group>"; };
+		EEE161141B648E6600C9A0EF /* AllTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AllTableViewCell.m; path = viewController/FirstPage/AllTableViewCell.m; sourceTree = "<group>"; };
+		EEE161161B64C53F00C9A0EF /* SetViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SetViewController.h; path = viewController/SetViewController.h; sourceTree = "<group>"; };
+		EEE161171B64C53F00C9A0EF /* SetViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SetViewController.m; path = viewController/SetViewController.m; sourceTree = "<group>"; };
+		EEE161191B64C78F00C9A0EF /* HeadTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HeadTableViewCell.h; path = viewController/HeadTableViewCell.h; sourceTree = "<group>"; };
+		EEE1611A1B64C78F00C9A0EF /* HeadTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = HeadTableViewCell.m; path = viewController/HeadTableViewCell.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -112,6 +121,7 @@
 		EE71843A1B58F49700C4EF24 /* Resource */ = {
 			isa = PBXGroup;
 			children = (
+				EEE1610F1B648CD400C9A0EF /* Button */,
 				EEDCB5D01B633E4200EB9135 /* Default-568h@2x.png */,
 				EEDCB5D11B633E4200EB9135 /* navigationbar.png */,
 			);
@@ -139,7 +149,6 @@
 		EE87D20E1B58ADA4002A0DD8 /* shipin */ = {
 			isa = PBXGroup;
 			children = (
-				EEDCB60D1B63860F00EB9135 /* Tool */,
 				EE87D2131B58ADA4002A0DD8 /* AppDelegate.h */,
 				EE87D2141B58ADA4002A0DD8 /* AppDelegate.m */,
 				EEDCB5BF1B6335CD00EB9135 /* Config */,
@@ -147,6 +156,7 @@
 				EEDCB5D41B633E8B00EB9135 /* logic */,
 				EEDCB6091B6366A300EB9135 /* Modle */,
 				EE71843A1B58F49700C4EF24 /* Resource */,
+				EEDCB60D1B63860F00EB9135 /* Tool */,
 				EE87D2351B58DD42002A0DD8 /* ViewController */,
 			);
 			path = shipin;
@@ -236,10 +246,16 @@
 		EEDCB6021B63459F00EB9135 /* FirstPage */ = {
 			isa = PBXGroup;
 			children = (
-				EEDCB6031B6345AB00EB9135 /* VideoTableViewCell.h */,
-				EEDCB6041B6345AB00EB9135 /* VideoTableViewCell.m */,
+				EEE161131B648E6600C9A0EF /* AllTableViewCell.h */,
+				EEDCB6031B6345AB00EB9135 /* FindTableViewCell.h */,
 				EEDCB6051B6345AB00EB9135 /* ViewController.h */,
+				EEE161141B648E6600C9A0EF /* AllTableViewCell.m */,
+				EEDCB6041B6345AB00EB9135 /* FindTableViewCell.m */,
 				EEDCB6061B6345AB00EB9135 /* ViewController.m */,
+				EEE161161B64C53F00C9A0EF /* SetViewController.h */,
+				EEE161171B64C53F00C9A0EF /* SetViewController.m */,
+				EEE161191B64C78F00C9A0EF /* HeadTableViewCell.h */,
+				EEE1611A1B64C78F00C9A0EF /* HeadTableViewCell.m */,
 			);
 			name = FirstPage;
 			sourceTree = "<group>";
@@ -260,6 +276,13 @@
 				EEDCB6121B63864100EB9135 /* Tool.m */,
 			);
 			name = Tool;
+			sourceTree = "<group>";
+		};
+		EEE1610F1B648CD400C9A0EF /* Button */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Button;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -398,8 +421,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				EEDCB6071B6345AB00EB9135 /* VideoTableViewCell.m in Sources */,
+				EEDCB6071B6345AB00EB9135 /* FindTableViewCell.m in Sources */,
 				EEDCB5C51B6335ED00EB9135 /* Config.m in Sources */,
+				EEE161151B648E6600C9A0EF /* AllTableViewCell.m in Sources */,
 				EEDCB6011B6344B600EB9135 /* BaseViewController.m in Sources */,
 				EEDCB6131B63864100EB9135 /* Tool.m in Sources */,
 				EE87D2151B58ADA4002A0DD8 /* AppDelegate.m in Sources */,
@@ -408,7 +432,9 @@
 				EEDCB5C91B63392700EB9135 /* ExUINavigationController.m in Sources */,
 				EEDCB5CC1B63398D00EB9135 /* ExUINavigationBar.m in Sources */,
 				EE87D2121B58ADA4002A0DD8 /* main.m in Sources */,
+				EEE1611B1B64C78F00C9A0EF /* HeadTableViewCell.m in Sources */,
 				EEDCB5D71B633E9200EB9135 /* ImageUtil.m in Sources */,
+				EEE161181B64C53F00C9A0EF /* SetViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

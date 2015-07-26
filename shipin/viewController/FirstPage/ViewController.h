@@ -14,9 +14,16 @@
 
 @interface ViewController : BaseViewController<UITableViewDataSource,UITableViewDelegate>
 {
-    UITableView         *_tableView;
+    UITableView         *_findTableView;
+    UITableView         *_allTableView;
     UIButton            *btnAll;
     UIButton            *btnGood;
+    UIView              *_viewColl;
+    BOOL                bIsColl;
+    UIButton            *btnCheck[50];
+    NSArray             *arrCheck;
+    UISearchBar         *_searchBar;
+    UIButton            *btnNewOnLine,*btnNewHot,*btnNewCollect;
 }
 
 //@property (nonatomic,strong)    ExUINavigationBar       *_navigationBar;
