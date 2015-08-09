@@ -29,8 +29,8 @@
     self._navigationBar = [[ExUINavigationBar alloc ] initWithFrameRect:CGRectMake(0, 0, SCREEN_WIDTH, TABBAR_HEIGHT) BGImage:@"navigationbar" StrTitle:@"剧库" ];
     [self.view addSubview:self._navigationBar];
     
-    UIButton *btnLogin = [[UIButton alloc ] initWithFrame:CGRectMake(10, 20, 40, 40)];
-    [btnLogin setImage:[UIImage imageNamed:@"Default-568h@2x.png"] forState:UIControlStateNormal];
+    UIButton *btnLogin = [[UIButton alloc ] initWithFrame:CGRectMake(10, 20, 33, 33)];
+    [btnLogin setImage:[UIImage imageNamed:@"ico-default-avatar.png"] forState:UIControlStateNormal];
     [btnLogin addTarget:self action:@selector(onButtonLogin) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:btnLogin];
     
@@ -68,9 +68,9 @@
     
     [self addSearchCondition];
     
-    UIButton *btnColl = [[UIButton alloc ] initWithFrame:CGRectMake(SCREEN_WIDTH-40, 10, 33, 33)];
+    btnColl = [[UIButton alloc ] initWithFrame:CGRectMake(SCREEN_WIDTH-40, 10, 33, 33)];
     [btnColl addTarget:self action:@selector(onButtonColl) forControlEvents:UIControlEventTouchUpInside];
-    [btnColl setImage:[UIImage imageNamed:@"Default-568h@2x.png"] forState:UIControlStateNormal];
+    [btnColl setImage:[UIImage imageNamed:@"ico-down-arrow.png"] forState:UIControlStateNormal];
     [_viewColl addSubview: btnColl];
     
     
@@ -213,10 +213,7 @@
     
 }
 
-
-
-
-//收起展开
+#pragma mark 收起展开
 -(void)onButtonColl
 {
     //展开
@@ -225,7 +222,7 @@
         _viewColl.frame = CGRectMake(0, btnGood.frame.origin.y+btnGood.frame.size.height, SCREEN_WIDTH, 200);
         //创建tableview
         _allTableView.frame = CGRectMake(0, _viewColl.frame.origin.y+_viewColl.frame.size.height, SCREEN_WIDTH, SCREEN_HEIGHT-TABBAR_HEIGHT-190);
-                         
+        [btnColl setImage:[UIImage imageNamed:@"ico-down-arrow.png"] forState:UIControlStateNormal];
                          
         bIsColl = TRUE;
     }
@@ -234,7 +231,7 @@
         _viewColl.frame = CGRectMake(0, btnGood.frame.origin.y+btnGood.frame.size.height, SCREEN_WIDTH, 50);
         //创建tableview
         _allTableView.frame = CGRectMake(0, _viewColl.frame.origin.y+_viewColl.frame.size.height, SCREEN_WIDTH, SCREEN_HEIGHT-TABBAR_HEIGHT-40);
-        
+        [btnColl setImage:[UIImage imageNamed:@"ico-up-arrow.png"] forState:UIControlStateNormal];
         bIsColl = FALSE;
     }
 }

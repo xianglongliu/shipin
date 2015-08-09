@@ -24,6 +24,7 @@
     NSArray             *arrCheck;
     UISearchBar         *_searchBar;
     UIButton            *btnNewOnLine,*btnNewHot,*btnNewCollect;
+    UIButton            *btnColl;
 }
 
 //@property (nonatomic,strong)    ExUINavigationBar       *_navigationBar;

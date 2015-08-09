@@ -7,6 +7,15 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		D5FEE0031B76F93400E8AC03 /* bg-login.png in Resources */ = {isa = PBXBuildFile; fileRef = D5FEDFFA1B76F93400E8AC03 /* bg-login.png */; };
+		D5FEE0041B76F93400E8AC03 /* ico-default-avatar.png in Resources */ = {isa = PBXBuildFile; fileRef = D5FEDFFB1B76F93400E8AC03 /* ico-default-avatar.png */; };
+		D5FEE0051B76F93400E8AC03 /* ico-down-arrow.png in Resources */ = {isa = PBXBuildFile; fileRef = D5FEDFFC1B76F93400E8AC03 /* ico-down-arrow.png */; };
+		D5FEE0061B76F93400E8AC03 /* ico-return.png in Resources */ = {isa = PBXBuildFile; fileRef = D5FEDFFD1B76F93400E8AC03 /* ico-return.png */; };
+		D5FEE0071B76F93400E8AC03 /* ico-right-arrow-writer.png in Resources */ = {isa = PBXBuildFile; fileRef = D5FEDFFE1B76F93400E8AC03 /* ico-right-arrow-writer.png */; };
+		D5FEE0081B76F93400E8AC03 /* ico-search.png in Resources */ = {isa = PBXBuildFile; fileRef = D5FEDFFF1B76F93400E8AC03 /* ico-search.png */; };
+		D5FEE0091B76F93400E8AC03 /* ico-share.png in Resources */ = {isa = PBXBuildFile; fileRef = D5FEE0001B76F93400E8AC03 /* ico-share.png */; };
+		D5FEE00A1B76F93400E8AC03 /* ico-up-arrow.png in Resources */ = {isa = PBXBuildFile; fileRef = D5FEE0011B76F93400E8AC03 /* ico-up-arrow.png */; };
+		D5FEE00B1B76F93400E8AC03 /* logo.png in Resources */ = {isa = PBXBuildFile; fileRef = D5FEE0021B76F93400E8AC03 /* logo.png */; };
 		EE87D2121B58ADA4002A0DD8 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = EE87D2111B58ADA4002A0DD8 /* main.m */; };
 		EE87D2151B58ADA4002A0DD8 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = EE87D2141B58ADA4002A0DD8 /* AppDelegate.m */; };
 		EE87D21D1B58ADA4002A0DD8 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EE87D21C1B58ADA4002A0DD8 /* Images.xcassets */; };
@@ -42,6 +51,15 @@
 		8CAB9D74EF1F717E2A228153 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		A2D29204BCE2B344E2E7938B /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		B4677DC82867240B0DF6E557 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
+		D5FEDFFA1B76F93400E8AC03 /* bg-login.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "bg-login.png"; path = "Resource/bg-login.png"; sourceTree = "<group>"; };
+		D5FEDFFB1B76F93400E8AC03 /* ico-default-avatar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "ico-default-avatar.png"; path = "Resource/ico-default-avatar.png"; sourceTree = "<group>"; };
+		D5FEDFFC1B76F93400E8AC03 /* ico-down-arrow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "ico-down-arrow.png"; path = "Resource/ico-down-arrow.png"; sourceTree = "<group>"; };
+		D5FEDFFD1B76F93400E8AC03 /* ico-return.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "ico-return.png"; path = "Resource/ico-return.png"; sourceTree = "<group>"; };
+		D5FEDFFE1B76F93400E8AC03 /* ico-right-arrow-writer.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "ico-right-arrow-writer.png"; path = "Resource/ico-right-arrow-writer.png"; sourceTree = "<group>"; };
+		D5FEDFFF1B76F93400E8AC03 /* ico-search.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "ico-search.png"; path = "Resource/ico-search.png"; sourceTree = "<group>"; };
+		D5FEE0001B76F93400E8AC03 /* ico-share.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "ico-share.png"; path = "Resource/ico-share.png"; sourceTree = "<group>"; };
+		D5FEE0011B76F93400E8AC03 /* ico-up-arrow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "ico-up-arrow.png"; path = "Resource/ico-up-arrow.png"; sourceTree = "<group>"; };
+		D5FEE0021B76F93400E8AC03 /* logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = logo.png; path = Resource/logo.png; sourceTree = "<group>"; };
 		EE7184301B58EA9D00C4EF24 /* shipin.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = shipin.pch; sourceTree = "<group>"; };
 		EE87D20C1B58ADA4002A0DD8 /* shipin.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = shipin.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EE87D2101B58ADA4002A0DD8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -121,8 +139,16 @@
 		EE71843A1B58F49700C4EF24 /* Resource */ = {
 			isa = PBXGroup;
 			children = (
-				EEE1610F1B648CD400C9A0EF /* Button */,
+				D5FEDFFA1B76F93400E8AC03 /* bg-login.png */,
 				EEDCB5D01B633E4200EB9135 /* Default-568h@2x.png */,
+				D5FEDFFB1B76F93400E8AC03 /* ico-default-avatar.png */,
+				D5FEDFFC1B76F93400E8AC03 /* ico-down-arrow.png */,
+				D5FEDFFD1B76F93400E8AC03 /* ico-return.png */,
+				D5FEDFFE1B76F93400E8AC03 /* ico-right-arrow-writer.png */,
+				D5FEDFFF1B76F93400E8AC03 /* ico-search.png */,
+				D5FEE0001B76F93400E8AC03 /* ico-share.png */,
+				D5FEE0011B76F93400E8AC03 /* ico-up-arrow.png */,
+				D5FEE0021B76F93400E8AC03 /* logo.png */,
 				EEDCB5D11B633E4200EB9135 /* navigationbar.png */,
 			);
 			name = Resource;
@@ -152,12 +178,12 @@
 				EE87D2131B58ADA4002A0DD8 /* AppDelegate.h */,
 				EE87D2141B58ADA4002A0DD8 /* AppDelegate.m */,
 				EEDCB5BF1B6335CD00EB9135 /* Config */,
+				EE87D2351B58DD42002A0DD8 /* Controller */,
 				EEDCB5C61B63391000EB9135 /* ExView */,
 				EEDCB5D41B633E8B00EB9135 /* logic */,
 				EEDCB6091B6366A300EB9135 /* Modle */,
 				EE71843A1B58F49700C4EF24 /* Resource */,
 				EEDCB60D1B63860F00EB9135 /* Tool */,
-				EE87D2351B58DD42002A0DD8 /* ViewController */,
 			);
 			path = shipin;
 			sourceTree = "<group>";
@@ -190,14 +216,14 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		EE87D2351B58DD42002A0DD8 /* ViewController */ = {
+		EE87D2351B58DD42002A0DD8 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
 				EEDCB5FF1B6344B600EB9135 /* BaseViewController.h */,
 				EEDCB6001B6344B600EB9135 /* BaseViewController.m */,
 				EEDCB6021B63459F00EB9135 /* FirstPage */,
 			);
-			name = ViewController;
+			name = Controller;
 			sourceTree = "<group>";
 		};
 		EE87D2361B58DD5A002A0DD8 /* other */ = {
@@ -248,14 +274,14 @@
 			children = (
 				EEE161131B648E6600C9A0EF /* AllTableViewCell.h */,
 				EEDCB6031B6345AB00EB9135 /* FindTableViewCell.h */,
+				EEE161191B64C78F00C9A0EF /* HeadTableViewCell.h */,
+				EEE161161B64C53F00C9A0EF /* SetViewController.h */,
 				EEDCB6051B6345AB00EB9135 /* ViewController.h */,
 				EEE161141B648E6600C9A0EF /* AllTableViewCell.m */,
 				EEDCB6041B6345AB00EB9135 /* FindTableViewCell.m */,
-				EEDCB6061B6345AB00EB9135 /* ViewController.m */,
-				EEE161161B64C53F00C9A0EF /* SetViewController.h */,
-				EEE161171B64C53F00C9A0EF /* SetViewController.m */,
-				EEE161191B64C78F00C9A0EF /* HeadTableViewCell.h */,
 				EEE1611A1B64C78F00C9A0EF /* HeadTableViewCell.m */,
+				EEE161171B64C53F00C9A0EF /* SetViewController.m */,
+				EEDCB6061B6345AB00EB9135 /* ViewController.m */,
 			);
 			name = FirstPage;
 			sourceTree = "<group>";
@@ -276,13 +302,6 @@
 				EEDCB6121B63864100EB9135 /* Tool.m */,
 			);
 			name = Tool;
-			sourceTree = "<group>";
-		};
-		EEE1610F1B648CD400C9A0EF /* Button */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			name = Button;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -368,9 +387,18 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D5FEE0041B76F93400E8AC03 /* ico-default-avatar.png in Resources */,
+				D5FEE00A1B76F93400E8AC03 /* ico-up-arrow.png in Resources */,
 				EEDCB5D31B633E4200EB9135 /* navigationbar.png in Resources */,
+				D5FEE0081B76F93400E8AC03 /* ico-search.png in Resources */,
 				EE87D21D1B58ADA4002A0DD8 /* Images.xcassets in Resources */,
+				D5FEE0051B76F93400E8AC03 /* ico-down-arrow.png in Resources */,
+				D5FEE0031B76F93400E8AC03 /* bg-login.png in Resources */,
+				D5FEE0071B76F93400E8AC03 /* ico-right-arrow-writer.png in Resources */,
+				D5FEE00B1B76F93400E8AC03 /* logo.png in Resources */,
+				D5FEE0061B76F93400E8AC03 /* ico-return.png in Resources */,
 				EEDCB5D21B633E4200EB9135 /* Default-568h@2x.png in Resources */,
+				D5FEE0091B76F93400E8AC03 /* ico-share.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
