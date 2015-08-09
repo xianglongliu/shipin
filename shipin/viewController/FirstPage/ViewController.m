@@ -10,7 +10,7 @@
 #import "FindTableViewCell.h"
 #import "AllTableViewCell.h"
 #import "SetViewController.h"
-
+#import "LoginViewController.h"
 
 @interface ViewController ()
 
@@ -37,7 +37,7 @@
     btnGood = [[UIButton alloc ] initWithFrame:CGRectMake(0, TABBAR_HEIGHT, SCREEN_WIDTH/2, 40)];
     [btnGood setBackgroundColor:[UIColor blackColor]];
     [btnGood setTitle:@"发现好剧" forState:UIControlStateNormal];
-    [btnGood setTitleColor:RGB(239, 190, 0) forState:UIControlStateNormal];
+    [btnGood setTitleColor:yellowRgb forState:UIControlStateNormal];
     btnGood.titleLabel.font = [UIFont systemFontOfSize:14];
     btnGood.tag = 100;
     [btnGood addTarget:self action:@selector(onButtonSelect:) forControlEvents:UIControlEventTouchUpInside];
@@ -87,8 +87,8 @@
 
 -(void) onButtonLogin
 {
-    SetViewController *setView = [[SetViewController alloc ] init];
-    [self.navigationController pushViewController:setView animated:YES];
+    LoginViewController *login = [[LoginViewController alloc ] init];
+    [self.navigationController pushViewController:login animated:YES];
 }
 //创建搜索条件控件
 -(void) addSearchCondition
@@ -99,7 +99,7 @@
     [_viewColl addSubview:_searchBar];
     //最新
      btnNewOnLine = [[UIButton alloc ] initWithFrame:CGRectMake(10, _searchBar.frame.origin.y+_searchBar.frame.size.height+10, (SCREEN_WIDTH-30)/3, 20)];
-    [btnNewOnLine setBackgroundColor:RGB(239, 190, 0)];
+    [btnNewOnLine setBackgroundColor:yellowRgb];
     [btnNewOnLine setTitle:@"新上线" forState:UIControlStateNormal];
     btnNewOnLine.titleLabel.font =[UIFont systemFontOfSize:13];
     btnNewOnLine.layer.cornerRadius = 3;
@@ -142,7 +142,7 @@
             btnCheck[Index] = [[UIButton alloc ] initWithFrame:CGRectMake(10+nCol*(SCREEN_WIDTH-20)/6,btnNewCollect.frame.origin.y+btnNewCollect.frame.size.height+4+nRow*28,(SCREEN_WIDTH-20)/6,20 )];
             if (nCol == 0)
             {
-                [btnCheck[Index] setBackgroundColor:RGB(239, 190, 0)];
+                [btnCheck[Index] setBackgroundColor:yellowRgb];
                 [btnCheck[Index] setTitleColor:RGB(255, 255 ,255 ) forState:UIControlStateNormal];
             }
             else
@@ -168,7 +168,7 @@
     //发现好剧
     if ( sender.tag == 100 )
     {
-        [btnGood setTitleColor:RGB(239, 190, 0) forState:UIControlStateNormal];
+        [btnGood setTitleColor:yellowRgb forState:UIControlStateNormal];
         [btnAll setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
         [_findTableView setHidden:NO];
         [_allTableView setHidden:YES];
@@ -178,7 +178,7 @@
     if ( sender.tag == 101 )
     {
         [btnGood setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
-        [btnAll setTitleColor:RGB(239, 190, 0) forState:UIControlStateNormal];
+        [btnAll setTitleColor:yellowRgb forState:UIControlStateNormal];
         [_findTableView setHidden:YES];
         [_allTableView setHidden:NO];
         [_viewColl setHidden:NO];
@@ -191,7 +191,7 @@
     //新上线
     if ( [sender isEqual:btnNewOnLine] )
     {
-        [btnNewOnLine setBackgroundColor:RGB(239, 190, 0) ];
+        [btnNewOnLine setBackgroundColor:yellowRgb ];
         [btnNewHot setBackgroundColor:RGB(204, 204, 204) ];
         [btnNewCollect setBackgroundColor:RGB(204, 204, 204) ];
        
@@ -200,7 +200,7 @@
     if ( [sender isEqual:btnNewHot] )
     {
         [btnNewOnLine setBackgroundColor:RGB(204, 204, 204) ];
-        [btnNewHot setBackgroundColor:RGB(239, 190, 0) ];
+        [btnNewHot setBackgroundColor:yellowRgb ];
         [btnNewCollect setBackgroundColor:RGB(204, 204, 204) ];
     }
     //收藏
@@ -208,7 +208,7 @@
     {
         [btnNewOnLine setBackgroundColor:RGB(204, 204, 204) ];
         [btnNewHot setBackgroundColor:RGB(204, 204, 204) ];
-        [btnNewCollect setBackgroundColor:RGB(239, 190, 0) ];
+        [btnNewCollect setBackgroundColor:yellowRgb ];
     }
     
 }

@@ -37,7 +37,6 @@
         
         CGSize titleSize = navigationBar.bounds.size;
         [navigationBar addSubview:[[UIImageView alloc]  initWithImage:[[UIImage imageNamed:image] scaleImageToSize:[UIImage imageNamed:image] size:titleSize]]];
-//        [navigationBar setBackgroundColor:RGB(239, 190, 0)];
         [navigationBar addSubview:labelTitle];
         [self addSubview:navigationBar];
     }

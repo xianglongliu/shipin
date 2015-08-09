@@ -16,6 +16,9 @@
 		D5FEE0091B76F93400E8AC03 /* ico-share.png in Resources */ = {isa = PBXBuildFile; fileRef = D5FEE0001B76F93400E8AC03 /* ico-share.png */; };
 		D5FEE00A1B76F93400E8AC03 /* ico-up-arrow.png in Resources */ = {isa = PBXBuildFile; fileRef = D5FEE0011B76F93400E8AC03 /* ico-up-arrow.png */; };
 		D5FEE00B1B76F93400E8AC03 /* logo.png in Resources */ = {isa = PBXBuildFile; fileRef = D5FEE0021B76F93400E8AC03 /* logo.png */; };
+		D5FEE00E1B76FC0C00E8AC03 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D5FEE00D1B76FC0C00E8AC03 /* LoginViewController.m */; };
+		D5FEE0131B770EB000E8AC03 /* uncheckawardblack.png in Resources */ = {isa = PBXBuildFile; fileRef = D5FEE0111B770EB000E8AC03 /* uncheckawardblack.png */; };
+		D5FEE0141B770EB000E8AC03 /* uncheckgoods.png in Resources */ = {isa = PBXBuildFile; fileRef = D5FEE0121B770EB000E8AC03 /* uncheckgoods.png */; };
 		EE87D2121B58ADA4002A0DD8 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = EE87D2111B58ADA4002A0DD8 /* main.m */; };
 		EE87D2151B58ADA4002A0DD8 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = EE87D2141B58ADA4002A0DD8 /* AppDelegate.m */; };
 		EE87D21D1B58ADA4002A0DD8 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EE87D21C1B58ADA4002A0DD8 /* Images.xcassets */; };
@@ -60,6 +63,10 @@
 		D5FEE0001B76F93400E8AC03 /* ico-share.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "ico-share.png"; path = "Resource/ico-share.png"; sourceTree = "<group>"; };
 		D5FEE0011B76F93400E8AC03 /* ico-up-arrow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "ico-up-arrow.png"; path = "Resource/ico-up-arrow.png"; sourceTree = "<group>"; };
 		D5FEE0021B76F93400E8AC03 /* logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = logo.png; path = Resource/logo.png; sourceTree = "<group>"; };
+		D5FEE00C1B76FC0C00E8AC03 /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LoginViewController.h; path = viewController/LoginViewController.h; sourceTree = "<group>"; };
+		D5FEE00D1B76FC0C00E8AC03 /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LoginViewController.m; path = viewController/LoginViewController.m; sourceTree = "<group>"; };
+		D5FEE0111B770EB000E8AC03 /* uncheckawardblack.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = uncheckawardblack.png; path = Resource/check/uncheckawardblack.png; sourceTree = "<group>"; };
+		D5FEE0121B770EB000E8AC03 /* uncheckgoods.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = uncheckgoods.png; path = Resource/check/uncheckgoods.png; sourceTree = "<group>"; };
 		EE7184301B58EA9D00C4EF24 /* shipin.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = shipin.pch; sourceTree = "<group>"; };
 		EE87D20C1B58ADA4002A0DD8 /* shipin.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = shipin.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EE87D2101B58ADA4002A0DD8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -136,9 +143,28 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		D5FEE00F1B76FC1E00E8AC03 /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				D5FEE00C1B76FC0C00E8AC03 /* LoginViewController.h */,
+				D5FEE00D1B76FC0C00E8AC03 /* LoginViewController.m */,
+			);
+			name = Login;
+			sourceTree = "<group>";
+		};
+		D5FEE0101B770E7400E8AC03 /* check */ = {
+			isa = PBXGroup;
+			children = (
+				D5FEE0111B770EB000E8AC03 /* uncheckawardblack.png */,
+				D5FEE0121B770EB000E8AC03 /* uncheckgoods.png */,
+			);
+			name = check;
+			sourceTree = "<group>";
+		};
 		EE71843A1B58F49700C4EF24 /* Resource */ = {
 			isa = PBXGroup;
 			children = (
+				D5FEE0101B770E7400E8AC03 /* check */,
 				D5FEDFFA1B76F93400E8AC03 /* bg-login.png */,
 				EEDCB5D01B633E4200EB9135 /* Default-568h@2x.png */,
 				D5FEDFFB1B76F93400E8AC03 /* ico-default-avatar.png */,
@@ -219,6 +245,7 @@
 		EE87D2351B58DD42002A0DD8 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				D5FEE00F1B76FC1E00E8AC03 /* Login */,
 				EEDCB5FF1B6344B600EB9135 /* BaseViewController.h */,
 				EEDCB6001B6344B600EB9135 /* BaseViewController.m */,
 				EEDCB6021B63459F00EB9135 /* FirstPage */,
@@ -393,12 +420,14 @@
 				D5FEE0081B76F93400E8AC03 /* ico-search.png in Resources */,
 				EE87D21D1B58ADA4002A0DD8 /* Images.xcassets in Resources */,
 				D5FEE0051B76F93400E8AC03 /* ico-down-arrow.png in Resources */,
+				D5FEE0141B770EB000E8AC03 /* uncheckgoods.png in Resources */,
 				D5FEE0031B76F93400E8AC03 /* bg-login.png in Resources */,
 				D5FEE0071B76F93400E8AC03 /* ico-right-arrow-writer.png in Resources */,
 				D5FEE00B1B76F93400E8AC03 /* logo.png in Resources */,
 				D5FEE0061B76F93400E8AC03 /* ico-return.png in Resources */,
 				EEDCB5D21B633E4200EB9135 /* Default-568h@2x.png in Resources */,
 				D5FEE0091B76F93400E8AC03 /* ico-share.png in Resources */,
+				D5FEE0131B770EB000E8AC03 /* uncheckawardblack.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -463,6 +492,7 @@
 				EEE1611B1B64C78F00C9A0EF /* HeadTableViewCell.m in Sources */,
 				EEDCB5D71B633E9200EB9135 /* ImageUtil.m in Sources */,
 				EEE161181B64C53F00C9A0EF /* SetViewController.m in Sources */,
+				D5FEE00E1B76FC0C00E8AC03 /* LoginViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -521,7 +551,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -558,7 +588,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
@@ -575,7 +605,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = shipin/shipin.pch;
 				INFOPLIST_FILE = shipin/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
@@ -591,7 +621,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = shipin/shipin.pch;
 				INFOPLIST_FILE = shipin/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
