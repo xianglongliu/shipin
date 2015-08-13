@@ -16,12 +16,18 @@
 		D5FEE0091B76F93400E8AC03 /* ico-share.png in Resources */ = {isa = PBXBuildFile; fileRef = D5FEE0001B76F93400E8AC03 /* ico-share.png */; };
 		D5FEE00A1B76F93400E8AC03 /* ico-up-arrow.png in Resources */ = {isa = PBXBuildFile; fileRef = D5FEE0011B76F93400E8AC03 /* ico-up-arrow.png */; };
 		D5FEE00B1B76F93400E8AC03 /* logo.png in Resources */ = {isa = PBXBuildFile; fileRef = D5FEE0021B76F93400E8AC03 /* logo.png */; };
-		D5FEE00E1B76FC0C00E8AC03 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D5FEE00D1B76FC0C00E8AC03 /* LoginViewController.m */; };
 		D5FEE0131B770EB000E8AC03 /* uncheckawardblack.png in Resources */ = {isa = PBXBuildFile; fileRef = D5FEE0111B770EB000E8AC03 /* uncheckawardblack.png */; };
 		D5FEE0141B770EB000E8AC03 /* uncheckgoods.png in Resources */ = {isa = PBXBuildFile; fileRef = D5FEE0121B770EB000E8AC03 /* uncheckgoods.png */; };
-		EE09A8B81B7CBC3F00008B93 /* PersonInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EE09A8B71B7CBC3F00008B93 /* PersonInfoViewController.m */; };
-		EE09A8BB1B7CC3C100008B93 /* TextTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = EE09A8BA1B7CC3C100008B93 /* TextTableViewCell.m */; };
-		EE09A8BE1B7CCE2400008B93 /* EditPersonViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EE09A8BD1B7CCE2400008B93 /* EditPersonViewController.m */; };
+		EE77439D1B7CD35700078166 /* AllTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = EE77438A1B7CD35700078166 /* AllTableViewCell.m */; };
+		EE77439E1B7CD35700078166 /* BaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EE77438C1B7CD35700078166 /* BaseViewController.m */; };
+		EE77439F1B7CD35700078166 /* EditPersonViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EE77438E1B7CD35700078166 /* EditPersonViewController.m */; };
+		EE7743A01B7CD35700078166 /* FindTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = EE7743901B7CD35700078166 /* FindTableViewCell.m */; };
+		EE7743A11B7CD35700078166 /* HeadTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = EE7743921B7CD35700078166 /* HeadTableViewCell.m */; };
+		EE7743A21B7CD35700078166 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EE7743941B7CD35700078166 /* LoginViewController.m */; };
+		EE7743A31B7CD35700078166 /* PersonInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EE7743961B7CD35700078166 /* PersonInfoViewController.m */; };
+		EE7743A41B7CD35700078166 /* SetViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EE7743981B7CD35700078166 /* SetViewController.m */; };
+		EE7743A51B7CD35700078166 /* TextTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = EE77439A1B7CD35700078166 /* TextTableViewCell.m */; };
+		EE7743A61B7CD35700078166 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EE77439C1B7CD35700078166 /* ViewController.m */; };
 		EE87D2121B58ADA4002A0DD8 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = EE87D2111B58ADA4002A0DD8 /* main.m */; };
 		EE87D2151B58ADA4002A0DD8 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = EE87D2141B58ADA4002A0DD8 /* AppDelegate.m */; };
 		EE87D21D1B58ADA4002A0DD8 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EE87D21C1B58ADA4002A0DD8 /* Images.xcassets */; };
@@ -32,14 +38,8 @@
 		EEDCB5D21B633E4200EB9135 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = EEDCB5D01B633E4200EB9135 /* Default-568h@2x.png */; };
 		EEDCB5D31B633E4200EB9135 /* navigationbar.png in Resources */ = {isa = PBXBuildFile; fileRef = EEDCB5D11B633E4200EB9135 /* navigationbar.png */; };
 		EEDCB5D71B633E9200EB9135 /* ImageUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = EEDCB5D61B633E9200EB9135 /* ImageUtil.m */; };
-		EEDCB6011B6344B600EB9135 /* BaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EEDCB6001B6344B600EB9135 /* BaseViewController.m */; };
-		EEDCB6071B6345AB00EB9135 /* FindTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = EEDCB6041B6345AB00EB9135 /* FindTableViewCell.m */; };
-		EEDCB6081B6345AB00EB9135 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EEDCB6061B6345AB00EB9135 /* ViewController.m */; };
 		EEDCB60C1B6366DE00EB9135 /* FilmModel.m in Sources */ = {isa = PBXBuildFile; fileRef = EEDCB60B1B6366DE00EB9135 /* FilmModel.m */; };
 		EEDCB6131B63864100EB9135 /* Tool.m in Sources */ = {isa = PBXBuildFile; fileRef = EEDCB6121B63864100EB9135 /* Tool.m */; };
-		EEE161151B648E6600C9A0EF /* AllTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = EEE161141B648E6600C9A0EF /* AllTableViewCell.m */; };
-		EEE161181B64C53F00C9A0EF /* SetViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EEE161171B64C53F00C9A0EF /* SetViewController.m */; };
-		EEE1611B1B64C78F00C9A0EF /* HeadTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = EEE1611A1B64C78F00C9A0EF /* HeadTableViewCell.m */; };
 		F6C58D14318B2DFC028C7873 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 8CAB9D74EF1F717E2A228153 /* libPods.a */; };
 /* End PBXBuildFile section */
 
@@ -66,17 +66,29 @@
 		D5FEE0001B76F93400E8AC03 /* ico-share.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "ico-share.png"; path = "Resource/ico-share.png"; sourceTree = "<group>"; };
 		D5FEE0011B76F93400E8AC03 /* ico-up-arrow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "ico-up-arrow.png"; path = "Resource/ico-up-arrow.png"; sourceTree = "<group>"; };
 		D5FEE0021B76F93400E8AC03 /* logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = logo.png; path = Resource/logo.png; sourceTree = "<group>"; };
-		D5FEE00C1B76FC0C00E8AC03 /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LoginViewController.h; path = viewController/LoginViewController.h; sourceTree = "<group>"; };
-		D5FEE00D1B76FC0C00E8AC03 /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LoginViewController.m; path = viewController/LoginViewController.m; sourceTree = "<group>"; };
 		D5FEE0111B770EB000E8AC03 /* uncheckawardblack.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = uncheckawardblack.png; path = Resource/check/uncheckawardblack.png; sourceTree = "<group>"; };
 		D5FEE0121B770EB000E8AC03 /* uncheckgoods.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = uncheckgoods.png; path = Resource/check/uncheckgoods.png; sourceTree = "<group>"; };
-		EE09A8B61B7CBC3F00008B93 /* PersonInfoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PersonInfoViewController.h; path = viewController/PersonInfoViewController.h; sourceTree = "<group>"; };
-		EE09A8B71B7CBC3F00008B93 /* PersonInfoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PersonInfoViewController.m; path = viewController/PersonInfoViewController.m; sourceTree = "<group>"; };
-		EE09A8B91B7CC3C100008B93 /* TextTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TextTableViewCell.h; path = viewController/TextTableViewCell.h; sourceTree = "<group>"; };
-		EE09A8BA1B7CC3C100008B93 /* TextTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TextTableViewCell.m; path = viewController/TextTableViewCell.m; sourceTree = "<group>"; };
-		EE09A8BC1B7CCE2400008B93 /* EditPersonViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EditPersonViewController.h; path = viewController/EditPersonViewController.h; sourceTree = "<group>"; };
-		EE09A8BD1B7CCE2400008B93 /* EditPersonViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = EditPersonViewController.m; path = viewController/EditPersonViewController.m; sourceTree = "<group>"; };
 		EE7184301B58EA9D00C4EF24 /* shipin.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = shipin.pch; sourceTree = "<group>"; };
+		EE7743891B7CD35700078166 /* AllTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AllTableViewCell.h; path = Controller/AllTableViewCell.h; sourceTree = "<group>"; };
+		EE77438A1B7CD35700078166 /* AllTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AllTableViewCell.m; path = Controller/AllTableViewCell.m; sourceTree = "<group>"; };
+		EE77438B1B7CD35700078166 /* BaseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BaseViewController.h; path = Controller/BaseViewController.h; sourceTree = "<group>"; };
+		EE77438C1B7CD35700078166 /* BaseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BaseViewController.m; path = Controller/BaseViewController.m; sourceTree = "<group>"; };
+		EE77438D1B7CD35700078166 /* EditPersonViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EditPersonViewController.h; path = Controller/EditPersonViewController.h; sourceTree = "<group>"; };
+		EE77438E1B7CD35700078166 /* EditPersonViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = EditPersonViewController.m; path = Controller/EditPersonViewController.m; sourceTree = "<group>"; };
+		EE77438F1B7CD35700078166 /* FindTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FindTableViewCell.h; path = Controller/FindTableViewCell.h; sourceTree = "<group>"; };
+		EE7743901B7CD35700078166 /* FindTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FindTableViewCell.m; path = Controller/FindTableViewCell.m; sourceTree = "<group>"; };
+		EE7743911B7CD35700078166 /* HeadTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HeadTableViewCell.h; path = Controller/HeadTableViewCell.h; sourceTree = "<group>"; };
+		EE7743921B7CD35700078166 /* HeadTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = HeadTableViewCell.m; path = Controller/HeadTableViewCell.m; sourceTree = "<group>"; };
+		EE7743931B7CD35700078166 /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LoginViewController.h; path = Controller/LoginViewController.h; sourceTree = "<group>"; };
+		EE7743941B7CD35700078166 /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LoginViewController.m; path = Controller/LoginViewController.m; sourceTree = "<group>"; };
+		EE7743951B7CD35700078166 /* PersonInfoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PersonInfoViewController.h; path = Controller/PersonInfoViewController.h; sourceTree = "<group>"; };
+		EE7743961B7CD35700078166 /* PersonInfoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PersonInfoViewController.m; path = Controller/PersonInfoViewController.m; sourceTree = "<group>"; };
+		EE7743971B7CD35700078166 /* SetViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SetViewController.h; path = Controller/SetViewController.h; sourceTree = "<group>"; };
+		EE7743981B7CD35700078166 /* SetViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SetViewController.m; path = Controller/SetViewController.m; sourceTree = "<group>"; };
+		EE7743991B7CD35700078166 /* TextTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TextTableViewCell.h; path = Controller/TextTableViewCell.h; sourceTree = "<group>"; };
+		EE77439A1B7CD35700078166 /* TextTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TextTableViewCell.m; path = Controller/TextTableViewCell.m; sourceTree = "<group>"; };
+		EE77439B1B7CD35700078166 /* ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ViewController.h; path = Controller/ViewController.h; sourceTree = "<group>"; };
+		EE77439C1B7CD35700078166 /* ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ViewController.m; path = Controller/ViewController.m; sourceTree = "<group>"; };
 		EE87D20C1B58ADA4002A0DD8 /* shipin.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = shipin.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EE87D2101B58ADA4002A0DD8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		EE87D2111B58ADA4002A0DD8 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -98,22 +110,10 @@
 		EEDCB5D11B633E4200EB9135 /* navigationbar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = navigationbar.png; path = Resource/navigationbar.png; sourceTree = "<group>"; };
 		EEDCB5D51B633E9200EB9135 /* ImageUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ImageUtil.h; path = logic/ImageUtil.h; sourceTree = "<group>"; };
 		EEDCB5D61B633E9200EB9135 /* ImageUtil.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ImageUtil.m; path = logic/ImageUtil.m; sourceTree = "<group>"; };
-		EEDCB5FF1B6344B600EB9135 /* BaseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BaseViewController.h; path = viewController/BaseViewController.h; sourceTree = "<group>"; };
-		EEDCB6001B6344B600EB9135 /* BaseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BaseViewController.m; path = viewController/BaseViewController.m; sourceTree = "<group>"; };
-		EEDCB6031B6345AB00EB9135 /* FindTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FindTableViewCell.h; path = viewController/FirstPage/FindTableViewCell.h; sourceTree = "<group>"; };
-		EEDCB6041B6345AB00EB9135 /* FindTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FindTableViewCell.m; path = viewController/FirstPage/FindTableViewCell.m; sourceTree = "<group>"; };
-		EEDCB6051B6345AB00EB9135 /* ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ViewController.h; path = viewController/FirstPage/ViewController.h; sourceTree = "<group>"; };
-		EEDCB6061B6345AB00EB9135 /* ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ViewController.m; path = viewController/FirstPage/ViewController.m; sourceTree = "<group>"; };
 		EEDCB60A1B6366D200EB9135 /* FilmModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FilmModel.h; path = Modle/FilmModel.h; sourceTree = "<group>"; };
 		EEDCB60B1B6366DE00EB9135 /* FilmModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FilmModel.m; path = Modle/FilmModel.m; sourceTree = "<group>"; };
 		EEDCB6111B63864100EB9135 /* Tool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Tool.h; path = Tool/Tool.h; sourceTree = "<group>"; };
 		EEDCB6121B63864100EB9135 /* Tool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Tool.m; path = Tool/Tool.m; sourceTree = "<group>"; };
-		EEE161131B648E6600C9A0EF /* AllTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AllTableViewCell.h; path = viewController/FirstPage/AllTableViewCell.h; sourceTree = "<group>"; };
-		EEE161141B648E6600C9A0EF /* AllTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AllTableViewCell.m; path = viewController/FirstPage/AllTableViewCell.m; sourceTree = "<group>"; };
-		EEE161161B64C53F00C9A0EF /* SetViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SetViewController.h; path = viewController/SetViewController.h; sourceTree = "<group>"; };
-		EEE161171B64C53F00C9A0EF /* SetViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SetViewController.m; path = viewController/SetViewController.m; sourceTree = "<group>"; };
-		EEE161191B64C78F00C9A0EF /* HeadTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HeadTableViewCell.h; path = viewController/HeadTableViewCell.h; sourceTree = "<group>"; };
-		EEE1611A1B64C78F00C9A0EF /* HeadTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = HeadTableViewCell.m; path = viewController/HeadTableViewCell.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -245,26 +245,26 @@
 		EE87D2351B58DD42002A0DD8 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				EEE161131B648E6600C9A0EF /* AllTableViewCell.h */,
-				EEDCB5FF1B6344B600EB9135 /* BaseViewController.h */,
-				EEDCB6031B6345AB00EB9135 /* FindTableViewCell.h */,
-				EEE161191B64C78F00C9A0EF /* HeadTableViewCell.h */,
-				D5FEE00C1B76FC0C00E8AC03 /* LoginViewController.h */,
-				EE09A8B61B7CBC3F00008B93 /* PersonInfoViewController.h */,
-				EEE161161B64C53F00C9A0EF /* SetViewController.h */,
-				EEDCB6051B6345AB00EB9135 /* ViewController.h */,
-				EEE161141B648E6600C9A0EF /* AllTableViewCell.m */,
-				EEDCB6001B6344B600EB9135 /* BaseViewController.m */,
-				EEDCB6041B6345AB00EB9135 /* FindTableViewCell.m */,
-				EEE1611A1B64C78F00C9A0EF /* HeadTableViewCell.m */,
-				D5FEE00D1B76FC0C00E8AC03 /* LoginViewController.m */,
-				EE09A8B71B7CBC3F00008B93 /* PersonInfoViewController.m */,
-				EEE161171B64C53F00C9A0EF /* SetViewController.m */,
-				EEDCB6061B6345AB00EB9135 /* ViewController.m */,
-				EE09A8B91B7CC3C100008B93 /* TextTableViewCell.h */,
-				EE09A8BA1B7CC3C100008B93 /* TextTableViewCell.m */,
-				EE09A8BC1B7CCE2400008B93 /* EditPersonViewController.h */,
-				EE09A8BD1B7CCE2400008B93 /* EditPersonViewController.m */,
+				EE7743891B7CD35700078166 /* AllTableViewCell.h */,
+				EE77438B1B7CD35700078166 /* BaseViewController.h */,
+				EE77438D1B7CD35700078166 /* EditPersonViewController.h */,
+				EE77438F1B7CD35700078166 /* FindTableViewCell.h */,
+				EE7743911B7CD35700078166 /* HeadTableViewCell.h */,
+				EE7743931B7CD35700078166 /* LoginViewController.h */,
+				EE7743951B7CD35700078166 /* PersonInfoViewController.h */,
+				EE7743971B7CD35700078166 /* SetViewController.h */,
+				EE7743991B7CD35700078166 /* TextTableViewCell.h */,
+				EE77439B1B7CD35700078166 /* ViewController.h */,
+				EE77438A1B7CD35700078166 /* AllTableViewCell.m */,
+				EE77438C1B7CD35700078166 /* BaseViewController.m */,
+				EE77438E1B7CD35700078166 /* EditPersonViewController.m */,
+				EE7743901B7CD35700078166 /* FindTableViewCell.m */,
+				EE7743921B7CD35700078166 /* HeadTableViewCell.m */,
+				EE7743941B7CD35700078166 /* LoginViewController.m */,
+				EE7743961B7CD35700078166 /* PersonInfoViewController.m */,
+				EE7743981B7CD35700078166 /* SetViewController.m */,
+				EE77439A1B7CD35700078166 /* TextTableViewCell.m */,
+				EE77439C1B7CD35700078166 /* ViewController.m */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -285,9 +285,9 @@
 			isa = PBXGroup;
 			children = (
 				EEDCB5C01B6335ED00EB9135 /* Config.h */,
-				EEDCB5C11B6335ED00EB9135 /* Config.m */,
 				EEDCB5C21B6335ED00EB9135 /* Macro.h */,
 				EEDCB5C31B6335ED00EB9135 /* UrlAddress.h */,
+				EEDCB5C11B6335ED00EB9135 /* Config.m */,
 			);
 			name = Config;
 			sourceTree = "<group>";
@@ -477,24 +477,24 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				EEDCB6071B6345AB00EB9135 /* FindTableViewCell.m in Sources */,
+				EE7743A61B7CD35700078166 /* ViewController.m in Sources */,
 				EEDCB5C51B6335ED00EB9135 /* Config.m in Sources */,
-				EEE161151B648E6600C9A0EF /* AllTableViewCell.m in Sources */,
-				EEDCB6011B6344B600EB9135 /* BaseViewController.m in Sources */,
+				EE77439E1B7CD35700078166 /* BaseViewController.m in Sources */,
+				EE77439F1B7CD35700078166 /* EditPersonViewController.m in Sources */,
 				EEDCB6131B63864100EB9135 /* Tool.m in Sources */,
+				EE7743A21B7CD35700078166 /* LoginViewController.m in Sources */,
 				EE87D2151B58ADA4002A0DD8 /* AppDelegate.m in Sources */,
-				EEDCB6081B6345AB00EB9135 /* ViewController.m in Sources */,
+				EE7743A11B7CD35700078166 /* HeadTableViewCell.m in Sources */,
+				EE7743A31B7CD35700078166 /* PersonInfoViewController.m in Sources */,
 				EEDCB60C1B6366DE00EB9135 /* FilmModel.m in Sources */,
+				EE7743A41B7CD35700078166 /* SetViewController.m in Sources */,
+				EE7743A01B7CD35700078166 /* FindTableViewCell.m in Sources */,
 				EEDCB5C91B63392700EB9135 /* ExUINavigationController.m in Sources */,
+				EE7743A51B7CD35700078166 /* TextTableViewCell.m in Sources */,
+				EE77439D1B7CD35700078166 /* AllTableViewCell.m in Sources */,
 				EEDCB5CC1B63398D00EB9135 /* ExUINavigationBar.m in Sources */,
 				EE87D2121B58ADA4002A0DD8 /* main.m in Sources */,
-				EEE1611B1B64C78F00C9A0EF /* HeadTableViewCell.m in Sources */,
-				EE09A8BB1B7CC3C100008B93 /* TextTableViewCell.m in Sources */,
-				EE09A8BE1B7CCE2400008B93 /* EditPersonViewController.m in Sources */,
-				EE09A8B81B7CBC3F00008B93 /* PersonInfoViewController.m in Sources */,
 				EEDCB5D71B633E9200EB9135 /* ImageUtil.m in Sources */,
-				EEE161181B64C53F00C9A0EF /* SetViewController.m in Sources */,
-				D5FEE00E1B76FC0C00E8AC03 /* LoginViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
