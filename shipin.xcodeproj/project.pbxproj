@@ -19,6 +19,9 @@
 		D5FEE00E1B76FC0C00E8AC03 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D5FEE00D1B76FC0C00E8AC03 /* LoginViewController.m */; };
 		D5FEE0131B770EB000E8AC03 /* uncheckawardblack.png in Resources */ = {isa = PBXBuildFile; fileRef = D5FEE0111B770EB000E8AC03 /* uncheckawardblack.png */; };
 		D5FEE0141B770EB000E8AC03 /* uncheckgoods.png in Resources */ = {isa = PBXBuildFile; fileRef = D5FEE0121B770EB000E8AC03 /* uncheckgoods.png */; };
+		EE09A8B81B7CBC3F00008B93 /* PersonInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EE09A8B71B7CBC3F00008B93 /* PersonInfoViewController.m */; };
+		EE09A8BB1B7CC3C100008B93 /* TextTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = EE09A8BA1B7CC3C100008B93 /* TextTableViewCell.m */; };
+		EE09A8BE1B7CCE2400008B93 /* EditPersonViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EE09A8BD1B7CCE2400008B93 /* EditPersonViewController.m */; };
 		EE87D2121B58ADA4002A0DD8 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = EE87D2111B58ADA4002A0DD8 /* main.m */; };
 		EE87D2151B58ADA4002A0DD8 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = EE87D2141B58ADA4002A0DD8 /* AppDelegate.m */; };
 		EE87D21D1B58ADA4002A0DD8 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EE87D21C1B58ADA4002A0DD8 /* Images.xcassets */; };
@@ -67,6 +70,12 @@
 		D5FEE00D1B76FC0C00E8AC03 /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LoginViewController.m; path = viewController/LoginViewController.m; sourceTree = "<group>"; };
 		D5FEE0111B770EB000E8AC03 /* uncheckawardblack.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = uncheckawardblack.png; path = Resource/check/uncheckawardblack.png; sourceTree = "<group>"; };
 		D5FEE0121B770EB000E8AC03 /* uncheckgoods.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = uncheckgoods.png; path = Resource/check/uncheckgoods.png; sourceTree = "<group>"; };
+		EE09A8B61B7CBC3F00008B93 /* PersonInfoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PersonInfoViewController.h; path = viewController/PersonInfoViewController.h; sourceTree = "<group>"; };
+		EE09A8B71B7CBC3F00008B93 /* PersonInfoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PersonInfoViewController.m; path = viewController/PersonInfoViewController.m; sourceTree = "<group>"; };
+		EE09A8B91B7CC3C100008B93 /* TextTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TextTableViewCell.h; path = viewController/TextTableViewCell.h; sourceTree = "<group>"; };
+		EE09A8BA1B7CC3C100008B93 /* TextTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TextTableViewCell.m; path = viewController/TextTableViewCell.m; sourceTree = "<group>"; };
+		EE09A8BC1B7CCE2400008B93 /* EditPersonViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EditPersonViewController.h; path = viewController/EditPersonViewController.h; sourceTree = "<group>"; };
+		EE09A8BD1B7CCE2400008B93 /* EditPersonViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = EditPersonViewController.m; path = viewController/EditPersonViewController.m; sourceTree = "<group>"; };
 		EE7184301B58EA9D00C4EF24 /* shipin.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = shipin.pch; sourceTree = "<group>"; };
 		EE87D20C1B58ADA4002A0DD8 /* shipin.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = shipin.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EE87D2101B58ADA4002A0DD8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -141,15 +150,6 @@
 				B4677DC82867240B0DF6E557 /* Pods.release.xcconfig */,
 			);
 			name = Pods;
-			sourceTree = "<group>";
-		};
-		D5FEE00F1B76FC1E00E8AC03 /* Login */ = {
-			isa = PBXGroup;
-			children = (
-				D5FEE00C1B76FC0C00E8AC03 /* LoginViewController.h */,
-				D5FEE00D1B76FC0C00E8AC03 /* LoginViewController.m */,
-			);
-			name = Login;
 			sourceTree = "<group>";
 		};
 		D5FEE0101B770E7400E8AC03 /* check */ = {
@@ -245,10 +245,26 @@
 		EE87D2351B58DD42002A0DD8 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				D5FEE00F1B76FC1E00E8AC03 /* Login */,
+				EEE161131B648E6600C9A0EF /* AllTableViewCell.h */,
 				EEDCB5FF1B6344B600EB9135 /* BaseViewController.h */,
+				EEDCB6031B6345AB00EB9135 /* FindTableViewCell.h */,
+				EEE161191B64C78F00C9A0EF /* HeadTableViewCell.h */,
+				D5FEE00C1B76FC0C00E8AC03 /* LoginViewController.h */,
+				EE09A8B61B7CBC3F00008B93 /* PersonInfoViewController.h */,
+				EEE161161B64C53F00C9A0EF /* SetViewController.h */,
+				EEDCB6051B6345AB00EB9135 /* ViewController.h */,
+				EEE161141B648E6600C9A0EF /* AllTableViewCell.m */,
 				EEDCB6001B6344B600EB9135 /* BaseViewController.m */,
-				EEDCB6021B63459F00EB9135 /* FirstPage */,
+				EEDCB6041B6345AB00EB9135 /* FindTableViewCell.m */,
+				EEE1611A1B64C78F00C9A0EF /* HeadTableViewCell.m */,
+				D5FEE00D1B76FC0C00E8AC03 /* LoginViewController.m */,
+				EE09A8B71B7CBC3F00008B93 /* PersonInfoViewController.m */,
+				EEE161171B64C53F00C9A0EF /* SetViewController.m */,
+				EEDCB6061B6345AB00EB9135 /* ViewController.m */,
+				EE09A8B91B7CC3C100008B93 /* TextTableViewCell.h */,
+				EE09A8BA1B7CC3C100008B93 /* TextTableViewCell.m */,
+				EE09A8BC1B7CCE2400008B93 /* EditPersonViewController.h */,
+				EE09A8BD1B7CCE2400008B93 /* EditPersonViewController.m */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -294,23 +310,6 @@
 				EEDCB5D61B633E9200EB9135 /* ImageUtil.m */,
 			);
 			name = logic;
-			sourceTree = "<group>";
-		};
-		EEDCB6021B63459F00EB9135 /* FirstPage */ = {
-			isa = PBXGroup;
-			children = (
-				EEE161131B648E6600C9A0EF /* AllTableViewCell.h */,
-				EEDCB6031B6345AB00EB9135 /* FindTableViewCell.h */,
-				EEE161191B64C78F00C9A0EF /* HeadTableViewCell.h */,
-				EEE161161B64C53F00C9A0EF /* SetViewController.h */,
-				EEDCB6051B6345AB00EB9135 /* ViewController.h */,
-				EEE161141B648E6600C9A0EF /* AllTableViewCell.m */,
-				EEDCB6041B6345AB00EB9135 /* FindTableViewCell.m */,
-				EEE1611A1B64C78F00C9A0EF /* HeadTableViewCell.m */,
-				EEE161171B64C53F00C9A0EF /* SetViewController.m */,
-				EEDCB6061B6345AB00EB9135 /* ViewController.m */,
-			);
-			name = FirstPage;
 			sourceTree = "<group>";
 		};
 		EEDCB6091B6366A300EB9135 /* Modle */ = {
@@ -490,6 +489,9 @@
 				EEDCB5CC1B63398D00EB9135 /* ExUINavigationBar.m in Sources */,
 				EE87D2121B58ADA4002A0DD8 /* main.m in Sources */,
 				EEE1611B1B64C78F00C9A0EF /* HeadTableViewCell.m in Sources */,
+				EE09A8BB1B7CC3C100008B93 /* TextTableViewCell.m in Sources */,
+				EE09A8BE1B7CCE2400008B93 /* EditPersonViewController.m in Sources */,
+				EE09A8B81B7CBC3F00008B93 /* PersonInfoViewController.m in Sources */,
 				EEDCB5D71B633E9200EB9135 /* ImageUtil.m in Sources */,
 				EEE161181B64C53F00C9A0EF /* SetViewController.m in Sources */,
 				D5FEE00E1B76FC0C00E8AC03 /* LoginViewController.m in Sources */,

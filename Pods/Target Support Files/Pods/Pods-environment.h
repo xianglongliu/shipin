@@ -48,6 +48,12 @@
 #define COCOAPODS_VERSION_MINOR_AFNetworking_UIKit 5
 #define COCOAPODS_VERSION_PATCH_AFNetworking_UIKit 4
 
+// FVCustomAlertView
+#define COCOAPODS_POD_AVAILABLE_FVCustomAlertView
+#define COCOAPODS_VERSION_MAJOR_FVCustomAlertView 0
+#define COCOAPODS_VERSION_MINOR_FVCustomAlertView 3
+#define COCOAPODS_VERSION_PATCH_FVCustomAlertView 3
+
 // JSONKit
 #define COCOAPODS_POD_AVAILABLE_JSONKit
 // This library does not follow semantic-versioning,

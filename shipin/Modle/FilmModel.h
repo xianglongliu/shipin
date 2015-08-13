@@ -13,3 +13,12 @@
 @property (nonatomic,strong) NSURL<Optional>*       fileUrl;
 
 @end
+
+
+
+@interface TextModel : JSONModel
+
+@property (nonatomic,strong) NSString<Optional>*    strLeftName;
+@property (nonatomic,strong) NSString<Optional>*    strRightName;
+
+@end

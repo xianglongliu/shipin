@@ -8,9 +8,15 @@
 
 #import <UIKit/UIKit.h>
 
+
 @interface LoginViewController : UIViewController
 {
     UITextField     *textTel;
     UITextField     *textIdentifyingCode;
+    UIButton        *btnGetICode;
+    NSInteger       seconds;
+    NSTimer         *timer;
+
+    
 }
 @end

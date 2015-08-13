@@ -10,6 +10,7 @@
 #import "FindTableViewCell.h"
 #import "AllTableViewCell.h"
 #import "SetViewController.h"
+#import "SetViewController.h"
 #import "LoginViewController.h"
 
 @interface ViewController ()
@@ -22,6 +23,25 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+//    是否登录
+    if (![[Config getLoginFlag ] isEqualToString:@"YES"])
+    {
+        LoginViewController *loginView = [[LoginViewController alloc ] init];
+        [self.navigationController pushViewController:loginView animated:YES];
+    }
+    else
+    {
+        [self initViewCtrl];
+    }
+}
+//
+//-(void) viewWillAppear:(BOOL)animated
+//{
+//     [self initViewCtrl];
+//}
+-(void) initViewCtrl
+{
     // Do any additional setup after loading the view, typically from a nib.
     bIsColl = FALSE;
     arrCheck = [NSArray arrayWithObjects:@"全部",@"剧情",@"喜剧",@"自制",@"爱情",@"战争", @"全部",@"美国",@"大陆",@"香港",@"台湾",@"韩国", @"全部",@"2015",@"2014",@"2013",@"2012",@"2011",nil];
@@ -29,9 +49,9 @@
     self._navigationBar = [[ExUINavigationBar alloc ] initWithFrameRect:CGRectMake(0, 0, SCREEN_WIDTH, TABBAR_HEIGHT) BGImage:@"navigationbar" StrTitle:@"剧库" ];
     [self.view addSubview:self._navigationBar];
     
-    UIButton *btnLogin = [[UIButton alloc ] initWithFrame:CGRectMake(10, 20, 33, 33)];
+    UIButton *btnLogin = [[UIButton alloc ] initWithFrame:CGRectMake(10, 30, 22, 22)];
     [btnLogin setImage:[UIImage imageNamed:@"ico-default-avatar.png"] forState:UIControlStateNormal];
-    [btnLogin addTarget:self action:@selector(onButtonLogin) forControlEvents:UIControlEventTouchUpInside];
+    [btnLogin addTarget:self action:@selector(onButtonPersonalCenter) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:btnLogin];
     
     btnGood = [[UIButton alloc ] initWithFrame:CGRectMake(0, TABBAR_HEIGHT, SCREEN_WIDTH/2, 40)];
@@ -43,7 +63,7 @@
     [btnGood addTarget:self action:@selector(onButtonSelect:) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview: btnGood];
     
-     btnAll = [[UIButton alloc ] initWithFrame:CGRectMake(SCREEN_WIDTH/2, TABBAR_HEIGHT, SCREEN_WIDTH/2, 40)];
+    btnAll = [[UIButton alloc ] initWithFrame:CGRectMake(SCREEN_WIDTH/2, TABBAR_HEIGHT, SCREEN_WIDTH/2, 40)];
     [btnAll setBackgroundColor:[UIColor blackColor]];
     [btnAll setTitle:@"全部剧目" forState:UIControlStateNormal];
     [btnAll setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
@@ -51,7 +71,7 @@
     btnAll.tag = 101;
     btnAll.titleLabel.font = [UIFont systemFontOfSize:14];
     [self.view addSubview: btnAll];
-  
+    
     //创建tableview
     _findTableView = [[UITableView alloc ] initWithFrame:CGRectMake(0, btnGood.frame.origin.y+btnGood.frame.size.height, SCREEN_WIDTH, SCREEN_HEIGHT-TABBAR_HEIGHT-40) style:UITableViewStylePlain];
     _findTableView.delegate = self;
@@ -60,19 +80,17 @@
     _findTableView.separatorColor = [UIColor clearColor];
     [self.view addSubview:_findTableView];
     
-//    可以展开view
+    //    可以展开view
     _viewColl = [[UIView alloc ] initWithFrame:CGRectMake(0, btnGood.frame.origin.y+btnGood.frame.size.height, SCREEN_WIDTH, 50)];
     [_viewColl setBackgroundColor:RGB(231, 231, 231) ];
     [self.view addSubview:_viewColl];
     [_viewColl setHidden:YES];
-    
     [self addSearchCondition];
     
     btnColl = [[UIButton alloc ] initWithFrame:CGRectMake(SCREEN_WIDTH-40, 10, 33, 33)];
     [btnColl addTarget:self action:@selector(onButtonColl) forControlEvents:UIControlEventTouchUpInside];
     [btnColl setImage:[UIImage imageNamed:@"ico-down-arrow.png"] forState:UIControlStateNormal];
     [_viewColl addSubview: btnColl];
-    
     
     //创建tableview
     _allTableView = [[UITableView alloc ] initWithFrame:CGRectMake(0, _viewColl.frame.origin.y+_viewColl.frame.size.height, SCREEN_WIDTH, SCREEN_HEIGHT-TABBAR_HEIGHT-40) style:UITableViewStylePlain];
@@ -82,14 +100,14 @@
     _allTableView.separatorColor = [UIColor clearColor];
     [self.view addSubview:_allTableView];
     [_allTableView setHidden:YES];
-    
 }
 
--(void) onButtonLogin
+-(void) onButtonPersonalCenter
 {
-    LoginViewController *login = [[LoginViewController alloc ] init];
-    [self.navigationController pushViewController:login animated:YES];
+    SetViewController *setView = [[SetViewController alloc ] init];
+    [self.navigationController pushViewController:setView animated:YES];
 }
+
 //创建搜索条件控件
 -(void) addSearchCondition
 {

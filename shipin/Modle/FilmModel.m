@@ -10,5 +10,20 @@
 
 @implementation FilmModel
 
+NSString        *filmTitle;
+NSString        *filmContent;
+NSURL           *fileUrl;
 
 @end
+
+
+
+@implementation TextModel
+
+NSString        *strLeftName;
+NSString        *strRightName;
+
+@end
+
+
+

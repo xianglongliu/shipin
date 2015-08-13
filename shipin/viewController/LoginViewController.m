@@ -17,6 +17,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    seconds = 60;
     // Do any additional setup after loading the view.
     UIImageView *imageViewBg = [[UIImageView alloc ] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, SCREEN_HEIGHT)];
     [imageViewBg setImage:[UIImage imageNamed:@"bg-login.png"] ];
@@ -40,9 +41,10 @@
     [textTel setBackgroundColor:[UIColor whiteColor]];
     textTel.layer.masksToBounds = YES;
     textTel.layer.cornerRadius = 3;
+    [textTel setText:[Config getUserName]];
     [self.view addSubview:textTel];
 //    获取验证码
-    UIButton *btnGetICode = [[UIButton alloc ] initWithFrame:CGRectMake(textTel.frame.size.width+textTel.frame.origin.x+10, textTel.frame.origin.y, 80, textTel.frame.size.height)];
+    btnGetICode = [[UIButton alloc ] initWithFrame:CGRectMake(textTel.frame.size.width+textTel.frame.origin.x+10, textTel.frame.origin.y, 80, textTel.frame.size.height)];
     [btnGetICode setBackgroundColor:yellowRgb];
     btnGetICode.layer.masksToBounds = YES;
     btnGetICode.layer.cornerRadius = 3;
@@ -57,6 +59,7 @@
     [textIdentifyingCode setBackgroundColor:[UIColor whiteColor]];
     textIdentifyingCode.layer.masksToBounds = YES;
     textIdentifyingCode.layer.cornerRadius = 3;
+//    [textIdentifyingCode setText:@"7700"];
     [self.view addSubview:textIdentifyingCode];
 
 //    是否同意协议
@@ -82,8 +85,35 @@
     [btnLogin addTarget:self action:@selector(onButtonLogin) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:btnLogin];
 
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(changeContentViewPosition:)
+                                                 name:UIKeyboardWillShowNotification
+                                               object:nil];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(changeContentViewPosition:)
+                                                 name:UIKeyboardWillHideNotification
+                                               object:nil];
     
 }
+
+- (void) changeContentViewPosition:(NSNotification *)notification
+{
+    
+    NSDictionary *userInfo = [notification userInfo];
+    NSValue *value = [userInfo objectForKey:UIKeyboardFrameEndUserInfoKey];
+    CGFloat keyBoardEndY = value.CGRectValue.origin.y;
+    
+    NSNumber *duration = [userInfo objectForKey:UIKeyboardAnimationDurationUserInfoKey];
+    NSNumber *curve = [userInfo objectForKey:UIKeyboardAnimationCurveUserInfoKey];
+    
+    [UIView animateWithDuration:duration.doubleValue animations:^{
+        [UIView setAnimationBeginsFromCurrentState:YES];
+        [UIView setAnimationCurve:[curve intValue]];
+        self.view.center = CGPointMake(self.view.center.x, keyBoardEndY  - self.view.bounds.size.height/2.0);
+    }];
+}
+
 
 //同意协议
 -(void) onButtonCheck
@@ -94,22 +124,108 @@
 //获取验证码
 -(void) onButtonGetICode
 {
+    [self hideKeyborad];
+    [Config saveUserName:textTel.text];
     
+    AFHTTPRequestOperationManager *httpManager = [AFHTTPRequestOperationManager manager];
+    NSString *strUrl = [NSString stringWithFormat:@"%@?mobile=%@",URL_VERIFYCODE,textTel.text];
+    
+    [httpManager POST:strUrl parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject)
+    {
+        NSDictionary *d = responseObject;
+        if([[d objectForKey:@"code"] integerValue]== 0 )
+        {
+            textIdentifyingCode.text = [d objectForKey:@"data"] ;
+            [self Countdown60];
+        }
+        else
+        {
+            [Tool showWarningTip:@"请求验证码失败." view:self.view time:1.0f];
+        }
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error)
+    {
+        [Tool showWarningTip:@"请求验证码失败." view:self.view time:1.0f];
+    }];
 }
+
+-(void) Countdown60
+{
+    [btnGetICode setTitle:@"60秒后重发" forState:UIControlStateNormal];
+    timer = [NSTimer scheduledTimerWithTimeInterval:1.0 target:self selector:@selector(timerFireMethod:) userInfo:nil repeats:YES];
+}
+
+
+-(void)timerFireMethod:(NSTimer *)theTimer
+{
+    if (seconds == 1)
+    {
+        [theTimer invalidate];
+        [btnGetICode setEnabled:YES];
+        seconds = 60;
+    }
+    else
+    {
+        seconds--;
+        NSString *title = [NSString stringWithFormat:@"%ld",seconds];
+        [btnGetICode setTitle:title forState:UIControlStateNormal];
+        [btnGetICode setEnabled:NO];
+    }
+}
+
 
 //登陆
 -(void)onButtonLogin
 {
-    [self.navigationController popViewControllerAnimated:YES];
+    AFHTTPRequestOperationManager *httpManager = [AFHTTPRequestOperationManager manager];
+    NSString *strUrl = [NSString stringWithFormat:@"%@?mobile=%@&smsCode=%@",URL_LOGIN,textTel.text,textIdentifyingCode.text];
+    
+    [httpManager POST: strUrl parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject)
+     {
+         NSDictionary *d = responseObject;
+         if([[d objectForKey:@"code"] integerValue]== 0 )
+         {
+             //  保存token
+            [Config saveToken: [d objectForKey:@"data"]];
+             //保存登陆状态
+             [Config saveLoginFlag:@"YES"];
+            if( [[Config getToken] length] > 0  )
+            {
+                [self.navigationController popViewControllerAnimated:YES];
+            }
+             else
+             {
+                  [Config saveToken: [d objectForKey:@"data"]];
+             }
+         }
+         else
+         {
+             [Tool showWarningTip:@"登陆失败." view:self.view time:1.0f];
+         }
+     } failure:^(AFHTTPRequestOperation *operation, NSError *error)
+     {
+         [Tool showWarningTip:@"登陆失败." view:self.view time:1.0f];
+     }];
 }
 
 -(void) touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event
 {
+    [self hideKeyborad];
+}
+
+-(void) hideKeyborad
+{
     [textTel resignFirstResponder];
     [textIdentifyingCode resignFirstResponder];
-    
 }
-- (void)didReceiveMemoryWarning {
+
+-(void)dealloc
+{
+    [[NSNotificationCenter defaultCenter] removeObserver:self name:UIKeyboardWillShowNotification object:nil];
+    [[NSNotificationCenter defaultCenter] removeObserver:self name:UIKeyboardWillHideNotification object:nil];
+}
+
+- (void)didReceiveMemoryWarning
+{
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }

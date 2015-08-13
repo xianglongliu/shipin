@@ -8,6 +8,8 @@
 
 #import "SetViewController.h"
 #import "HeadTableViewCell.h"
+#import "PersonInfoViewController.h"
+
 
 @interface SetViewController ()
 
@@ -29,8 +31,17 @@
     self.automaticallyAdjustsScrollViewInsets = FALSE;
     [self.view addSubview:_tableView];
     
+    UIButton *btnLogin = [[UIButton alloc ] initWithFrame:CGRectMake(10, 25, 50, 25)];
+    [btnLogin setImage:[UIImage imageNamed:@"ico-return.png"] forState:UIControlStateNormal];
+    [btnLogin addTarget:self action:@selector(onButtonBack) forControlEvents:UIControlEventTouchUpInside];
+    [self.view addSubview:btnLogin];
+    
 }
 
+-(void) onButtonBack
+{
+    [self.navigationController popViewControllerAnimated:YES];
+}
 
 #pragma make tableview function
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
@@ -145,7 +156,15 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    
+    if(indexPath.section == 0)
+    {
+        if (indexPath.row == 0)
+        {
+            PersonInfoViewController *personInfoView = [[PersonInfoViewController alloc ] init];
+            [self.navigationController pushViewController:personInfoView animated:YES];
+        }
+    }
+
 }
 
 
