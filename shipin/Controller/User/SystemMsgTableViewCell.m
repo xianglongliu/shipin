@@ -44,11 +44,11 @@
     return self;
 }
 
--(void) setItemText:(SystemMsgModle*) systemMsgModle
+-(void) setItemText:(MessageModel*) systemMsgModle
 {
-    [_labelTitle setText:systemMsgModle.systemMsgTitle];
-    [_labelContent setText:systemMsgModle.systemMsgContent];
-    [_labelDate setText:systemMsgModle.systemMsgDate];
+    [_labelTitle setText:systemMsgModle.title];
+    [_labelContent setText:systemMsgModle.msg];
+    [_labelDate setText:systemMsgModle.createTime];
 }
 
 @end

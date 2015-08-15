@@ -14,6 +14,8 @@
 #import "AboutViewController.h"
 #import "FeedBackViewController.h"
 #import "UseHelpViewController.h"
+#import "MyPublishViewController.h"
+
 
 @interface SetViewController ()
 
@@ -216,8 +218,8 @@
             }
             if (indexPath.row == 1)//我的发布
             {
-                PersonInfoViewController *personInfoView = [[PersonInfoViewController alloc ] init];
-                [self.navigationController pushViewController:personInfoView animated:YES];
+                MyPublishViewController *myPublishView = [[MyPublishViewController alloc ] init];
+                [self.navigationController pushViewController:myPublishView animated:YES];
             }
             if (indexPath.row == 2)//系统消息
             {

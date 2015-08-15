@@ -3,9 +3,11 @@
 // Copyright (c) 2015 dust.zhang. All rights reserved.
 //
 
-#import "SystemMsgModle.h"
+#import "MyPublishModle.h"
 
-@implementation SystemMsgModle {
+
+@implementation MyPublishModle
+{
 
 }
 @end

@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "SystemMsgModle.h"
+#import "MessageModel.h"
 
 
 @interface SystemMsgViewController : BaseViewController<UITableViewDataSource,UITableViewDelegate>

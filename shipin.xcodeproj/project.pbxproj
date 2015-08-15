@@ -16,6 +16,11 @@
 		EE7944EB1B7F4F070032DF3A /* AboutViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EE7944EA1B7F4F070032DF3A /* AboutViewController.m */; };
 		EE7944EE1B7F4F2E0032DF3A /* FeedBackViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EE7944ED1B7F4F2E0032DF3A /* FeedBackViewController.m */; };
 		EE7944F11B7F4F420032DF3A /* UseHelpViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EE7944F01B7F4F420032DF3A /* UseHelpViewController.m */; };
+		EE7944F51B7F56610032DF3A /* MyPublishViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EE7944F41B7F56610032DF3A /* MyPublishViewController.m */; };
+		EE7944F81B7F56C50032DF3A /* AddPublishViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EE7944F71B7F56C50032DF3A /* AddPublishViewController.m */; };
+		EE7944FA1B7F57B10032DF3A /* btn_addpublish.png in Resources */ = {isa = PBXBuildFile; fileRef = EE7944F91B7F57B10032DF3A /* btn_addpublish.png */; };
+		EE7944FD1B7F5BE20032DF3A /* MyPublishModle.m in Sources */ = {isa = PBXBuildFile; fileRef = EE7944FC1B7F5BE20032DF3A /* MyPublishModle.m */; };
+		EE7945001B7F5D5F0032DF3A /* PublishCellTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = EE7944FF1B7F5D5F0032DF3A /* PublishCellTableViewCell.m */; };
 		EE8069FA1B7F148B0098DA30 /* image_collection.png in Resources */ = {isa = PBXBuildFile; fileRef = EE8069F91B7F148B0098DA30 /* image_collection.png */; };
 		EE8069FC1B7F15850098DA30 /* image_heart.png in Resources */ = {isa = PBXBuildFile; fileRef = EE8069FB1B7F15850098DA30 /* image_heart.png */; };
 		EE87D2121B58ADA4002A0DD8 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = EE87D2111B58ADA4002A0DD8 /* main.m */; };
@@ -47,13 +52,11 @@
 		EE908C471B7F071700505B82 /* image_loginlogo.png in Resources */ = {isa = PBXBuildFile; fileRef = EE908C431B7F071700505B82 /* image_loginlogo.png */; };
 		EE908C481B7F071700505B82 /* image_personhead.png in Resources */ = {isa = PBXBuildFile; fileRef = EE908C441B7F071700505B82 /* image_personhead.png */; };
 		EE908C4C1B7F072F00505B82 /* btn_back.png in Resources */ = {isa = PBXBuildFile; fileRef = EE908C4A1B7F072F00505B82 /* btn_back.png */; };
-		EE908C4D1B7F072F00505B82 /* button-add.png in Resources */ = {isa = PBXBuildFile; fileRef = EE908C4B1B7F072F00505B82 /* button-add.png */; };
 		EE908C501B7F0DDF00505B82 /* FXLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = EE908C4F1B7F0DDF00505B82 /* FXLabel.m */; };
 		EEABE3991B7F37FF00C06C3A /* ModifyUserinfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EEABE3981B7F37FF00C06C3A /* ModifyUserinfoViewController.m */; };
 		EEABE39C1B7F3E2900C06C3A /* AttentionPeoperViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EEABE39B1B7F3E2900C06C3A /* AttentionPeoperViewController.m */; };
 		EEABE39F1B7F3F1F00C06C3A /* AttentionPeoperTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = EEABE39E1B7F3F1F00C06C3A /* AttentionPeoperTableViewCell.m */; };
 		EEABE3A21B7F478600C06C3A /* SystemMsgViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EEABE3A11B7F478600C06C3A /* SystemMsgViewController.m */; };
-		EEABE3A51B7F487500C06C3A /* SystemMsgModle.m in Sources */ = {isa = PBXBuildFile; fileRef = EEABE3A41B7F487500C06C3A /* SystemMsgModle.m */; };
 		EEABE3A81B7F494C00C06C3A /* SystemMsgTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = EEABE3A71B7F494C00C06C3A /* SystemMsgTableViewCell.m */; };
 		EEDCB5C51B6335ED00EB9135 /* Config.m in Sources */ = {isa = PBXBuildFile; fileRef = EEDCB5C11B6335ED00EB9135 /* Config.m */; };
 		EEDCB5C91B63392700EB9135 /* ExUINavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = EEDCB5C81B63392700EB9135 /* ExUINavigationController.m */; };
@@ -95,6 +98,15 @@
 		EE7944ED1B7F4F2E0032DF3A /* FeedBackViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FeedBackViewController.m; path = Controller/User/FeedBackViewController.m; sourceTree = "<group>"; };
 		EE7944EF1B7F4F420032DF3A /* UseHelpViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = UseHelpViewController.h; path = Controller/User/UseHelpViewController.h; sourceTree = "<group>"; };
 		EE7944F01B7F4F420032DF3A /* UseHelpViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = UseHelpViewController.m; path = Controller/User/UseHelpViewController.m; sourceTree = "<group>"; };
+		EE7944F31B7F56610032DF3A /* MyPublishViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MyPublishViewController.h; path = Controller/MyPublishViewController.h; sourceTree = "<group>"; };
+		EE7944F41B7F56610032DF3A /* MyPublishViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MyPublishViewController.m; path = Controller/MyPublishViewController.m; sourceTree = "<group>"; };
+		EE7944F61B7F56C50032DF3A /* AddPublishViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AddPublishViewController.h; path = Controller/AddPublishViewController.h; sourceTree = "<group>"; };
+		EE7944F71B7F56C50032DF3A /* AddPublishViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AddPublishViewController.m; path = Controller/AddPublishViewController.m; sourceTree = "<group>"; };
+		EE7944F91B7F57B10032DF3A /* btn_addpublish.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = btn_addpublish.png; path = Resource/Button/btn_addpublish.png; sourceTree = "<group>"; };
+		EE7944FB1B7F5BE20032DF3A /* MyPublishModle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MyPublishModle.h; path = Modle/MyPublishModle.h; sourceTree = "<group>"; };
+		EE7944FC1B7F5BE20032DF3A /* MyPublishModle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MyPublishModle.m; path = Modle/MyPublishModle.m; sourceTree = "<group>"; };
+		EE7944FE1B7F5D5F0032DF3A /* PublishCellTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PublishCellTableViewCell.h; path = Controller/PublishCellTableViewCell.h; sourceTree = "<group>"; };
+		EE7944FF1B7F5D5F0032DF3A /* PublishCellTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PublishCellTableViewCell.m; path = Controller/PublishCellTableViewCell.m; sourceTree = "<group>"; };
 		EE8069F91B7F148B0098DA30 /* image_collection.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = image_collection.png; path = Resource/Image/image_collection.png; sourceTree = "<group>"; };
 		EE8069FB1B7F15850098DA30 /* image_heart.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = image_heart.png; path = Resource/Image/image_heart.png; sourceTree = "<group>"; };
 		EE87D20C1B58ADA4002A0DD8 /* shipin.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = shipin.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -151,7 +163,6 @@
 		EE908C431B7F071700505B82 /* image_loginlogo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = image_loginlogo.png; path = Resource/Image/image_loginlogo.png; sourceTree = "<group>"; };
 		EE908C441B7F071700505B82 /* image_personhead.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = image_personhead.png; path = Resource/Image/image_personhead.png; sourceTree = "<group>"; };
 		EE908C4A1B7F072F00505B82 /* btn_back.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = btn_back.png; path = Resource/Button/btn_back.png; sourceTree = "<group>"; };
-		EE908C4B1B7F072F00505B82 /* button-add.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "button-add.png"; path = "Resource/Button/button-add.png"; sourceTree = "<group>"; };
 		EE908C4E1B7F0DDF00505B82 /* FXLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FXLabel.h; path = ExView/FXLabel.h; sourceTree = "<group>"; };
 		EE908C4F1B7F0DDF00505B82 /* FXLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FXLabel.m; path = ExView/FXLabel.m; sourceTree = "<group>"; };
 		EEABE3971B7F37FF00C06C3A /* ModifyUserinfoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ModifyUserinfoViewController.h; path = Controller/User/ModifyUserinfoViewController.h; sourceTree = "<group>"; };
@@ -162,8 +173,6 @@
 		EEABE39E1B7F3F1F00C06C3A /* AttentionPeoperTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AttentionPeoperTableViewCell.m; path = Controller/User/AttentionPeoperTableViewCell.m; sourceTree = "<group>"; };
 		EEABE3A01B7F478600C06C3A /* SystemMsgViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SystemMsgViewController.h; path = Controller/User/SystemMsgViewController.h; sourceTree = "<group>"; };
 		EEABE3A11B7F478600C06C3A /* SystemMsgViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SystemMsgViewController.m; path = Controller/User/SystemMsgViewController.m; sourceTree = "<group>"; };
-		EEABE3A31B7F487500C06C3A /* SystemMsgModle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SystemMsgModle.h; path = Modle/SystemMsgModle.h; sourceTree = "<group>"; };
-		EEABE3A41B7F487500C06C3A /* SystemMsgModle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SystemMsgModle.m; path = Modle/SystemMsgModle.m; sourceTree = "<group>"; };
 		EEABE3A61B7F494C00C06C3A /* SystemMsgTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SystemMsgTableViewCell.h; path = Controller/User/SystemMsgTableViewCell.h; sourceTree = "<group>"; };
 		EEABE3A71B7F494C00C06C3A /* SystemMsgTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SystemMsgTableViewCell.m; path = Controller/User/SystemMsgTableViewCell.m; sourceTree = "<group>"; };
 		EEDCB5C01B6335ED00EB9135 /* Config.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Config.h; path = Config/Config.h; sourceTree = "<group>"; };
@@ -290,6 +299,19 @@
 			name = Help;
 			sourceTree = "<group>";
 		};
+		EE7944F21B7F56350032DF3A /* Publish */ = {
+			isa = PBXGroup;
+			children = (
+				EE7944F61B7F56C50032DF3A /* AddPublishViewController.h */,
+				EE7944F31B7F56610032DF3A /* MyPublishViewController.h */,
+				EE7944FE1B7F5D5F0032DF3A /* PublishCellTableViewCell.h */,
+				EE7944F71B7F56C50032DF3A /* AddPublishViewController.m */,
+				EE7944F41B7F56610032DF3A /* MyPublishViewController.m */,
+				EE7944FF1B7F5D5F0032DF3A /* PublishCellTableViewCell.m */,
+			);
+			name = Publish;
+			sourceTree = "<group>";
+		};
 		EE87D2031B58ADA4002A0DD8 = {
 			isa = PBXGroup;
 			children = (
@@ -394,6 +416,7 @@
 		EE908C1E1B7EEB2E00505B82 /* User */ = {
 			isa = PBXGroup;
 			children = (
+				EE7944F21B7F56350032DF3A /* Publish */,
 				EE7944E81B7F4EE30032DF3A /* Help */,
 				EE7944E71B7F4ED40032DF3A /* Feedback */,
 				EE7944E61B7F4EC80032DF3A /* About */,
@@ -443,8 +466,8 @@
 		EE908C491B7F072500505B82 /* Button */ = {
 			isa = PBXGroup;
 			children = (
+				EE7944F91B7F57B10032DF3A /* btn_addpublish.png */,
 				EE908C4A1B7F072F00505B82 /* btn_back.png */,
-				EE908C4B1B7F072F00505B82 /* button-add.png */,
 			);
 			name = Button;
 			sourceTree = "<group>";
@@ -496,8 +519,8 @@
 		EEDCB6091B6366A300EB9135 /* Modle */ = {
 			isa = PBXGroup;
 			children = (
-				EEABE3A31B7F487500C06C3A /* SystemMsgModle.h */,
-				EEABE3A41B7F487500C06C3A /* SystemMsgModle.m */,
+				EE7944FB1B7F5BE20032DF3A /* MyPublishModle.h */,
+				EE7944FC1B7F5BE20032DF3A /* MyPublishModle.m */,
 				EE908C051B7ED68100505B82 /* DramaModel.h */,
 				EE908C071B7ED68100505B82 /* DramaPostersModel.h */,
 				EE908C091B7ED68100505B82 /* DramaRelativesModel.h */,
@@ -617,8 +640,8 @@
 				EE8069FC1B7F15850098DA30 /* image_heart.png in Resources */,
 				EE8069FA1B7F148B0098DA30 /* image_collection.png in Resources */,
 				EE908C461B7F071700505B82 /* image_loginbg.png in Resources */,
-				EE908C4D1B7F072F00505B82 /* button-add.png in Resources */,
 				EE908C451B7F071700505B82 /* image_head.png in Resources */,
+				EE7944FA1B7F57B10032DF3A /* btn_addpublish.png in Resources */,
 				D5FEE0141B770EB000E8AC03 /* uncheckgoods.png in Resources */,
 				D5FEE0131B770EB000E8AC03 /* uncheckawardblack.png in Resources */,
 				EE908C4C1B7F072F00505B82 /* btn_back.png in Resources */,
@@ -680,6 +703,7 @@
 				EE20D6551B7F1347001B2E92 /* SetViewHeadTableViewCell.m in Sources */,
 				EEDCB5C51B6335ED00EB9135 /* Config.m in Sources */,
 				EE6845B51B7E025800D6D6F5 /* HttpResultBase.m in Sources */,
+				EE7944F51B7F56610032DF3A /* MyPublishViewController.m in Sources */,
 				EE908C2E1B7EEB6600505B82 /* LoginViewController.m in Sources */,
 				EE908C1B1B7ED68100505B82 /* SimilaritiesModel.m in Sources */,
 				EE908C031B7ED66F00505B82 /* DramaServices.m in Sources */,
@@ -687,16 +711,18 @@
 				EEABE3A21B7F478600C06C3A /* SystemMsgViewController.m in Sources */,
 				EE6845B31B7E025800D6D6F5 /* HttpManager.m in Sources */,
 				EE908C351B7EEB7D00505B82 /* FindTableViewCell.m in Sources */,
+				EE7944FD1B7F5BE20032DF3A /* MyPublishModle.m in Sources */,
 				EE6845B41B7E025800D6D6F5 /* HttpProtocol.m in Sources */,
-				EEABE3A51B7F487500C06C3A /* SystemMsgModle.m in Sources */,
 				EEDCB6131B63864100EB9135 /* Tool.m in Sources */,
 				EE87D2151B58ADA4002A0DD8 /* AppDelegate.m in Sources */,
 				EE908C1C1B7ED68100505B82 /* UserModel.m in Sources */,
 				EEABE39F1B7F3F1F00C06C3A /* AttentionPeoperTableViewCell.m in Sources */,
 				EEABE3991B7F37FF00C06C3A /* ModifyUserinfoViewController.m in Sources */,
+				EE7944F81B7F56C50032DF3A /* AddPublishViewController.m in Sources */,
 				EE7944F11B7F4F420032DF3A /* UseHelpViewController.m in Sources */,
 				EEABE39C1B7F3E2900C06C3A /* AttentionPeoperViewController.m in Sources */,
 				EE908C021B7ED66F00505B82 /* BaseService.m in Sources */,
+				EE7945001B7F5D5F0032DF3A /* PublishCellTableViewCell.m in Sources */,
 				EE7944EB1B7F4F070032DF3A /* AboutViewController.m in Sources */,
 				EE908C3D1B7EEBB800505B82 /* BaseViewController.m in Sources */,
 				EE908C161B7ED68100505B82 /* DramaPostersModel.m in Sources */,

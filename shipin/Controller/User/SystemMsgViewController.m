@@ -46,10 +46,10 @@
 
 -(void) loadNetWorkData
 {
-    SystemMsgModle *systemMsgModle = [[SystemMsgModle alloc ] init];
-    systemMsgModle.systemMsgTitle = @"标题";
-    systemMsgModle.systemMsgContent = @"消息内容";
-    systemMsgModle.systemMsgDate = @"2015年00月00日 11：11：11";
+    MessageModel *systemMsgModle = [[MessageModel alloc ] init];
+    systemMsgModle.title = @"标题";
+    systemMsgModle.msg = @"消息内容";
+    systemMsgModle.createTime = @"2015年00月00日 11：11：11";
    
     [_arraySystemMsg addObject:systemMsgModle];
     [_arraySystemMsg addObject:systemMsgModle];
@@ -69,7 +69,7 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    SystemMsgModle *systemMsgModle = [[SystemMsgModle alloc ] init];
+    MessageModel *systemMsgModle = [[MessageModel alloc ] init];
     
     static NSString *CellIdentifier = @"AttentionPeoperTableViewCell";
     SystemMsgTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];

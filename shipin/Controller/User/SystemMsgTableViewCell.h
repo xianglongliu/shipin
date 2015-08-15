@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "SystemMsgModle.h"
+#import "MessageModel.h"
 
 @interface SystemMsgTableViewCell : UITableViewCell
 {
@@ -17,6 +17,6 @@
 
 }
 
--(void) setItemText:(SystemMsgModle*) systemMsgModle;
+-(void) setItemText:(MessageModel*) systemMsgModle;
 
 @end
