@@ -110,6 +110,7 @@ if [[ "$CONFIGURATION" == "Debug" ]]; then
   install_resource "SDWebImage-Category/SDWebImage-Category/Resource/lk_click_image@3x.png"
   install_resource "SDWebImage-Category/SDWebImage-Category/Resource/lk_noimage.png"
   install_resource "SDWebImage-Category/SDWebImage-Category/Resource/lk_noimage@2x.png"
+  install_resource "${BUILT_PRODUCTS_DIR}/FSMediaPicker.bundle"
 fi
 if [[ "$CONFIGURATION" == "Release" ]]; then
   install_resource "FVCustomAlertView/FVCustomAlertView/FVCustomAlertViewResources/1.png"
@@ -164,6 +165,7 @@ if [[ "$CONFIGURATION" == "Release" ]]; then
   install_resource "SDWebImage-Category/SDWebImage-Category/Resource/lk_click_image@3x.png"
   install_resource "SDWebImage-Category/SDWebImage-Category/Resource/lk_noimage.png"
   install_resource "SDWebImage-Category/SDWebImage-Category/Resource/lk_noimage@2x.png"
+  install_resource "${BUILT_PRODUCTS_DIR}/FSMediaPicker.bundle"
 fi
 
 rsync -avr --copy-links --no-relative --exclude '*/.svn/*' --files-from="$RESOURCES_TO_COPY" / "${CONFIGURATION_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}"

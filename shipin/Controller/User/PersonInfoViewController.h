@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface PersonInfoViewController : UIViewController<UITableViewDataSource,UITableViewDelegate>
+@interface PersonInfoViewController : BaseViewController<UITableViewDataSource,UITableViewDelegate>
 {
     NSMutableArray * mutableArray;
 }

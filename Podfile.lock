@@ -20,6 +20,7 @@ PODS:
   - AFNetworking/UIKit (2.5.4):
     - AFNetworking/NSURLConnection
     - AFNetworking/NSURLSession
+  - FSMediaPicker (0.0.2)
   - FVCustomAlertView (0.3.3)
   - JSONKit (1.5pre)
   - JSONModel (1.1.0)
@@ -34,6 +35,7 @@ PODS:
 
 DEPENDENCIES:
   - AFNetworking (~> 2.5.0)
+  - FSMediaPicker (~> 0.0.2)
   - FVCustomAlertView (~> 0.3.3)
   - JSONKit (~> 1.5pre)
   - JSONModel (~> 1.1.0)
@@ -45,6 +47,7 @@ DEPENDENCIES:
 
 SPEC CHECKSUMS:
   AFNetworking: 05edc0ac4c4c8cf57bcf4b84be5b0744b6d8e71e
+  FSMediaPicker: 89c5fe9894a288db7c87c255bdb7856e33dc4073
   FVCustomAlertView: 9db3baa8b6b37cbac1d4914539d30a98148de3d5
   JSONKit: bae313ce6a6c444f40489a6c0b023f399888871f
   JSONModel: ec77e9865236a7a09d9cf7668df6b4b328d9ec1d

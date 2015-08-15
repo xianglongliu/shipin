@@ -10,12 +10,16 @@
 #import "FilmModel.h"
 
 @interface TextTableViewCell : UITableViewCell
-
+{
+    UILabel             *_lableLine;
+    UIImageView         *_imageviewHead;
+}
 @property (nonatomic ,strong) UILabel *leftLable;
 @property (nonatomic ,strong) UILabel *rightLable;
 
 
--(void) setLableText:(TextModel*)tModle;
+-(void) setLableText:(TextModel*)tModle viewName:(NSString *)viewname cellHegith:(float) hegith;
+
 
 
 @end

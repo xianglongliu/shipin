@@ -7,29 +7,25 @@
 #import "BaseService.h"
 
 
-@implementation BaseService {
+@implementation BaseService
 
-}
-
-- (id)init {
-    if ((self = [super init])) {
-
-
+- (id)init
+{
+    if ((self = [super init]))
+    {
         multicastDelegate = [[GCDMulticastDelegate alloc] init];
-
         NSString *queueName = NSStringFromClass([self class]);
-
 #ifdef isUnitTest
         serviceQueue = dispatch_get_main_queue();
 #else
         serviceQueue = dispatch_queue_create([queueName UTF8String], NULL);
 #endif
-
     }
     return self;
 }
 
-- (void)dealloc {
+- (void)dealloc
+{
 #if NEEDS_DISPATCH_RETAIN_RELEASE
     dispatch_release(serviceQueue);
 #endif
@@ -37,12 +33,12 @@
 
 
 #pragma mark - add and remove delegate
-
-- (void)addDelegate:(id)delegate delegateQueue:(dispatch_queue_t)delegateQueue {
+- (void)addDelegate:(id)delegate delegateQueue:(dispatch_queue_t)delegateQueue
+{
     
     if (delegate==nil)return;
-    
-    if (delegateQueue == nil) {
+    if (delegateQueue == nil)
+    {
         delegateQueue = serviceQueue;
     }
 

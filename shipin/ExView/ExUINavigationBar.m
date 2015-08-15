@@ -24,8 +24,8 @@
 {
     if ((self=[super initWithFrame:rect]))
     {
-        UILabel *labelTitle = [[UILabel alloc] initWithFrame:CGRectMake(0, 5, SCREEN_WIDTH, TABBAR_HEIGHT)];
-        labelTitle.font = [UIFont boldSystemFontOfSize:20];
+        UILabel *labelTitle = [[UILabel alloc] initWithFrame:CGRectMake(0, 7, SCREEN_WIDTH, TABBAR_HEIGHT)];
+        labelTitle.font = [UIFont boldSystemFontOfSize:15];
         labelTitle.textColor = [UIColor whiteColor];
         labelTitle.backgroundColor = [UIColor clearColor];
         [labelTitle setTextAlignment:NSTextAlignmentCenter];

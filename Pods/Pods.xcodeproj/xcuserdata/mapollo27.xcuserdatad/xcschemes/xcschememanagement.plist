@@ -9,6 +9,16 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>Pods-FSMediaPicker-FSMediaPicker.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>Pods-FSMediaPicker.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>Pods-FVCustomAlertView.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -57,52 +67,62 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>009A9924D5E2EC86A98DC4BB</key>
+		<key>1DAEEF5DC09FF03B87A6A50B</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>165E07053B96C96AFB9E2456</key>
+		<key>20442131D60C22E2610FDB86</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>4821B209B265B41D4F678E10</key>
+		<key>2AA08E7B3DC6AE3D1E7E0DBE</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>6C4BB3D395AD663B2BEE6789</key>
+		<key>3B34A4AEC6DBECDB99D63F81</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>7409EA4BF72AA15AD97344CC</key>
+		<key>52D356CC223A04B7DEB6C9FF</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>9A43F8BBE1F14B89F4F1CB6F</key>
+		<key>5D9FF473467491537A1C24FE</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>C3D768F6EAFC0895387094A4</key>
+		<key>5EC002F77EE52AF35A02985D</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>C893E1E14DD2950BAB85B4A6</key>
+		<key>6248BF83BFDD89534A096514</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>F4AC86D60223E77EE233CA9F</key>
+		<key>6A1D24D4ABDC4739BE6B4071</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>FD5141FDF08478DAB52F2777</key>
+		<key>84263835F4A67189B20CA5B4</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>DBBCEC70B4AF63F4D9D6505D</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>DEC8C238F00F5BDD1DB3714B</key>
 		<dict>
 			<key>primary</key>
 			<true/>

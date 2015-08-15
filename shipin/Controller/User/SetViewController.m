@@ -1,0 +1,271 @@
+//
+//  SetViewController.m
+//  shipin
+//
+//  Created by Mapollo27 on 15/7/26.
+//  Copyright (c) 2015年 dust.zhang. All rights reserved.
+//
+
+#import "SetViewController.h"
+#import "SetViewHeadTableViewCell.h"
+#import "PersonInfoViewController.h"
+#import "AttentionPeoperViewController.h"
+#import "SystemMsgViewController.h"
+#import "AboutViewController.h"
+#import "FeedBackViewController.h"
+#import "UseHelpViewController.h"
+
+@interface SetViewController ()
+
+@end
+
+@implementation SetViewController
+
+- (void)viewDidLoad
+{
+    [super viewDidLoad];
+    // Do any additional setup after loading the view.
+    //创建tableview
+    _tableView = [[UITableView alloc ] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, SCREEN_HEIGHT) style:UITableViewStyleGrouped];
+    _tableView.delegate = self;
+    _tableView.dataSource = self;
+    _tableView.separatorColor = RGB(221,221,221);
+    _tableView.scrollEnabled = YES;
+    [_tableView setBackgroundColor:RGB(238,238,238)];
+    self.automaticallyAdjustsScrollViewInsets = FALSE;
+    [self.view addSubview:_tableView];
+    
+    UIButton *btnBack = [[UIButton alloc ] initWithFrame:backButtonFram];
+    [btnBack setImage:[UIImage imageNamed:@"btn_back.png"] forState:UIControlStateNormal];
+    [btnBack addTarget:self action:@selector(onButtonBack) forControlEvents:UIControlEventTouchUpInside];
+    [self.view addSubview:btnBack];
+    
+}
+
+-(void) onButtonBack
+{
+    [self.navigationController popViewControllerAnimated:YES];
+}
+
+#pragma make tableview function
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+{
+    if (section == 0)
+    {
+        return 4;
+    }
+    else
+    {
+       return 5;
+    }
+    return 0;
+}
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    static NSString *CellIdentifier = @"UITableViewCell";
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+    if (cell == nil)
+    {
+        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
+        cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+        cell.selectionStyle = UITableViewCellSelectionStyleNone;
+        cell.textLabel.font = [UIFont systemFontOfSize:12];
+        [cell.textLabel setTextColor:RGB(34, 34, 34)];
+        switch (indexPath.section)
+        {
+            case 0:
+                if(indexPath.row == 0)
+                {
+                    static NSString *showCell = @"SetViewHeadTableViewCell";
+                    SetViewHeadTableViewCell* cell = [[SetViewHeadTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:showCell ];
+                    cell.selectionStyle = UITableViewCellSelectionStyleNone;
+                    cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+                    
+                    //我的收藏
+                    UIButton *btnCollection =[[UIButton alloc ] initWithFrame:CGRectMake(0, 170-34, SCREEN_WIDTH/2, 34)];
+                    [btnCollection setTitle:@"           我的收藏" forState:UIControlStateNormal];
+                    btnCollection.titleLabel.font = [UIFont systemFontOfSize:12];
+                    [btnCollection setContentHorizontalAlignment:UIControlContentHorizontalAlignmentLeft];
+                    [btnCollection  addTarget:self action:@selector(onButtonCollection) forControlEvents:UIControlEventTouchUpInside];
+                    [cell addSubview:btnCollection];
+                    
+                    UIImageView *imageView = [[UIImageView alloc ] initWithFrame:CGRectMake(20, 10, 14, 14)];
+                    [imageView setImage:[UIImage imageNamed:@"image_collection.png"]];
+                    [btnCollection addSubview:imageView];
+                    
+                    //我的关注的人
+                    UIButton *btnFollow =[[UIButton alloc ] initWithFrame:CGRectMake(SCREEN_WIDTH/2, 170-34, SCREEN_WIDTH/2, 34)];
+                    [btnFollow setTitle:@"           我关注的人" forState:UIControlStateNormal];
+                    btnFollow.titleLabel.font = [UIFont systemFontOfSize:12];
+                    [btnFollow setContentHorizontalAlignment:UIControlContentHorizontalAlignmentLeft];
+                    [btnFollow  addTarget:self action:@selector(onButtonFollow) forControlEvents:UIControlEventTouchUpInside];
+                    [cell addSubview:btnFollow];
+                    
+                    imageView = [[UIImageView alloc ] initWithFrame:CGRectMake(20, 10, 14, 14)];
+                    [imageView setImage:[UIImage imageNamed:@"image_heart.png"]];
+                    [btnFollow addSubview:imageView];
+                    
+                    [cell setHeadCellData:netWorkUrl name:@"天天" cellName:@"setview"];
+                    return cell;
+                }
+                if(indexPath.row == 1)
+                {
+                    cell.textLabel.text =  @"我的发布";
+                }
+                if(indexPath.row == 2)
+                {
+                    cell.textLabel.text =  @"系统消息";
+                }
+                if(indexPath.row == 3)
+                {
+                    cell.textLabel.text =  @"最近浏览";
+                }
+                
+                break;
+            case 1:
+                if(indexPath.row == 0)
+                {
+                    cell.textLabel.text =  @"分享给好友";
+                }
+                if(indexPath.row == 1)
+                {
+                    cell.textLabel.text =  @"意见反馈";
+                }
+                if(indexPath.row == 2)
+                {
+                    cell.textLabel.text =  @"使用帮助";
+                }
+                if(indexPath.row == 3)
+                {
+                    cell.textLabel.text =  @"去给应用评分";
+                }
+                if(indexPath.row == 4)
+                {
+                    cell.textLabel.text =  @"关于我们";
+                }
+
+                break;
+            default:
+                break;
+        }
+  
+        return cell;
+    }
+     return cell;
+}
+
+#pragma mark 收藏
+-(void) onButtonCollection
+{
+    
+}
+
+#pragma mark 关注的人
+-(void) onButtonFollow
+{
+    AttentionPeoperViewController *attentionPeoperView = [[AttentionPeoperViewController alloc ] init];
+    [self.navigationController pushViewController:attentionPeoperView animated:YES];
+}
+
+
+
+#pragma mark tableview
+- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
+{
+    if (section == 0)
+        return 0.01f;
+    else
+        return 5;
+}
+//section底部间距
+- (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section
+{
+    return 7;
+}
+
+
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
+{
+    return 2;
+}
+-(CGFloat) tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    if(indexPath.section == 0)
+    {
+        if (indexPath.row == 0)
+            return 170;
+        else
+            return 40;
+    }
+    else
+        return 40;
+    
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    switch (indexPath.section)
+    {
+        case 0:
+            //个人信息
+            if (indexPath.row == 0)
+            {
+                PersonInfoViewController *personInfoView = [[PersonInfoViewController alloc ] init];
+                [self.navigationController pushViewController:personInfoView animated:YES];
+            }
+            if (indexPath.row == 1)//我的发布
+            {
+                PersonInfoViewController *personInfoView = [[PersonInfoViewController alloc ] init];
+                [self.navigationController pushViewController:personInfoView animated:YES];
+            }
+            if (indexPath.row == 2)//系统消息
+            {
+                SystemMsgViewController *systemMsgView = [[SystemMsgViewController alloc ] init];
+                [self.navigationController pushViewController:systemMsgView animated:YES];
+            }
+            if (indexPath.row == 3)//最近浏览
+            {
+                PersonInfoViewController *personInfoView = [[PersonInfoViewController alloc ] init];
+                [self.navigationController pushViewController:personInfoView animated:YES];
+            }
+            break;
+        case 1:
+            if (indexPath.row == 0)//分享
+            {
+                
+            }
+            if (indexPath.row == 1)//意见反馈
+            {
+                FeedBackViewController *feedBackView = [[FeedBackViewController alloc ] init];
+                [self.navigationController pushViewController:feedBackView animated:YES];
+            }
+            if (indexPath.row == 2)//使用帮助
+            {
+                UseHelpViewController *useHelpView = [[UseHelpViewController alloc ] init];
+                [self.navigationController pushViewController:useHelpView animated:YES];
+            }
+            if (indexPath.row == 3)//去给应用评分
+            {
+                [[UIApplication sharedApplication ] openURL:[NSURL URLWithString:@"www.baidu.com"]];
+            }
+            if (indexPath.row == 4)//关于我们
+            {
+                AboutViewController *aboutView = [[AboutViewController alloc ] init];
+                [self.navigationController pushViewController:aboutView animated:YES];
+            }
+            break;
+        default:
+            break;
+    }
+
+}
+
+
+- (void)didReceiveMemoryWarning
+{
+    [super didReceiveMemoryWarning];
+    // Dispose of any resources that can be recreated.
+}
+
+@end

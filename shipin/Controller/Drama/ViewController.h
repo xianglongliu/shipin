@@ -27,7 +27,7 @@
     UIButton            *btnColl;
 }
 
-//@property (nonatomic,strong)    ExUINavigationBar       *_navigationBar;
+@property (nonatomic,strong)    ExUINavigationBar       *_navigationBar;
 @property (nonatomic,strong)    NSMutableArray          *_arrayVideo;
 
 

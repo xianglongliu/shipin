@@ -48,6 +48,12 @@
 #define COCOAPODS_VERSION_MINOR_AFNetworking_UIKit 5
 #define COCOAPODS_VERSION_PATCH_AFNetworking_UIKit 4
 
+// FSMediaPicker
+#define COCOAPODS_POD_AVAILABLE_FSMediaPicker
+#define COCOAPODS_VERSION_MAJOR_FSMediaPicker 0
+#define COCOAPODS_VERSION_MINOR_FSMediaPicker 0
+#define COCOAPODS_VERSION_PATCH_FSMediaPicker 2
+
 // FVCustomAlertView
 #define COCOAPODS_POD_AVAILABLE_FVCustomAlertView
 #define COCOAPODS_VERSION_MAJOR_FVCustomAlertView 0

@@ -46,11 +46,11 @@
     bIsColl = FALSE;
     arrCheck = [NSArray arrayWithObjects:@"全部",@"剧情",@"喜剧",@"自制",@"爱情",@"战争", @"全部",@"美国",@"大陆",@"香港",@"台湾",@"韩国", @"全部",@"2015",@"2014",@"2013",@"2012",@"2011",nil];
     
-    self._navigationBar = [[ExUINavigationBar alloc ] initWithFrameRect:CGRectMake(0, 0, SCREEN_WIDTH, TABBAR_HEIGHT) BGImage:@"navigationbar" StrTitle:@"剧库" ];
+    self._navigationBar = [[ExUINavigationBar alloc ] initWithFrameRect:CGRectMake(0, 0, SCREEN_WIDTH, TABBAR_HEIGHT) BGImage:@"navigationbar.png" StrTitle:@"剧库" ];
     [self.view addSubview:self._navigationBar];
     
-    UIButton *btnLogin = [[UIButton alloc ] initWithFrame:CGRectMake(10, 30, 22, 22)];
-    [btnLogin setImage:[UIImage imageNamed:@"ico-default-avatar.png"] forState:UIControlStateNormal];
+    UIButton *btnLogin = [[UIButton alloc ] initWithFrame:CGRectMake(10, 20, 22, 22)];
+    [btnLogin setImage:[UIImage imageNamed:@"image_head.png"] forState:UIControlStateNormal];
     [btnLogin addTarget:self action:@selector(onButtonPersonalCenter) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:btnLogin];
     

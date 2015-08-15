@@ -10,13 +10,18 @@
 #import "TextTableViewCell.h"
 #import "FilmModel.h"
 #import "EditPersonViewController.h"
-
+#import "SetViewHeadTableViewCell.h"
 
 @interface PersonInfoViewController ()
 
 @end
 
 @implementation PersonInfoViewController
+
+-(void)viewWillAppear:(BOOL)animated
+{
+     [[UIApplication sharedApplication] setStatusBarHidden:YES];
+}
 
 - (void)viewDidLoad
 {
@@ -42,15 +47,15 @@
 
 -(void)initViewCtrl
 {
-    UITableView *tableView = [[UITableView alloc ] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, SCREEN_HEIGHT) style:UITableViewStylePlain];
+    UITableView *tableView = [[UITableView alloc ] initWithFrame:CGRectMake(0, -20, SCREEN_WIDTH, SCREEN_HEIGHT+20) style:UITableViewStylePlain];
     tableView.delegate = self;
     tableView.dataSource = self;
     tableView.separatorColor = RGB(221, 221, 221);
     [tableView setBackgroundColor:RGB(238, 238, 238)];
     [self.view addSubview:tableView];
     //back button
-    UIButton *btnLogin = [[UIButton alloc ] initWithFrame:CGRectMake(10, 25, 50, 25)];
-    [btnLogin setImage:[UIImage imageNamed:@"ico-return.png"] forState:UIControlStateNormal];
+    UIButton *btnLogin = [[UIButton alloc ] initWithFrame:backButtonFram];
+    [btnLogin setImage:[UIImage imageNamed:@"btn_back.png"] forState:UIControlStateNormal];
     [btnLogin addTarget:self action:@selector(onButtonBack) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:btnLogin];
 }
@@ -70,6 +75,13 @@
     if (cell == nil)
     {
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
+    }
+    if (indexPath.row == 0)
+    {
+        SetViewHeadTableViewCell* cell = [[SetViewHeadTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"SetViewHeadTableViewCell" ];
+        cell.selectionStyle = UITableViewCellSelectionStyleNone;
+        [cell setHeadCellData:netWorkUrl name:@"天r天" cellName:@"personinfo"];
+        return cell;
     }
     //add edit button
     if (indexPath.row == 1)
@@ -94,8 +106,12 @@
         static NSString *showCell = @"TextTableViewCell";
         TextTableViewCell * cell = [[TextTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:showCell];
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
-        [cell setLableText:tModle];
+        [cell setLableText:tModle viewName:@"PersonInfoViewController" cellHegith:40];
         return cell;
+    }
+    if (indexPath.row == 7)
+    {
+         [cell setBackgroundColor:RGB(238, 238, 238)];
     }
     if (indexPath.row == 8)
     {
@@ -111,7 +127,7 @@
 -(CGFloat) tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     if (indexPath.row == 0)
-        return 230;
+        return 250;
     if (indexPath.row == 1)
         return 30;
     if (indexPath.row == 7)

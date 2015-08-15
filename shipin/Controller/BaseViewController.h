@@ -11,7 +11,5 @@
 
 @interface BaseViewController : UIViewController
 
-@property (nonatomic,strong)    ExUINavigationBar       *_navigationBar;
-
 
 @end

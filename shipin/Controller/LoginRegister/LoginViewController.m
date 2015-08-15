@@ -20,11 +20,11 @@
     seconds = 60;
     // Do any additional setup after loading the view.
     UIImageView *imageViewBg = [[UIImageView alloc ] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, SCREEN_HEIGHT)];
-    [imageViewBg setImage:[UIImage imageNamed:@"bg-login.png"] ];
+    [imageViewBg setImage:[UIImage imageNamed:@"image_loginbg.png"] ];
     [self.view addSubview:imageViewBg];
     
     UIImageView *imageViewLogo = [[UIImageView alloc ] initWithFrame:CGRectMake(SCREEN_WIDTH-220, 120, 110, 60)];
-    [imageViewLogo setImage:[UIImage imageNamed:@"logo.png"] ];
+    [imageViewLogo setImage:[UIImage imageNamed:@"image_loginlogo.png"] ];
     [self.view addSubview:imageViewLogo];
     
     UILabel *labelName = [[UILabel alloc ] initWithFrame:CGRectMake(0, imageViewLogo.frame.size.height+imageViewLogo.frame.origin.y+10, SCREEN_WIDTH, 20)];

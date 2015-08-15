@@ -15,6 +15,11 @@
 
 @implementation BaseViewController
 
+-(void) viewDidAppear:(BOOL)animated
+{
+    self.navigationController.interactivePopGestureRecognizer.enabled = NO;
+}
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
