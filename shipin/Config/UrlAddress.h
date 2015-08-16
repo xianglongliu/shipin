@@ -7,7 +7,7 @@
 //
 
 
-#define     URL_SERVERURL   @"http://182.92.102.39"
+#define     URL_SERVERURL   @"http://182.92.102.39/"
 
 #define     URL_SERVERADDRESS   @"http://182.92.102.39:8080"
 //获取验证码

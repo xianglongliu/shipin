@@ -23,5 +23,6 @@
 #import "JSONKit.h"
 #import "AFHTTPRequestOperationManager.h"
 #import "Tool.h"
+#import <MediaPlayer/MediaPlayer.h>
 
 #endif

@@ -10,9 +10,10 @@
 #import "ExUINavigationBar.h"
 #import "DramaModel.h"
 #import "DramaServices.h"
-#import <MediaPlayer/MediaPlayer.h>
+#import "EGORefreshTableHeaderView.h"
+#import "MJRefreshFooterView.h"
 
-@interface ViewController : BaseViewController<UITableViewDataSource,UITableViewDelegate>
+@interface ViewController : BaseViewController<UITableViewDataSource,UITableViewDelegate,EGORefreshTableHeaderDelegate>
 {
     UITableView         *_findTableView;
     UITableView         *_allTableView;
@@ -25,10 +26,16 @@
     UISearchBar         *_searchBar;
     UIButton            *btnNewOnLine,*btnNewHot,*btnNewCollect;
     UIButton            *btnColl;
+    
+    int                             _currentPage;
+    EGORefreshTableHeaderView       *_refreshHeaderView;
+    BOOL                            _reloading;
+//    int                             _pageCount;
+    MJRefreshFooterView             *_pullUpRefresh;
 }
 
 @property (nonatomic,strong)    ExUINavigationBar       *_navigationBar;
 @property (nonatomic,strong)    NSMutableArray          *_arrayVideo;
-
+@property (nonatomic,strong)    NSMutableArray          *_arrayNewVideo;
 
 @end

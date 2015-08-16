@@ -22,8 +22,6 @@
 #define     IS_IOS7                     [[[UIDevice currentDevice]systemVersion] floatValue] >= 7.0
 #define     TABBAR_HEIGHT               (IS_IOS7?54:44)
 #define     STATUSBAR_HEIGHT            (IS_IOS7?20:0)
-//无网络加载默认图片
-#define     DefaultImage                @""
 
 #define     NOTIFITION_SELECTCURDATE                    @"notifition_date"
 //颜色转换
@@ -35,11 +33,16 @@ blue:((float)(rgbValue & 0xFF))/255.0 alpha:1.0]
 #define RGBA(r,g,b,a) [UIColor colorWithRed:r/255.0f green:g/255.0f blue:b/255.0f alpha:a]
 
 #define yellowRgb   RGB(239, 190, 0)
+#define grayRgb   RGB(246, 246, 246)
+#define FontSize    12
+
 //返回按钮宽高
 
 #define backButtonFram  CGRectMake(10, 25, 45, 22)
 
 #define netWorkUrl @"http://f.hiphotos.baidu.com/image/pic/item/42166d224f4a20a4bb6d32c092529822720ed042.jpg"
+//无网络加载默认图片
+#define     DefaultImage                [UIImage imageNamed:@""]
 
 
 

@@ -57,7 +57,7 @@
         //第一行显示头像
         if (hegith == 70)
         {
-            [_imageviewHead sd_setImageWithURL:[NSURL URLWithString:tModle.strRightName] placeholderImage:[UIImage imageNamed:DefaultImage]];
+            [_imageviewHead sd_setImageWithURL:[NSURL URLWithString:tModle.strRightName] placeholderImage:DefaultImage];
             [self.rightLable  setHidden:YES];
         }
         else

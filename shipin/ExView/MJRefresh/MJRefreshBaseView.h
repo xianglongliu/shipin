@@ -57,13 +57,13 @@ typedef void (^RefreshStateChangeBlock)(MJRefreshBaseView *refreshView, MJRefres
     // 父控件一开始的contentInset
     UIEdgeInsets _scrollViewInitInset;
     // 父控件
-     UIScrollView *_scrollView;
+    __weak UIScrollView *_scrollView;
     
     // 子控件
-     UILabel *_lastUpdateTimeLabel;
-	 UILabel *_statusLabel;
-     UIImageView *_arrowImage;
-	 UIActivityIndicatorView *_activityView;
+    __weak UILabel *_lastUpdateTimeLabel;
+	__weak UILabel *_statusLabel;
+    __weak UIImageView *_arrowImage;
+	__weak UIActivityIndicatorView *_activityView;
     
     // 状态
     MJRefreshState _state;
@@ -72,19 +72,19 @@ typedef void (^RefreshStateChangeBlock)(MJRefreshBaseView *refreshView, MJRefres
 // 构造方法
 - (instancetype)initWithScrollView:(UIScrollView *)scrollView;
 // 设置要显示的父控件
-@property (nonatomic, assign) UIScrollView *scrollView;
+@property (nonatomic, weak) UIScrollView *scrollView;
 
 // 内部的控件
-@property (nonatomic, assign, readonly) UILabel *lastUpdateTimeLabel;
-@property (nonatomic, assign, readonly) UILabel *statusLabel;
-@property (nonatomic, assign, readonly) UIImageView *arrowImage;
+@property (nonatomic, weak, readonly) UILabel *lastUpdateTimeLabel;
+@property (nonatomic, weak, readonly) UILabel *statusLabel;
+@property (nonatomic, weak, readonly) UIImageView *arrowImage;
 
 // Block回调
 @property (nonatomic, copy) BeginRefreshingBlock beginRefreshingBlock;
 @property (nonatomic, copy) RefreshStateChangeBlock refreshStateChangeBlock;
 @property (nonatomic, copy) EndRefreshingBlock endStateChangeBlock;
 // 代理
-@property (nonatomic, assign) id<MJRefreshBaseViewDelegate> delegate;
+@property (nonatomic, weak) id<MJRefreshBaseViewDelegate> delegate;
 
 // 是否正在刷新
 @property (nonatomic, readonly, getter=isRefreshing) BOOL refreshing;

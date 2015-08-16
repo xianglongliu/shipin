@@ -19,5 +19,9 @@
 +(void) setLabelSpacing:(UILabel*)label spacing:(float)spacing alignment:(NSTextAlignment)alignment;
 //拼接图片url
 +(NSURL *) stringMerge:(NSString *)imageUrl;
+///计算文字高度
++ (CGSize) CalcString:(NSString *)value fontSize:(UIFont *)fontSize andWidth:(float)width;
++ (CGSize)boundingRectWithSize:(NSString *)text textFont:(UIFont *)font textSize:(CGSize)size;
+
 
 @end

@@ -73,12 +73,6 @@
 #define COCOAPODS_VERSION_MINOR_JSONModel 1
 #define COCOAPODS_VERSION_PATCH_JSONModel 0
 
-// MJRefresh
-#define COCOAPODS_POD_AVAILABLE_MJRefresh
-#define COCOAPODS_VERSION_MAJOR_MJRefresh 1
-#define COCOAPODS_VERSION_MINOR_MJRefresh 4
-#define COCOAPODS_VERSION_PATCH_MJRefresh 6
-
 // MulticastDelegate
 #define COCOAPODS_POD_AVAILABLE_MulticastDelegate
 // This library does not follow semantic-versioning,

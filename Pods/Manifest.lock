@@ -24,7 +24,6 @@ PODS:
   - FVCustomAlertView (0.3.3)
   - JSONKit (1.5pre)
   - JSONModel (1.1.0)
-  - MJRefresh (1.4.6)
   - MulticastDelegate (0.0.1.1)
   - Reachability (3.2)
   - SDWebImage (3.7.2):
@@ -39,7 +38,6 @@ DEPENDENCIES:
   - FVCustomAlertView (~> 0.3.3)
   - JSONKit (~> 1.5pre)
   - JSONModel (~> 1.1.0)
-  - MJRefresh (~> 1.4.6)
   - MulticastDelegate (~> 0.0.1.1)
   - Reachability (~> 3.2)
   - SDWebImage (~> 3.7)
@@ -51,7 +49,6 @@ SPEC CHECKSUMS:
   FVCustomAlertView: 9db3baa8b6b37cbac1d4914539d30a98148de3d5
   JSONKit: bae313ce6a6c444f40489a6c0b023f399888871f
   JSONModel: ec77e9865236a7a09d9cf7668df6b4b328d9ec1d
-  MJRefresh: 2eaa3fd8f67fbb86497840fb0167446f7eb61dc7
   MulticastDelegate: 473589ab16a00612150f8bfd726caac85125e695
   Reachability: 33e18b67625424e47b6cde6d202dce689ad7af96
   SDWebImage: 71b7cdc1d1721d6a82ed62889030225f2c249e29

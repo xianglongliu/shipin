@@ -48,7 +48,7 @@
 {
     DramaPostersModel *posterModle =item.posters[0];
     NSURL *url =[Tool stringMerge:posterModle.poster];
-    [_imageView sd_setImageWithURL:url placeholderImage:[UIImage imageNamed:DefaultImage]];
+    [_imageView sd_setImageWithURL:url placeholderImage:DefaultImage];
     
     [_labelTitle setText:item.name];
     [_labelContent setText:item.brief];

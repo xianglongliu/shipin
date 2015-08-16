@@ -63,7 +63,7 @@
         _labelName.shadowBlur = 2.0f;
         
 //        赋值
-        [_imageViewHead sd_setImageWithURL:[NSURL URLWithString:imageHeadUrl] placeholderImage:[UIImage imageNamed:DefaultImage]];
+        [_imageViewHead sd_setImageWithURL:[NSURL URLWithString:imageHeadUrl] placeholderImage:DefaultImage];
         [_labelName setText:name];
     }
     else
@@ -85,7 +85,7 @@
         _labelName.shadowBlur = 0.1f;
         
 //        赋值
-        [_imageViewHead sd_setImageWithURL:[NSURL URLWithString:imageHeadUrl] placeholderImage:[UIImage imageNamed:DefaultImage]];
+        [_imageViewHead sd_setImageWithURL:[NSURL URLWithString:imageHeadUrl] placeholderImage:DefaultImage];
         [_labelName setText:name];
     }
 

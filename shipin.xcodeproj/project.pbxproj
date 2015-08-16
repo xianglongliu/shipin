@@ -13,6 +13,7 @@
 		EE6845B31B7E025800D6D6F5 /* HttpManager.m in Sources */ = {isa = PBXBuildFile; fileRef = EE6845AE1B7E025800D6D6F5 /* HttpManager.m */; };
 		EE6845B41B7E025800D6D6F5 /* HttpProtocol.m in Sources */ = {isa = PBXBuildFile; fileRef = EE6845B01B7E025800D6D6F5 /* HttpProtocol.m */; };
 		EE6845B51B7E025800D6D6F5 /* HttpResultBase.m in Sources */ = {isa = PBXBuildFile; fileRef = EE6845B21B7E025800D6D6F5 /* HttpResultBase.m */; };
+		EE7242821B809C3300ABBAE6 /* btn_share.png in Resources */ = {isa = PBXBuildFile; fileRef = EE7242811B809C3300ABBAE6 /* btn_share.png */; };
 		EE7944EB1B7F4F070032DF3A /* AboutViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EE7944EA1B7F4F070032DF3A /* AboutViewController.m */; };
 		EE7944EE1B7F4F2E0032DF3A /* FeedBackViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EE7944ED1B7F4F2E0032DF3A /* FeedBackViewController.m */; };
 		EE7944F11B7F4F420032DF3A /* UseHelpViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EE7944F01B7F4F420032DF3A /* UseHelpViewController.m */; };
@@ -64,6 +65,24 @@
 		EEDC18491B8038FC0013E61B /* image_mobile.png in Resources */ = {isa = PBXBuildFile; fileRef = EEDC18471B8038FC0013E61B /* image_mobile.png */; };
 		EEDC184C1B803EC20013E61B /* WifiViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EEDC184B1B803EC20013E61B /* WifiViewController.m */; };
 		EEDC184F1B803F130013E61B /* NoWifiViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EEDC184E1B803F130013E61B /* NoWifiViewController.m */; };
+		EEDC185C1B805F0A0013E61B /* MJRefresh.bundle in Resources */ = {isa = PBXBuildFile; fileRef = EEDC18521B805F0A0013E61B /* MJRefresh.bundle */; };
+		EEDC185D1B805F0A0013E61B /* MJRefreshBaseView.m in Sources */ = {isa = PBXBuildFile; fileRef = EEDC18551B805F0A0013E61B /* MJRefreshBaseView.m */; };
+		EEDC185E1B805F0A0013E61B /* MJRefreshConst.m in Sources */ = {isa = PBXBuildFile; fileRef = EEDC18571B805F0A0013E61B /* MJRefreshConst.m */; };
+		EEDC185F1B805F0A0013E61B /* MJRefreshFooterView.m in Sources */ = {isa = PBXBuildFile; fileRef = EEDC18591B805F0A0013E61B /* MJRefreshFooterView.m */; };
+		EEDC18601B805F0A0013E61B /* MJRefreshHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = EEDC185B1B805F0A0013E61B /* MJRefreshHeaderView.m */; };
+		EEDC186D1B805F160013E61B /* blackArrow.png in Resources */ = {isa = PBXBuildFile; fileRef = EEDC18611B805F160013E61B /* blackArrow.png */; };
+		EEDC186E1B805F160013E61B /* blackArrow@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = EEDC18621B805F160013E61B /* blackArrow@2x.png */; };
+		EEDC186F1B805F160013E61B /* blueArrow.png in Resources */ = {isa = PBXBuildFile; fileRef = EEDC18631B805F160013E61B /* blueArrow.png */; };
+		EEDC18701B805F160013E61B /* blueArrow@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = EEDC18641B805F160013E61B /* blueArrow@2x.png */; };
+		EEDC18711B805F160013E61B /* CircleView.m in Sources */ = {isa = PBXBuildFile; fileRef = EEDC18661B805F160013E61B /* CircleView.m */; };
+		EEDC18721B805F160013E61B /* EGORefreshTableHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = EEDC18681B805F160013E61B /* EGORefreshTableHeaderView.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		EEDC18731B805F160013E61B /* grayArrow.png in Resources */ = {isa = PBXBuildFile; fileRef = EEDC18691B805F160013E61B /* grayArrow.png */; };
+		EEDC18741B805F160013E61B /* grayArrow@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = EEDC186A1B805F160013E61B /* grayArrow@2x.png */; };
+		EEDC18751B805F160013E61B /* whiteArrow.png in Resources */ = {isa = PBXBuildFile; fileRef = EEDC186B1B805F160013E61B /* whiteArrow.png */; };
+		EEDC18761B805F160013E61B /* whiteArrow@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = EEDC186C1B805F160013E61B /* whiteArrow@2x.png */; };
+		EEDC18791B8068C00013E61B /* DramaDetialViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EEDC18781B8068C00013E61B /* DramaDetialViewController.m */; };
+		EEDC187C1B806F240013E61B /* DetialHeadTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = EEDC187B1B806F240013E61B /* DetialHeadTableViewCell.m */; };
+		EEDC187F1B8086B90013E61B /* DramaDetialTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = EEDC187E1B8086B90013E61B /* DramaDetialTableViewCell.m */; };
 		EEDCB5C51B6335ED00EB9135 /* Config.m in Sources */ = {isa = PBXBuildFile; fileRef = EEDCB5C11B6335ED00EB9135 /* Config.m */; };
 		EEDCB5C91B63392700EB9135 /* ExUINavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = EEDCB5C81B63392700EB9135 /* ExUINavigationController.m */; };
 		EEDCB5CC1B63398D00EB9135 /* ExUINavigationBar.m in Sources */ = {isa = PBXBuildFile; fileRef = EEDCB5CB1B63398D00EB9135 /* ExUINavigationBar.m */; };
@@ -98,6 +117,7 @@
 		EE6845B11B7E025800D6D6F5 /* HttpResultBase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HttpResultBase.h; path = Network/HttpResultBase.h; sourceTree = "<group>"; };
 		EE6845B21B7E025800D6D6F5 /* HttpResultBase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = HttpResultBase.m; path = Network/HttpResultBase.m; sourceTree = "<group>"; };
 		EE7184301B58EA9D00C4EF24 /* shipin.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = shipin.pch; sourceTree = "<group>"; };
+		EE7242811B809C3300ABBAE6 /* btn_share.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = btn_share.png; path = Resource/Button/btn_share.png; sourceTree = "<group>"; };
 		EE7944E91B7F4F070032DF3A /* AboutViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AboutViewController.h; path = Controller/User/AboutViewController.h; sourceTree = "<group>"; };
 		EE7944EA1B7F4F070032DF3A /* AboutViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AboutViewController.m; path = Controller/User/AboutViewController.m; sourceTree = "<group>"; };
 		EE7944EC1B7F4F2E0032DF3A /* FeedBackViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FeedBackViewController.h; path = Controller/User/FeedBackViewController.h; sourceTree = "<group>"; };
@@ -191,6 +211,34 @@
 		EEDC184B1B803EC20013E61B /* WifiViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = WifiViewController.m; path = Controller/WifiViewController.m; sourceTree = "<group>"; };
 		EEDC184D1B803F130013E61B /* NoWifiViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NoWifiViewController.h; path = Controller/NoWifiViewController.h; sourceTree = "<group>"; };
 		EEDC184E1B803F130013E61B /* NoWifiViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NoWifiViewController.m; path = Controller/NoWifiViewController.m; sourceTree = "<group>"; };
+		EEDC18521B805F0A0013E61B /* MJRefresh.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = MJRefresh.bundle; path = ExView/MJRefresh/MJRefresh.bundle; sourceTree = "<group>"; };
+		EEDC18531B805F0A0013E61B /* MJRefresh.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MJRefresh.h; path = ExView/MJRefresh/MJRefresh.h; sourceTree = "<group>"; };
+		EEDC18541B805F0A0013E61B /* MJRefreshBaseView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MJRefreshBaseView.h; path = ExView/MJRefresh/MJRefreshBaseView.h; sourceTree = "<group>"; };
+		EEDC18551B805F0A0013E61B /* MJRefreshBaseView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MJRefreshBaseView.m; path = ExView/MJRefresh/MJRefreshBaseView.m; sourceTree = "<group>"; };
+		EEDC18561B805F0A0013E61B /* MJRefreshConst.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MJRefreshConst.h; path = ExView/MJRefresh/MJRefreshConst.h; sourceTree = "<group>"; };
+		EEDC18571B805F0A0013E61B /* MJRefreshConst.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MJRefreshConst.m; path = ExView/MJRefresh/MJRefreshConst.m; sourceTree = "<group>"; };
+		EEDC18581B805F0A0013E61B /* MJRefreshFooterView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MJRefreshFooterView.h; path = ExView/MJRefresh/MJRefreshFooterView.h; sourceTree = "<group>"; };
+		EEDC18591B805F0A0013E61B /* MJRefreshFooterView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MJRefreshFooterView.m; path = ExView/MJRefresh/MJRefreshFooterView.m; sourceTree = "<group>"; };
+		EEDC185A1B805F0A0013E61B /* MJRefreshHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MJRefreshHeaderView.h; path = ExView/MJRefresh/MJRefreshHeaderView.h; sourceTree = "<group>"; };
+		EEDC185B1B805F0A0013E61B /* MJRefreshHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MJRefreshHeaderView.m; path = ExView/MJRefresh/MJRefreshHeaderView.m; sourceTree = "<group>"; };
+		EEDC18611B805F160013E61B /* blackArrow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = blackArrow.png; path = ExView/RefreshTableHeaderView/blackArrow.png; sourceTree = "<group>"; };
+		EEDC18621B805F160013E61B /* blackArrow@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "blackArrow@2x.png"; path = "ExView/RefreshTableHeaderView/blackArrow@2x.png"; sourceTree = "<group>"; };
+		EEDC18631B805F160013E61B /* blueArrow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = blueArrow.png; path = ExView/RefreshTableHeaderView/blueArrow.png; sourceTree = "<group>"; };
+		EEDC18641B805F160013E61B /* blueArrow@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "blueArrow@2x.png"; path = "ExView/RefreshTableHeaderView/blueArrow@2x.png"; sourceTree = "<group>"; };
+		EEDC18651B805F160013E61B /* CircleView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CircleView.h; path = ExView/RefreshTableHeaderView/CircleView.h; sourceTree = "<group>"; };
+		EEDC18661B805F160013E61B /* CircleView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CircleView.m; path = ExView/RefreshTableHeaderView/CircleView.m; sourceTree = "<group>"; };
+		EEDC18671B805F160013E61B /* EGORefreshTableHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EGORefreshTableHeaderView.h; path = ExView/RefreshTableHeaderView/EGORefreshTableHeaderView.h; sourceTree = "<group>"; };
+		EEDC18681B805F160013E61B /* EGORefreshTableHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = EGORefreshTableHeaderView.m; path = ExView/RefreshTableHeaderView/EGORefreshTableHeaderView.m; sourceTree = "<group>"; };
+		EEDC18691B805F160013E61B /* grayArrow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = grayArrow.png; path = ExView/RefreshTableHeaderView/grayArrow.png; sourceTree = "<group>"; };
+		EEDC186A1B805F160013E61B /* grayArrow@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "grayArrow@2x.png"; path = "ExView/RefreshTableHeaderView/grayArrow@2x.png"; sourceTree = "<group>"; };
+		EEDC186B1B805F160013E61B /* whiteArrow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = whiteArrow.png; path = ExView/RefreshTableHeaderView/whiteArrow.png; sourceTree = "<group>"; };
+		EEDC186C1B805F160013E61B /* whiteArrow@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "whiteArrow@2x.png"; path = "ExView/RefreshTableHeaderView/whiteArrow@2x.png"; sourceTree = "<group>"; };
+		EEDC18771B8068C00013E61B /* DramaDetialViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DramaDetialViewController.h; path = Controller/Drama/DramaDetialViewController.h; sourceTree = "<group>"; };
+		EEDC18781B8068C00013E61B /* DramaDetialViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DramaDetialViewController.m; path = Controller/Drama/DramaDetialViewController.m; sourceTree = "<group>"; };
+		EEDC187A1B806F240013E61B /* DetialHeadTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DetialHeadTableViewCell.h; path = Controller/Drama/DetialHeadTableViewCell.h; sourceTree = "<group>"; };
+		EEDC187B1B806F240013E61B /* DetialHeadTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DetialHeadTableViewCell.m; path = Controller/Drama/DetialHeadTableViewCell.m; sourceTree = "<group>"; };
+		EEDC187D1B8086B90013E61B /* DramaDetialTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DramaDetialTableViewCell.h; path = Controller/Drama/DramaDetialTableViewCell.h; sourceTree = "<group>"; };
+		EEDC187E1B8086B90013E61B /* DramaDetialTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DramaDetialTableViewCell.m; path = Controller/Drama/DramaDetialTableViewCell.m; sourceTree = "<group>"; };
 		EEDCB5C01B6335ED00EB9135 /* Config.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Config.h; path = Config/Config.h; sourceTree = "<group>"; };
 		EEDCB5C11B6335ED00EB9135 /* Config.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Config.m; path = Config/Config.m; sourceTree = "<group>"; };
 		EEDCB5C21B6335ED00EB9135 /* Macro.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Macro.h; path = Config/Macro.h; sourceTree = "<group>"; };
@@ -426,9 +474,15 @@
 			isa = PBXGroup;
 			children = (
 				EE908C381B7EEBA700505B82 /* AllTableViewCell.h */,
+				EEDC187A1B806F240013E61B /* DetialHeadTableViewCell.h */,
+				EEDC187D1B8086B90013E61B /* DramaDetialTableViewCell.h */,
+				EEDC18771B8068C00013E61B /* DramaDetialViewController.h */,
 				EE908C2F1B7EEB7D00505B82 /* FindTableViewCell.h */,
 				EE908C331B7EEB7D00505B82 /* ViewController.h */,
 				EE908C391B7EEBA700505B82 /* AllTableViewCell.m */,
+				EEDC187B1B806F240013E61B /* DetialHeadTableViewCell.m */,
+				EEDC187E1B8086B90013E61B /* DramaDetialTableViewCell.m */,
+				EEDC18781B8068C00013E61B /* DramaDetialViewController.m */,
 				EE908C301B7EEB7D00505B82 /* FindTableViewCell.m */,
 				EE908C341B7EEB7D00505B82 /* ViewController.m */,
 			);
@@ -490,6 +544,7 @@
 		EE908C491B7F072500505B82 /* Button */ = {
 			isa = PBXGroup;
 			children = (
+				EE7242811B809C3300ABBAE6 /* btn_share.png */,
 				EE7944F91B7F57B10032DF3A /* btn_addpublish.png */,
 				EE908C4A1B7F072F00505B82 /* btn_back.png */,
 			);
@@ -507,6 +562,42 @@
 			name = SystemMsg;
 			sourceTree = "<group>";
 		};
+		EEDC18501B805EFC0013E61B /* MJRefresh */ = {
+			isa = PBXGroup;
+			children = (
+				EEDC18521B805F0A0013E61B /* MJRefresh.bundle */,
+				EEDC18531B805F0A0013E61B /* MJRefresh.h */,
+				EEDC18541B805F0A0013E61B /* MJRefreshBaseView.h */,
+				EEDC18551B805F0A0013E61B /* MJRefreshBaseView.m */,
+				EEDC18561B805F0A0013E61B /* MJRefreshConst.h */,
+				EEDC18571B805F0A0013E61B /* MJRefreshConst.m */,
+				EEDC18581B805F0A0013E61B /* MJRefreshFooterView.h */,
+				EEDC18591B805F0A0013E61B /* MJRefreshFooterView.m */,
+				EEDC185A1B805F0A0013E61B /* MJRefreshHeaderView.h */,
+				EEDC185B1B805F0A0013E61B /* MJRefreshHeaderView.m */,
+			);
+			name = MJRefresh;
+			sourceTree = "<group>";
+		};
+		EEDC18511B805F010013E61B /* RefreshTableHeaderView */ = {
+			isa = PBXGroup;
+			children = (
+				EEDC18611B805F160013E61B /* blackArrow.png */,
+				EEDC18621B805F160013E61B /* blackArrow@2x.png */,
+				EEDC18631B805F160013E61B /* blueArrow.png */,
+				EEDC18641B805F160013E61B /* blueArrow@2x.png */,
+				EEDC18651B805F160013E61B /* CircleView.h */,
+				EEDC18661B805F160013E61B /* CircleView.m */,
+				EEDC18671B805F160013E61B /* EGORefreshTableHeaderView.h */,
+				EEDC18681B805F160013E61B /* EGORefreshTableHeaderView.m */,
+				EEDC18691B805F160013E61B /* grayArrow.png */,
+				EEDC186A1B805F160013E61B /* grayArrow@2x.png */,
+				EEDC186B1B805F160013E61B /* whiteArrow.png */,
+				EEDC186C1B805F160013E61B /* whiteArrow@2x.png */,
+			);
+			name = RefreshTableHeaderView;
+			sourceTree = "<group>";
+		};
 		EEDCB5BF1B6335CD00EB9135 /* Config */ = {
 			isa = PBXGroup;
 			children = (
@@ -521,6 +612,8 @@
 		EEDCB5C61B63391000EB9135 /* ExView */ = {
 			isa = PBXGroup;
 			children = (
+				EEDC18511B805F010013E61B /* RefreshTableHeaderView */,
+				EEDC18501B805EFC0013E61B /* MJRefresh */,
 				EE908C4E1B7F0DDF00505B82 /* FXLabel.h */,
 				EE908C4F1B7F0DDF00505B82 /* FXLabel.m */,
 				EEDCB5CA1B63398D00EB9135 /* ExUINavigationBar.h */,
@@ -661,17 +754,27 @@
 			files = (
 				EEDCB5D31B633E4200EB9135 /* navigationbar.png in Resources */,
 				EE908C471B7F071700505B82 /* image_loginlogo.png in Resources */,
+				EEDC18731B805F160013E61B /* grayArrow.png in Resources */,
+				EEDC18751B805F160013E61B /* whiteArrow.png in Resources */,
 				EEDC18481B8038FC0013E61B /* image_computer.png in Resources */,
+				EEDC186F1B805F160013E61B /* blueArrow.png in Resources */,
+				EE7242821B809C3300ABBAE6 /* btn_share.png in Resources */,
 				EE908C481B7F071700505B82 /* image_personhead.png in Resources */,
 				EE87D21D1B58ADA4002A0DD8 /* Images.xcassets in Resources */,
 				EE8069FC1B7F15850098DA30 /* image_heart.png in Resources */,
 				EE8069FA1B7F148B0098DA30 /* image_collection.png in Resources */,
 				EE908C461B7F071700505B82 /* image_loginbg.png in Resources */,
+				EEDC185C1B805F0A0013E61B /* MJRefresh.bundle in Resources */,
+				EEDC18701B805F160013E61B /* blueArrow@2x.png in Resources */,
+				EEDC18741B805F160013E61B /* grayArrow@2x.png in Resources */,
+				EEDC186D1B805F160013E61B /* blackArrow.png in Resources */,
 				EE908C451B7F071700505B82 /* image_head.png in Resources */,
 				EE7944FA1B7F57B10032DF3A /* btn_addpublish.png in Resources */,
 				D5FEE0141B770EB000E8AC03 /* uncheckgoods.png in Resources */,
 				D5FEE0131B770EB000E8AC03 /* uncheckawardblack.png in Resources */,
 				EE908C4C1B7F072F00505B82 /* btn_back.png in Resources */,
+				EEDC186E1B805F160013E61B /* blackArrow@2x.png in Resources */,
+				EEDC18761B805F160013E61B /* whiteArrow@2x.png in Resources */,
 				EEDC18491B8038FC0013E61B /* image_mobile.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -727,6 +830,7 @@
 				EE908C371B7EEB7D00505B82 /* ViewController.m in Sources */,
 				EEABE3A81B7F494C00C06C3A /* SystemMsgTableViewCell.m in Sources */,
 				EE908C501B7F0DDF00505B82 /* FXLabel.m in Sources */,
+				EEDC187C1B806F240013E61B /* DetialHeadTableViewCell.m in Sources */,
 				EE908C281B7EEB5E00505B82 /* EditPersonViewController.m in Sources */,
 				EEDC184C1B803EC20013E61B /* WifiViewController.m in Sources */,
 				EE20D6551B7F1347001B2E92 /* SetViewHeadTableViewCell.m in Sources */,
@@ -736,17 +840,20 @@
 				EE908C2E1B7EEB6600505B82 /* LoginViewController.m in Sources */,
 				EEDC18421B8032A80013E61B /* NetWorkState.m in Sources */,
 				EE908C1B1B7ED68100505B82 /* SimilaritiesModel.m in Sources */,
+				EEDC18791B8068C00013E61B /* DramaDetialViewController.m in Sources */,
 				EE908C031B7ED66F00505B82 /* DramaServices.m in Sources */,
 				EE908C151B7ED68100505B82 /* DramaModel.m in Sources */,
 				EEABE3A21B7F478600C06C3A /* SystemMsgViewController.m in Sources */,
 				EE6845B31B7E025800D6D6F5 /* HttpManager.m in Sources */,
 				EE908C351B7EEB7D00505B82 /* FindTableViewCell.m in Sources */,
+				EEDC18721B805F160013E61B /* EGORefreshTableHeaderView.m in Sources */,
 				EE7944FD1B7F5BE20032DF3A /* MyPublishModle.m in Sources */,
 				EE6845B41B7E025800D6D6F5 /* HttpProtocol.m in Sources */,
 				EEDCB6131B63864100EB9135 /* Tool.m in Sources */,
 				EE87D2151B58ADA4002A0DD8 /* AppDelegate.m in Sources */,
 				EEDC18451B8036310013E61B /* AddPublishTableViewCell.m in Sources */,
 				EE908C1C1B7ED68100505B82 /* UserModel.m in Sources */,
+				EEDC185E1B805F0A0013E61B /* MJRefreshConst.m in Sources */,
 				EEABE39F1B7F3F1F00C06C3A /* AttentionPeoperTableViewCell.m in Sources */,
 				EEABE3991B7F37FF00C06C3A /* ModifyUserinfoViewController.m in Sources */,
 				EE7944F81B7F56C50032DF3A /* AddPublishViewController.m in Sources */,
@@ -754,6 +861,7 @@
 				EEDC184F1B803F130013E61B /* NoWifiViewController.m in Sources */,
 				EEABE39C1B7F3E2900C06C3A /* AttentionPeoperViewController.m in Sources */,
 				EE908C021B7ED66F00505B82 /* BaseService.m in Sources */,
+				EEDC185D1B805F0A0013E61B /* MJRefreshBaseView.m in Sources */,
 				EE7945001B7F5D5F0032DF3A /* PublishCellTableViewCell.m in Sources */,
 				EE7944EB1B7F4F070032DF3A /* AboutViewController.m in Sources */,
 				EE908C3D1B7EEBB800505B82 /* BaseViewController.m in Sources */,
@@ -763,6 +871,7 @@
 				EE908C291B7EEB5E00505B82 /* PersonInfoViewController.m in Sources */,
 				EEDCB5CC1B63398D00EB9135 /* ExUINavigationBar.m in Sources */,
 				EE7944EE1B7F4F2E0032DF3A /* FeedBackViewController.m in Sources */,
+				EEDC185F1B805F0A0013E61B /* MJRefreshFooterView.m in Sources */,
 				EE908C041B7ED66F00505B82 /* UserService.m in Sources */,
 				EE908C3A1B7EEBA700505B82 /* AllTableViewCell.m in Sources */,
 				EE87D2121B58ADA4002A0DD8 /* main.m in Sources */,
@@ -770,7 +879,10 @@
 				EE908C191B7ED68100505B82 /* MessageModel.m in Sources */,
 				EE908C1A1B7ED68100505B82 /* ScreenShotsModel.m in Sources */,
 				EE908C2B1B7EEB5E00505B82 /* TextTableViewCell.m in Sources */,
+				EEDC18711B805F160013E61B /* CircleView.m in Sources */,
+				EEDC18601B805F0A0013E61B /* MJRefreshHeaderView.m in Sources */,
 				EE908C2A1B7EEB5E00505B82 /* SetViewController.m in Sources */,
+				EEDC187F1B8086B90013E61B /* DramaDetialTableViewCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

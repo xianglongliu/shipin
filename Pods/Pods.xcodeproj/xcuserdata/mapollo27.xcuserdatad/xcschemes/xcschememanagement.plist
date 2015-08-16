@@ -34,11 +34,6 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
-		<key>Pods-MJRefresh.xcscheme</key>
-		<dict>
-			<key>isShown</key>
-			<false/>
-		</dict>
 		<key>Pods-MulticastDelegate.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -67,62 +62,57 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>1DAEEF5DC09FF03B87A6A50B</key>
+		<key>0AE75BB6328AB97974949F71</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>20442131D60C22E2610FDB86</key>
+		<key>275AB170EC7DC358064727C9</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>2AA08E7B3DC6AE3D1E7E0DBE</key>
+		<key>41ADEE8CDA8AC149F18BC286</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>3B34A4AEC6DBECDB99D63F81</key>
+		<key>5206732749FC00C517610D82</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>52D356CC223A04B7DEB6C9FF</key>
+		<key>6D63AAC75C3770DB48BD0D7E</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>5D9FF473467491537A1C24FE</key>
+		<key>867D77C88B476350D71762C0</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>5EC002F77EE52AF35A02985D</key>
+		<key>960155337CE20E9E262A0C09</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>6248BF83BFDD89534A096514</key>
+		<key>B30ADCC3D5A08468B7A5B577</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>6A1D24D4ABDC4739BE6B4071</key>
+		<key>C3E712E068122FC4F7434FF4</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>84263835F4A67189B20CA5B4</key>
+		<key>C7579B78C48910F07FF2C8A5</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>DBBCEC70B4AF63F4D9D6505D</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>DEC8C238F00F5BDD1DB3714B</key>
+		<key>C9CF595F961CC0B0F5382D60</key>
 		<dict>
 			<key>primary</key>
 			<true/>

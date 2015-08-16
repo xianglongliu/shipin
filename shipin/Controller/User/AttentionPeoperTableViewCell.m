@@ -52,7 +52,7 @@
 
 -(void) setItemText:(UserModel *) userModleItem
 {
-    [_imageViewHead  sd_setImageWithURL:[NSURL URLWithString:userModleItem.avatar] placeholderImage:[UIImage imageNamed:DefaultImage]];
+    [_imageViewHead  sd_setImageWithURL:[NSURL URLWithString:userModleItem.avatar] placeholderImage:DefaultImage];
     [_labelName setText:userModleItem.name];
     [_labelCompany setText:userModleItem.corporation];
     [_lableTitle setText:userModleItem.position];

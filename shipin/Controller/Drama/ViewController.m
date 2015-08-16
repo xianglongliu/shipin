@@ -12,6 +12,7 @@
 #import "SetViewController.h"
 #import "SetViewController.h"
 #import "LoginViewController.h"
+#import "DramaDetialViewController.h"
 
 @interface ViewController ()
 
@@ -23,6 +24,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    _currentPage = 1;
     
 //    是否登录
     if (![[Config getLoginFlag ] isEqualToString:@"YES"])
@@ -33,13 +35,80 @@
     else
     {
         [self initViewCtrl];
+        //加载视频数据1代表最新
+        [self loadFindGoodDrama:1];
+      
     }
 }
-//
-//-(void) viewWillAppear:(BOOL)animated
-//{
-//     [self initViewCtrl];
-//}
+
+
+#pragma mark Data Source Loading / Reloading Methods
+- (void)reloadTableViewDataSource
+{
+    _reloading = YES;
+    [self loadFindGoodDrama:_currentPage ];
+}
+- (void)doneLoadingTableViewData
+{
+    //  model should call this when its done loading
+    _reloading = NO;
+    [_refreshHeaderView egoRefreshScrollViewDataSourceDidFinishedLoading:_findTableView];
+}
+
+#pragma mark UIScrollViewDelegate Methods
+- (void)scrollViewDidScroll:(UIScrollView *)scrollView
+{
+    
+    [_refreshHeaderView egoRefreshScrollViewDidScroll:scrollView];
+}
+
+- (void)scrollViewDidEndDragging:(UIScrollView *)scrollView willDecelerate:(BOOL)decelerate
+{
+    [_refreshHeaderView egoRefreshScrollViewDidEndDragging:scrollView];
+}
+
+#pragma mark EGORefreshTableHeaderDelegate Methods
+- (void)egoRefreshTableHeaderDidTriggerRefresh:(EGORefreshTableHeaderView*)view
+{
+    [self reloadTableViewDataSource];
+    [self performSelector:@selector(doneLoadingTableViewData) withObject:nil afterDelay:3.0];
+}
+
+- (BOOL)egoRefreshTableHeaderDataSourceIsLoading:(EGORefreshTableHeaderView*)view
+{
+    return _reloading; // should return if data source model is reloading
+}
+
+- (NSDate*)egoRefreshTableHeaderDataSourceLastUpdated:(EGORefreshTableHeaderView*)view
+{
+    return [NSDate date]; // should return date data source was last changed
+}
+
+#pragma mark -上拉加载更多
+-(void)addFooter
+{
+    __unsafe_unretained ViewController *vc = self;
+    MJRefreshFooterView * footer = [MJRefreshFooterView footer];
+    footer.scrollView = _findTableView;
+    footer.beginRefreshingBlock = ^(MJRefreshBaseView* refreshView)
+    {
+        _currentPage = _currentPage +1;
+        //加载更多数据
+        if( _currentPage == 1 )
+            [self loadFindGoodDrama:1];
+        else
+            [self loadFindGoodDrama:_currentPage ];
+        [vc performSelector:@selector(doneWithView:) withObject:refreshView afterDelay:2.0];
+    };
+    _pullUpRefresh = footer;
+}
+
+-(void)doneWithView:(MJRefreshBaseView*)refreshView
+{
+    [_findTableView reloadData];
+    [refreshView endRefreshing];
+}
+
 -(void) initViewCtrl
 {
     // Do any additional setup after loading the view, typically from a nib.
@@ -101,6 +170,20 @@
     [_allTableView setBackgroundColor:[UIColor blackColor] ];
     [self.view addSubview:_allTableView];
     [_allTableView setHidden:YES];
+
+    //上拉刷新
+    [self addFooter];
+    //下拉刷新
+    if (_refreshHeaderView == nil)
+    {
+        EGORefreshTableHeaderView *headRefreshTableview = [[EGORefreshTableHeaderView alloc]
+                                                           initWithFrame:CGRectMake(0.0f, 0.0f - _findTableView.bounds.size.height,  _findTableView.frame.size.width, _findTableView.bounds.size.height)];
+        headRefreshTableview.delegate = self;
+        [_findTableView addSubview:headRefreshTableview];
+        _refreshHeaderView = headRefreshTableview;
+    }
+    [_refreshHeaderView refreshLastUpdatedDate];
+    
 }
 
 -(void) onButtonPersonalCenter
@@ -193,7 +276,7 @@
         [_allTableView setHidden:YES];
         [_viewColl setHidden:YES];
         //加载发现好剧数据
-        [self loadFindGoodDrama];
+        [self loadFindGoodDrama:1];
     }
     //全部剧目
     if ( sender.tag == 101 )
@@ -206,12 +289,30 @@
     }
 }
 
--(void) loadFindGoodDrama
+#pragma mark 加载好剧数据
+-(void) loadFindGoodDrama:(int )pageNumber
 {
-    [DramaServices pullDramaGoodData:1 success:^(NSArray *array)
+    [DramaServices pullDramaGoodData:pageNumber  success:^(NSArray *array)
     {
-        self._arrayVideo =[[NSMutableArray alloc ] initWithArray:array];
-        [_findTableView reloadData];
+        self._arrayNewVideo =[[NSMutableArray alloc ] initWithArray:array];
+        
+        if (pageNumber  == 1 )
+        {
+            self._arrayVideo = [[NSMutableArray alloc]initWithArray:self._arrayNewVideo];
+             [_findTableView reloadData];
+        }
+        else
+        {
+            if (self._arrayNewVideo.count == 0)
+            {
+                [Tool showWarningTip:@"没有更多数据!" view:self.view time:1];
+            }
+            if (self._arrayNewVideo.count != 0)
+            {
+                [self._arrayVideo addObjectsFromArray:self._arrayNewVideo];
+            }
+        }
+        
     } failure:^(NSDictionary *error)
     {
         [Tool showWarningTip:@"请求数据失败" view:self.view time:2];
@@ -339,9 +440,14 @@
 {
     DramaModel *itemData = [[DramaModel alloc ] init];
     itemData = self._arrayVideo[indexPath.row];
-    //打开播放器
-    MPMoviePlayerViewController *playerView =[[MPMoviePlayerViewController alloc]initWithContentURL:[NSURL URLWithString:itemData.trailerUrl]];
-    [self presentMoviePlayerViewControllerAnimated:playerView];
+    
+    DramaDetialViewController *dramaDetialView = [[DramaDetialViewController alloc ] init];
+    dramaDetialView.dramaModle = itemData;
+    [self.navigationController pushViewController:dramaDetialView animated:YES];
+    
+//    //打开播放器
+//    MPMoviePlayerViewController *playerView =[[MPMoviePlayerViewController alloc]initWithContentURL:[NSURL URLWithString:itemData.trailerUrl]];
+//    [self presentMoviePlayerViewControllerAnimated:playerView];
     
 }
 

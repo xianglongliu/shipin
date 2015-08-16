@@ -48,4 +48,35 @@
     return     [NSURL URLWithString:[[NSString stringWithFormat:@"%@",URL_SERVERURL] stringByAppendingString:imageUrl]];
 }
 
+
+/**
+ @method 获取指定宽度情况ixa，字符串value的高度
+ @param value 待计算的字符串
+ @param fontSize 字体的大小
+ @param andWidth 限制字符串显示区域的宽度
+ @result float 返回的高度
+ */
++ (CGSize) CalcString:(NSString *)value fontSize:(UIFont *)fontSize andWidth:(float)width
+{
+    CGSize sizeToFit =[self boundingRectWithSize:value
+                                        textFont:fontSize
+                                        textSize:CGSizeMake(width, CGFLOAT_MAX)];
+    return sizeToFit;
+}
++ (CGSize)boundingRectWithSize:(NSString *)text textFont:(UIFont *)font textSize:(CGSize)size
+{
+    NSDictionary *attribute = @{NSFontAttributeName: font};
+    
+    CGSize retSize = [text boundingRectWithSize:size
+                                        options:\
+                      NSStringDrawingTruncatesLastVisibleLine |
+                      NSStringDrawingUsesLineFragmentOrigin |
+                      NSStringDrawingUsesFontLeading
+                                     attributes:attribute
+                                        context:nil].size;
+    
+    return retSize;
+}
+
+
 @end
