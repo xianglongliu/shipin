@@ -199,6 +199,77 @@ IMP_SINGLETON(HttpManager)
 
 }
 
+- (void)addHttpRequest:(HttpProtocol *)httpProtocol success:(void (^)(AFHTTPRequestOperation *operation, Boolean *boolean))success failure:(void (^)(AFHTTPRequestOperation *operation, NSString *error))failure {
+
+    {
+
+        NSURLRequest* request = [self createRequest:httpProtocol];
+
+
+        AFHTTPRequestOperation* op = [_manager HTTPRequestOperationWithRequest:request success:^(AFHTTPRequestOperation *operation1, id responseObject1) {
+
+            NSURLRequest* request = [operation1 request];
+            NSLog(@"[%@]%@\nHeader:%@\nBody:%@", request.HTTPMethod, request.URL, request.allHTTPHeaderFields, [[NSString alloc] initWithData:request.HTTPBody  encoding:NSUTF8StringEncoding]);
+
+
+            if (!OBJ_IS_NIL(responseObject1)) {
+
+//                if( !OBJ_IS_NIL([responseObject1 objectForKey:@"code"]) )
+//
+//                {
+                    NSLog(@"Request获取成功");
+
+                    HttpResultBase *resultBase = [[HttpResultBase alloc] init];
+
+                    resultBase.code =[[responseObject1 objectForKey:@"code"] intValue] ;
+
+                    //resultBase.data =[responseObject1 objectForKey:@"data"];
+
+                    if( SUCCESS_CODE == resultBase.code){
+                        NSLog(@"Request获取成功");
+
+                        if( success )
+                            success(operation1, true);
+                    }
+                    else if( 301 == resultBase.code || 302 == resultBase.code  )
+                    {
+                        NSLog(@"重复添加");
+
+                        if( failure )
+                            failure(operation1,@"已添加,不能重复添加");
+                    }
+
+            }
+
+
+
+        } failure:^(AFHTTPRequestOperation *operation2, NSError *error) {
+
+            NSLog(@"Request获取失败");
+
+            NSURLRequest* request = [operation2 request];
+            NSLog(@"[%@]%@\nHeader:%@\nBody:%@\nError:%@", request.HTTPMethod, request.URL, request.allHTTPHeaderFields, [[NSString alloc] initWithData:request.HTTPBody  encoding:NSUTF8StringEncoding],error);
+
+//            @try
+            {
+                if (error.code == -1005) {
+
+                } else {
+                    NSLog(@"Error during connection: %@",error.description);
+                    failure(operation2, @"添加失败");
+                }
+
+                if( failure )
+                    failure(operation2, @"添加失败");
+            }
+
+        }];
+
+        [op start];
+
+    }
+
+}
 
 
 - (void)dealloc

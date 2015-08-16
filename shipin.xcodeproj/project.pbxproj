@@ -58,6 +58,12 @@
 		EEABE39F1B7F3F1F00C06C3A /* AttentionPeoperTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = EEABE39E1B7F3F1F00C06C3A /* AttentionPeoperTableViewCell.m */; };
 		EEABE3A21B7F478600C06C3A /* SystemMsgViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EEABE3A11B7F478600C06C3A /* SystemMsgViewController.m */; };
 		EEABE3A81B7F494C00C06C3A /* SystemMsgTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = EEABE3A71B7F494C00C06C3A /* SystemMsgTableViewCell.m */; };
+		EEDC18421B8032A80013E61B /* NetWorkState.m in Sources */ = {isa = PBXBuildFile; fileRef = EEDC18411B8032A80013E61B /* NetWorkState.m */; };
+		EEDC18451B8036310013E61B /* AddPublishTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = EEDC18441B8036310013E61B /* AddPublishTableViewCell.m */; };
+		EEDC18481B8038FC0013E61B /* image_computer.png in Resources */ = {isa = PBXBuildFile; fileRef = EEDC18461B8038FC0013E61B /* image_computer.png */; };
+		EEDC18491B8038FC0013E61B /* image_mobile.png in Resources */ = {isa = PBXBuildFile; fileRef = EEDC18471B8038FC0013E61B /* image_mobile.png */; };
+		EEDC184C1B803EC20013E61B /* WifiViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EEDC184B1B803EC20013E61B /* WifiViewController.m */; };
+		EEDC184F1B803F130013E61B /* NoWifiViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EEDC184E1B803F130013E61B /* NoWifiViewController.m */; };
 		EEDCB5C51B6335ED00EB9135 /* Config.m in Sources */ = {isa = PBXBuildFile; fileRef = EEDCB5C11B6335ED00EB9135 /* Config.m */; };
 		EEDCB5C91B63392700EB9135 /* ExUINavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = EEDCB5C81B63392700EB9135 /* ExUINavigationController.m */; };
 		EEDCB5CC1B63398D00EB9135 /* ExUINavigationBar.m in Sources */ = {isa = PBXBuildFile; fileRef = EEDCB5CB1B63398D00EB9135 /* ExUINavigationBar.m */; };
@@ -175,6 +181,16 @@
 		EEABE3A11B7F478600C06C3A /* SystemMsgViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SystemMsgViewController.m; path = Controller/User/SystemMsgViewController.m; sourceTree = "<group>"; };
 		EEABE3A61B7F494C00C06C3A /* SystemMsgTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SystemMsgTableViewCell.h; path = Controller/User/SystemMsgTableViewCell.h; sourceTree = "<group>"; };
 		EEABE3A71B7F494C00C06C3A /* SystemMsgTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SystemMsgTableViewCell.m; path = Controller/User/SystemMsgTableViewCell.m; sourceTree = "<group>"; };
+		EEDC18401B8032A80013E61B /* NetWorkState.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NetWorkState.h; path = logic/NetWorkState.h; sourceTree = "<group>"; };
+		EEDC18411B8032A80013E61B /* NetWorkState.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NetWorkState.m; path = logic/NetWorkState.m; sourceTree = "<group>"; };
+		EEDC18431B8036310013E61B /* AddPublishTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AddPublishTableViewCell.h; path = Controller/AddPublishTableViewCell.h; sourceTree = "<group>"; };
+		EEDC18441B8036310013E61B /* AddPublishTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AddPublishTableViewCell.m; path = Controller/AddPublishTableViewCell.m; sourceTree = "<group>"; };
+		EEDC18461B8038FC0013E61B /* image_computer.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = image_computer.png; path = Resource/Image/image_computer.png; sourceTree = "<group>"; };
+		EEDC18471B8038FC0013E61B /* image_mobile.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = image_mobile.png; path = Resource/Image/image_mobile.png; sourceTree = "<group>"; };
+		EEDC184A1B803EC20013E61B /* WifiViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WifiViewController.h; path = Controller/WifiViewController.h; sourceTree = "<group>"; };
+		EEDC184B1B803EC20013E61B /* WifiViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = WifiViewController.m; path = Controller/WifiViewController.m; sourceTree = "<group>"; };
+		EEDC184D1B803F130013E61B /* NoWifiViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NoWifiViewController.h; path = Controller/NoWifiViewController.h; sourceTree = "<group>"; };
+		EEDC184E1B803F130013E61B /* NoWifiViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NoWifiViewController.m; path = Controller/NoWifiViewController.m; sourceTree = "<group>"; };
 		EEDCB5C01B6335ED00EB9135 /* Config.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Config.h; path = Config/Config.h; sourceTree = "<group>"; };
 		EEDCB5C11B6335ED00EB9135 /* Config.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Config.m; path = Config/Config.m; sourceTree = "<group>"; };
 		EEDCB5C21B6335ED00EB9135 /* Macro.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Macro.h; path = Config/Macro.h; sourceTree = "<group>"; };
@@ -302,12 +318,18 @@
 		EE7944F21B7F56350032DF3A /* Publish */ = {
 			isa = PBXGroup;
 			children = (
+				EEDC18431B8036310013E61B /* AddPublishTableViewCell.h */,
 				EE7944F61B7F56C50032DF3A /* AddPublishViewController.h */,
 				EE7944F31B7F56610032DF3A /* MyPublishViewController.h */,
+				EEDC184D1B803F130013E61B /* NoWifiViewController.h */,
 				EE7944FE1B7F5D5F0032DF3A /* PublishCellTableViewCell.h */,
+				EEDC184A1B803EC20013E61B /* WifiViewController.h */,
+				EEDC18441B8036310013E61B /* AddPublishTableViewCell.m */,
 				EE7944F71B7F56C50032DF3A /* AddPublishViewController.m */,
 				EE7944F41B7F56610032DF3A /* MyPublishViewController.m */,
+				EEDC184E1B803F130013E61B /* NoWifiViewController.m */,
 				EE7944FF1B7F5D5F0032DF3A /* PublishCellTableViewCell.m */,
+				EEDC184B1B803EC20013E61B /* WifiViewController.m */,
 			);
 			name = Publish;
 			sourceTree = "<group>";
@@ -453,6 +475,8 @@
 		EE908C3E1B7F05F700505B82 /* Image */ = {
 			isa = PBXGroup;
 			children = (
+				EEDC18461B8038FC0013E61B /* image_computer.png */,
+				EEDC18471B8038FC0013E61B /* image_mobile.png */,
 				EE8069FB1B7F15850098DA30 /* image_heart.png */,
 				EE8069F91B7F148B0098DA30 /* image_collection.png */,
 				EE908C411B7F071700505B82 /* image_head.png */,
@@ -510,6 +534,8 @@
 		EEDCB5D41B633E8B00EB9135 /* logic */ = {
 			isa = PBXGroup;
 			children = (
+				EEDC18401B8032A80013E61B /* NetWorkState.h */,
+				EEDC18411B8032A80013E61B /* NetWorkState.m */,
 				EEDCB5D51B633E9200EB9135 /* ImageUtil.h */,
 				EEDCB5D61B633E9200EB9135 /* ImageUtil.m */,
 			);
@@ -519,13 +545,12 @@
 		EEDCB6091B6366A300EB9135 /* Modle */ = {
 			isa = PBXGroup;
 			children = (
-				EE7944FB1B7F5BE20032DF3A /* MyPublishModle.h */,
-				EE7944FC1B7F5BE20032DF3A /* MyPublishModle.m */,
 				EE908C051B7ED68100505B82 /* DramaModel.h */,
 				EE908C071B7ED68100505B82 /* DramaPostersModel.h */,
 				EE908C091B7ED68100505B82 /* DramaRelativesModel.h */,
 				EE908C0B1B7ED68100505B82 /* FilmModel.h */,
 				EE908C0D1B7ED68100505B82 /* MessageModel.h */,
+				EE7944FB1B7F5BE20032DF3A /* MyPublishModle.h */,
 				EE908C0F1B7ED68100505B82 /* ScreenShotsModel.h */,
 				EE908C111B7ED68100505B82 /* SimilaritiesModel.h */,
 				EE908C131B7ED68100505B82 /* UserModel.h */,
@@ -534,6 +559,7 @@
 				EE908C0A1B7ED68100505B82 /* DramaRelativesModel.m */,
 				EE908C0C1B7ED68100505B82 /* FilmModel.m */,
 				EE908C0E1B7ED68100505B82 /* MessageModel.m */,
+				EE7944FC1B7F5BE20032DF3A /* MyPublishModle.m */,
 				EE908C101B7ED68100505B82 /* ScreenShotsModel.m */,
 				EE908C121B7ED68100505B82 /* SimilaritiesModel.m */,
 				EE908C141B7ED68100505B82 /* UserModel.m */,
@@ -635,6 +661,7 @@
 			files = (
 				EEDCB5D31B633E4200EB9135 /* navigationbar.png in Resources */,
 				EE908C471B7F071700505B82 /* image_loginlogo.png in Resources */,
+				EEDC18481B8038FC0013E61B /* image_computer.png in Resources */,
 				EE908C481B7F071700505B82 /* image_personhead.png in Resources */,
 				EE87D21D1B58ADA4002A0DD8 /* Images.xcassets in Resources */,
 				EE8069FC1B7F15850098DA30 /* image_heart.png in Resources */,
@@ -645,6 +672,7 @@
 				D5FEE0141B770EB000E8AC03 /* uncheckgoods.png in Resources */,
 				D5FEE0131B770EB000E8AC03 /* uncheckawardblack.png in Resources */,
 				EE908C4C1B7F072F00505B82 /* btn_back.png in Resources */,
+				EEDC18491B8038FC0013E61B /* image_mobile.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -700,11 +728,13 @@
 				EEABE3A81B7F494C00C06C3A /* SystemMsgTableViewCell.m in Sources */,
 				EE908C501B7F0DDF00505B82 /* FXLabel.m in Sources */,
 				EE908C281B7EEB5E00505B82 /* EditPersonViewController.m in Sources */,
+				EEDC184C1B803EC20013E61B /* WifiViewController.m in Sources */,
 				EE20D6551B7F1347001B2E92 /* SetViewHeadTableViewCell.m in Sources */,
 				EEDCB5C51B6335ED00EB9135 /* Config.m in Sources */,
 				EE6845B51B7E025800D6D6F5 /* HttpResultBase.m in Sources */,
 				EE7944F51B7F56610032DF3A /* MyPublishViewController.m in Sources */,
 				EE908C2E1B7EEB6600505B82 /* LoginViewController.m in Sources */,
+				EEDC18421B8032A80013E61B /* NetWorkState.m in Sources */,
 				EE908C1B1B7ED68100505B82 /* SimilaritiesModel.m in Sources */,
 				EE908C031B7ED66F00505B82 /* DramaServices.m in Sources */,
 				EE908C151B7ED68100505B82 /* DramaModel.m in Sources */,
@@ -715,11 +745,13 @@
 				EE6845B41B7E025800D6D6F5 /* HttpProtocol.m in Sources */,
 				EEDCB6131B63864100EB9135 /* Tool.m in Sources */,
 				EE87D2151B58ADA4002A0DD8 /* AppDelegate.m in Sources */,
+				EEDC18451B8036310013E61B /* AddPublishTableViewCell.m in Sources */,
 				EE908C1C1B7ED68100505B82 /* UserModel.m in Sources */,
 				EEABE39F1B7F3F1F00C06C3A /* AttentionPeoperTableViewCell.m in Sources */,
 				EEABE3991B7F37FF00C06C3A /* ModifyUserinfoViewController.m in Sources */,
 				EE7944F81B7F56C50032DF3A /* AddPublishViewController.m in Sources */,
 				EE7944F11B7F4F420032DF3A /* UseHelpViewController.m in Sources */,
+				EEDC184F1B803F130013E61B /* NoWifiViewController.m in Sources */,
 				EEABE39C1B7F3E2900C06C3A /* AttentionPeoperViewController.m in Sources */,
 				EE908C021B7ED66F00505B82 /* BaseService.m in Sources */,
 				EE7945001B7F5D5F0032DF3A /* PublishCellTableViewCell.m in Sources */,

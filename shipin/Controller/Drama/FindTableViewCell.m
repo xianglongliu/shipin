@@ -17,6 +17,8 @@
     {
         _imageView = [[UIImageView alloc ] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, 135)];
         [_imageView setBackgroundColor:[UIColor grayColor]];
+        [_imageView setContentMode:UIViewContentModeScaleAspectFill];
+        _imageView.layer.masksToBounds = YES;
         [self addSubview:_imageView];
         
         UILabel *labelBg = [[UILabel alloc ] initWithFrame:CGRectMake(0, _imageView.frame.size.height-45, SCREEN_WIDTH, 45)];
@@ -25,29 +27,31 @@
         
         _labelTitle = [[UILabel alloc ] initWithFrame:CGRectMake(0,  _imageView.frame.size.height-45,SCREEN_WIDTH, 22.5f)];
         [_labelTitle setBackgroundColor:[UIColor clearColor] ];
-        [_labelTitle setText:@"绝迹重生"];
+//        [_labelTitle setText:@"绝迹重生"];
         [_labelTitle setFont:[UIFont systemFontOfSize:12]];
         [_labelTitle setTextColor:[UIColor whiteColor]];
         [_imageView addSubview:_labelTitle];
 
         _labelContent = [[UILabel alloc ] initWithFrame:CGRectMake(0, _imageView.frame.size.height-22.5f, SCREEN_WIDTH, 22.5f)];
         [_labelContent setBackgroundColor:[UIColor clearColor] ];
-        [_labelContent setText:@"verferf"];
-        [_labelContent setFont:[UIFont systemFontOfSize:12]];
+//        [_labelContent setText:@"verferf"];
+        [_labelContent setFont:[UIFont systemFontOfSize:10]];
         [_labelContent setTextColor:RGB(250, 250, 250) ];
         [_imageView addSubview:_labelContent];
         
-      
     }
     return self;
 }
 
 
--(void) setControlData:(FilmModel *)item
+-(void) setControlData:(DramaModel *)item
 {
-//    [_imageView sd_setImageWithURL:item.fileUrl placeholderImage:[UIImage imageNamed:DefaultImage]];
-//    [_labelTitle setText:item.filmTitle];
-//    [_labelContent setText:item.filmContent];
+    DramaPostersModel *posterModle =item.posters[0];
+    NSURL *url =[Tool stringMerge:posterModle.poster];
+    [_imageView sd_setImageWithURL:url placeholderImage:[UIImage imageNamed:DefaultImage]];
+    
+    [_labelTitle setText:item.name];
+    [_labelContent setText:item.brief];
 }
 
 @end

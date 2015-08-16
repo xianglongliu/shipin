@@ -14,6 +14,8 @@
 @property(nonatomic, assign) NSString * method;
 //请求参数
 @property(nonatomic, assign)  NSDictionary* param;
+
+
 //请求token
 @property(nonatomic, assign) NSString * token;
 //请求deviceId

@@ -8,14 +8,6 @@
 
 #import "FilmModel.h"
 
-@implementation FilmModel
-
-NSString        *filmTitle;
-NSString        *filmContent;
-NSURL           *fileUrl;
-
-@end
-
 
 
 @implementation TextModel

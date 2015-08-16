@@ -20,17 +20,12 @@
 
 @property (nonatomic,strong) NSNumber<Optional> *id; //剧目id
 @property (nonatomic,strong) NSNumber<Optional> *uId; //用户id
-
 @property (nonatomic,strong) NSString<Optional> *username; //用户名称
-
 @property (nonatomic,strong) NSString<Optional> *avatar; //用户头像
-
 @property (nonatomic,strong) NSString<Optional> *name; //剧目名称
 @property (nonatomic,strong) NSString<Optional> *brief; //简介
 @property (nonatomic,strong) NSArray<Optional,DramaPostersModel>* posters; //封面图集（view中只取第一张）
 @property (nonatomic,assign) int type; //类型
-
-
 @property (nonatomic,strong) NSString<Optional> *recommend; //推荐语
 @property (nonatomic,strong) DramaOpModel<Optional> *dramaOp; //推荐语
 

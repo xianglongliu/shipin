@@ -7,7 +7,15 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "MyPublishModle.h"
+#import "AddPublishTableViewCell.h"
 
-@interface AddPublishViewController : UIViewController
+
+@interface AddPublishViewController : UIViewController<UITableViewDataSource,UITableViewDelegate>
+{
+    NSMutableArray      *_arrayPublish;
+    UITableView         *_tableView;
+}
+
 
 @end

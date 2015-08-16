@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "FilmModel.h"
+#import "DramaModel.h"
 
 @interface AllTableViewCell : UITableViewCell
 {
@@ -15,6 +15,6 @@
     UIImageView *_imageViewRight;
 }
 
--(void) setControlData:(FilmModel *)item;
+-(void) setControlData:(DramaModel *)item;
 
 @end

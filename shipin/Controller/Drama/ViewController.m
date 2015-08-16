@@ -98,6 +98,7 @@
     _allTableView.dataSource = self;
     _allTableView.scrollEnabled = YES;
     _allTableView.separatorColor = [UIColor clearColor];
+    [_allTableView setBackgroundColor:[UIColor blackColor] ];
     [self.view addSubview:_allTableView];
     [_allTableView setHidden:YES];
 }
@@ -191,6 +192,8 @@
         [_findTableView setHidden:NO];
         [_allTableView setHidden:YES];
         [_viewColl setHidden:YES];
+        //加载发现好剧数据
+        [self loadFindGoodDrama];
     }
     //全部剧目
     if ( sender.tag == 101 )
@@ -202,6 +205,19 @@
         [_viewColl setHidden:NO];
     }
 }
+
+-(void) loadFindGoodDrama
+{
+    [DramaServices pullDramaGoodData:1 success:^(NSArray *array)
+    {
+        self._arrayVideo =[[NSMutableArray alloc ] initWithArray:array];
+        [_findTableView reloadData];
+    } failure:^(NSDictionary *error)
+    {
+        [Tool showWarningTip:@"请求数据失败" view:self.view time:2];
+    }];
+}
+
 
 //新上线，最热门，收藏多
 -(void) onNewLine_hot_coll:(UIButton*) sender
@@ -258,14 +274,22 @@
 #pragma make tableview function
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return 4;
+    if ([tableView isEqual:_findTableView])
+    {
+        return [self._arrayVideo count];
+    }
+    if ([tableView isEqual:_allTableView])
+    {
+        return [self._arrayVideo count]/2;
+    }
+    return 0;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     UITableViewCell *cell ;//=[tableView dequeueReusableCellWithIdentifier:showCell] ;;
     
-    FilmModel *itemData = [[FilmModel alloc ] init];
+    DramaModel *itemData = [[DramaModel alloc ] init];
     itemData = self._arrayVideo[indexPath.row];
     
     if ([tableView isEqual:_findTableView])
@@ -313,11 +337,11 @@
 }
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    FilmModel *itemData = [[FilmModel alloc ] init];
+    DramaModel *itemData = [[DramaModel alloc ] init];
     itemData = self._arrayVideo[indexPath.row];
     //打开播放器
-//    MPMoviePlayerViewController *playerView =[[MPMoviePlayerViewController alloc]initWithContentURL:[NSURL URLWithString:itemData.strItem5]];
-//    [self presentMoviePlayerViewControllerAnimated:playerView];
+    MPMoviePlayerViewController *playerView =[[MPMoviePlayerViewController alloc]initWithContentURL:[NSURL URLWithString:itemData.trailerUrl]];
+    [self presentMoviePlayerViewControllerAnimated:playerView];
     
 }
 

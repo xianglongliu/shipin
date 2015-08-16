@@ -62,5 +62,8 @@ DEF_SINGLETON(HttpManager)
 //http请求
 - (void )httpWithRequest:(HttpProtocol *)httpProtocol success:(void (^)(AFHTTPRequestOperation *operation, id responseObject))success
                                                             failure:(void (^)(AFHTTPRequestOperation *operation, NSError *error))failure;
+//http请求 添加使用
+- (void )addHttpRequest:(HttpProtocol *)httpProtocol success:(void (^)(AFHTTPRequestOperation *operation, Boolean *boolean))success
+                 failure:(void (^)(AFHTTPRequestOperation *operation, NSString *error))failure;
 
 @end

@@ -7,7 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "FilmModel.h"
+#import "DramaModel.h"
+#import "DramaPostersModel.h"
 
 @interface FindTableViewCell : UITableViewCell
 {
@@ -16,6 +17,6 @@
     UILabel         *_labelContent;
 }
 
--(void) setControlData:(FilmModel *)item;
+-(void) setControlData:(DramaModel *)item;
 
 @end

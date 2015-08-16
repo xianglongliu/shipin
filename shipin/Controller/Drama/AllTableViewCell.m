@@ -30,7 +30,7 @@
 }
 
 
--(void) setControlData:(FilmModel *)item
+-(void) setControlData:(DramaModel *)item
 {
     //    [_imageView sd_setImageWithURL:item.fileUrl placeholderImage:[UIImage imageNamed:DefaultImage]];
     //    [_labelTitle setText:item.filmTitle];

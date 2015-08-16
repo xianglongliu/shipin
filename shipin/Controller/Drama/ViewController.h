@@ -8,9 +8,9 @@
 
 #import <UIKit/UIKit.h>
 #import "ExUINavigationBar.h"
-#import "FilmModel.h"
-
-
+#import "DramaModel.h"
+#import "DramaServices.h"
+#import <MediaPlayer/MediaPlayer.h>
 
 @interface ViewController : BaseViewController<UITableViewDataSource,UITableViewDelegate>
 {

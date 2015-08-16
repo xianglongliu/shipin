@@ -15,23 +15,20 @@
 
 IMP_SINGLETON(DramaServices)
 
-
-- (void)pullDramaGoodData:(int)pageNum success:(void (^)(NSArray *array))success failure:(void (^)(NSDictionary *error))failure{
-
++ (void)pullDramaGoodData:(int)pageNum success:(void (^)(NSArray *array))success failure:(void (^)(NSDictionary *error))failure
+{
     NSMutableArray *dramaArray= [[NSMutableArray alloc] init];
-
     NSDictionary* paramDict = @{@"page":@(pageNum)};
 
-      HttpProtocol *httpProtocol = [[HttpProtocol alloc] init];
-
-    httpProtocol.requestUrl=URL_GOODDRAMA;
+    HttpProtocol *httpProtocol = [[HttpProtocol alloc] init];
+    httpProtocol.requestUrl=[NSString stringWithFormat:@"%@",URL_GOODDRAMA];
     httpProtocol.param=paramDict;
     httpProtocol.method=@"get";
     //FIXME 替换token变量
     httpProtocol.token=[Config getToken];
 
-    [[HttpManager sharedInstance] httpWithRequest:httpProtocol success:^(AFHTTPRequestOperation *operation, id responseObject){
-
+    [[HttpManager sharedInstance] httpWithRequest:httpProtocol success:^(AFHTTPRequestOperation *operation, id responseObject)
+    {
         if([responseObject isKindOfClass:[NSDictionary class]])
         {
             NSArray<NSDictionary> *datum = [responseObject objectForKey:@"datum"];
@@ -42,7 +39,6 @@ IMP_SINGLETON(DramaServices)
                     NSLog(@"dramaJson=%@", [drama JSONString]);
                     NSError* err = nil;
                     DramaModel *dramaModel = [[DramaModel alloc] initWithString:[drama JSONString] error:&err];
-
                     if(err!=nil)
                     {
                         NSLog(@"%@",err );
@@ -50,17 +46,15 @@ IMP_SINGLETON(DramaServices)
                     [dramaArray addObject:dramaModel];
                 }
                 if(success)
-                success(dramaArray);
+                    success(dramaArray);
             }
-
         }
-
     } failure:^(AFHTTPRequestOperation *operation, NSError *error){
         failure(@{@"result":error});
     }];
 }
 
-- (void)getDramaDetail:(int)dId success:(void (^)(id dramaModel))success
++ (void)getDramaDetail:(int)dId success:(void (^)(id dramaModel))success
                                 failure:(void (^)( NSDictionary *error))failure{
 
     @try{
@@ -84,9 +78,8 @@ IMP_SINGLETON(DramaServices)
                 {
                     NSLog(@"%@",err );
 
-                }
-                else
-                {
+                } else{
+
                     if(success)
                     {
                         success(dramaModel);
@@ -101,15 +94,16 @@ IMP_SINGLETON(DramaServices)
 
         }];
 
-    }@catch (NSException *exception)
-    {
+
+    }@catch (NSException *exception) {
+
         NSLog(@"initFromServer error:%@", [exception description]);
     }
 
 }
 
 
-- (void)pullAllDramaList:(int)pageNum success:(void (^)(NSArray *array))success failure:(void (^)(NSDictionary *error))failure {
++ (void)pullAllDramaList:(int)pageNum success:(void (^)(NSArray *array))success failure:(void (^)(NSDictionary *error))failure {
 
     NSDictionary* paramDict = @{@"page":@(pageNum)};
 
@@ -134,20 +128,22 @@ IMP_SINGLETON(DramaServices)
                     NSLog(@"dramaJson=%@", [drama JSONString]);
                     NSError* err = nil;
                     DramaModel *dramaModel = [[DramaModel alloc] initWithString:[drama JSONString] error:&err];
+
                     if(err!=nil)
                     {
+
                         NSLog(@"%@",err );
                     }
                     [dramaArray addObject:dramaModel];
                 }
+
                 if(success)
                     success(dramaArray);
             }
 
         }
 
-    } failure:^(AFHTTPRequestOperation *operation, NSError *error)
-    {
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error){
         if(failure)
             failure(@{@"result":error});
     }];

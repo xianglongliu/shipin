@@ -7,7 +7,12 @@
 
 
 @implementation MyPublishModle
-{
 
-}
 @end
+
+
+
+@implementation AddPublishTypeModle
+
+@end
+

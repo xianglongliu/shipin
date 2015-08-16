@@ -9,4 +9,5 @@
 @interface DramaPostersModel : JSONModel
 
 @property (nonatomic,strong) NSString<Optional>*  poster; //图片url
+
 @end

@@ -20,3 +20,19 @@
 
 
 @end
+
+
+
+@interface AddPublishTypeModle : JSONModel
+
+@property (nonatomic,strong) NSString<Optional> *pImage;
+@property (nonatomic,strong) NSString<Optional> *pTypename;
+@property (nonatomic,strong) NSString<Optional> *p1; //发布事项
+@property (nonatomic,strong) NSString<Optional> *p2;
+@property (nonatomic,strong) NSString<Optional> *p3;
+@property (nonatomic,strong) NSString<Optional> *p4;
+
+
+
+@end
+

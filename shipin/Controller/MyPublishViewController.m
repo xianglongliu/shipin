@@ -56,7 +56,8 @@
     [btnAddDrama addTarget:self action:@selector(onButtonAddDrama) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:btnAddDrama];
     
-    
+    //先加载数据
+     [self loadNetWorkData];
     
     _tableView = [[UITableView alloc ] initWithFrame:CGRectMake(0, TABBAR_HEIGHT, SCREEN_WIDTH, SCREEN_HEIGHT-TABBAR_HEIGHT) style:UITableViewStylePlain];
     _tableView.dataSource = self;
@@ -65,7 +66,12 @@
     [_tableView setBackgroundColor:RGBA(238, 238, 238, 1)];
     [self.view addSubview:_tableView];
     
-    [self loadNetWorkData];
+    //如果我的发布为空
+    if ([_arrayDrama count] <= 0)
+    {
+        [_tableView setHidden:YES];
+    }
+    [_tableView reloadData];
 }
 
 
@@ -79,8 +85,6 @@
     myPublishModle.attentionCount = @"2015";
     
     [_arrayDrama addObject:myPublishModle];
-    [_arrayDrama addObject:myPublishModle];
-    [_tableView reloadData];
 }
 
 
