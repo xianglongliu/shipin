@@ -25,7 +25,7 @@
 -(NSString *) readHelpContent
 {
     NSError *error;
-    NSString *textFileContents = [NSString stringWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"userhelp" ofType:@"t"]
+    NSString *textFileContents = [NSString stringWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"use" ofType:@"txt"]
                                                            encoding:NSUTF8StringEncoding
                                                             error:&error];
     if (textFileContents == nil)

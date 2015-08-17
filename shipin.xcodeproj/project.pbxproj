@@ -105,6 +105,7 @@
 		EEDCB5D31B633E4200EB9135 /* navigationbar.png in Resources */ = {isa = PBXBuildFile; fileRef = EEDCB5D11B633E4200EB9135 /* navigationbar.png */; };
 		EEDCB5D71B633E9200EB9135 /* ImageUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = EEDCB5D61B633E9200EB9135 /* ImageUtil.m */; };
 		EEDCB6131B63864100EB9135 /* Tool.m in Sources */ = {isa = PBXBuildFile; fileRef = EEDCB6121B63864100EB9135 /* Tool.m */; };
+		EEEE3C9C1B82126D00F87ABE /* use.txt in Resources */ = {isa = PBXBuildFile; fileRef = EEEE3C9B1B82126D00F87ABE /* use.txt */; };
 		F6C58D14318B2DFC028C7873 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 8CAB9D74EF1F717E2A228153 /* libPods.a */; };
 /* End PBXBuildFile section */
 
@@ -285,6 +286,7 @@
 		EEDCB5D61B633E9200EB9135 /* ImageUtil.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ImageUtil.m; path = logic/ImageUtil.m; sourceTree = "<group>"; };
 		EEDCB6111B63864100EB9135 /* Tool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Tool.h; path = Tool/Tool.h; sourceTree = "<group>"; };
 		EEDCB6121B63864100EB9135 /* Tool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Tool.m; path = Tool/Tool.m; sourceTree = "<group>"; };
+		EEEE3C9B1B82126D00F87ABE /* use.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = use.txt; path = Resource/use.txt; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -361,6 +363,7 @@
 		EE71843A1B58F49700C4EF24 /* Resource */ = {
 			isa = PBXGroup;
 			children = (
+				EEEE3C9B1B82126D00F87ABE /* use.txt */,
 				EE726FB21B81AEA600C66CF9 /* 640_1136.png */,
 				EE726FB31B81AEA600C66CF9 /* 640.png */,
 				EE726FAF1B81A0C400C66CF9 /* Default-568h@2x.png */,
@@ -839,6 +842,7 @@
 				EE908C451B7F071700505B82 /* image_head.png in Resources */,
 				EE7944FA1B7F57B10032DF3A /* btn_addpublish.png in Resources */,
 				D5FEE0141B770EB000E8AC03 /* uncheckgoods.png in Resources */,
+				EEEE3C9C1B82126D00F87ABE /* use.txt in Resources */,
 				D5FEE0131B770EB000E8AC03 /* uncheckawardblack.png in Resources */,
 				EE908C4C1B7F072F00505B82 /* btn_back.png in Resources */,
 				EE726FB11B81A0C400C66CF9 /* Default-568h@2x.png in Resources */,
