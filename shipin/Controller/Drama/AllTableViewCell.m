@@ -16,25 +16,152 @@
     self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
     if (self)
     {
-        _imageViewLeft = [[UIImageView alloc ] initWithFrame:CGRectMake(10, 10, (SCREEN_WIDTH-30)/2, (SCREEN_WIDTH-30)/2-35)];
+        [self setBackgroundColor:RGB(238, 238, 238)];
+        
+        UILabel *_labelbgLeft = [[UILabel alloc ] initWithFrame:CGRectMake(10, 10, (SCREEN_WIDTH-30)/2, 160)];
+        [_labelbgLeft setBackgroundColor:RGB(250, 250, 250)];
+        [self addSubview:_labelbgLeft];
+        
+        _imageViewLeft = [[UIImageView alloc ] initWithFrame:CGRectMake(10, 10, (SCREEN_WIDTH-30)/2, (SCREEN_WIDTH-30)/2-40)];
         [_imageViewLeft setBackgroundColor:[UIColor grayColor]];
+        _imageViewLeft.layer.masksToBounds = YES;
+        _imageViewLeft.layer.cornerRadius = 3;
+        [_imageViewLeft setContentMode:UIViewContentModeScaleAspectFill];
         [self addSubview:_imageViewLeft];
+        
+        UILabel *labelbgLeft = [[UILabel alloc ] initWithFrame:CGRectMake(10, _imageViewLeft.frame.origin.y+_imageViewLeft.frame.size.height, _imageViewLeft.frame.size.width, 40)];
+        [labelbgLeft setBackgroundColor:RGB(255, 255, 255)];
+        [self addSubview:labelbgLeft];
+        
+        //电影名
+        _labelFilmNameLeft = [[UILabel alloc ] initWithFrame:CGRectMake(15, _imageViewLeft.frame.size.height+_imageViewLeft.frame.origin.y+5, _imageViewLeft.frame.size.width-10, 15)];
+        [_labelFilmNameLeft setBackgroundColor:[UIColor clearColor]];
+        [_labelFilmNameLeft setTextColor:RGB(34, 34, 34)];
+        [_labelFilmNameLeft setFont:[UIFont systemFontOfSize:12]];
+        [self addSubview:_labelFilmNameLeft];
+        //介绍
+        _labelFilmContentLeft = [[UILabel alloc ] initWithFrame:CGRectMake(15, _labelFilmNameLeft.frame.size.height+_labelFilmNameLeft.frame.origin.y+5, _imageViewLeft.frame.size.width-10, 12)];
+        [_labelFilmContentLeft setBackgroundColor:[UIColor clearColor]];
+        [_labelFilmContentLeft setTextColor:RGB(153, 153, 153)];
+        [_labelFilmContentLeft setFont:[UIFont systemFontOfSize:8]];
+        [self addSubview:_labelFilmContentLeft];
+        //阅读数量
+        _labelReadCountLeft= [[UILabel alloc ] initWithFrame:CGRectMake(5, labelbgLeft.frame.size.height+labelbgLeft.frame.origin.y+2, 15, 12)];
+        [_labelReadCountLeft setBackgroundColor:[UIColor clearColor]];
+        [_labelReadCountLeft setTextColor:yellowRgb];
+        [_labelReadCountLeft setFont:[UIFont systemFontOfSize:7]];
+        [_labelReadCountLeft setTextAlignment:NSTextAlignmentRight];
+        [self addSubview:_labelReadCountLeft];
+        
+        UILabel *labelReadNameLeft= [[UILabel alloc ] initWithFrame:CGRectMake(_labelReadCountLeft.frame.origin.x+_labelReadCountLeft.frame.size.width+3, labelbgLeft.frame.size.height+labelbgLeft.frame.origin.y+2, 30, 12)];
+        [labelReadNameLeft setBackgroundColor:[UIColor clearColor]];
+        [labelReadNameLeft setTextColor:RGB(153, 153, 153)];
+        [labelReadNameLeft setFont:[UIFont systemFontOfSize:7]];
+        [labelReadNameLeft setTextAlignment:NSTextAlignmentLeft];
+        [labelReadNameLeft setText:@"阅读"];
+        [self addSubview:labelReadNameLeft];
+        
+        _labelGzCountLeft= [[UILabel alloc ] initWithFrame:CGRectMake(SCREEN_WIDTH/2-40, labelbgLeft.frame.size.height+labelbgLeft.frame.origin.y+2, 15, 12)];
+        [_labelGzCountLeft setBackgroundColor:[UIColor clearColor]];
+        [_labelGzCountLeft setTextColor:yellowRgb];
+        [_labelGzCountLeft setFont:[UIFont systemFontOfSize:7]];
+        [_labelGzCountLeft setTextAlignment:NSTextAlignmentRight];
+        [self addSubview:_labelGzCountLeft];
+        
+        UILabel *labelGzNameLeft= [[UILabel alloc ] initWithFrame:CGRectMake(_labelGzCountLeft.frame.origin.x+_labelGzCountLeft.frame.size.width+3, labelbgLeft.frame.size.height+labelbgLeft.frame.origin.y+2, 30, 12)];
+        [labelGzNameLeft setBackgroundColor:[UIColor clearColor]];
+        [labelGzNameLeft setTextColor:RGB(153, 153, 153)];
+        [labelGzNameLeft setFont:[UIFont systemFontOfSize:7]];
+        [labelGzNameLeft setTextAlignment:NSTextAlignmentLeft];
+        [labelGzNameLeft setText:@"关注"];
+        [self addSubview:labelGzNameLeft];
+        
+//        右侧数据
+        UILabel *_labelbgRight = [[UILabel alloc ] initWithFrame:CGRectMake(_labelbgLeft.frame.size.width+_labelbgLeft.frame.origin.x+10, 10, (SCREEN_WIDTH-30)/2, 160)];
+        [_labelbgRight setBackgroundColor:RGB(250, 250, 250)];
+        [self addSubview:_labelbgRight];
         
         _imageViewRight = [[UIImageView alloc ] initWithFrame:CGRectMake(_imageViewLeft.frame.origin.x+_imageViewLeft.frame.size.width+10, 10, _imageViewLeft.frame.size.width, _imageViewLeft.frame.size.height)];
         [_imageViewRight setBackgroundColor:[UIColor grayColor]];
+        _imageViewRight.layer.masksToBounds = YES;
+        [_imageViewRight setContentMode:UIViewContentModeScaleAspectFill];
+        _imageViewRight.layer.cornerRadius = 3;
         [self addSubview:_imageViewRight];
         
+        UILabel *labelbgRight = [[UILabel alloc ] initWithFrame:CGRectMake(_imageViewRight.frame.origin.x, _imageViewRight.frame.origin.y+_imageViewLeft.frame.size.height, _imageViewLeft.frame.size.width, 40)];
+        [labelbgRight setBackgroundColor:RGB(255, 255, 255)];
+        [self addSubview:labelbgRight];
+
         
+        _labelFilmNameRight = [[UILabel alloc ] initWithFrame:CGRectMake(_imageViewRight.frame.origin.x+5, _imageViewRight.frame.size.height+_imageViewRight.frame.origin.y+5, _imageViewRight.frame.size.width-10, 15)];
+        [_labelFilmNameRight setBackgroundColor:[UIColor clearColor]];
+        [_labelFilmNameRight setTextColor:RGB(34, 34, 34)];
+        [_labelFilmNameRight setFont:[UIFont systemFontOfSize:12]];
+        [self addSubview:_labelFilmNameRight];
+        
+        _labelFilmContentRight = [[UILabel alloc ] initWithFrame:CGRectMake(_labelFilmNameRight.frame.origin.x, _labelFilmNameRight.frame.size.height+_labelFilmNameRight.frame.origin.y+5, _imageViewLeft.frame.size.width-10, 12)];
+        [_labelFilmContentRight setBackgroundColor:[UIColor clearColor]];
+        [_labelFilmContentRight setTextColor:RGB(153, 153, 153)];
+        [_labelFilmContentRight setFont:[UIFont systemFontOfSize:8]];
+        [self addSubview:_labelFilmContentRight];
+        
+        //阅读数量
+        _labelReadCountRight= [[UILabel alloc ] initWithFrame:CGRectMake(labelbgRight.frame.origin.x, labelbgRight.frame.size.height+labelbgRight.frame.origin.y+2, 15, 12)];
+        [_labelReadCountRight setBackgroundColor:[UIColor clearColor]];
+        [_labelReadCountRight setTextColor:yellowRgb];
+        [_labelReadCountRight setFont:[UIFont systemFontOfSize:7]];
+        [_labelReadCountRight setTextAlignment:NSTextAlignmentRight];
+        [self addSubview:_labelReadCountRight];
+        
+        UILabel *labelReadNameRight= [[UILabel alloc ] initWithFrame:CGRectMake(_labelReadCountRight.frame.origin.x+_labelReadCountRight.frame.size.width+3, labelbgLeft.frame.size.height+labelbgLeft.frame.origin.y+2, 30, 12)];
+        [labelReadNameRight setBackgroundColor:[UIColor clearColor]];
+        [labelReadNameRight setTextColor:RGB(153, 153, 153)];
+        [labelReadNameRight setFont:[UIFont systemFontOfSize:7]];
+        [labelReadNameRight setTextAlignment:NSTextAlignmentLeft];
+        [labelReadNameRight setText:@"阅读"];
+        [self addSubview:labelReadNameRight];
+
+        _labelGzCountRight= [[UILabel alloc ] initWithFrame:CGRectMake(SCREEN_WIDTH-45, labelbgLeft.frame.size.height+labelbgLeft.frame.origin.y+2, 15, 12)];
+        [_labelGzCountRight setBackgroundColor:[UIColor clearColor]];
+        [_labelGzCountRight setTextColor:yellowRgb];
+        [_labelGzCountRight setFont:[UIFont systemFontOfSize:7]];
+        [_labelGzCountRight setTextAlignment:NSTextAlignmentRight];
+        [self addSubview:_labelGzCountRight];
+        
+        UILabel *labelGzNameRight= [[UILabel alloc ] initWithFrame:CGRectMake(_labelGzCountRight.frame.origin.x+_labelGzCountRight.frame.size.width+3, labelbgLeft.frame.size.height+labelbgLeft.frame.origin.y+2, 30, 12)];
+        [labelGzNameRight setBackgroundColor:[UIColor clearColor]];
+        [labelGzNameRight setTextColor:RGB(153, 153, 153)];
+        [labelGzNameRight setFont:[UIFont systemFontOfSize:7]];
+        [labelGzNameRight setTextAlignment:NSTextAlignmentLeft];
+        [labelGzNameRight setText:@"关注"];
+        [self addSubview:labelGzNameRight];
     }
     return self;
 }
 
 
--(void) setControlData:(DramaModel *)item
+-(void) setControlLeftData:(DramaModel *)leftData rightData:(DramaModel *)rightData
 {
-    //    [_imageView sd_setImageWithURL:item.fileUrl placeholderImage:[UIImage imageNamed:DefaultImage]];
-    //    [_labelTitle setText:item.filmTitle];
-    //    [_labelContent setText:item.filmContent];
+//    左面数据
+    DramaPostersModel *posterModle =leftData.posters[0];
+    [_imageViewLeft sd_setImageWithURL:[Tool stringMerge:posterModle.poster] placeholderImage:DefaultImage];
+    [_labelFilmNameLeft setText:leftData.name];
+    [_labelFilmContentLeft setText:leftData.brief];
+    
+    [_labelReadCountLeft setText:[Tool getCount:[leftData.dramaOp.clicks stringValue]] ];
+    [_labelGzCountLeft setText:[Tool getCount:[leftData.dramaOp.collects stringValue]] ];
+    
+//    右面数据
+    posterModle =rightData.posters[0];
+    [_imageViewRight sd_setImageWithURL:[Tool stringMerge:posterModle.poster] placeholderImage:DefaultImage];
+    [_labelFilmNameRight setText:rightData.name];
+    [_labelFilmContentRight setText:rightData.brief];
+    
+    [_labelReadCountRight setText:[Tool getCount:[rightData.dramaOp.clicks stringValue]] ];
+    [_labelGzCountRight setText:[Tool getCount:[rightData.dramaOp.collects stringValue]] ];
+    
+    
+    
 }
 
 

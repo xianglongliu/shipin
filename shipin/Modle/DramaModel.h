@@ -47,8 +47,10 @@
 
 //相关操作
 @interface DramaOpModel : JSONModel
+
 @property (nonatomic,assign) NSNumber<Optional> *collects; //关注数
 @property (nonatomic,assign) NSNumber<Optional> *clicks; //阅读数
+
 @end
 
 

@@ -22,6 +22,7 @@
 ///计算文字高度
 + (CGSize) CalcString:(NSString *)value fontSize:(UIFont *)fontSize andWidth:(float)width;
 + (CGSize)boundingRectWithSize:(NSString *)text textFont:(UIFont *)font textSize:(CGSize)size;
-
+//数量统计，如果为空则=0
++(NSString *) getCount:(NSString *)count;
 
 @end

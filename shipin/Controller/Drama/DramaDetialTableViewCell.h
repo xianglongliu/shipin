@@ -8,6 +8,9 @@
 
 #import <UIKit/UIKit.h>
 #import "DramaModel.h"
+#import "DramaRelativesModel.h"
+#import "SimilaritiesModel.h"
+
 
 @interface DramaDetialTableViewCell : UITableViewCell
 {
@@ -21,6 +24,21 @@
     UILabel     *_labelLangName;
     UILabel     *_labelPlayDate;
     UILabel     *_labelPlayDateName;
+//    相似剧集
+    UILabel     *_labelXsjj;
+    
+    UIImageView *_imageViewLeft;
+    UILabel     *_labelFilmNameLeft;
+    
+    UIImageView *_imageViewCenter;
+    UILabel     *_labelFilmNameCenter;
+    
+    UIImageView *_imageViewRight;
+    UILabel     *_labelFilmNameRight;
+    
+//    相关资料
+    UILabel     *_labelTitle;
+    UILabel     *_labelContent;
     
 }
 @property (nonatomic ,strong) UILabel       *_labelText;
@@ -28,8 +46,10 @@
 
 
 -(void)setIntroductionText:(NSString*)text  headImage:(NSURL*)imageUrl imageHeight:(float)height;
+-(void)setProjectInfo:(DramaModel*)dramaModel;
+-(void)setSimilarDrama:(SimilaritiesModel*)smilaritiesModel;
 
--(void)setIntroductionText:(DramaModel*)dramaModel;
+-(void)setRelatedData:(DramaRelativesModel*)dramaModel;
 
 //初始化cell类
 -(id)initWithReuseIdentifier:(NSString*)reuseIdentifier;

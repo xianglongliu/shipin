@@ -65,7 +65,7 @@ IMP_SINGLETON(DramaServices)
         //FIXME 替换token变量
         httpProtocol.token=[Config getToken];
         httpProtocol.param=paramDict;
-        httpProtocol.requestUrl=URL_DETIAL;
+        httpProtocol.requestUrl=[NSString stringWithFormat:@"%@",URL_DETIAL];
         [[HttpManager sharedInstance] httpWithRequest:httpProtocol success:^(AFHTTPRequestOperation *operation, id responseObject){
 
             if([responseObject isKindOfClass:[NSDictionary class]])
@@ -109,7 +109,7 @@ IMP_SINGLETON(DramaServices)
 
     HttpProtocol *httpProtocol = [[HttpProtocol alloc] init];
 
-    httpProtocol.requestUrl=URL_ALLDRAMA;
+    httpProtocol.requestUrl=[NSString stringWithFormat:@"%@",URL_ALLDRAMA];
     httpProtocol.param=paramDict;
     httpProtocol.method=@"get";
     //FIXME 替换token变量

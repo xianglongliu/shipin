@@ -9,7 +9,6 @@
 #import <UIKit/UIKit.h>
 #import "ExUINavigationBar.h"
 #import "DramaModel.h"
-#import "DramaServices.h"
 #import "EGORefreshTableHeaderView.h"
 #import "MJRefreshFooterView.h"
 
@@ -19,23 +18,24 @@
     UITableView         *_allTableView;
     UIButton            *btnAll;
     UIButton            *btnGood;
-    UIView              *_viewColl;
     BOOL                bIsColl;
-    UIButton            *btnCheck[50];
-    NSArray             *arrCheck;
-    UISearchBar         *_searchBar;
-    UIButton            *btnNewOnLine,*btnNewHot,*btnNewCollect;
-    UIButton            *btnColl;
-    
+    UIButton            *btnSpreadOut;
     int                             _currentPage;
-    EGORefreshTableHeaderView       *_refreshHeaderView;
     BOOL                            _reloading;
-//    int                             _pageCount;
     MJRefreshFooterView             *_pullUpRefresh;
+    EGORefreshTableHeaderView       *_refreshHeaderView;
+    
+    DramaModel *dramaLeft;
+    DramaModel *dramaRight;
+
 }
 
 @property (nonatomic,strong)    ExUINavigationBar       *_navigationBar;
 @property (nonatomic,strong)    NSMutableArray          *_arrayVideo;
 @property (nonatomic,strong)    NSMutableArray          *_arrayNewVideo;
+
+@property (nonatomic,strong)    NSMutableArray          *_arrayAllVideo;
+@property (nonatomic,strong)    NSMutableArray          *_arrayNewAllVideo;
+
 
 @end

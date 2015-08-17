@@ -249,7 +249,8 @@
             }
             if (indexPath.row == 3)//去给应用评分
             {
-                [[UIApplication sharedApplication ] openURL:[NSURL URLWithString:@"www.baidu.com"]];
+                [[UIApplication sharedApplication ] openURL:[NSURL URLWithString:@"http://www.baidu.com"]];
+                
             }
             if (indexPath.row == 4)//关于我们
             {

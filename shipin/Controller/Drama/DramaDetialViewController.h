@@ -10,7 +10,8 @@
 #import "DramaModel.h"
 #import "DetialHeadTableViewCell.h"
 #import "DramaDetialTableViewCell.h"
-
+#import "DramaRelativesModel.h"
+#import "SimilaritiesModel.h"
 
 @interface DramaDetialViewController : BaseViewController<UITableViewDataSource,UITableViewDelegate>
 {

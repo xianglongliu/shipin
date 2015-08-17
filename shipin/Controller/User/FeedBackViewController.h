@@ -9,5 +9,10 @@
 #import <UIKit/UIKit.h>
 
 @interface FeedBackViewController : BaseViewController
-
+{
+    UITextField     *_textFieldName;
+    UITextField     *_textFieldTel;
+    UITextField     *_textFieldEmail;
+    UITextView      *_textView;
+}
 @end

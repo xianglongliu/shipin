@@ -78,5 +78,16 @@
     return retSize;
 }
 
-
++(NSString *) getCount:(NSString *)count
+{
+    if ([count length] == 0)
+    {
+        return @"0";
+    }
+    else
+    {
+        return  count ;
+    }
+    return @"0";
+}
 @end

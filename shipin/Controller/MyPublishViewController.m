@@ -56,8 +56,7 @@
     [btnAddDrama addTarget:self action:@selector(onButtonAddDrama) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:btnAddDrama];
     
-    //先加载数据
-     [self loadNetWorkData];
+    
     
     _tableView = [[UITableView alloc ] initWithFrame:CGRectMake(0, TABBAR_HEIGHT, SCREEN_WIDTH, SCREEN_HEIGHT-TABBAR_HEIGHT) style:UITableViewStylePlain];
     _tableView.dataSource = self;
@@ -71,20 +70,21 @@
     {
         [_tableView setHidden:YES];
     }
-    [_tableView reloadData];
+    //先加载数据
+    [self loadNetWorkData];
 }
-
 
 -(void) loadNetWorkData
 {
-    MyPublishModle *myPublishModle = [[MyPublishModle alloc ] init];
-    myPublishModle.headImage = netWorkUrl;
-    myPublishModle.title = @"消息内容";
-    myPublishModle.content = @"2015年00月00日 11：11：11";
-    myPublishModle.rendCount = @"2000";
-    myPublishModle.attentionCount = @"2015";
-    
-    [_arrayDrama addObject:myPublishModle];
+    [UserService getPublishes:^(NSArray *dramaArray)
+    {
+        _arrayDrama= [[NSMutableArray alloc ] initWithArray:dramaArray];
+        [_tableView reloadData];
+        
+    } failure:^(NSDictionary *error)
+    {
+        
+    }];
 }
 
 

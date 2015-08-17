@@ -8,6 +8,8 @@
 
 #import <UIKit/UIKit.h>
 
-@interface UseHelpViewController : BaseViewController
-
+@interface UseHelpViewController : BaseViewController<UITableViewDataSource,UITableViewDelegate>
+{
+    UITableView     *_tableView;
+}
 @end

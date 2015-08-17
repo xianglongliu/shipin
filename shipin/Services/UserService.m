@@ -18,7 +18,7 @@
 
 IMP_SINGLETON(UserService)
 
-- (void)getUserDetail:(int)uId success:(void (^)(UserModel *userModel))success failure:(void (^)(NSDictionary *error))failure {
++ (void)getUserDetail:(int)uId success:(void (^)(UserModel *userModel))success failure:(void (^)(NSDictionary *error))failure {
 
     NSDictionary* paramDict = @{@"uid":@(uId)};
     HttpProtocol *httpProtocol = [[HttpProtocol alloc] init];
@@ -33,7 +33,7 @@ IMP_SINGLETON(UserService)
         httpProtocol.param=paramDict;
     }
 
-    httpProtocol.requestUrl=URL_USER_DETAIL;
+    httpProtocol.requestUrl=[NSString stringWithFormat:@"%@",URL_USER_DETAIL];
     [[HttpManager sharedInstance] httpWithRequest:httpProtocol success:^(AFHTTPRequestOperation *operation, id responseObject){
 
         if([responseObject isKindOfClass:[NSDictionary class]])
@@ -66,13 +66,10 @@ IMP_SINGLETON(UserService)
 }
 
 
-- (void)getPublishes:(void (^)(NSArray *dramaArray))success failure:(void (^)(NSDictionary *error))failure {
-
-
-
++ (void)getPublishes:(void (^)(NSArray *dramaArray))success failure:(void (^)(NSDictionary *error))failure
+{
     HttpProtocol *httpProtocol = [[HttpProtocol alloc] init];
-
-    httpProtocol.requestUrl=URL_MEPUBLISH;
+    httpProtocol.requestUrl=[NSString stringWithFormat:@"%@",URL_MEPUBLISH];
     httpProtocol.param=nil;
     httpProtocol.method=@"get";
     //FIXME 替换token变量
@@ -113,10 +110,10 @@ IMP_SINGLETON(UserService)
 
 }
 
-- (void)getCollections:(void (^)(NSArray *dramaArray))success failure:(void (^)(NSDictionary *error))failure {
++ (void)getCollections:(void (^)(NSArray *dramaArray))success failure:(void (^)(NSDictionary *error))failure {
 
     HttpProtocol *httpProtocol = [[HttpProtocol alloc] init];
-    httpProtocol.requestUrl=URL_COLLECTION;
+    httpProtocol.requestUrl=[NSString stringWithFormat:@"%@",URL_COLLECTION];
     httpProtocol.param=nil;
     httpProtocol.method=@"get";
     //FIXME 替换token变量
@@ -159,18 +156,18 @@ IMP_SINGLETON(UserService)
 
 }
 
-- (void)getMessages:(void (^)(NSArray *messageArray))success failure:(void (^)(NSDictionary *error))failure {
++(void)getMessages:(void (^)(NSArray *messageArray))success failure:(void (^)(NSDictionary *error))failure {
 
 
     HttpProtocol *httpProtocol = [[HttpProtocol alloc] init];
-    httpProtocol.requestUrl=URL_SYSYTEMMESSAGE;
+    httpProtocol.requestUrl=[NSString stringWithFormat:@"%@",URL_SYSYTEMMESSAGE];
     httpProtocol.param=nil;
     httpProtocol.method=@"get";
     //FIXME 替换token变量
     httpProtocol.token=[Config getToken];
 
-    [[HttpManager sharedInstance] httpWithRequest:httpProtocol success:^(AFHTTPRequestOperation *operation, id responseObject){
-
+    [[HttpManager sharedInstance] httpWithRequest:httpProtocol success:^(AFHTTPRequestOperation *operation, id responseObject)
+    {
         if([responseObject isKindOfClass:[NSArray class]])
         {
             NSArray<NSDictionary> *datum = responseObject;
@@ -206,18 +203,18 @@ IMP_SINGLETON(UserService)
 }
 
 
-- (void)sendPublish:(DramaModel *)dramaModel success:(void (^)(Boolean *boolean))success failure:(void (^)(NSDictionary *error))failure {
++ (void)sendPublish:(DramaModel *)dramaModel success:(void (^)(Boolean *boolean))success failure:(void (^)(NSDictionary *error))failure {
 
 }
 
-- (void)addCollection:(int )dramaId success:(void (^)(Boolean *boolean))success failure:(void (^)(NSString *error))failure
++ (void)addCollection:(int )dramaId success:(void (^)(Boolean *boolean))success failure:(void (^)(NSString *error))failure
 {
 
 
     NSDictionary* paramDict = @{@"did":@(dramaId)};
 
     HttpProtocol *httpProtocol = [[HttpProtocol alloc] init];
-    httpProtocol.requestUrl= URL_ADD_COLLECTION;
+    httpProtocol.requestUrl= [NSString stringWithFormat:@"%@",URL_ADD_COLLECTION];
     httpProtocol.param=paramDict;
     httpProtocol.method=@"post";
     //FIXME 替换token变量
@@ -234,12 +231,12 @@ IMP_SINGLETON(UserService)
     }];
 }
 
-- (void)addFollow:(int )userId success:(void (^)(Boolean *boolean))success failure:(void (^)(NSString *error))failure {
++ (void)addFollow:(int )userId success:(void (^)(Boolean *boolean))success failure:(void (^)(NSString *error))failure {
 
     NSDictionary* paramDict = @{@"toUid":@(userId)};
 
     HttpProtocol *httpProtocol = [[HttpProtocol alloc] init];
-    httpProtocol.requestUrl= URL_ADD_FOLLOW;
+    httpProtocol.requestUrl=[NSString stringWithFormat:@"%@",URL_ADD_FOLLOW];
     httpProtocol.param=paramDict;
     httpProtocol.method=@"post";
     //FIXME 替换token变量
@@ -257,10 +254,10 @@ IMP_SINGLETON(UserService)
 
 }
 
-- (void)getFollows:(void (^)(NSArray *followArray))success failure:(void (^)(NSDictionary *error))failure {
++ (void)getFollows:(void (^)(NSArray *followArray))success failure:(void (^)(NSDictionary *error))failure {
 
     HttpProtocol *httpProtocol = [[HttpProtocol alloc] init];
-    httpProtocol.requestUrl=URL_USER_FOLLOWS;
+    httpProtocol.requestUrl=[NSString stringWithFormat:@"%@",URL_USER_FOLLOWS];
     httpProtocol.param=nil;
     httpProtocol.method=@"get";
     //FIXME 替换token变量

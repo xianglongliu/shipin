@@ -7,6 +7,7 @@
 //
 
 #import "DramaDetialViewController.h"
+#import "PersonInfoViewController.h"
 
 @interface DramaDetialViewController ()
 
@@ -41,7 +42,7 @@
     _tableView = [[UITableView alloc ] initWithFrame:CGRectMake(0, TABBAR_HEIGHT, SCREEN_WIDTH, SCREEN_HEIGHT-TABBAR_HEIGHT) style:UITableViewStylePlain];
     _tableView.dataSource = self;
     _tableView.delegate = self;
-    _tableView.separatorColor = [UIColor redColor] ;
+    _tableView.separatorColor = [UIColor clearColor] ;
     [_tableView setBackgroundColor:RGBA(238, 238, 238, 1)];
     [self.view addSubview:_tableView];
     
@@ -87,7 +88,7 @@
     }
     else if ( clickIndex == 2)
     {
-        return 4;
+        return 2+[self.dramaModle.dramaRelatives count ];
     }
     else
     return 0;
@@ -157,24 +158,30 @@
         
         return cell;
     }
-    else if(indexPath.row == 2 )//节本剧情
+    else if(indexPath.row == 2 )
     {
         if( clickIndex == 0)
         {
             DramaDetialTableViewCell* cell = cell = [[DramaDetialTableViewCell alloc] initWithReuseIdentifier:CellIdentifier];
+             cell.selectionStyle = UITableViewCellSelectionStyleNone;
              [cell setIntroductionText:@"基本剧情简介" headImage:nil imageHeight:0];
-            return cell;
             return cell;
         }
         if( clickIndex == 1)//项目信息
         {
             DramaDetialTableViewCell* cell = cell = [[DramaDetialTableViewCell alloc] initWithReuseIdentifier:CellIdentifier];
-            [cell setIntroductionText:self.dramaModle];
+             cell.selectionStyle = UITableViewCellSelectionStyleNone;
+            [cell setProjectInfo:self.dramaModle];
             return cell;
         }
-        if( clickIndex == 2)//项目信息
+        if( clickIndex == 2)//相关资料
         {
+            DramaDetialTableViewCell* cell = cell = [[DramaDetialTableViewCell alloc] initWithReuseIdentifier:CellIdentifier];
+            cell.selectionStyle = UITableViewCellSelectionStyleNone;
             
+            DramaRelativesModel *dramaRelativesModel =self.dramaModle.dramaRelatives[indexPath.row - 2];
+            [cell setRelatedData:dramaRelativesModel];
+            return cell;
         }
         
     }
@@ -183,24 +190,50 @@
         if( clickIndex == 0)
         {
             DramaDetialTableViewCell* cell = cell = [[DramaDetialTableViewCell alloc] initWithReuseIdentifier:CellIdentifier];
+             cell.selectionStyle = UITableViewCellSelectionStyleNone;
             [cell setIntroductionText:self.dramaModle.brief headImage:nil imageHeight:0];
             return cell;
         }
-        if( clickIndex == 1)
+        if( clickIndex == 1)//相似剧集
         {
             DramaDetialTableViewCell* cell = cell = [[DramaDetialTableViewCell alloc] initWithReuseIdentifier:CellIdentifier];
-            [cell setIntroductionText:@"" headImage:nil imageHeight:0];
+             cell.selectionStyle = UITableViewCellSelectionStyleNone;
+            SimilaritiesModel *similaritiesModel =self.dramaModle.similarities[indexPath.row - 2];
+            [cell setSimilarDrama:similaritiesModel];
+            return cell;
+        }
+        if( clickIndex == 2)//相关资料
+        {
+            DramaDetialTableViewCell* cell = cell = [[DramaDetialTableViewCell alloc] initWithReuseIdentifier:CellIdentifier];
+            cell.selectionStyle = UITableViewCellSelectionStyleNone;
+            
+            DramaRelativesModel *dramaRelativesModel =self.dramaModle.dramaRelatives[indexPath.row - 2];
+            [cell setRelatedData:dramaRelativesModel];
             return cell;
         }
     }
     else
     {
-        //图片
-        DramaDetialTableViewCell* cell = cell = [[DramaDetialTableViewCell alloc] initWithReuseIdentifier:CellIdentifier];
-        DramaPostersModel *posterModle =self.dramaModle.posters[indexPath.row - 4];
-        NSURL *url =[Tool stringMerge:posterModle.poster];
-        [cell setIntroductionText:@"" headImage:url imageHeight:SCREEN_WIDTH-106];
-        return cell;
+         if( clickIndex == 0)//剧情简介
+         {
+             //图片
+             DramaDetialTableViewCell* cell = cell = [[DramaDetialTableViewCell alloc] initWithReuseIdentifier:CellIdentifier];
+             cell.selectionStyle = UITableViewCellSelectionStyleNone;
+             
+             DramaPostersModel *posterModle =self.dramaModle.posters[indexPath.row - 4];
+             NSURL *url =[Tool stringMerge:posterModle.poster];
+             [cell setIntroductionText:@"" headImage:url imageHeight:SCREEN_WIDTH-106];
+             return cell;
+         }
+        if( clickIndex == 2)//相关资料
+        {
+            DramaDetialTableViewCell* cell = cell = [[DramaDetialTableViewCell alloc] initWithReuseIdentifier:CellIdentifier];
+            cell.selectionStyle = UITableViewCellSelectionStyleNone;
+            
+            DramaRelativesModel *dramaRelativesModel =self.dramaModle.dramaRelatives[indexPath.row - 2];
+            [cell setRelatedData:dramaRelativesModel];
+            return cell;
+        }
     }
     return cell;
 }
@@ -289,7 +322,6 @@
         clickIndex = 2;
         [_tableView reloadData];
         
-        
         [btnIntroduction setBackgroundColor:grayRgb];
         [btnIntroduction setTitleColor:RGB(102, 102, 102) forState:UIControlStateNormal];
         [btnProjectInfo setBackgroundColor:grayRgb];
@@ -302,7 +334,11 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    
+    if (indexPath.row == 0)
+    {
+        PersonInfoViewController *personInfoView = [[PersonInfoViewController alloc ] init];
+        [self.navigationController pushViewController:personInfoView animated:YES];
+    }
 }
 
 - (void)didReceiveMemoryWarning

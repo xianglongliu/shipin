@@ -8,13 +8,24 @@
 
 #import <UIKit/UIKit.h>
 #import "DramaModel.h"
+#import "DramaPostersModel.h"
+
 
 @interface AllTableViewCell : UITableViewCell
 {
     UIImageView *_imageViewLeft;
+    UILabel     *_labelFilmNameLeft;
+    UILabel     *_labelFilmContentLeft;
+    UILabel     *_labelReadCountLeft;
+    UILabel     *_labelGzCountLeft;
+    
     UIImageView *_imageViewRight;
+    UILabel     *_labelFilmNameRight;
+    UILabel     *_labelFilmContentRight;
+    UILabel     *_labelReadCountRight;
+    UILabel     *_labelGzCountRight;
 }
 
--(void) setControlData:(DramaModel *)item;
+-(void) setControlLeftData:(DramaModel *)leftData rightData:(DramaModel *)rightData;
 
 @end

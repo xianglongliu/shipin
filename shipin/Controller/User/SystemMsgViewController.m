@@ -25,7 +25,7 @@
 
 -(void) initViewCtrl
 {
-    ExUINavigationBar *navigationBar = [[ExUINavigationBar alloc ] initWithFrameRect:CGRectMake(0, 0, SCREEN_WIDTH, TABBAR_HEIGHT) BGImage:@"navigationbar" StrTitle:@"我关注的人" ];
+    ExUINavigationBar *navigationBar = [[ExUINavigationBar alloc ] initWithFrameRect:CGRectMake(0, 0, SCREEN_WIDTH, TABBAR_HEIGHT) BGImage:@"navigationbar" StrTitle:@"系统消息" ];
     [self.view addSubview:navigationBar];
     
     UIButton *btnBack = [[UIButton alloc ] initWithFrame:backButtonFram];
@@ -46,14 +46,26 @@
 
 -(void) loadNetWorkData
 {
-    MessageModel *systemMsgModle = [[MessageModel alloc ] init];
-    systemMsgModle.title = @"标题";
-    systemMsgModle.msg = @"消息内容";
-    systemMsgModle.createTime = @"2015年00月00日 11：11：11";
-   
-    [_arraySystemMsg addObject:systemMsgModle];
-    [_arraySystemMsg addObject:systemMsgModle];
-    [_tableViewSystemMsg reloadData];
+//    MessageModel *systemMsgModle = [[MessageModel alloc ] init];
+//    systemMsgModle.title = @"标题";
+//    systemMsgModle.msg = @"消息内容";
+//    systemMsgModle.createTime = @"2015年00月00日 11：11：11";
+//   
+//    [_arraySystemMsg addObject:systemMsgModle];
+//    [_arraySystemMsg addObject:systemMsgModle];
+//    [_tableViewSystemMsg reloadData];
+    
+    [UserService getMessages:^(NSArray *messageArray)
+    {
+        _arraySystemMsg =[[NSMutableArray alloc ] initWithArray:messageArray];
+         [_tableViewSystemMsg reloadData];
+        
+    } failure:^(NSDictionary *error)
+    {
+        [Tool showWarningTip:@"加载数据失败" view:self.view time:1];
+    }];
+    
+    
 }
 -(void) onButtonBack
 {

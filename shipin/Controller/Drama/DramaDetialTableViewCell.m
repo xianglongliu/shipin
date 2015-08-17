@@ -25,6 +25,8 @@
 {
     //图片
     self._imageView = [[UIImageView alloc ] initWithFrame:CGRectZero];
+    self._imageView.layer.masksToBounds = YES;
+    [self._imageView setContentMode:UIViewContentModeScaleAspectFill];
     [self addSubview:self._imageView];
     
     //内容
@@ -100,10 +102,63 @@
     [_labelPlayDateName setFont:[UIFont systemFontOfSize:13]];
     [_labelPlayDateName setTextColor:RGB(102, 102, 102)];
     [self addSubview:_labelPlayDateName];
+    
+    _labelXsjj = [[UILabel alloc ] initWithFrame:CGRectZero];
+    [_labelXsjj setBackgroundColor:[UIColor clearColor]];
+    [_labelXsjj setFont:[UIFont boldSystemFontOfSize:13]];
+    [_labelXsjj setTextColor:RGB(102, 102, 102)];
+    [_labelXsjj setText:@"相似剧集"];
+    [self addSubview:_labelXsjj];
+//    相似剧集图片
+    _imageViewLeft = [[UIImageView alloc ] initWithFrame:CGRectZero];
+    _imageViewLeft.layer.masksToBounds = YES;
+    [_imageViewLeft setContentMode:UIViewContentModeScaleAspectFill];
+    [self addSubview:_imageViewLeft];
+    
+    _labelFilmNameLeft = [[UILabel alloc ] initWithFrame:CGRectZero];
+    [_labelFilmNameLeft setBackgroundColor:[UIColor clearColor]];
+    [_labelFilmNameLeft setFont:[UIFont boldSystemFontOfSize:10]];
+    [_labelFilmNameLeft setTextColor:RGB(34, 34, 34)];
+    [self addSubview:_labelFilmNameLeft];
+    
+    _imageViewCenter = [[UIImageView alloc ] initWithFrame:CGRectZero];
+    _imageViewCenter.layer.masksToBounds = YES;
+    [_imageViewCenter setContentMode:UIViewContentModeScaleAspectFill];
+    [self addSubview:_imageViewCenter];
+    
+    _labelFilmNameCenter = [[UILabel alloc ] initWithFrame:CGRectZero];
+    [_labelFilmNameCenter setBackgroundColor:[UIColor clearColor]];
+    [_labelFilmNameCenter setFont:[UIFont boldSystemFontOfSize:10]];
+    [_labelFilmNameCenter setTextColor:RGB(34, 34, 34)];
+    [self addSubview:_labelFilmNameCenter];
+    
+    _imageViewRight = [[UIImageView alloc ] initWithFrame:CGRectZero];
+    _imageViewRight.layer.masksToBounds = YES;
+    [_imageViewRight setContentMode:UIViewContentModeScaleAspectFill];
+    [self addSubview:_imageViewRight];
+    
+    _labelFilmNameRight = [[UILabel alloc ] initWithFrame:CGRectZero];
+    [_labelFilmNameRight setBackgroundColor:[UIColor clearColor]];
+    [_labelFilmNameRight setFont:[UIFont boldSystemFontOfSize:10]];
+    [_labelFilmNameRight setTextColor:RGB(34, 34, 34)];
+    [self addSubview:_labelFilmNameRight];
+    
+//    相关资料
+    _labelTitle = [[UILabel alloc ] initWithFrame:CGRectZero];
+    [_labelTitle setBackgroundColor:[UIColor clearColor]];
+    [_labelTitle setFont:[UIFont systemFontOfSize:13]];
+    [_labelTitle setTextColor:[UIColor blackColor] ];
+    [self addSubview:_labelTitle];
+
+    _labelContent = [[UILabel alloc ] initWithFrame:CGRectZero];
+    [_labelContent setBackgroundColor:[UIColor clearColor]];
+    [_labelContent setFont:[UIFont systemFontOfSize:10]];
+    [_labelContent setTextColor:RGB(102, 102, 102)];
+    [self addSubview:_labelContent];
 
 }
 
-//赋值 and 自动换行,计算出cell的高度
+//剧情简介
 -(void)setIntroductionText:(NSString*)text  headImage:(NSURL*)imageUrl imageHeight:(float)height
 {   
     //获得当前cell高度
@@ -123,8 +178,8 @@
     self.frame = frame;
 }
 
-
--(void)setIntroductionText:(DramaModel*)dramaModel
+//电影信息
+-(void)setProjectInfo:(DramaModel*)dramaModel
 {
 //    设置坐标
     _labelDir.frame  = CGRectMake(20, 20, 30, 18);
@@ -147,8 +202,44 @@
     [_labelPlaceName setText:dramaModel.district];
     [_labelLangName setText:dramaModel.language];
     [_labelPlayDateName setText:dramaModel.premiere];
-    
 
 }
 
+//相似剧集
+-(void)setSimilarDrama:(SimilaritiesModel*)smilaritiesModel;
+{
+    _labelXsjj.frame  = CGRectMake(20, 10, SCREEN_WIDTH/2, 18);
+
+    _imageViewLeft.frame =CGRectMake(20, 45, (SCREEN_WIDTH-60)/3, ((SCREEN_WIDTH-60)/3) *1.5f);
+    _labelFilmNameLeft.frame  = CGRectMake(_imageViewLeft.frame.origin.x, _imageViewLeft.frame.origin.y+_imageViewLeft.frame.size.height+5, _imageViewLeft.frame.size.width, 18);
+    
+    _imageViewCenter.frame =CGRectMake(_imageViewLeft.frame.origin.x+_imageViewLeft.frame.size.width+10, 45, _imageViewLeft.frame.size.width, _imageViewLeft.frame.size.height);
+    _labelFilmNameCenter.frame  = CGRectMake(_imageViewCenter.frame.origin.x, _imageViewLeft.frame.origin.y+_imageViewLeft.frame.size.height+5,_labelFilmNameLeft.frame.size.width, _labelFilmNameLeft.frame.size.height);
+    
+    _imageViewRight.frame =CGRectMake(20, _imageViewCenter.frame.origin.x+_imageViewCenter.frame.size.width+10, _imageViewLeft.frame.size.width, _imageViewLeft.frame.size.height);
+    _labelFilmNameRight.frame  = CGRectMake(_imageViewRight.frame.origin.x, _imageViewLeft.frame.origin.y+_imageViewLeft.frame.size.height+5, _labelFilmNameLeft.frame.size.width, _labelFilmNameLeft.frame.size.height);
+
+    
+    [_imageViewLeft sd_setImageWithURL:[NSURL URLWithString:smilaritiesModel.cover] placeholderImage:DefaultImage];
+    [_labelFilmNameLeft setText:smilaritiesModel.name];
+    
+     [_imageViewCenter sd_setImageWithURL:[NSURL URLWithString:smilaritiesModel.cover] placeholderImage:DefaultImage];
+     [_labelFilmNameCenter setText:smilaritiesModel.name];
+    
+     [_imageViewRight sd_setImageWithURL:[NSURL URLWithString:smilaritiesModel.cover] placeholderImage:DefaultImage];
+     [_labelFilmNameRight setText:smilaritiesModel.name];
+    
+    
+    
+}
+
+-(void)setRelatedData:(DramaRelativesModel*)dramaRelativesModel
+{
+    //    设置坐标
+    _labelTitle.frame  = CGRectMake(20, 10, SCREEN_WIDTH-40, 20);
+    _labelContent.frame  = CGRectMake(20, 40, SCREEN_WIDTH-40, 18);
+    
+    [_labelTitle setText:dramaRelativesModel.text];
+    [_labelContent setText:dramaRelativesModel.from];
+}
 @end
