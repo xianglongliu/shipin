@@ -25,24 +25,30 @@
 {
     [super viewDidLoad];
     [self.view setBackgroundColor:RGB(221, 221, 221)];
+    strBtnClick = @"btnGood";
     bIsColl = FALSE;
     _currentPage = 1;
-
 //    是否登录
+    [self initViewCtrl];
+    [self createSpreadOutButton];
+    //加载视频数据1代表最新
+    [self loadFindGoodDrama:1];
+    
     if (![[Config getLoginFlag ] isEqualToString:@"YES"])
     {
         LoginViewController *loginView = [[LoginViewController alloc ] init];
         [self.navigationController pushViewController:loginView animated:YES];
     }
-    else
+}
+
+-(void) viewWillAppear:(BOOL)animated
+{
+    if ([ [Config getIsLogin] isEqualToString:@"YES"])
     {
-        [self initViewCtrl];
-        [self createSpreadOutButton];
-        //加载视频数据1代表最新
+        [Config saveIsLogin:@"NO"];
         [self loadFindGoodDrama:1];
     }
 }
-
 
 #pragma mark Data Source Loading / Reloading Methods
 - (void)reloadTableViewDataSource
@@ -171,17 +177,6 @@
     [self.view addSubview:btnSpreadOut];
     [btnSpreadOut addTarget:self action:@selector(onButtonSpreadOut) forControlEvents:UIControlEventTouchUpInside];
     [btnSpreadOut setHidden:YES];
-    
-    //创建tableview
-    _allTableView = [[UITableView alloc ] initWithFrame:CGRectMake(0, btnSpreadOut.frame.origin.y+btnSpreadOut.frame.size.height, SCREEN_WIDTH, SCREEN_HEIGHT-TABBAR_HEIGHT-70) style:UITableViewStylePlain];
-    _allTableView.delegate = self;
-    _allTableView.dataSource = self;
-    _allTableView.scrollEnabled = YES;
-    _allTableView.separatorColor = [UIColor clearColor];
-    [_allTableView setBackgroundColor:[UIColor blackColor] ];
-    [self.view addSubview:_allTableView];
-    [_allTableView setHidden:YES];
-    
 }
 
 -(void)onButtonSpreadOut
@@ -211,26 +206,23 @@
     //发现好剧
     if ( sender.tag == 100 )
     {
+        _findTableView.frame = CGRectMake(0, btnGood.frame.origin.y+btnGood.frame.size.height, SCREEN_WIDTH, SCREEN_HEIGHT-TABBAR_HEIGHT-40);
+        strBtnClick = @"btnGood";
         [btnGood setTitleColor:yellowRgb forState:UIControlStateNormal];
         [btnAll setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
-        [_findTableView setHidden:NO];
-        [_allTableView setHidden:YES];
         [btnSpreadOut setHidden:YES];
         //加载发现好剧数据
         [self loadFindGoodDrama:1];
-        [_allTableView reloadData];
     }
     //全部剧目
     if ( sender.tag == 101 )
     {
+         _findTableView.frame = CGRectMake(0, btnGood.frame.origin.y+btnGood.frame.size.height+40, SCREEN_WIDTH, SCREEN_HEIGHT-TABBAR_HEIGHT-80);
+        strBtnClick = @"btnAll";
         [btnGood setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
         [btnAll setTitleColor:yellowRgb forState:UIControlStateNormal];
-        [_findTableView setHidden:YES];
-        [_allTableView setHidden:NO];
         [btnSpreadOut setHidden:NO];
-        
         [self loadFindGoodDrama:1];
-        [_allTableView reloadData];
     }
 }
 
@@ -255,6 +247,7 @@
             if (self._arrayNewVideo.count != 0)
             {
                 [self._arrayVideo addObjectsFromArray:self._arrayNewVideo];
+                [_findTableView reloadData];
             }
         }
         
@@ -267,11 +260,11 @@
 #pragma mark tableview function
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    if ([tableView isEqual:_findTableView])
+    if ([strBtnClick isEqualToString:@"btnGood" ])
     {
-        return [self._arrayVideo count];
+         return [self._arrayVideo count];
     }
-    if ([tableView isEqual:_allTableView])
+    if ([ strBtnClick isEqualToString:@"btnAll" ])
     {
         return [self._arrayVideo count]/2;
     }
@@ -282,10 +275,11 @@
 {
     UITableViewCell *cell ;
     
-    if ([tableView isEqual:_findTableView])
+    if ([strBtnClick isEqualToString:@"btnGood" ])
     {
         DramaModel *itemData = [[DramaModel alloc ] init];
         itemData = self._arrayVideo[indexPath.row];
+        
         static NSString *showCell = @"FindTableViewCell";
         FindTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:showCell] ;
         if (cell == nil)
@@ -293,22 +287,20 @@
             cell = [[FindTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:showCell];
         }
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
-        
         [cell setControlData:itemData];
-         return cell;
+        return cell;
     }
     //全部剧目
-    if ([tableView isEqual:_allTableView])
+    if ([ strBtnClick isEqualToString:@"btnAll" ])
     {
         static NSString *showCell = @"AllTableViewCell";
-        AllTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:showCell] ;
-        if (cell == nil)
-        {
-            cell = [[AllTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:showCell];
-        }
-        cell.selectionStyle = UITableViewCellSelectionStyleNone;
+        AllTableViewCell *allCell = [tableView dequeueReusableCellWithIdentifier:showCell] ;
         
-        NSLog(@"%ld",(indexPath.row*2));
+        if (allCell == nil)
+        {
+            allCell = [[AllTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:showCell];
+            allCell.selectionStyle = UITableViewCellSelectionStyleNone;
+        }
         
          dramaLeft  =[self._arrayVideo objectAtIndex:(indexPath.row*2)];
         //最后一条数组不能越界
@@ -318,25 +310,22 @@
         }
         else
         {
-            NSLog(@"%ld",(indexPath.row*2+1));
             dramaRight=[self._arrayVideo objectAtIndex:(indexPath.row*2+1)];
         }
-        
-        [cell setControlLeftData:dramaLeft rightData:dramaRight ];
-        
-        return cell;
+        allCell.delegate = self;
+        [allCell setControlLeftData:dramaLeft rightData:dramaRight ];
+        return allCell;
     }
-   
     return cell;
 }
 
 -(CGFloat) tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    if ([tableView isEqual:_findTableView])
+    if ([strBtnClick isEqualToString:@"btnGood" ])
     {
         return 135;
     }
-    if ([tableView isEqual:_allTableView])
+    if ([ strBtnClick isEqualToString:@"btnAll" ])
     {
         return 170;
     }
@@ -344,17 +333,34 @@
 }
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    DramaModel *itemData = [[DramaModel alloc ] init];
-    itemData = self._arrayVideo[indexPath.row];
-    
-    DramaDetialViewController *dramaDetialView = [[DramaDetialViewController alloc ] init];
-    dramaDetialView.dramaModle = itemData;
-    [self.navigationController pushViewController:dramaDetialView animated:YES];
-    
+    if ([tableView isEqual:_findTableView])
+    {
+        DramaModel *itemData = [[DramaModel alloc ] init];
+        itemData = self._arrayVideo[indexPath.row];
+        
+        DramaDetialViewController *dramaDetialView = [[DramaDetialViewController alloc ] init];
+        dramaDetialView.nId = [[itemData.id stringValue] intValue];
+        [self.navigationController pushViewController:dramaDetialView animated:YES];
+    }
+
 //    //打开播放器
 //    MPMoviePlayerViewController *playerView =[[MPMoviePlayerViewController alloc]initWithContentURL:[NSURL URLWithString:itemData.trailerUrl]];
 //    [self presentMoviePlayerViewControllerAnimated:playerView];
     
+}
+
+
+-(void)mViewControllerShouldPush:(DramaModel *)itemData
+{
+    if ([self.navigationController respondsToSelector:@selector(interactivePopGestureRecognizer)])
+    {
+        self.navigationController.interactivePopGestureRecognizer.delegate = nil;
+    }
+    
+    DramaDetialViewController *dramaDetialView = [[DramaDetialViewController alloc ] init];
+    dramaDetialView.nId = [[itemData.id stringValue] intValue];
+    [self.navigationController pushViewController:dramaDetialView animated:YES];
+
 }
 
 -(void) touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event

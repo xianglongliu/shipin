@@ -15,6 +15,7 @@
 #import "FeedBackViewController.h"
 #import "UseHelpViewController.h"
 #import "MyPublishViewController.h"
+#import "BrowseViewController.h"
 
 
 @interface SetViewController ()
@@ -28,20 +29,34 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     //创建tableview
-    _tableView = [[UITableView alloc ] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, SCREEN_HEIGHT) style:UITableViewStyleGrouped];
-    _tableView.delegate = self;
-    _tableView.dataSource = self;
-    _tableView.separatorColor = RGB(221,221,221);
-    _tableView.scrollEnabled = YES;
-    [_tableView setBackgroundColor:RGB(238,238,238)];
-    self.automaticallyAdjustsScrollViewInsets = FALSE;
-    [self.view addSubview:_tableView];
-    
-    UIButton *btnBack = [[UIButton alloc ] initWithFrame:backButtonFram];
-    [btnBack setImage:[UIImage imageNamed:@"btn_back.png"] forState:UIControlStateNormal];
-    [btnBack addTarget:self action:@selector(onButtonBack) forControlEvents:UIControlEventTouchUpInside];
-    [self.view addSubview:btnBack];
-    
+    [self loadUserInfo];
+}
+
+-(void) loadUserInfo
+{
+    [UserService getUserDetail:0 success:^(UserModel *userModel)
+    {
+        self.userModel =userModel;
+        
+        _tableView = [[UITableView alloc ] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, SCREEN_HEIGHT) style:UITableViewStyleGrouped];
+        _tableView.delegate = self;
+        _tableView.dataSource = self;
+        _tableView.separatorColor = RGB(221,221,221);
+        _tableView.scrollEnabled = YES;
+        [_tableView setBackgroundColor:RGB(238,238,238)];
+        self.automaticallyAdjustsScrollViewInsets = FALSE;
+        [self.view addSubview:_tableView];
+        
+        UIButton *btnBack = [[UIButton alloc ] initWithFrame:backButtonFram];
+        [btnBack setImage:[UIImage imageNamed:@"btn_back.png"] forState:UIControlStateNormal];
+        [btnBack addTarget:self action:@selector(onButtonBack) forControlEvents:UIControlEventTouchUpInside];
+        [self.view addSubview:btnBack];
+        
+        
+    } failure:^(NSDictionary *error)
+    {
+        [Tool showWarningTip:@"获取用户信息失败" view:self.view time:1];
+    }];
 }
 
 -(void) onButtonBack
@@ -108,7 +123,7 @@
                     [imageView setImage:[UIImage imageNamed:@"image_heart.png"]];
                     [btnFollow addSubview:imageView];
                     
-                    [cell setHeadCellData:netWorkUrl name:@"天天" cellName:@"setview"];
+                    [cell setHeadCellData:self.userModel cellName:@"setview"];
                     return cell;
                 }
                 if(indexPath.row == 1)
@@ -160,7 +175,9 @@
 #pragma mark 收藏
 -(void) onButtonCollection
 {
-    
+    BrowseViewController *browseView = [[BrowseViewController alloc ] init];
+    browseView.strViewName = @"我的收藏";
+    [self.navigationController pushViewController:browseView animated:YES];
 }
 
 #pragma mark 关注的人
@@ -228,8 +245,9 @@
             }
             if (indexPath.row == 3)//最近浏览
             {
-                PersonInfoViewController *personInfoView = [[PersonInfoViewController alloc ] init];
-                [self.navigationController pushViewController:personInfoView animated:YES];
+                BrowseViewController *browseView = [[BrowseViewController alloc ] init];
+                browseView.strViewName =  @"最近浏览";
+                [self.navigationController pushViewController:browseView animated:YES];
             }
             break;
         case 1:

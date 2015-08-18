@@ -203,16 +203,14 @@ IMP_SINGLETON(UserService)
 }
 
 
-+ (void)sendPublish:(DramaModel *)dramaModel success:(void (^)(Boolean *boolean))success failure:(void (^)(NSDictionary *error))failure {
-
++ (void)sendPublish:(DramaModel *)dramaModel success:(void (^)(Boolean *boolean))success failure:(void (^)(NSDictionary *error))failure
+{
+  
 }
 
 + (void)addCollection:(int )dramaId success:(void (^)(Boolean *boolean))success failure:(void (^)(NSString *error))failure
 {
-
-
     NSDictionary* paramDict = @{@"did":@(dramaId)};
-
     HttpProtocol *httpProtocol = [[HttpProtocol alloc] init];
     httpProtocol.requestUrl= [NSString stringWithFormat:@"%@",URL_ADD_COLLECTION];
     httpProtocol.param=paramDict;

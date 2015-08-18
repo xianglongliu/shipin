@@ -10,8 +10,6 @@
 
 @implementation SetViewHeadTableViewCell
 
-
-
 - (instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier
 {
     self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
@@ -46,7 +44,7 @@
     return self;
 }
 
--(void) setHeadCellData:(NSString *)imageHeadUrl name:(NSString *)name cellName:(NSString *)cellname
+-(void) setHeadCellData:(UserModel *)usermodle cellName:(NSString *)cellname
 {
     if ([cellname isEqualToString:@"setview" ])
     {
@@ -63,8 +61,8 @@
         _labelName.shadowBlur = 2.0f;
         
 //        赋值
-        [_imageViewHead sd_setImageWithURL:[NSURL URLWithString:imageHeadUrl] placeholderImage:DefaultImage];
-        [_labelName setText:name];
+        [_imageViewHead sd_setImageWithURL:[NSURL URLWithString:netWorkUrl] placeholderImage:DefaultImage];
+        [_labelName setText:usermodle.name];
     }
     else
     {
@@ -85,8 +83,8 @@
         _labelName.shadowBlur = 0.1f;
         
 //        赋值
-        [_imageViewHead sd_setImageWithURL:[NSURL URLWithString:imageHeadUrl] placeholderImage:DefaultImage];
-        [_labelName setText:name];
+        [_imageViewHead sd_setImageWithURL:[NSURL URLWithString:netWorkUrl] placeholderImage:DefaultImage];
+        [_labelName setText:usermodle.name];
     }
 
     

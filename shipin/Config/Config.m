@@ -49,6 +49,30 @@
     return [user objectForKey:@"token"];
 }
 
++(NSString *) getIsLogin
+{
+    NSUserDefaults *user = [NSUserDefaults standardUserDefaults];
+    return [user objectForKey:@"isLogin"];
+}
 
++(void) saveIsLogin:(NSString *)flag
+{
+    NSUserDefaults *user = [NSUserDefaults standardUserDefaults];
+    [user setValue:flag forKey:@"isLogin"];
+    [user synchronize];
+}
+
+//+(void) saveUserId:(NSString *)userid;
+//{
+//    NSUserDefaults *userid = [NSUserDefaults standardUserDefaults];
+//    [userid setValue:userid forKey:@"userid"];
+//    [userid synchronize];
+//}
+//
+//+(NSString *) getUserId
+//{
+//    NSUserDefaults *uuseridser = [NSUserDefaults standardUserDefaults];
+//    return [userid objectForKey:@"userid"];
+//}
 
 @end

@@ -119,6 +119,7 @@
     [_labelFilmNameLeft setBackgroundColor:[UIColor clearColor]];
     [_labelFilmNameLeft setFont:[UIFont boldSystemFontOfSize:10]];
     [_labelFilmNameLeft setTextColor:RGB(34, 34, 34)];
+    [_labelFilmNameLeft setTextAlignment:NSTextAlignmentCenter];
     [self addSubview:_labelFilmNameLeft];
     
     _imageViewCenter = [[UIImageView alloc ] initWithFrame:CGRectZero];
@@ -130,6 +131,7 @@
     [_labelFilmNameCenter setBackgroundColor:[UIColor clearColor]];
     [_labelFilmNameCenter setFont:[UIFont boldSystemFontOfSize:10]];
     [_labelFilmNameCenter setTextColor:RGB(34, 34, 34)];
+    [_labelFilmNameCenter setTextAlignment:NSTextAlignmentCenter];
     [self addSubview:_labelFilmNameCenter];
     
     _imageViewRight = [[UIImageView alloc ] initWithFrame:CGRectZero];
@@ -141,20 +143,26 @@
     [_labelFilmNameRight setBackgroundColor:[UIColor clearColor]];
     [_labelFilmNameRight setFont:[UIFont boldSystemFontOfSize:10]];
     [_labelFilmNameRight setTextColor:RGB(34, 34, 34)];
+    [_labelFilmNameRight setTextAlignment:NSTextAlignmentCenter];
     [self addSubview:_labelFilmNameRight];
     
 //    相关资料
     _labelTitle = [[UILabel alloc ] initWithFrame:CGRectZero];
     [_labelTitle setBackgroundColor:[UIColor clearColor]];
     [_labelTitle setFont:[UIFont systemFontOfSize:13]];
-    [_labelTitle setTextColor:[UIColor blackColor] ];
+    [_labelTitle setTextColor:RGB(34, 34, 34)];
     [self addSubview:_labelTitle];
 
     _labelContent = [[UILabel alloc ] initWithFrame:CGRectZero];
     [_labelContent setBackgroundColor:[UIColor clearColor]];
     [_labelContent setFont:[UIFont systemFontOfSize:10]];
-    [_labelContent setTextColor:RGB(102, 102, 102)];
+    [_labelContent setTextColor:RGB(153, 153, 153)];
     [self addSubview:_labelContent];
+    
+    _labelLine = [[UILabel alloc ] initWithFrame:CGRectZero];
+    [_labelLine setBackgroundColor:RGB(221, 221, 221)];
+    [self addSubview:_labelLine];
+
 
 }
 
@@ -206,7 +214,7 @@
 }
 
 //相似剧集
--(void)setSimilarDrama:(SimilaritiesModel*)smilaritiesModel;
+-(void)setSimilarDrama:(NSMutableArray*)smilaritiesModelArray;
 {
     _labelXsjj.frame  = CGRectMake(20, 10, SCREEN_WIDTH/2, 18);
 
@@ -219,25 +227,33 @@
     _imageViewRight.frame =CGRectMake(20, _imageViewCenter.frame.origin.x+_imageViewCenter.frame.size.width+10, _imageViewLeft.frame.size.width, _imageViewLeft.frame.size.height);
     _labelFilmNameRight.frame  = CGRectMake(_imageViewRight.frame.origin.x, _imageViewLeft.frame.origin.y+_imageViewLeft.frame.size.height+5, _labelFilmNameLeft.frame.size.width, _labelFilmNameLeft.frame.size.height);
 
-    
-    [_imageViewLeft sd_setImageWithURL:[NSURL URLWithString:smilaritiesModel.cover] placeholderImage:DefaultImage];
-    [_labelFilmNameLeft setText:smilaritiesModel.name];
-    
-     [_imageViewCenter sd_setImageWithURL:[NSURL URLWithString:smilaritiesModel.cover] placeholderImage:DefaultImage];
-     [_labelFilmNameCenter setText:smilaritiesModel.name];
-    
-     [_imageViewRight sd_setImageWithURL:[NSURL URLWithString:smilaritiesModel.cover] placeholderImage:DefaultImage];
-     [_labelFilmNameRight setText:smilaritiesModel.name];
-    
-    
-    
+    if ([smilaritiesModelArray count] >0)
+    {
+        similaritiesItem = [smilaritiesModelArray objectAtIndex:0];
+        [_imageViewLeft sd_setImageWithURL:[Tool stringMerge:similaritiesItem.cover] placeholderImage:DefaultImage];
+        [_labelFilmNameLeft setText:similaritiesItem.name];
+    }
+    if ([smilaritiesModelArray count] >1)
+    {
+        similaritiesItem = [smilaritiesModelArray objectAtIndex:1];
+        [_imageViewCenter sd_setImageWithURL:[Tool stringMerge:similaritiesItem.cover] placeholderImage:DefaultImage];
+        [_labelFilmNameCenter setText:similaritiesItem.name];
+    }
+    if ([smilaritiesModelArray count] >2)
+    {
+        similaritiesItem = [smilaritiesModelArray objectAtIndex:2];
+        [_imageViewRight sd_setImageWithURL:[Tool stringMerge:similaritiesItem.cover] placeholderImage:DefaultImage];
+        [_labelFilmNameRight setText:similaritiesItem.name];
+    }
+
 }
 
 -(void)setRelatedData:(DramaRelativesModel*)dramaRelativesModel
 {
     //    设置坐标
-    _labelTitle.frame  = CGRectMake(20, 10, SCREEN_WIDTH-40, 20);
-    _labelContent.frame  = CGRectMake(20, 40, SCREEN_WIDTH-40, 18);
+    _labelTitle.frame  = CGRectMake(20, 10, SCREEN_WIDTH-40, 15);
+    _labelContent.frame  = CGRectMake(20, 30, SCREEN_WIDTH-40, 10);
+    _labelLine.frame  = CGRectMake(0, _labelContent.frame.size.height+_labelContent.frame.origin.y+8, SCREEN_WIDTH, 1);
     
     [_labelTitle setText:dramaRelativesModel.text];
     [_labelContent setText:dramaRelativesModel.from];

@@ -19,7 +19,8 @@
 //保存token
 +(void) saveToken:(NSString *)flag;
 +(NSString *) getToken;
-
-
+//判断是否从登陆跳转
++(NSString *) getIsLogin;
++(void) saveIsLogin:(NSString *)flag;
 
 @end

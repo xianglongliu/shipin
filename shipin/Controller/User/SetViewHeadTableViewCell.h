@@ -8,6 +8,8 @@
 
 #import <UIKit/UIKit.h>
 #import "FXLabel.h"
+#import "UserModel.h"
+
 
 
 @interface SetViewHeadTableViewCell : UITableViewCell
@@ -19,7 +21,7 @@
 }
 
 
--(void) setHeadCellData:(NSString *)imageHeadUrl name:(NSString *)name cellName:(NSString *)cellname;
+-(void) setHeadCellData:(UserModel *)usermodle cellName:(NSString *)cellname;
 
 
 @end

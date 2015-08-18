@@ -8,6 +8,7 @@
 
 #import "DramaDetialViewController.h"
 #import "PersonInfoViewController.h"
+#import "UIWebViewLoad.h"
 
 @interface DramaDetialViewController ()
 
@@ -19,7 +20,7 @@
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    
+    _arrayDramaDetial = [[NSMutableArray alloc ] initWithCapacity:0];
     [self initViewCtrl];
 }
 
@@ -46,7 +47,7 @@
     [_tableView setBackgroundColor:RGBA(238, 238, 238, 1)];
     [self.view addSubview:_tableView];
     
-//    [self loadNetWorkData];
+    [self loadNetWorkData];
 }
 
 
@@ -64,14 +65,15 @@
 
 -(void) loadNetWorkData
 {
-//    MessageModel *systemMsgModle = [[MessageModel alloc ] init];
-//    systemMsgModle.title = @"标题";
-//    systemMsgModle.msg = @"消息内容";
-//    systemMsgModle.createTime = @"2015年00月00日 11：11：11";
-//    
-//    [_arraySystemMsg addObject:systemMsgModle];
-//    [_arraySystemMsg addObject:systemMsgModle];
-//    [_tableViewSystemMsg reloadData];
+    [DramaServices getDramaDetail:self.nId  success:^(id dramaModel)
+     {
+         dramaModle = dramaModel;
+         [_tableView reloadData];
+         
+    } failure:^(NSDictionary *error)
+     {
+         [Tool showWarningTip:@"加载剧目详情失败" view:self.view time:1];
+    }];
 }
 
 #pragma mark tableview function
@@ -80,7 +82,7 @@
 {
     if( clickIndex == 0)
     {
-        return 4+[self.dramaModle.posters count ];
+        return 4+[dramaModle.posters count ];
     }
     else if( clickIndex == 1)
     {
@@ -88,7 +90,7 @@
     }
     else if ( clickIndex == 2)
     {
-        return 2+[self.dramaModle.dramaRelatives count ];
+        return 2+[dramaModle.dramaRelatives count ];
     }
     else
     return 0;
@@ -103,12 +105,15 @@
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
     }
-    
+    if (dramaModle == nil)
+    {
+        return cell;
+    }
     if(indexPath.row == 0 )
     {
         DetialHeadTableViewCell* cell = [[DetialHeadTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
          cell.selectionStyle = UITableViewCellSelectionStyleNone;
-        [cell setCtrlText:self.dramaModle];
+        [cell setCtrlText:dramaModle];
         return cell;
     }
     else if(indexPath.row == 1 )
@@ -171,7 +176,7 @@
         {
             DramaDetialTableViewCell* cell = cell = [[DramaDetialTableViewCell alloc] initWithReuseIdentifier:CellIdentifier];
              cell.selectionStyle = UITableViewCellSelectionStyleNone;
-            [cell setProjectInfo:self.dramaModle];
+            [cell setProjectInfo:dramaModle];
             return cell;
         }
         if( clickIndex == 2)//相关资料
@@ -179,7 +184,7 @@
             DramaDetialTableViewCell* cell = cell = [[DramaDetialTableViewCell alloc] initWithReuseIdentifier:CellIdentifier];
             cell.selectionStyle = UITableViewCellSelectionStyleNone;
             
-            DramaRelativesModel *dramaRelativesModel =self.dramaModle.dramaRelatives[indexPath.row - 2];
+            DramaRelativesModel *dramaRelativesModel =dramaModle.dramaRelatives[indexPath.row - 2];
             [cell setRelatedData:dramaRelativesModel];
             return cell;
         }
@@ -191,15 +196,15 @@
         {
             DramaDetialTableViewCell* cell = cell = [[DramaDetialTableViewCell alloc] initWithReuseIdentifier:CellIdentifier];
              cell.selectionStyle = UITableViewCellSelectionStyleNone;
-            [cell setIntroductionText:self.dramaModle.brief headImage:nil imageHeight:0];
+            [cell setIntroductionText:dramaModle.brief headImage:nil imageHeight:0];
             return cell;
         }
         if( clickIndex == 1)//相似剧集
         {
             DramaDetialTableViewCell* cell = cell = [[DramaDetialTableViewCell alloc] initWithReuseIdentifier:CellIdentifier];
              cell.selectionStyle = UITableViewCellSelectionStyleNone;
-            SimilaritiesModel *similaritiesModel =self.dramaModle.similarities[indexPath.row - 2];
-            [cell setSimilarDrama:similaritiesModel];
+//            SimilaritiesModel *similaritiesModel =dramaModle.similarities[indexPath.row - 2];
+            [cell setSimilarDrama:[[NSMutableArray alloc ] initWithArray:dramaModle.similarities]];
             return cell;
         }
         if( clickIndex == 2)//相关资料
@@ -207,7 +212,7 @@
             DramaDetialTableViewCell* cell = cell = [[DramaDetialTableViewCell alloc] initWithReuseIdentifier:CellIdentifier];
             cell.selectionStyle = UITableViewCellSelectionStyleNone;
             
-            DramaRelativesModel *dramaRelativesModel =self.dramaModle.dramaRelatives[indexPath.row - 2];
+            DramaRelativesModel *dramaRelativesModel =dramaModle.dramaRelatives[indexPath.row - 2];
             [cell setRelatedData:dramaRelativesModel];
             return cell;
         }
@@ -220,7 +225,7 @@
              DramaDetialTableViewCell* cell = cell = [[DramaDetialTableViewCell alloc] initWithReuseIdentifier:CellIdentifier];
              cell.selectionStyle = UITableViewCellSelectionStyleNone;
              
-             DramaPostersModel *posterModle =self.dramaModle.posters[indexPath.row - 4];
+             DramaPostersModel *posterModle =dramaModle.posters[indexPath.row - 4];
              NSURL *url =[Tool stringMerge:posterModle.poster];
              [cell setIntroductionText:@"" headImage:url imageHeight:SCREEN_WIDTH-106];
              return cell;
@@ -230,7 +235,7 @@
             DramaDetialTableViewCell* cell = cell = [[DramaDetialTableViewCell alloc] initWithReuseIdentifier:CellIdentifier];
             cell.selectionStyle = UITableViewCellSelectionStyleNone;
             
-            DramaRelativesModel *dramaRelativesModel =self.dramaModle.dramaRelatives[indexPath.row - 2];
+            DramaRelativesModel *dramaRelativesModel =dramaModle.dramaRelatives[indexPath.row - 2];
             [cell setRelatedData:dramaRelativesModel];
             return cell;
         }
@@ -261,7 +266,7 @@
         }
         if( clickIndex == 2)
         {
-            return 100;
+            return 50;
         }
         
     }
@@ -269,7 +274,7 @@
     {
         if( clickIndex == 0)
         {
-            return  [Tool CalcString:self.dramaModle.brief fontSize:[UIFont systemFontOfSize:FontSize] andWidth:SCREEN_WIDTH-20].height+20;
+            return  [Tool CalcString:dramaModle.brief fontSize:[UIFont systemFontOfSize:FontSize] andWidth:SCREEN_WIDTH-20].height+20;
         }
         if( clickIndex == 1)
         {
@@ -277,13 +282,16 @@
         }
         if( clickIndex == 2)
         {
-            
+            return 50;
         }
         
     }
     else
     {
-        return  SCREEN_WIDTH-100;
+        if( clickIndex == 2)
+            return 50;
+        else
+            return  SCREEN_WIDTH-100;
     }
     return 0;
 }
@@ -338,6 +346,13 @@
     {
         PersonInfoViewController *personInfoView = [[PersonInfoViewController alloc ] init];
         [self.navigationController pushViewController:personInfoView animated:YES];
+    }
+    if (clickIndex == 2)
+    {
+        DramaRelativesModel *dramaRelativesModel =dramaModle.dramaRelatives[indexPath.row - 2];
+        UIWebViewLoad *webView = [[UIWebViewLoad alloc ] init];
+        webView.dramaRelativesModel = dramaRelativesModel;
+        [self.navigationController pushViewController:webView animated:YES];
     }
 }
 

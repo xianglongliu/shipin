@@ -39,6 +39,9 @@
 //    相关资料
     UILabel     *_labelTitle;
     UILabel     *_labelContent;
+    UILabel     *_labelLine;
+//    相似剧集
+    SimilaritiesModel *similaritiesItem;
     
 }
 @property (nonatomic ,strong) UILabel       *_labelText;
@@ -47,7 +50,8 @@
 
 -(void)setIntroductionText:(NSString*)text  headImage:(NSURL*)imageUrl imageHeight:(float)height;
 -(void)setProjectInfo:(DramaModel*)dramaModel;
--(void)setSimilarDrama:(SimilaritiesModel*)smilaritiesModel;
+//相似剧集
+-(void)setSimilarDrama:(NSMutableArray*)smilaritiesModelArray;
 
 -(void)setRelatedData:(DramaRelativesModel*)dramaModel;
 

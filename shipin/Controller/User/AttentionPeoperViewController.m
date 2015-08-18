@@ -47,13 +47,12 @@
 
 -(void) loadNetWorkData
 {
-    UserModel *userModle = [[UserModel alloc ] init];
-    userModle.name = @"节日哦格局";
-    userModle.avatar = netWorkUrl;
-    userModle.corporation = @"节日哦格局";
-    userModle.position = @"节日哦格局";
-    [arrayAPeoper addObject:userModle];
-    [arrayAPeoper addObject:userModle];
+    [UserService getFollows:^(NSArray *followArray)
+    {
+        arrayAPeoper = [[NSMutableArray alloc ] initWithArray:followArray];
+    } failure:^(NSDictionary *error) {
+        
+    }];
     [_tableViewPersonInfo reloadData];
 }
 -(void) onButtonBack

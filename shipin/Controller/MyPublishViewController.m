@@ -83,7 +83,7 @@
         
     } failure:^(NSDictionary *error)
     {
-        
+        [Tool showWarningTip:@"加载我的发布失败" view:self.view time:1];
     }];
 }
 

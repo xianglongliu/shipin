@@ -80,7 +80,7 @@
     {
         SetViewHeadTableViewCell* cell = [[SetViewHeadTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"SetViewHeadTableViewCell" ];
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
-        [cell setHeadCellData:netWorkUrl name:@"天r天" cellName:@"personinfo"];
+        [cell setHeadCellData:self.userModel cellName:@"personinfo"];
         return cell;
     }
     //add edit button

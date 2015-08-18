@@ -75,6 +75,8 @@
 		EEABE39F1B7F3F1F00C06C3A /* AttentionPeoperTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = EEABE39E1B7F3F1F00C06C3A /* AttentionPeoperTableViewCell.m */; };
 		EEABE3A21B7F478600C06C3A /* SystemMsgViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EEABE3A11B7F478600C06C3A /* SystemMsgViewController.m */; };
 		EEABE3A81B7F494C00C06C3A /* SystemMsgTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = EEABE3A71B7F494C00C06C3A /* SystemMsgTableViewCell.m */; };
+		EEDA73D21B82DDD1008823CE /* BrowseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EEDA73D11B82DDD1008823CE /* BrowseViewController.m */; };
+		EEDA73D51B8300C1008823CE /* UIWebViewLoad.m in Sources */ = {isa = PBXBuildFile; fileRef = EEDA73D41B8300C1008823CE /* UIWebViewLoad.m */; };
 		EEDC18421B8032A80013E61B /* NetWorkState.m in Sources */ = {isa = PBXBuildFile; fileRef = EEDC18411B8032A80013E61B /* NetWorkState.m */; };
 		EEDC18451B8036310013E61B /* AddPublishTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = EEDC18441B8036310013E61B /* AddPublishTableViewCell.m */; };
 		EEDC18481B8038FC0013E61B /* image_computer.png in Resources */ = {isa = PBXBuildFile; fileRef = EEDC18461B8038FC0013E61B /* image_computer.png */; };
@@ -235,6 +237,11 @@
 		EEABE3A11B7F478600C06C3A /* SystemMsgViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SystemMsgViewController.m; path = Controller/User/SystemMsgViewController.m; sourceTree = "<group>"; };
 		EEABE3A61B7F494C00C06C3A /* SystemMsgTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SystemMsgTableViewCell.h; path = Controller/User/SystemMsgTableViewCell.h; sourceTree = "<group>"; };
 		EEABE3A71B7F494C00C06C3A /* SystemMsgTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SystemMsgTableViewCell.m; path = Controller/User/SystemMsgTableViewCell.m; sourceTree = "<group>"; };
+		EEDA73D01B82DDD1008823CE /* BrowseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BrowseViewController.h; path = Controller/User/BrowseViewController.h; sourceTree = "<group>"; };
+		EEDA73D11B82DDD1008823CE /* BrowseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BrowseViewController.m; path = Controller/User/BrowseViewController.m; sourceTree = "<group>"; };
+		EEDA73D31B8300C1008823CE /* UIWebViewLoad.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = UIWebViewLoad.h; path = Controller/UIWebViewLoad.h; sourceTree = "<group>"; };
+		EEDA73D41B8300C1008823CE /* UIWebViewLoad.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = UIWebViewLoad.m; path = Controller/UIWebViewLoad.m; sourceTree = "<group>"; };
+		EEDA73D61B83095E008823CE /* imageClickDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = imageClickDelegate.h; sourceTree = "<group>"; };
 		EEDC18401B8032A80013E61B /* NetWorkState.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NetWorkState.h; path = logic/NetWorkState.h; sourceTree = "<group>"; };
 		EEDC18411B8032A80013E61B /* NetWorkState.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NetWorkState.m; path = logic/NetWorkState.m; sourceTree = "<group>"; };
 		EEDC18431B8036310013E61B /* AddPublishTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AddPublishTableViewCell.h; path = Controller/AddPublishTableViewCell.h; sourceTree = "<group>"; };
@@ -460,6 +467,7 @@
 		EE87D20E1B58ADA4002A0DD8 /* shipin */ = {
 			isa = PBXGroup;
 			children = (
+				EEDA73D61B83095E008823CE /* imageClickDelegate.h */,
 				EE87D2131B58ADA4002A0DD8 /* AppDelegate.h */,
 				EE87D2141B58ADA4002A0DD8 /* AppDelegate.m */,
 				EEDCB5BF1B6335CD00EB9135 /* Config */,
@@ -507,7 +515,9 @@
 			isa = PBXGroup;
 			children = (
 				EE908C3B1B7EEBB800505B82 /* BaseViewController.h */,
+				EEDA73D31B8300C1008823CE /* UIWebViewLoad.h */,
 				EE908C3C1B7EEBB800505B82 /* BaseViewController.m */,
+				EEDA73D41B8300C1008823CE /* UIWebViewLoad.m */,
 				EE908C1D1B7EEA4F00505B82 /* Drama */,
 				EE908C1F1B7EEB3000505B82 /* LoginRegister */,
 				EE908C1E1B7EEB2E00505B82 /* User */,
@@ -535,15 +545,15 @@
 				EEDC187D1B8086B90013E61B /* DramaDetialTableViewCell.h */,
 				EEDC18771B8068C00013E61B /* DramaDetialViewController.h */,
 				EE908C2F1B7EEB7D00505B82 /* FindTableViewCell.h */,
+				EE7530E61B81D32100EA3823 /* UIViewSearch.h */,
 				EE908C331B7EEB7D00505B82 /* ViewController.h */,
 				EE908C391B7EEBA700505B82 /* AllTableViewCell.m */,
 				EEDC187B1B806F240013E61B /* DetialHeadTableViewCell.m */,
 				EEDC187E1B8086B90013E61B /* DramaDetialTableViewCell.m */,
 				EEDC18781B8068C00013E61B /* DramaDetialViewController.m */,
 				EE908C301B7EEB7D00505B82 /* FindTableViewCell.m */,
-				EE908C341B7EEB7D00505B82 /* ViewController.m */,
-				EE7530E61B81D32100EA3823 /* UIViewSearch.h */,
 				EE7530E71B81D32100EA3823 /* UIViewSearch.m */,
+				EE908C341B7EEB7D00505B82 /* ViewController.m */,
 			);
 			name = Drama;
 			sourceTree = "<group>";
@@ -572,6 +582,8 @@
 				EE908C251B7EEB5E00505B82 /* SetViewController.m */,
 				EE20D6541B7F1347001B2E92 /* SetViewHeadTableViewCell.m */,
 				EE908C271B7EEB5E00505B82 /* TextTableViewCell.m */,
+				EEDA73D01B82DDD1008823CE /* BrowseViewController.h */,
+				EEDA73D11B82DDD1008823CE /* BrowseViewController.m */,
 			);
 			name = User;
 			sourceTree = "<group>";
@@ -920,6 +932,7 @@
 				EEDC18791B8068C00013E61B /* DramaDetialViewController.m in Sources */,
 				EE908C031B7ED66F00505B82 /* DramaServices.m in Sources */,
 				EE908C151B7ED68100505B82 /* DramaModel.m in Sources */,
+				EEDA73D51B8300C1008823CE /* UIWebViewLoad.m in Sources */,
 				EEABE3A21B7F478600C06C3A /* SystemMsgViewController.m in Sources */,
 				EE6845B31B7E025800D6D6F5 /* HttpManager.m in Sources */,
 				EE908C351B7EEB7D00505B82 /* FindTableViewCell.m in Sources */,
@@ -928,6 +941,7 @@
 				EE6845B41B7E025800D6D6F5 /* HttpProtocol.m in Sources */,
 				EEDCB6131B63864100EB9135 /* Tool.m in Sources */,
 				EE87D2151B58ADA4002A0DD8 /* AppDelegate.m in Sources */,
+				EEDA73D21B82DDD1008823CE /* BrowseViewController.m in Sources */,
 				EEDC18451B8036310013E61B /* AddPublishTableViewCell.m in Sources */,
 				EE7530E81B81D32100EA3823 /* UIViewSearch.m in Sources */,
 				EE908C1C1B7ED68100505B82 /* UserModel.m in Sources */,

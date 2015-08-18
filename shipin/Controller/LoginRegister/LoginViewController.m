@@ -188,6 +188,10 @@
             [Config saveToken: [d objectForKey:@"data"]];
              //保存登陆状态
              [Config saveLoginFlag:@"YES"];
+             [Config saveIsLogin:@"YES"];
+             //保存用户id
+//             [Config saveUserId:@"YES"];
+             
             if( [[Config getToken] length] > 0  )
             {
                 [self.navigationController popViewControllerAnimated:YES];

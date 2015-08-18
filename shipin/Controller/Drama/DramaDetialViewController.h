@@ -18,14 +18,14 @@
     NSMutableArray      *_arrayDramaDetial;
     UITableView         *_tableView;
     
-    UIButton        *btnIntroduction;
-    UIButton        *btnProjectInfo;
-    UIButton        *btnConnect;
-    int             clickIndex;
+    UIButton            *btnIntroduction;
+    UIButton            *btnProjectInfo;
+    UIButton            *btnConnect;
+    int                 clickIndex;
+    
+    DramaModel          *dramaModle;
 }
 
-
-
-@property (nonatomic,strong) DramaModel *dramaModle;
+@property (nonatomic,assign) int   nId;
 
 @end

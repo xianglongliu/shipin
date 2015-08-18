@@ -9,6 +9,7 @@
 #import "AllTableViewCell.h"
 
 @implementation AllTableViewCell
+@synthesize delegate;
 
 
 - (instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier
@@ -18,8 +19,9 @@
     {
         [self setBackgroundColor:RGB(238, 238, 238)];
         
-        UILabel *_labelbgLeft = [[UILabel alloc ] initWithFrame:CGRectMake(10, 10, (SCREEN_WIDTH-30)/2, 160)];
+        _labelbgLeft = [[UILabel alloc ] initWithFrame:CGRectMake(10, 10, (SCREEN_WIDTH-30)/2, 160)];
         [_labelbgLeft setBackgroundColor:RGB(250, 250, 250)];
+        [_labelbgLeft setUserInteractionEnabled:YES];
         [self addSubview:_labelbgLeft];
         
         _imageViewLeft = [[UIImageView alloc ] initWithFrame:CGRectMake(10, 10, (SCREEN_WIDTH-30)/2, (SCREEN_WIDTH-30)/2-40)];
@@ -27,9 +29,11 @@
         _imageViewLeft.layer.masksToBounds = YES;
         _imageViewLeft.layer.cornerRadius = 3;
         [_imageViewLeft setContentMode:UIViewContentModeScaleAspectFill];
+        [_imageViewLeft setUserInteractionEnabled:YES];
         [self addSubview:_imageViewLeft];
         
         UILabel *labelbgLeft = [[UILabel alloc ] initWithFrame:CGRectMake(10, _imageViewLeft.frame.origin.y+_imageViewLeft.frame.size.height, _imageViewLeft.frame.size.width, 40)];
+        [labelbgLeft setUserInteractionEnabled:YES];
         [labelbgLeft setBackgroundColor:RGB(255, 255, 255)];
         [self addSubview:labelbgLeft];
         
@@ -77,18 +81,21 @@
         [self addSubview:labelGzNameLeft];
         
 //        右侧数据
-        UILabel *_labelbgRight = [[UILabel alloc ] initWithFrame:CGRectMake(_labelbgLeft.frame.size.width+_labelbgLeft.frame.origin.x+10, 10, (SCREEN_WIDTH-30)/2, 160)];
+         _labelbgRight = [[UILabel alloc ] initWithFrame:CGRectMake(_labelbgLeft.frame.size.width+_labelbgLeft.frame.origin.x+10, 10, (SCREEN_WIDTH-30)/2, 160)];
         [_labelbgRight setBackgroundColor:RGB(250, 250, 250)];
+                [_labelbgRight setUserInteractionEnabled:YES];
         [self addSubview:_labelbgRight];
         
         _imageViewRight = [[UIImageView alloc ] initWithFrame:CGRectMake(_imageViewLeft.frame.origin.x+_imageViewLeft.frame.size.width+10, 10, _imageViewLeft.frame.size.width, _imageViewLeft.frame.size.height)];
         [_imageViewRight setBackgroundColor:[UIColor grayColor]];
         _imageViewRight.layer.masksToBounds = YES;
+        [_imageViewRight setUserInteractionEnabled:YES];
         [_imageViewRight setContentMode:UIViewContentModeScaleAspectFill];
         _imageViewRight.layer.cornerRadius = 3;
         [self addSubview:_imageViewRight];
         
         UILabel *labelbgRight = [[UILabel alloc ] initWithFrame:CGRectMake(_imageViewRight.frame.origin.x, _imageViewRight.frame.origin.y+_imageViewLeft.frame.size.height, _imageViewLeft.frame.size.width, 40)];
+        [labelbgRight setUserInteractionEnabled:YES];
         [labelbgRight setBackgroundColor:RGB(255, 255, 255)];
         [self addSubview:labelbgRight];
 
@@ -142,6 +149,9 @@
 
 -(void) setControlLeftData:(DramaModel *)leftData rightData:(DramaModel *)rightData
 {
+    _leftData =leftData;
+    _rightData =rightData;
+    
 //    左面数据
     DramaPostersModel *posterModle =leftData.posters[0];
     [_imageViewLeft sd_setImageWithURL:[Tool stringMerge:posterModle.poster] placeholderImage:DefaultImage];
@@ -160,9 +170,36 @@
     [_labelReadCountRight setText:[Tool getCount:[rightData.dramaOp.clicks stringValue]] ];
     [_labelGzCountRight setText:[Tool getCount:[rightData.dramaOp.collects stringValue]] ];
     
+    _labelbgLeft.tag=[[_leftData.id stringValue] intValue];
+    if(!gestureLeft)
+    {
+        gestureLeft=[[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(imageClick:)];
+        gestureLeft.numberOfTapsRequired=1;
+        [_labelbgLeft addGestureRecognizer:gestureLeft];
+    }
     
+    _labelbgRight.tag=[[_rightData.id stringValue] intValue];
+    if(!gestureRight)
+    {
+        gestureRight=[[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(imageClick:)];
+        gestureRight.numberOfTapsRequired=1;
+        [_labelbgRight addGestureRecognizer:gestureRight];
+    }
+}
+
+-(void )imageClick:(UITapGestureRecognizer *)gesture
+{
+    if (gesture.view.tag == [[_leftData.id stringValue] intValue] )
+    {
+        [delegate mViewControllerShouldPush:_leftData  ];
+    }
+    if (gesture.view.tag == [[_rightData.id stringValue] intValue] )
+    {
+        [delegate mViewControllerShouldPush:_rightData ];
+    }
     
 }
+
 
 
 @end

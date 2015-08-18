@@ -83,7 +83,8 @@ IMP_SINGLETON(HttpManager)
     NSURLRequest* request = [self createRequest:qinHttpProtocol];
 
 
-    AFHTTPRequestOperation* op = [_manager HTTPRequestOperationWithRequest:request success:^(AFHTTPRequestOperation *operation1, id responseObject1) {
+    AFHTTPRequestOperation* op = [_manager HTTPRequestOperationWithRequest:request success:^(AFHTTPRequestOperation *operation1, id responseObject1)
+    {
 
         NSURLRequest* request = [operation1 request];
         NSLog(@"[%@]%@\nHeader:%@\nBody:%@", request.HTTPMethod, request.URL, request.allHTTPHeaderFields, [[NSString alloc] initWithData:request.HTTPBody  encoding:NSUTF8StringEncoding]);

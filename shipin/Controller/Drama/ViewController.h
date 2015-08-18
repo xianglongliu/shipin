@@ -11,11 +11,11 @@
 #import "DramaModel.h"
 #import "EGORefreshTableHeaderView.h"
 #import "MJRefreshFooterView.h"
+#import "imageClickDelegate.h"
 
-@interface ViewController : BaseViewController<UITableViewDataSource,UITableViewDelegate,EGORefreshTableHeaderDelegate>
+@interface ViewController : BaseViewController<UITableViewDataSource,UITableViewDelegate,EGORefreshTableHeaderDelegate,imageClickDelegate>
 {
     UITableView         *_findTableView;
-    UITableView         *_allTableView;
     UIButton            *btnAll;
     UIButton            *btnGood;
     BOOL                bIsColl;
@@ -24,18 +24,13 @@
     BOOL                            _reloading;
     MJRefreshFooterView             *_pullUpRefresh;
     EGORefreshTableHeaderView       *_refreshHeaderView;
-    
     DramaModel *dramaLeft;
     DramaModel *dramaRight;
-
+    NSString        *strBtnClick;
 }
 
 @property (nonatomic,strong)    ExUINavigationBar       *_navigationBar;
 @property (nonatomic,strong)    NSMutableArray          *_arrayVideo;
 @property (nonatomic,strong)    NSMutableArray          *_arrayNewVideo;
-
-@property (nonatomic,strong)    NSMutableArray          *_arrayAllVideo;
-@property (nonatomic,strong)    NSMutableArray          *_arrayNewAllVideo;
-
 
 @end

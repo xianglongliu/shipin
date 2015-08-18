@@ -66,8 +66,8 @@ IMP_SINGLETON(DramaServices)
         httpProtocol.token=[Config getToken];
         httpProtocol.param=paramDict;
         httpProtocol.requestUrl=[NSString stringWithFormat:@"%@",URL_DETIAL];
-        [[HttpManager sharedInstance] httpWithRequest:httpProtocol success:^(AFHTTPRequestOperation *operation, id responseObject){
-
+        [[HttpManager sharedInstance] httpWithRequest:httpProtocol success:^(AFHTTPRequestOperation *operation, id responseObject)
+        {
             if([responseObject isKindOfClass:[NSDictionary class]])
             {
                 NSLog(@"%@", [responseObject JSONString]);
