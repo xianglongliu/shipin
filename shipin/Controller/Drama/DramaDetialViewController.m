@@ -47,9 +47,21 @@
     [_tableView setBackgroundColor:RGBA(238, 238, 238, 1)];
     [self.view addSubview:_tableView];
     
+    
     [self loadNetWorkData];
 }
-
+//添加收藏
+-(void)onButtonColloction
+{
+    [UserService addCollection:self.nId success:^(Boolean *boolean)
+    {
+        [Tool showWarningTip:@"收藏成功" view:self.view time:1];
+ 
+    } failure:^(NSString *error)
+     {
+        [Tool showWarningTip:error view:self.view time:1];
+    }];
+}
 
 -(void) onButtonShare
 {
@@ -82,15 +94,15 @@
 {
     if( clickIndex == 0)
     {
-        return 4+[dramaModle.posters count ];
+        return 4+[dramaModle.posters count ]+1;
     }
     else if( clickIndex == 1)
     {
-        return 4;
+        return 4+1;
     }
     else if ( clickIndex == 2)
     {
-        return 2+[dramaModle.dramaRelatives count ];
+        return 2+[dramaModle.dramaRelatives count ]+1;
     }
     else
     return 0;
@@ -181,6 +193,22 @@
         }
         if( clickIndex == 2)//相关资料
         {
+            if ( [dramaModle.posters count] == indexPath.row - 1 )
+            {
+                UITableViewCell* cellBtn = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
+                cellBtn.selectionStyle = UITableViewCellSelectionStyleNone;
+                
+                UIButton *btnSave = [[UIButton alloc ] initWithFrame:CGRectMake(20, 0, SCREEN_WIDTH-40, 40)];
+                [btnSave setTitle:@"加入收藏" forState:UIControlStateNormal];
+                btnSave.titleLabel.font = [UIFont systemFontOfSize:14];
+                [btnSave  setBackgroundColor:yellowRgb];
+                btnSave.layer.masksToBounds = YES;
+                btnSave.layer.cornerRadius = 3;
+                [btnSave addTarget:self action:@selector(onButtonColloction) forControlEvents:UIControlEventTouchUpInside];
+                [cellBtn addSubview:btnSave];
+                return cellBtn;
+            }
+            
             DramaDetialTableViewCell* cell = cell = [[DramaDetialTableViewCell alloc] initWithReuseIdentifier:CellIdentifier];
             cell.selectionStyle = UITableViewCellSelectionStyleNone;
             
@@ -209,6 +237,21 @@
         }
         if( clickIndex == 2)//相关资料
         {
+            if ( [dramaModle.posters count] == indexPath.row - 3 )
+            {
+                UITableViewCell* cellBtn = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
+                cellBtn.selectionStyle = UITableViewCellSelectionStyleNone;
+                
+                UIButton *btnSave = [[UIButton alloc ] initWithFrame:CGRectMake(20, 0, SCREEN_WIDTH-40, 40)];
+                [btnSave setTitle:@"加入收藏" forState:UIControlStateNormal];
+                btnSave.titleLabel.font = [UIFont systemFontOfSize:14];
+                [btnSave  setBackgroundColor:yellowRgb];
+                btnSave.layer.masksToBounds = YES;
+                btnSave.layer.cornerRadius = 3;
+                [btnSave addTarget:self action:@selector(onButtonColloction) forControlEvents:UIControlEventTouchUpInside];
+                [cellBtn addSubview:btnSave];
+                return cellBtn;
+            }
             DramaDetialTableViewCell* cell = cell = [[DramaDetialTableViewCell alloc] initWithReuseIdentifier:CellIdentifier];
             cell.selectionStyle = UITableViewCellSelectionStyleNone;
             
@@ -221,6 +264,21 @@
     {
          if( clickIndex == 0)//剧情简介
          {
+             if ( [dramaModle.posters count] == indexPath.row - 4 )
+             {
+                 UITableViewCell* cellBtn = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
+                 cellBtn.selectionStyle = UITableViewCellSelectionStyleNone;
+
+                 UIButton *btnSave = [[UIButton alloc ] initWithFrame:CGRectMake(20, 0, SCREEN_WIDTH-40, 40)];
+                 [btnSave setTitle:@"加入收藏" forState:UIControlStateNormal];
+                 btnSave.titleLabel.font = [UIFont systemFontOfSize:14];
+                 [btnSave  setBackgroundColor:yellowRgb];
+                 btnSave.layer.masksToBounds = YES;
+                 btnSave.layer.cornerRadius = 3;
+                 [btnSave addTarget:self action:@selector(onButtonColloction) forControlEvents:UIControlEventTouchUpInside];
+                 [cellBtn addSubview:btnSave];
+                return cellBtn;
+             }
              //图片
              DramaDetialTableViewCell* cell = cell = [[DramaDetialTableViewCell alloc] initWithReuseIdentifier:CellIdentifier];
              cell.selectionStyle = UITableViewCellSelectionStyleNone;
@@ -230,11 +288,44 @@
              [cell setIntroductionText:@"" headImage:url imageHeight:SCREEN_WIDTH-106];
              return cell;
          }
+        if( clickIndex == 1)//相关资料
+        {
+   
+            UITableViewCell* cellBtn = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
+            cellBtn.selectionStyle = UITableViewCellSelectionStyleNone;
+            
+            UIButton *btnSave = [[UIButton alloc ] initWithFrame:CGRectMake(20, 0, SCREEN_WIDTH-40, 40)];
+            [btnSave setTitle:@"加入收藏" forState:UIControlStateNormal];
+            btnSave.titleLabel.font = [UIFont systemFontOfSize:14];
+            [btnSave  setBackgroundColor:yellowRgb];
+            btnSave.layer.masksToBounds = YES;
+            btnSave.layer.cornerRadius = 3;
+            [btnSave addTarget:self action:@selector(onButtonColloction) forControlEvents:UIControlEventTouchUpInside];
+            [cellBtn addSubview:btnSave];
+            return cellBtn;
+            
+        }
         if( clickIndex == 2)//相关资料
         {
+            
+            if ( [dramaModle.posters count] == indexPath.row - 3 )
+            {
+                UITableViewCell* cellBtn = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
+                cellBtn.selectionStyle = UITableViewCellSelectionStyleNone;
+                
+                UIButton *btnSave = [[UIButton alloc ] initWithFrame:CGRectMake(20, 0, SCREEN_WIDTH-40, 40)];
+                [btnSave setTitle:@"加入收藏" forState:UIControlStateNormal];
+                btnSave.titleLabel.font = [UIFont systemFontOfSize:14];
+                [btnSave  setBackgroundColor:yellowRgb];
+                btnSave.layer.masksToBounds = YES;
+                btnSave.layer.cornerRadius = 3;
+                [btnSave addTarget:self action:@selector(onButtonColloction) forControlEvents:UIControlEventTouchUpInside];
+                [cellBtn addSubview:btnSave];
+                return cellBtn;
+            }
+
             DramaDetialTableViewCell* cell = cell = [[DramaDetialTableViewCell alloc] initWithReuseIdentifier:CellIdentifier];
             cell.selectionStyle = UITableViewCellSelectionStyleNone;
-            
             DramaRelativesModel *dramaRelativesModel =dramaModle.dramaRelatives[indexPath.row - 2];
             [cell setRelatedData:dramaRelativesModel];
             return cell;
@@ -284,12 +375,22 @@
         {
             return 50;
         }
+        if ( [dramaModle.posters count] == indexPath.row - 4 )
+        {
+            return 40;
+        }
         
     }
     else
     {
         if( clickIndex == 2)
+        {
             return 50;
+        }
+        else if( [dramaModle.posters count] == indexPath.row - 4 )
+        {
+            return 40;
+        }
         else
             return  SCREEN_WIDTH-100;
     }
