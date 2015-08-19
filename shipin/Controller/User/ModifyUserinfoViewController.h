@@ -7,11 +7,14 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "FilmModel.h"
 
 @interface ModifyUserinfoViewController : BaseViewController
-
-@property (nonatomic ,strong) NSString *_strName;
-@property (nonatomic ,strong) NSString *_strSelItem;
+{
+    TextModel *curSelModle;
+}
+@property (nonatomic ,strong) TextModel *selModle;
+//@property (nonatomic ,strong) NSString *_strSelItem;
 
 @property (nonatomic ,strong) UITextField *_textContent;
 

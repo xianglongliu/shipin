@@ -102,7 +102,7 @@
     }
     else if ( clickIndex == 2)
     {
-        return 2+[dramaModle.dramaRelatives count ]+1;
+        return 2+[dramaModle.posters count ]+1;
     }
     else
     return 0;
@@ -231,7 +231,6 @@
         {
             DramaDetialTableViewCell* cell = cell = [[DramaDetialTableViewCell alloc] initWithReuseIdentifier:CellIdentifier];
              cell.selectionStyle = UITableViewCellSelectionStyleNone;
-//            SimilaritiesModel *similaritiesModel =dramaModle.similarities[indexPath.row - 2];
             [cell setSimilarDrama:[[NSMutableArray alloc ] initWithArray:dramaModle.similarities]];
             return cell;
         }

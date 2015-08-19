@@ -46,12 +46,16 @@
 
 -(void) setControlData:(DramaModel *)item
 {
-    DramaPostersModel *posterModle =item.posters[0];
-    NSURL *url =[Tool stringMerge:posterModle.poster];
-    [_imageView sd_setImageWithURL:url placeholderImage:DefaultImage];
-    
-    [_labelTitle setText:item.name];
-    [_labelContent setText:item.brief];
+    if ([item.posters count] > 0 )
+    {
+        DramaPostersModel *posterModle =item.posters[0];
+        NSURL *url =[Tool stringMerge:posterModle.poster];
+        [_imageView sd_setImageWithURL:url placeholderImage:DefaultImage];
+        
+        [_labelTitle setText:item.name];
+        [_labelContent setText:item.brief];
+    }
+  
 }
 
 @end

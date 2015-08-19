@@ -34,12 +34,12 @@
             [self addSubview:_imageViewHead];
             
             //影院名称
-            _labelName = [[FXLabel alloc] initWithFrame:CGRectZero];
-            [_labelName setTextColor:[UIColor whiteColor]];
-            [_labelName setBackgroundColor:[UIColor clearColor]];
-            [_labelName setFont:[UIFont boldSystemFontOfSize:17]];
-            [_labelName setTextAlignment:NSTextAlignmentLeft];
-            [self addSubview:_labelName];
+            self._labelName = [[FXLabel alloc] initWithFrame:CGRectZero];
+            [self._labelName setTextColor:[UIColor whiteColor]];
+            [self._labelName setBackgroundColor:[UIColor clearColor]];
+            [self._labelName setFont:[UIFont boldSystemFontOfSize:17]];
+            [self._labelName setTextAlignment:NSTextAlignmentLeft];
+            [self addSubview:self._labelName];
     }
     return self;
 }
@@ -55,14 +55,14 @@
         _imageViewHead.frame = CGRectMake(20, 40, 80, 80);
          _imageViewHead.layer.cornerRadius = _imageViewHead.frame.size.width/2;
       
-        _labelName.frame = CGRectMake(_imageViewHead.frame.origin.y+_imageViewHead.frame.size.width, _imageViewHead.frame.origin.y, SCREEN_WIDTH/2, _imageViewHead.frame.size.height);
-        _labelName.shadowColor = RGB(0, 0, 0);
-        _labelName.shadowOffset = CGSizeMake(0.5f, 1.0f);
-        _labelName.shadowBlur = 2.0f;
+        self._labelName.frame = CGRectMake(_imageViewHead.frame.origin.y+_imageViewHead.frame.size.width, _imageViewHead.frame.origin.y, SCREEN_WIDTH/2, _imageViewHead.frame.size.height);
+        self._labelName.shadowColor = RGB(0, 0, 0);
+        self._labelName.shadowOffset = CGSizeMake(0.5f, 1.0f);
+        self._labelName.shadowBlur = 2.0f;
         
 //        赋值
-        [_imageViewHead sd_setImageWithURL:[NSURL URLWithString:netWorkUrl] placeholderImage:DefaultImage];
-        [_labelName setText:usermodle.name];
+        [_imageViewHead sd_setImageWithURL:[Tool stringMerge:usermodle.avatar] placeholderImage:DefaultImage];
+        [self._labelName setText:usermodle.name];
     }
     else
     {
@@ -75,16 +75,16 @@
         _imageViewHead.layer.borderWidth=5;
         _imageViewHead.layer.borderColor=[UIColor whiteColor].CGColor;
         
-        _labelName.frame = CGRectMake(0, _imageViewHead.frame.origin.y+_imageViewHead.frame.size.width+10, SCREEN_WIDTH, 20);
-        [_labelName setTextAlignment:NSTextAlignmentCenter];
-        [_labelName setTextColor:[UIColor blackColor]];
-        _labelName.shadowColor = RGB(0, 0, 0);
-        _labelName.shadowOffset = CGSizeMake(0.1f, 0.0f);
-        _labelName.shadowBlur = 0.1f;
+        self._labelName.frame = CGRectMake(0, _imageViewHead.frame.origin.y+_imageViewHead.frame.size.width+10, SCREEN_WIDTH, 20);
+        [self._labelName setTextAlignment:NSTextAlignmentCenter];
+        [self._labelName setTextColor:[UIColor blackColor]];
+        self._labelName.shadowColor = RGB(0, 0, 0);
+        self._labelName.shadowOffset = CGSizeMake(0.1f, 0.0f);
+        self._labelName.shadowBlur = 0.1f;
         
 //        赋值
-        [_imageViewHead sd_setImageWithURL:[NSURL URLWithString:netWorkUrl] placeholderImage:DefaultImage];
-        [_labelName setText:usermodle.name];
+        [_imageViewHead sd_setImageWithURL:[Tool stringMerge:usermodle.avatar]  placeholderImage:DefaultImage];
+        [self._labelName setText:usermodle.name];
     }
 
     

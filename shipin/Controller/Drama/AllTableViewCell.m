@@ -149,41 +149,55 @@
 
 -(void) setControlLeftData:(DramaModel *)leftData rightData:(DramaModel *)rightData
 {
-    _leftData =leftData;
-    _rightData =rightData;
-    
-//    左面数据
-    DramaPostersModel *posterModle =leftData.posters[0];
-    [_imageViewLeft sd_setImageWithURL:[Tool stringMerge:posterModle.poster] placeholderImage:DefaultImage];
-    [_labelFilmNameLeft setText:leftData.name];
-    [_labelFilmContentLeft setText:leftData.brief];
-    
-    [_labelReadCountLeft setText:[Tool getCount:[leftData.dramaOp.clicks stringValue]] ];
-    [_labelGzCountLeft setText:[Tool getCount:[leftData.dramaOp.collects stringValue]] ];
-    
-//    右面数据
-    posterModle =rightData.posters[0];
-    [_imageViewRight sd_setImageWithURL:[Tool stringMerge:posterModle.poster] placeholderImage:DefaultImage];
-    [_labelFilmNameRight setText:rightData.name];
-    [_labelFilmContentRight setText:rightData.brief];
-    
-    [_labelReadCountRight setText:[Tool getCount:[rightData.dramaOp.clicks stringValue]] ];
-    [_labelGzCountRight setText:[Tool getCount:[rightData.dramaOp.collects stringValue]] ];
-    
-    _labelbgLeft.tag=[[_leftData.id stringValue] intValue];
-    if(!gestureLeft)
+//    NSLog(@"%@",leftData.name );
+    if([leftData.name length] > 0 )
     {
-        gestureLeft=[[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(imageClick:)];
-        gestureLeft.numberOfTapsRequired=1;
-        [_labelbgLeft addGestureRecognizer:gestureLeft];
-    }
-    
-    _labelbgRight.tag=[[_rightData.id stringValue] intValue];
-    if(!gestureRight)
-    {
-        gestureRight=[[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(imageClick:)];
-        gestureRight.numberOfTapsRequired=1;
-        [_labelbgRight addGestureRecognizer:gestureRight];
+        _leftData =leftData;
+        _rightData =rightData;
+        //    左面数据
+        DramaPostersModel *posterModle;
+        NSLog(@"%d",[leftData.posters count]);
+        if ([leftData.posters count] > 0)
+        {
+            posterModle =leftData.posters[0];
+            [_imageViewLeft sd_setImageWithURL:[Tool stringMerge:posterModle.poster] placeholderImage:DefaultImage];
+            [_labelFilmNameLeft setText:leftData.name];
+            [_labelFilmContentLeft setText:leftData.brief];
+            
+            [_labelReadCountLeft setText:[Tool getCount:[leftData.dramaOp.clicks stringValue]] ];
+            [_labelGzCountLeft setText:[Tool getCount:[leftData.dramaOp.collects stringValue]] ];
+        }
+        
+        
+        //    右面数据
+        if ([rightData.posters count] > 0)
+        {
+            posterModle =rightData.posters[0];
+            [_imageViewRight sd_setImageWithURL:[Tool stringMerge:posterModle.poster] placeholderImage:DefaultImage];
+            [_labelFilmNameRight setText:rightData.name];
+            [_labelFilmContentRight setText:rightData.brief];
+            
+            [_labelReadCountRight setText:[Tool getCount:[rightData.dramaOp.clicks stringValue]] ];
+            [_labelGzCountRight setText:[Tool getCount:[rightData.dramaOp.collects stringValue]] ];
+            
+        }
+        
+        
+        _labelbgLeft.tag=[[_leftData.id stringValue] intValue];
+        if(!gestureLeft)
+        {
+            gestureLeft=[[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(imageClick:)];
+            gestureLeft.numberOfTapsRequired=1;
+            [_labelbgLeft addGestureRecognizer:gestureLeft];
+        }
+        
+        _labelbgRight.tag=[[_rightData.id stringValue] intValue];
+        if(!gestureRight)
+        {
+            gestureRight=[[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(imageClick:)];
+            gestureRight.numberOfTapsRequired=1;
+            [_labelbgRight addGestureRecognizer:gestureRight];
+        }
     }
 }
 

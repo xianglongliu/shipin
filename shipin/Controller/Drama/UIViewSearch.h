@@ -9,5 +9,13 @@
 #import <UIKit/UIKit.h>
 
 @interface UIViewSearch : UIView
+{
+    UIButton    *btnLine1[3];
 
+    UIButton    *btnLine2[20];
+    
+    UIButton    *btnLine3[28];
+    
+    UIButton    *btnLine4[7];
+}
 @end

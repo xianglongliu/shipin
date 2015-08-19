@@ -64,7 +64,7 @@
     [self.navigationController popViewControllerAnimated:YES];
 }
 
-#pragma make tableview function
+#pragma mark tableview function
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     if (section == 0)
@@ -231,6 +231,7 @@
             if (indexPath.row == 0)
             {
                 PersonInfoViewController *personInfoView = [[PersonInfoViewController alloc ] init];
+                personInfoView._uId = [[self.userModel.id stringValue]  intValue];
                 [self.navigationController pushViewController:personInfoView animated:YES];
             }
             if (indexPath.row == 1)//我的发布

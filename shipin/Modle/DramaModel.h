@@ -27,7 +27,7 @@
 @property (nonatomic,strong) NSArray<Optional,DramaPostersModel>* posters; //封面图集（view中只取第一张）
 @property (nonatomic,assign) NSNumber<Optional> *type; //类型
 @property (nonatomic,strong) NSString<Optional> *recommend; //推荐语
-@property (nonatomic,strong) DramaOpModel<Optional> *dramaOp; //推荐语
+@property (nonatomic,strong) DramaOpModel<Optional> *dramaOp; //阅读和关注数量
 @property (nonatomic,strong) NSArray<Optional,ScreenShotsModel> *screenShots; //图集
 @property (nonatomic,strong) NSString<Optional> *trailerUrl; //预告片地址
 @property (nonatomic,strong) NSString<Optional> *director; //导演

@@ -21,25 +21,70 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     [self.view setBackgroundColor:[UIColor whiteColor] ];
-    
     mutableArray = [[NSMutableArray alloc ] initWithCapacity:0];
+    [self loadUserInfo];
     
-    NSArray *arrLeft = [NSArray arrayWithObjects:@"头像",@"姓名",@"个人简介",@"公司名称",@"公司职位",@"公司邮箱",@"联系电话", nil];
-    NSArray *arrRight = [NSArray arrayWithObjects:netWorkUrl,@"王大",@"good good study",@"百度",@"ceo",@"323@qq.com",@"14567890-=", nil];
-    
-    for(int i = 0 ; i < [arrLeft count]; i++)
-    {
-        TextModel * tModle = [[TextModel alloc ] init];
-        tModle.strLeftName = [arrLeft objectAtIndex:i];
-        tModle.strRightName = [arrRight objectAtIndex:i];
-        
-        [mutableArray addObject:tModle];
-    }
-
-    
-    [self initViewCtrl];
-    
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(UpdateuserModle:) name:@"nof_UpdateuserModle" object:nil];
 }
+
+-(void)UpdateuserModle:(NSNotification *)notification 
+{
+    TextModel *updateItem = [[TextModel alloc ] init];
+    updateItem = [notification object];
+    
+    if ([updateItem.strLeftName isEqualToString:@"姓名"])
+    {
+        [mutableArray removeObjectAtIndex:1];
+        [mutableArray insertObject:updateItem atIndex:1];
+    }
+   
+    for (int i=0; i< [mutableArray count]; i++)
+    {
+        TextModel *temp = [[TextModel alloc ] init];
+        temp = mutableArray[i];
+        if ([updateItem.strLeftName isEqualToString:temp.strLeftName ])
+        {
+            [mutableArray removeObjectAtIndex:i];
+            [mutableArray insertObject:updateItem atIndex:i];
+        }
+    }
+    
+    [tableViewPersonInfo reloadData];
+}
+
+-(void) loadUserInfo
+{
+    [UserService getUserDetail:self._uId success:^(UserModel *userModel)
+     {
+         self._userModel =userModel;
+         
+         NSArray *arrLeft = [NSArray arrayWithObjects:@"头像",@"姓名",@"个人简介",@"公司名称",@"公司职位",@"公司邮箱",@"联系电话", nil];
+         NSArray *arrRight = [NSArray arrayWithObjects:
+                              [NSString stringWithFormat:@"%@",self._userModel.avatar],
+                              [NSString stringWithFormat:@"%@",self._userModel.name],
+                              [NSString stringWithFormat:@"%@",self._userModel.brief],
+                              [NSString stringWithFormat:@"%@",self._userModel.corporation],
+                              [NSString stringWithFormat:@"%@",self._userModel.position],
+                              [NSString stringWithFormat:@"%@",self._userModel.email],
+                              [NSString stringWithFormat:@"%@",self._userModel.mobile], nil];
+         
+         for(int i = 0 ; i < [arrLeft count]; i++)
+         {
+             TextModel * tModle = [[TextModel alloc ] init];
+             tModle.strLeftName = [arrLeft objectAtIndex:i];
+             tModle.strRightName = [arrRight objectAtIndex:i];
+             
+             [mutableArray addObject:tModle];
+         }
+         
+         [self initViewCtrl];
+         
+     } failure:^(NSDictionary *error)
+     {
+         [Tool showWarningTip:@"获取用户信息失败" view:self.view time:1];
+     }];
+}
+
 
 -(void) initViewCtrl
 {
@@ -51,7 +96,7 @@
     [btnBack addTarget:self action:@selector(onButtonBack) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:btnBack];
     
-    UITableView *tableViewPersonInfo = [[UITableView alloc ] initWithFrame:CGRectMake(0, TABBAR_HEIGHT, SCREEN_WIDTH, SCREEN_HEIGHT-TABBAR_HEIGHT) style:UITableViewStylePlain];
+    tableViewPersonInfo = [[UITableView alloc ] initWithFrame:CGRectMake(0, TABBAR_HEIGHT, SCREEN_WIDTH, SCREEN_HEIGHT-TABBAR_HEIGHT) style:UITableViewStylePlain];
     tableViewPersonInfo.dataSource = self;
     tableViewPersonInfo.delegate = self;
     tableViewPersonInfo.separatorColor = [UIColor clearColor];
@@ -72,10 +117,39 @@
 //保存用户修改的用户信息
 -(void) saveUserInfo
 {
+    UserModel *uModle = [[UserModel alloc ] init];
     
+    TextModel *updateItem = [[TextModel alloc ] init];
+    updateItem = mutableArray[1];
+    uModle.name =updateItem.strRightName;//姓名
+    
+    updateItem = mutableArray[2];
+    uModle.brief =updateItem.strRightName;//简介
+
+    updateItem = mutableArray[3];
+    uModle.corporation =updateItem.strRightName;//公司
+
+    updateItem = mutableArray[4];
+    uModle.position =updateItem.strRightName;//职位
+
+    updateItem = mutableArray[5];
+    uModle.email =updateItem.strRightName;//邮箱
+
+    updateItem = mutableArray[6];
+    uModle.mobile =updateItem.strRightName;//电话
+    
+    
+    [UserService updateUserDetail:uModle success:^(Boolean *boolean)
+    {
+        [Tool showWarningTip:@"更新成功" view:self.view time:0.5f];
+        [self.navigationController popViewControllerAnimated:YES];
+    } failure:^(NSDictionary *error)
+    {
+        [Tool showWarningTip:@"更新失败" view:self.view time:1];
+    }];
 }
 
-#pragma make tableview function
+#pragma mark tableview function
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     return 7;
@@ -97,12 +171,17 @@
         TextModel * tModle = [[TextModel alloc ] init];
         tModle =  mutableArray[indexPath.row];
         [cell setLableText:tModle viewName:@"EditPersonViewController" cellHegith:70];
+        return cell;
     }
     else
     {
-        TextModel * tModle = [[TextModel alloc ] init];
-        tModle =  mutableArray[indexPath.row];
-        [cell setLableText:tModle viewName:@"EditPersonViewController" cellHegith:40];
+        if (indexPath.row < [mutableArray count])
+        {
+            TextModel * tModle = [[TextModel alloc ] init];
+            tModle =  mutableArray[indexPath.row];
+            [cell setLableText:tModle viewName:@"EditPersonViewController" cellHegith:40];
+            return cell;
+        }
     }
     
     return cell;
@@ -128,14 +207,14 @@
         mediaPicker.delegate = self;
         [mediaPicker showFromView:self.view];
     }
-    else
+    else if (indexPath.row != 6)
     {
         TextModel * tModle = [[TextModel alloc ] init];
         tModle =  mutableArray[indexPath.row];
         
         ModifyUserinfoViewController * modifyUserinfoView = [[ModifyUserinfoViewController alloc ] init];
-        modifyUserinfoView._strName = tModle.strRightName;
-        modifyUserinfoView._strSelItem = tModle.strLeftName;
+        modifyUserinfoView.selModle = tModle;
+        //        modifyUserinfoView._strSelItem = tModle.strLeftName;
         [self.navigationController pushViewController:modifyUserinfoView animated:YES];
     }
 }
@@ -168,7 +247,6 @@
         [self._imageViewHeadImage setImage:img ];
     }
 }
-
 
 
 -(void) onButtonBack

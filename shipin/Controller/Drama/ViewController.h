@@ -12,6 +12,7 @@
 #import "EGORefreshTableHeaderView.h"
 #import "MJRefreshFooterView.h"
 #import "imageClickDelegate.h"
+#import "UIViewSearch.h"
 
 @interface ViewController : BaseViewController<UITableViewDataSource,UITableViewDelegate,EGORefreshTableHeaderDelegate,imageClickDelegate>
 {
@@ -26,7 +27,8 @@
     EGORefreshTableHeaderView       *_refreshHeaderView;
     DramaModel *dramaLeft;
     DramaModel *dramaRight;
-    NSString        *strBtnClick;
+    NSString                    *strBtnClick;
+    UIViewSearch                *viewSearch;
 }
 
 @property (nonatomic,strong)    ExUINavigationBar       *_navigationBar;

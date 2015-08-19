@@ -75,7 +75,7 @@
 }
 
 
-#pragma make tableview function
+#pragma mark tableview function
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     return 2;
@@ -116,12 +116,12 @@
     if (indexPath.row == 1 )
     {
         //wifi
+//        if ([NetWorkState getNetWorkState] == ReachableViaWiFi )
+//        {
+//            WifiViewController *wifiView = [[WifiViewController alloc ] init];
+//            [self.navigationController pushViewController:wifiView animated:YES];
+//        }
         if ([NetWorkState getNetWorkState] == ReachableViaWiFi )
-        {
-            WifiViewController *wifiView = [[WifiViewController alloc ] init];
-            [self.navigationController pushViewController:wifiView animated:YES];
-        }
-        else if ([NetWorkState getNetWorkState] == ReachableViaWWAN )
         {
             NoWifiViewController *noWifiView = [[NoWifiViewController alloc ] init];
             [self.navigationController pushViewController:noWifiView animated:YES];

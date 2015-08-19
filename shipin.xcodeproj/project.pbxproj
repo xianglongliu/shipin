@@ -75,6 +75,8 @@
 		EEABE39F1B7F3F1F00C06C3A /* AttentionPeoperTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = EEABE39E1B7F3F1F00C06C3A /* AttentionPeoperTableViewCell.m */; };
 		EEABE3A21B7F478600C06C3A /* SystemMsgViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EEABE3A11B7F478600C06C3A /* SystemMsgViewController.m */; };
 		EEABE3A81B7F494C00C06C3A /* SystemMsgTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = EEABE3A71B7F494C00C06C3A /* SystemMsgTableViewCell.m */; };
+		EED82F4C1B844DC4001AC5F3 /* UIButtonTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = EED82F4B1B844DC4001AC5F3 /* UIButtonTableViewCell.m */; };
+		EED82F4E1B84A9EC001AC5F3 /* btn_floow.png in Resources */ = {isa = PBXBuildFile; fileRef = EED82F4D1B84A9EC001AC5F3 /* btn_floow.png */; };
 		EEDA73D21B82DDD1008823CE /* BrowseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EEDA73D11B82DDD1008823CE /* BrowseViewController.m */; };
 		EEDA73D51B8300C1008823CE /* UIWebViewLoad.m in Sources */ = {isa = PBXBuildFile; fileRef = EEDA73D41B8300C1008823CE /* UIWebViewLoad.m */; };
 		EEDC18421B8032A80013E61B /* NetWorkState.m in Sources */ = {isa = PBXBuildFile; fileRef = EEDC18411B8032A80013E61B /* NetWorkState.m */; };
@@ -237,6 +239,9 @@
 		EEABE3A11B7F478600C06C3A /* SystemMsgViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SystemMsgViewController.m; path = Controller/User/SystemMsgViewController.m; sourceTree = "<group>"; };
 		EEABE3A61B7F494C00C06C3A /* SystemMsgTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SystemMsgTableViewCell.h; path = Controller/User/SystemMsgTableViewCell.h; sourceTree = "<group>"; };
 		EEABE3A71B7F494C00C06C3A /* SystemMsgTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SystemMsgTableViewCell.m; path = Controller/User/SystemMsgTableViewCell.m; sourceTree = "<group>"; };
+		EED82F4A1B844DC4001AC5F3 /* UIButtonTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = UIButtonTableViewCell.h; path = Controller/UIButtonTableViewCell.h; sourceTree = "<group>"; };
+		EED82F4B1B844DC4001AC5F3 /* UIButtonTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = UIButtonTableViewCell.m; path = Controller/UIButtonTableViewCell.m; sourceTree = "<group>"; };
+		EED82F4D1B84A9EC001AC5F3 /* btn_floow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = btn_floow.png; path = Resource/Button/btn_floow.png; sourceTree = "<group>"; };
 		EEDA73D01B82DDD1008823CE /* BrowseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BrowseViewController.h; path = Controller/User/BrowseViewController.h; sourceTree = "<group>"; };
 		EEDA73D11B82DDD1008823CE /* BrowseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BrowseViewController.m; path = Controller/User/BrowseViewController.m; sourceTree = "<group>"; };
 		EEDA73D31B8300C1008823CE /* UIWebViewLoad.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = UIWebViewLoad.h; path = Controller/UIWebViewLoad.h; sourceTree = "<group>"; };
@@ -442,6 +447,8 @@
 				EEDC184E1B803F130013E61B /* NoWifiViewController.m */,
 				EE7944FF1B7F5D5F0032DF3A /* PublishCellTableViewCell.m */,
 				EEDC184B1B803EC20013E61B /* WifiViewController.m */,
+				EED82F4A1B844DC4001AC5F3 /* UIButtonTableViewCell.h */,
+				EED82F4B1B844DC4001AC5F3 /* UIButtonTableViewCell.m */,
 			);
 			name = Publish;
 			sourceTree = "<group>";
@@ -615,6 +622,7 @@
 		EE908C491B7F072500505B82 /* Button */ = {
 			isa = PBXGroup;
 			children = (
+				EED82F4D1B84A9EC001AC5F3 /* btn_floow.png */,
 				EE7530E91B81D6B300EA3823 /* ico-down-arrow.png */,
 				EE7530EA1B81D6B300EA3823 /* ico-up-arrow.png */,
 				EE7242811B809C3300ABBAE6 /* btn_share.png */,
@@ -793,7 +801,7 @@
 				TargetAttributes = {
 					EE87D20B1B58ADA4002A0DD8 = {
 						CreatedOnToolsVersion = 6.4;
-						DevelopmentTeam = XXYYMF4EK3;
+						DevelopmentTeam = 93J5MD5G9C;
 					};
 					EE87D2241B58ADA4002A0DD8 = {
 						CreatedOnToolsVersion = 6.4;
@@ -831,6 +839,7 @@
 				EE726FA71B819ED900C66CF9 /* Icon-60@2x.png in Resources */,
 				EEDC18751B805F160013E61B /* whiteArrow.png in Resources */,
 				EE726FAA1B819ED900C66CF9 /* Icon-Small.png in Resources */,
+				EED82F4E1B84A9EC001AC5F3 /* btn_floow.png in Resources */,
 				EE726FAC1B819ED900C66CF9 /* iTunesArtwork.png in Resources */,
 				EEDC18481B8038FC0013E61B /* image_computer.png in Resources */,
 				EE726FB51B81AEA600C66CF9 /* 640.png in Resources */,
@@ -916,6 +925,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				EE908C171B7ED68100505B82 /* DramaRelativesModel.m in Sources */,
+				EED82F4C1B844DC4001AC5F3 /* UIButtonTableViewCell.m in Sources */,
 				EE908C371B7EEB7D00505B82 /* ViewController.m in Sources */,
 				EEABE3A81B7F494C00C06C3A /* SystemMsgTableViewCell.m in Sources */,
 				EE908C501B7F0DDF00505B82 /* FXLabel.m in Sources */,

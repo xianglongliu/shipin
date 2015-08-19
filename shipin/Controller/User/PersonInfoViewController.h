@@ -7,12 +7,17 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "FilmModel.h"
 
 @interface PersonInfoViewController : BaseViewController<UITableViewDataSource,UITableViewDelegate>
 {
-    NSMutableArray * mutableArray;
+    NSMutableArray  *mutableArray;
+    UIWebView       *phoneCallWebView;
 }
 
 @property(nonatomic,strong)UserModel *userModel;
+
+@property(nonatomic,assign) int _uId;
+
 
 @end

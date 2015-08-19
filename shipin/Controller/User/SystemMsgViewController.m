@@ -73,7 +73,7 @@
 }
 
 
-#pragma make tableview function
+#pragma mark tableview function
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     return [_arraySystemMsg count];

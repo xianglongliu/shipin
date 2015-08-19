@@ -20,7 +20,7 @@
     // Do any additional setup after loading the view.
     [self.view setBackgroundColor:RGB(238, 238, 238)];
     
-    ExUINavigationBar *navigationBar = [[ExUINavigationBar alloc ] initWithFrameRect:CGRectMake(0, 0, SCREEN_WIDTH, TABBAR_HEIGHT) BGImage:@"navigationbar" StrTitle:[NSString stringWithFormat:@"修改%@",self._strSelItem]];
+    ExUINavigationBar *navigationBar = [[ExUINavigationBar alloc ] initWithFrameRect:CGRectMake(0, 0, SCREEN_WIDTH, TABBAR_HEIGHT) BGImage:@"navigationbar" StrTitle:[NSString stringWithFormat:@"修改%@",self.selModle.strLeftName]];
     [self.view addSubview:navigationBar];
     
     UIButton *btnBack = [[UIButton alloc ] initWithFrame:backButtonFram];
@@ -48,14 +48,21 @@
 
 -(void) viewDidAppear:(BOOL)animated
 {
-    self._textContent.text = self._strName;
+    self._textContent.text = self.selModle.strRightName;
 }
 
 
 //保存用户修改的用户信息
 -(void) onButtonModifyUserInfo
 {
+    curSelModle = [[TextModel alloc ] init];
+    
+    curSelModle.strLeftName =self.selModle.strLeftName;
+    curSelModle.strRightName =self._textContent.text;
     [self onButtonBack];
+    
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"nof_UpdateuserModle" object:curSelModle];
+   
 }
 
 

@@ -16,11 +16,6 @@ DEF_SINGLETON(UserService)
 +(void) getUserDetail:(int)uId success:(void (^)(UserModel * userModel))success
         failure:(void (^)( NSDictionary *error))failure;
 
-
-//编辑用户基本信息接口
-+(void) updateUserDetail:(UserModel *)userModel success:(void (^)(Boolean * boolean))success
-            failure:(void (^)( NSDictionary *error))failure;
-
 //我的发布
 +(void) getPublishes: (void (^)(NSArray * dramaArray))success
               failure:(void (^)( NSDictionary *error))failure;
@@ -36,7 +31,7 @@ DEF_SINGLETON(UserService)
 
 //发布剧目
 +(void) sendPublish:(DramaModel *)dramaModel success:(void (^)(Boolean * boolean))success
-            failure:(void (^)( NSDictionary *error))failure;
+            failure:(void (^)( NSString *error))failure;
 
 
 //添加收藏

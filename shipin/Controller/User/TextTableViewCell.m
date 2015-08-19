@@ -36,7 +36,7 @@
     _imageviewHead.layer.cornerRadius =_imageviewHead.frame.size.width/2;
     _imageviewHead.layer.masksToBounds = YES;
     [_imageviewHead setContentMode:UIViewContentModeScaleAspectFill];
-    [_imageviewHead setBackgroundColor:[UIColor redColor]];
+    [_imageviewHead setBackgroundColor:[UIColor clearColor]];
     [self addSubview:_imageviewHead];
     return self;
 }
@@ -46,10 +46,9 @@
     if ([viewname isEqualToString:@"EditPersonViewController" ] )
     {
         self.leftLable.frame = CGRectMake(15, 0, 200, hegith);
-        
         self.rightLable.frame = CGRectMake(100, 0, SCREEN_WIDTH-135, hegith);
+       
         [self.rightLable setTextColor:RGB(153, 153, 153)];
-        
         _lableLine.frame = CGRectMake(0, hegith, SCREEN_WIDTH, 1);
         
 //        赋值
@@ -57,7 +56,7 @@
         //第一行显示头像
         if (hegith == 70)
         {
-            [_imageviewHead sd_setImageWithURL:[NSURL URLWithString:tModle.strRightName] placeholderImage:DefaultImage];
+            [_imageviewHead sd_setImageWithURL:[Tool stringMerge:tModle.strRightName] placeholderImage:DefaultImage];
             [self.rightLable  setHidden:YES];
         }
         else

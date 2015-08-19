@@ -7,7 +7,30 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "DramaModel.h"
+#import "UIButtonTableViewCell.h"
 
-@interface NoWifiViewController : BaseViewController
+@interface NoWifiViewController : BaseViewController<UITableViewDataSource,UITableViewDelegate,UITextFieldDelegate>
+{
+    UITableView         *_tableView;
+    NSArray             *arrayHeight;
+    
+    DramaModel          *_dramaModel;
+    
+    UITextField         *_textFieldDramaName;
+    UITextField          *_textViewBrief;
+    
+    UITextField         *_textFieldDirector;
+    UITextField         *_textFieldStaring;
+    UITextField         *_textFieldDistrict;
+    UITextField         *_textFieldLanguage;
+    UITextField         *_textFieldPremiere;
+    UITextField         *_textFieldRecommend;
+    
+    
+    
+
+}
+
 
 @end

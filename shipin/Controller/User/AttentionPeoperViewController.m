@@ -50,8 +50,9 @@
     [UserService getFollows:^(NSArray *followArray)
     {
         arrayAPeoper = [[NSMutableArray alloc ] initWithArray:followArray];
-    } failure:^(NSDictionary *error) {
-        
+    } failure:^(NSDictionary *error)
+    {
+        [Tool showWarningTip:@"读取数据失败" view:self.view time:1];
     }];
     [_tableViewPersonInfo reloadData];
 }
@@ -61,7 +62,7 @@
 }
 
 
-#pragma make tableview function
+#pragma mark tableview function
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     return [arrayAPeoper count];

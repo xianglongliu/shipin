@@ -166,7 +166,7 @@
     else
     {
         seconds--;
-        NSString *title = [NSString stringWithFormat:@"%ld",seconds];
+        NSString *title = [NSString stringWithFormat:@"%ld",(long)seconds];
         [btnGetICode setTitle:title forState:UIControlStateNormal];
         [btnGetICode setEnabled:NO];
     }

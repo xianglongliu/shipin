@@ -16,10 +16,11 @@
 {
     UIImageView *_imageViewBg ;
     UIImageView *_imageViewHead;
-    FXLabel     *_labelName;
+   
     UILabel     *_labelTransparentLayer;
 }
 
+@property(nonatomic,strong)     FXLabel     *_labelName;
 
 -(void) setHeadCellData:(UserModel *)usermodle cellName:(NSString *)cellname;
 

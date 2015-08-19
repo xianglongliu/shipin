@@ -36,3 +36,6 @@
 #define     URL_ADD_FOLLOW  [URL_SERVERADDRESS stringByAppendingString:@"/user/follow"]
 //添加关注
 #define     URL_USER_FOLLOWS  [URL_SERVERADDRESS stringByAppendingString:@"/user/follows"]
+
+//编辑个人资料
+#define     URL_USER_UPDATE  [URL_SERVERADDRESS stringByAppendingString:@"/user/update"]

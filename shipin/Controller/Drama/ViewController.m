@@ -14,6 +14,7 @@
 #import "LoginViewController.h"
 #import "DramaDetialViewController.h"
 
+
 @interface ViewController ()
 
 @end
@@ -39,6 +40,13 @@
         LoginViewController *loginView = [[LoginViewController alloc ] init];
         [self.navigationController pushViewController:loginView animated:YES];
     }
+    
+}
+
+-(void)createSearcheView
+{
+    viewSearch = [[UIViewSearch alloc] initWithFrame:CGRectMake(0, _findTableView.frame.origin.y, SCREEN_WIDTH, 240)];
+    [self.view addSubview:viewSearch];
 }
 
 -(void) viewWillAppear:(BOOL)animated
@@ -184,10 +192,12 @@
     if (bIsColl)
     {
         [btnSpreadOut setBackgroundImage:[UIImage imageNamed:@"ico-up-arrow.png"] forState:UIControlStateNormal];
+        [self createSearcheView];
         bIsColl = FALSE;
     }
     else
     {
+        [viewSearch removeFromSuperview];
         [btnSpreadOut setBackgroundImage:[UIImage imageNamed:@"ico-down-arrow.png"] forState:UIControlStateNormal];
         bIsColl = TRUE;
     }
@@ -229,32 +239,64 @@
 #pragma mark 加载好剧数据
 -(void) loadFindGoodDrama:(int )pageNumber
 {
-    [DramaServices pullDramaGoodData:pageNumber  success:^(NSArray *array)
+    if([ strBtnClick isEqualToString: @"btnAll"])
     {
-        self._arrayNewVideo =[[NSMutableArray alloc ] initWithArray:array];
-        
-        if (pageNumber  == 1 )
-        {
-            self._arrayVideo = [[NSMutableArray alloc]initWithArray:self._arrayNewVideo];
-             [_findTableView reloadData];
-        }
-        else
-        {
-            if (self._arrayNewVideo.count == 0)
-            {
-                [Tool showWarningTip:@"没有更多数据!" view:self.view time:1];
-            }
-            if (self._arrayNewVideo.count != 0)
-            {
-                [self._arrayVideo addObjectsFromArray:self._arrayNewVideo];
-                [_findTableView reloadData];
-            }
-        }
-        
-    } failure:^(NSDictionary *error)
+        [DramaServices pullAllDramaList:pageNumber  success:^(NSArray *array)
+         {
+             self._arrayNewVideo =[[NSMutableArray alloc ] initWithArray:array];
+             if (pageNumber  == 1 )
+             {
+                 self._arrayVideo = [[NSMutableArray alloc]initWithArray:self._arrayNewVideo];
+                 [_findTableView reloadData];
+             }
+             else
+             {
+                 if (self._arrayNewVideo.count == 0)
+                 {
+                     [Tool showWarningTip:@"没有更多数据!" view:self.view time:1];
+                 }
+                 if (self._arrayNewVideo.count != 0)
+                 {
+                     [self._arrayVideo addObjectsFromArray:self._arrayNewVideo];
+                     [_findTableView reloadData];
+                 }
+             }
+             
+         } failure:^(NSDictionary *error)
+         {
+             [Tool showWarningTip:@"请求数据失败" view:self.view time:2];
+         }];
+    }
+    else
     {
-        [Tool showWarningTip:@"请求数据失败" view:self.view time:2];
-    }];
+        [DramaServices pullDramaGoodData:pageNumber  success:^(NSArray *array)
+         {
+             self._arrayNewVideo =[[NSMutableArray alloc ] initWithArray:array];
+             
+             if (pageNumber  == 1 )
+             {
+                 self._arrayVideo = [[NSMutableArray alloc]initWithArray:self._arrayNewVideo];
+                 [_findTableView reloadData];
+             }
+             else
+             {
+                 if (self._arrayNewVideo.count == 0)
+                 {
+                     [Tool showWarningTip:@"没有更多数据!" view:self.view time:1];
+                 }
+                 if (self._arrayNewVideo.count != 0)
+                 {
+                     [self._arrayVideo addObjectsFromArray:self._arrayNewVideo];
+                     [_findTableView reloadData];
+                 }
+             }
+             
+         } failure:^(NSDictionary *error)
+         {
+             [Tool showWarningTip:@"请求数据失败" view:self.view time:2];
+         }];
+    }
+
 }
 
 #pragma mark tableview function
@@ -310,7 +352,10 @@
         }
         else
         {
-            dramaRight=[self._arrayVideo objectAtIndex:(indexPath.row*2+1)];
+            if ((indexPath.row*2+1)<[self._arrayVideo count])
+            {
+                dramaRight=[self._arrayVideo objectAtIndex:(indexPath.row*2+1)];
+            }
         }
         allCell.delegate = self;
         [allCell setControlLeftData:dramaLeft rightData:dramaRight ];

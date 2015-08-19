@@ -66,34 +66,6 @@ IMP_SINGLETON(UserService)
 }
 
 
-+ (void)updateUserDetail:(UserModel *)userModel success:(void (^)(Boolean *boolean))success failure:(void (^)(NSDictionary *error))failure {
-
-    //FIXME 需添加上传图片处理逻辑
-    NSDictionary* paramDict = @{@"name":userModel.name,@"brief":userModel.brief,
-            @"corporation":userModel.corporation,
-            @"position":userModel.position,
-            @"email":userModel.email
-    };
-
-    HttpProtocol *httpProtocol = [[HttpProtocol alloc] init];
-    httpProtocol.requestUrl= [NSString stringWithFormat:@"%@",URL_USER_UPDATE];
-    httpProtocol.param=paramDict;
-    httpProtocol.method=@"post";
-
-    httpProtocol.token=[Config getToken];
-
-    [[HttpManager sharedInstance] addHttpRequest:httpProtocol  success:^(AFHTTPRequestOperation *operation, Boolean *boolean){
-
-        if(success)
-            success(boolean);
-
-    } failure:^(AFHTTPRequestOperation *operation, NSString *error){
-        if(failure)
-            failure(error);
-    }];
-}
-
-
 + (void)getPublishes:(void (^)(NSArray *dramaArray))success failure:(void (^)(NSDictionary *error))failure
 {
     HttpProtocol *httpProtocol = [[HttpProtocol alloc] init];
@@ -231,32 +203,34 @@ IMP_SINGLETON(UserService)
 }
 
 
-+ (void)sendPublish:(DramaModel *)dramaModel success:(void (^)(Boolean *boolean))success failure:(void (^)(NSDictionary *error))failure {
 
++ (void)sendPublish:(DramaModel *)dramaModel success:(void (^)(Boolean *boolean))success failure:(void (^)(NSString *error))failure {
+    
     NSDictionary* paramDict = @{@"name":dramaModel.name,@"brief":dramaModel.brief,@"staring":dramaModel.staring,
-            @"district":dramaModel.district,
-            @"language":dramaModel.language,
-            @"premiere":dramaModel.premiere,
-            @"recommend":dramaModel.recommend
-    };
-
+                                @"district":dramaModel.district,
+                                @"language":dramaModel.language,
+                                @"premiere":dramaModel.premiere,
+                                @"recommend":dramaModel.recommend
+                                };
+    
     HttpProtocol *httpProtocol = [[HttpProtocol alloc] init];
     httpProtocol.requestUrl= [NSString stringWithFormat:@"%@",URL_PUBLISHDRAMA];
     httpProtocol.param=paramDict;
     httpProtocol.method=@"post";
     //FIXME 替换token变量
     httpProtocol.token=[Config getToken];
-
-    [[HttpManager sharedInstance] addHttpRequest:httpProtocol  success:^(AFHTTPRequestOperation *operation, Boolean *boolean){
-
+    
+    [[HttpManager sharedInstance] addHttpRequest:httpProtocol  success:^(AFHTTPRequestOperation *operation, Boolean *boolean)
+    {
         if(success)
             success(boolean);
-
+        
     } failure:^(AFHTTPRequestOperation *operation, NSString *error){
         if(failure)
             failure(error);
     }];
 }
+
 
 + (void)addCollection:(int )dramaId success:(void (^)(Boolean *boolean))success failure:(void (^)(NSString *error))failure
 {
@@ -311,8 +285,7 @@ IMP_SINGLETON(UserService)
     //FIXME 替换token变量
     httpProtocol.token=[Config getToken];
 
-    [[HttpManager sharedInstance] httpWithRequest:httpProtocol success:^(AFHTTPRequestOperation *operation, id responseObject)
-    {
+    [[HttpManager sharedInstance] httpWithRequest:httpProtocol success:^(AFHTTPRequestOperation *operation, id responseObject){
 
         if([responseObject isKindOfClass:[NSArray class]])
         {
