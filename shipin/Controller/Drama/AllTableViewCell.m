@@ -153,6 +153,15 @@
         [_imageViewUserLeft setUserInteractionEnabled:YES];
         [self addSubview:_imageViewUserLeft];
 
+        //用户头像
+        _imageViewUserRight= [[UIImageView alloc ] initWithFrame:CGRectMake(_imageViewLeft.frame.origin.x+_imageViewLeft.frame.size.width+125, _imageViewLeft.frame.origin.x+_imageViewLeft.frame.size.width-52, 22, 22)];
+        [_imageViewUserRight setBackgroundColor:[UIColor clearColor]];
+        _imageViewUserRight.layer.masksToBounds = YES;
+        _imageViewUserRight.layer.cornerRadius = _imageViewUserLeft.frame.size.width/2;
+        [_imageViewUserRight setContentMode:UIViewContentModeScaleAspectFill];
+        [_imageViewUserRight setUserInteractionEnabled:YES];
+        [self addSubview:_imageViewUserRight];
+        
     }
     return self;
 }
@@ -187,7 +196,7 @@
         {
             posterModle =rightData.posters[0];
             [_imageViewRight sd_setImageWithURL:[Tool stringMerge:posterModle.poster] placeholderImage:DefaultImage];
-//            [_imageViewUserRight sd_setImageWithURL:[Tool stringMerge:rightData.avatar] placeholderImage:[UIImage imageNamed:@"image_defaulthead.png"]];
+            [_imageViewUserRight sd_setImageWithURL:[Tool stringMerge:rightData.avatar] placeholderImage:[UIImage imageNamed:@"image_defaulthead.png"]];
             [_labelFilmNameRight setText:rightData.name];
             [_labelFilmContentRight setText:rightData.brief];
             
