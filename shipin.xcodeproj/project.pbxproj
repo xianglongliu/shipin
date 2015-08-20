@@ -75,6 +75,7 @@
 		EEABE39F1B7F3F1F00C06C3A /* AttentionPeoperTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = EEABE39E1B7F3F1F00C06C3A /* AttentionPeoperTableViewCell.m */; };
 		EEABE3A21B7F478600C06C3A /* SystemMsgViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EEABE3A11B7F478600C06C3A /* SystemMsgViewController.m */; };
 		EEABE3A81B7F494C00C06C3A /* SystemMsgTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = EEABE3A71B7F494C00C06C3A /* SystemMsgTableViewCell.m */; };
+		EED7DBAC1B85C4A0000EC19E /* image_defaulthead.png in Resources */ = {isa = PBXBuildFile; fileRef = EED7DBAB1B85C4A0000EC19E /* image_defaulthead.png */; };
 		EED82F4C1B844DC4001AC5F3 /* UIButtonTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = EED82F4B1B844DC4001AC5F3 /* UIButtonTableViewCell.m */; };
 		EED82F4E1B84A9EC001AC5F3 /* btn_floow.png in Resources */ = {isa = PBXBuildFile; fileRef = EED82F4D1B84A9EC001AC5F3 /* btn_floow.png */; };
 		EEDA73D21B82DDD1008823CE /* BrowseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EEDA73D11B82DDD1008823CE /* BrowseViewController.m */; };
@@ -239,6 +240,7 @@
 		EEABE3A11B7F478600C06C3A /* SystemMsgViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SystemMsgViewController.m; path = Controller/User/SystemMsgViewController.m; sourceTree = "<group>"; };
 		EEABE3A61B7F494C00C06C3A /* SystemMsgTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SystemMsgTableViewCell.h; path = Controller/User/SystemMsgTableViewCell.h; sourceTree = "<group>"; };
 		EEABE3A71B7F494C00C06C3A /* SystemMsgTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SystemMsgTableViewCell.m; path = Controller/User/SystemMsgTableViewCell.m; sourceTree = "<group>"; };
+		EED7DBAB1B85C4A0000EC19E /* image_defaulthead.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = image_defaulthead.png; path = Resource/Image/image_defaulthead.png; sourceTree = "<group>"; };
 		EED82F4A1B844DC4001AC5F3 /* UIButtonTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = UIButtonTableViewCell.h; path = Controller/UIButtonTableViewCell.h; sourceTree = "<group>"; };
 		EED82F4B1B844DC4001AC5F3 /* UIButtonTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = UIButtonTableViewCell.m; path = Controller/UIButtonTableViewCell.m; sourceTree = "<group>"; };
 		EED82F4D1B84A9EC001AC5F3 /* btn_floow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = btn_floow.png; path = Resource/Button/btn_floow.png; sourceTree = "<group>"; };
@@ -607,6 +609,7 @@
 		EE908C3E1B7F05F700505B82 /* Image */ = {
 			isa = PBXGroup;
 			children = (
+				EED7DBAB1B85C4A0000EC19E /* image_defaulthead.png */,
 				EEDC18461B8038FC0013E61B /* image_computer.png */,
 				EEDC18471B8038FC0013E61B /* image_mobile.png */,
 				EE8069FB1B7F15850098DA30 /* image_heart.png */,
@@ -848,6 +851,7 @@
 				EE908C481B7F071700505B82 /* image_personhead.png in Resources */,
 				EE87D21D1B58ADA4002A0DD8 /* Images.xcassets in Resources */,
 				EE726FA51B819ED900C66CF9 /* Icon-40@2x.png in Resources */,
+				EED7DBAC1B85C4A0000EC19E /* image_defaulthead.png in Resources */,
 				EE8069FC1B7F15850098DA30 /* image_heart.png in Resources */,
 				EE8069FA1B7F148B0098DA30 /* image_collection.png in Resources */,
 				EE726FA81B819ED900C66CF9 /* Icon-76.png in Resources */,

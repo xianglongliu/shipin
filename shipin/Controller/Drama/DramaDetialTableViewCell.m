@@ -224,8 +224,9 @@
     _imageViewCenter.frame =CGRectMake(_imageViewLeft.frame.origin.x+_imageViewLeft.frame.size.width+10, 45, _imageViewLeft.frame.size.width, _imageViewLeft.frame.size.height);
     _labelFilmNameCenter.frame  = CGRectMake(_imageViewCenter.frame.origin.x, _imageViewLeft.frame.origin.y+_imageViewLeft.frame.size.height+5,_labelFilmNameLeft.frame.size.width, _labelFilmNameLeft.frame.size.height);
     
-    _imageViewRight.frame =CGRectMake(20, _imageViewCenter.frame.origin.x+_imageViewCenter.frame.size.width+10, _imageViewLeft.frame.size.width, _imageViewLeft.frame.size.height);
-    _labelFilmNameRight.frame  = CGRectMake(_imageViewRight.frame.origin.x, _imageViewLeft.frame.origin.y+_imageViewLeft.frame.size.height+5, _labelFilmNameLeft.frame.size.width, _labelFilmNameLeft.frame.size.height);
+    _imageViewRight.frame =CGRectMake(_imageViewCenter.frame.origin.x+_imageViewCenter.frame.size.width+10, _imageViewCenter.frame.origin.y, _imageViewLeft.frame.size.width, _imageViewLeft.frame.size.height);
+    
+    _labelFilmNameRight.frame  = CGRectMake(_imageViewRight.frame.origin.x, _imageViewRight.frame.origin.y+_imageViewRight.frame.size.height+5,_imageViewRight.frame.size.width, _labelFilmNameLeft.frame.size.height);
 
     if ([smilaritiesModelArray count] >0)
     {

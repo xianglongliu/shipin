@@ -45,7 +45,10 @@
 
 +(NSURL *) stringMerge:(NSString *)imageUrl
 {
-    return     [NSURL URLWithString:[[NSString stringWithFormat:@"%@",URL_SERVERURL] stringByAppendingString:imageUrl]];
+    if([imageUrl length] > 0)
+        return  [NSURL URLWithString:[[NSString stringWithFormat:@"%@",URL_SERVERURL] stringByAppendingString:imageUrl]];
+    else
+        return [NSURL URLWithString:[NSString stringWithFormat:@"%@",netWorkUrl]];
 }
 
 

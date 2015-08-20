@@ -130,7 +130,7 @@
     self._navigationBar = [[ExUINavigationBar alloc ] initWithFrameRect:CGRectMake(0, 0, SCREEN_WIDTH, TABBAR_HEIGHT) BGImage:@"navigationbar.png" StrTitle:@"剧库" ];
     [self.view addSubview:self._navigationBar];
     
-    UIButton *btnLogin = [[UIButton alloc ] initWithFrame:CGRectMake(10, 20, 22, 22)];
+    UIButton *btnLogin = [[UIButton alloc ] initWithFrame:CGRectMake(0, 20, 176/2, 22)];
     [btnLogin setImage:[UIImage imageNamed:@"image_head.png"] forState:UIControlStateNormal];
     [btnLogin addTarget:self action:@selector(onButtonPersonalCenter) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:btnLogin];
@@ -315,19 +315,15 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    UITableViewCell *cell ;
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cell"] ;;
     
     if ([strBtnClick isEqualToString:@"btnGood" ])
     {
         DramaModel *itemData = [[DramaModel alloc ] init];
         itemData = self._arrayVideo[indexPath.row];
         
-        static NSString *showCell = @"FindTableViewCell";
-        FindTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:showCell] ;
-        if (cell == nil)
-        {
-            cell = [[FindTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:showCell];
-        }
+        FindTableViewCell *cell = [[FindTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"FindTableViewCell"];
+
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
         [cell setControlData:itemData];
         return cell;
@@ -335,28 +331,22 @@
     //全部剧目
     if ([ strBtnClick isEqualToString:@"btnAll" ])
     {
-        static NSString *showCell = @"AllTableViewCell";
-        AllTableViewCell *allCell = [tableView dequeueReusableCellWithIdentifier:showCell] ;
-        
-        if (allCell == nil)
-        {
-            allCell = [[AllTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:showCell];
+        AllTableViewCell *allCell  = [[AllTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier: @"AllTableViewCell"];
             allCell.selectionStyle = UITableViewCellSelectionStyleNone;
-        }
-        
+
          dramaLeft  =[self._arrayVideo objectAtIndex:(indexPath.row*2)];
         //最后一条数组不能越界
-        if ([self._arrayVideo count] == (indexPath.row*2+1) )
-        {
-            dramaRight=nil;
-        }
-        else
-        {
+//        if ([self._arrayVideo count] == (indexPath.row*2+1) )
+//        {
+//            dramaRight=nil;
+//        }
+//        else
+//        {
             if ((indexPath.row*2+1)<[self._arrayVideo count])
             {
                 dramaRight=[self._arrayVideo objectAtIndex:(indexPath.row*2+1)];
             }
-        }
+//        }
         allCell.delegate = self;
         [allCell setControlLeftData:dramaLeft rightData:dramaRight ];
         return allCell;

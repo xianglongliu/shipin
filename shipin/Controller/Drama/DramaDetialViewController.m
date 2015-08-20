@@ -198,7 +198,7 @@
                 UITableViewCell* cellBtn = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
                 cellBtn.selectionStyle = UITableViewCellSelectionStyleNone;
                 
-                UIButton *btnSave = [[UIButton alloc ] initWithFrame:CGRectMake(20, 0, SCREEN_WIDTH-40, 40)];
+                UIButton *btnSave = [[UIButton alloc ] initWithFrame:CGRectMake(20, 20, SCREEN_WIDTH-40, 40)];
                 [btnSave setTitle:@"加入收藏" forState:UIControlStateNormal];
                 btnSave.titleLabel.font = [UIFont systemFontOfSize:14];
                 [btnSave  setBackgroundColor:yellowRgb];
@@ -212,8 +212,12 @@
             DramaDetialTableViewCell* cell = cell = [[DramaDetialTableViewCell alloc] initWithReuseIdentifier:CellIdentifier];
             cell.selectionStyle = UITableViewCellSelectionStyleNone;
             
-            DramaRelativesModel *dramaRelativesModel =dramaModle.dramaRelatives[indexPath.row - 2];
-            [cell setRelatedData:dramaRelativesModel];
+            if ([dramaModle.dramaRelatives count] > indexPath.row - 2)
+            {
+                DramaRelativesModel *dramaRelativesModel =dramaModle.dramaRelatives[indexPath.row - 2];
+                [cell setRelatedData:dramaRelativesModel];
+            }
+            
             return cell;
         }
         
@@ -241,21 +245,23 @@
                 UITableViewCell* cellBtn = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
                 cellBtn.selectionStyle = UITableViewCellSelectionStyleNone;
                 
-                UIButton *btnSave = [[UIButton alloc ] initWithFrame:CGRectMake(20, 0, SCREEN_WIDTH-40, 40)];
-                [btnSave setTitle:@"加入收藏" forState:UIControlStateNormal];
-                btnSave.titleLabel.font = [UIFont systemFontOfSize:14];
-                [btnSave  setBackgroundColor:yellowRgb];
-                btnSave.layer.masksToBounds = YES;
-                btnSave.layer.cornerRadius = 3;
-                [btnSave addTarget:self action:@selector(onButtonColloction) forControlEvents:UIControlEventTouchUpInside];
-                [cellBtn addSubview:btnSave];
+//                UIButton *btnSave = [[UIButton alloc ] initWithFrame:CGRectMake(20, 0, SCREEN_WIDTH-40, 40)];
+//                [btnSave setTitle:@"加入收藏" forState:UIControlStateNormal];
+//                btnSave.titleLabel.font = [UIFont systemFontOfSize:14];
+//                [btnSave  setBackgroundColor:yellowRgb];
+//                btnSave.layer.masksToBounds = YES;
+//                btnSave.layer.cornerRadius = 3;
+//                [btnSave addTarget:self action:@selector(onButtonColloction) forControlEvents:UIControlEventTouchUpInside];
+//                [cellBtn addSubview:btnSave];
                 return cellBtn;
             }
             DramaDetialTableViewCell* cell = cell = [[DramaDetialTableViewCell alloc] initWithReuseIdentifier:CellIdentifier];
             cell.selectionStyle = UITableViewCellSelectionStyleNone;
-            
-            DramaRelativesModel *dramaRelativesModel =dramaModle.dramaRelatives[indexPath.row - 2];
-            [cell setRelatedData:dramaRelativesModel];
+            if ([dramaModle.dramaRelatives count] > indexPath.row - 2)
+            {
+                DramaRelativesModel *dramaRelativesModel =dramaModle.dramaRelatives[indexPath.row - 2];
+                [cell setRelatedData:dramaRelativesModel];
+            }
             return cell;
         }
     }
@@ -287,9 +293,8 @@
              [cell setIntroductionText:@"" headImage:url imageHeight:SCREEN_WIDTH-106];
              return cell;
          }
-        if( clickIndex == 1)//相关资料
+        if( clickIndex == 1)//项目信息
         {
-   
             UITableViewCell* cellBtn = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
             cellBtn.selectionStyle = UITableViewCellSelectionStyleNone;
             
@@ -306,27 +311,29 @@
         }
         if( clickIndex == 2)//相关资料
         {
-            
             if ( [dramaModle.posters count] == indexPath.row - 3 )
             {
                 UITableViewCell* cellBtn = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
                 cellBtn.selectionStyle = UITableViewCellSelectionStyleNone;
                 
-                UIButton *btnSave = [[UIButton alloc ] initWithFrame:CGRectMake(20, 0, SCREEN_WIDTH-40, 40)];
-                [btnSave setTitle:@"加入收藏" forState:UIControlStateNormal];
-                btnSave.titleLabel.font = [UIFont systemFontOfSize:14];
-                [btnSave  setBackgroundColor:yellowRgb];
-                btnSave.layer.masksToBounds = YES;
-                btnSave.layer.cornerRadius = 3;
-                [btnSave addTarget:self action:@selector(onButtonColloction) forControlEvents:UIControlEventTouchUpInside];
-                [cellBtn addSubview:btnSave];
+//                UIButton *btnSave = [[UIButton alloc ] initWithFrame:CGRectMake(20, 0, SCREEN_WIDTH-40, 40)];
+//                [btnSave setTitle:@"加入收藏" forState:UIControlStateNormal];
+//                btnSave.titleLabel.font = [UIFont systemFontOfSize:14];
+//                [btnSave  setBackgroundColor:yellowRgb];
+//                btnSave.layer.masksToBounds = YES;
+//                btnSave.layer.cornerRadius = 3;
+//                [btnSave addTarget:self action:@selector(onButtonColloction) forControlEvents:UIControlEventTouchUpInside];
+//                [cellBtn addSubview:btnSave];
                 return cellBtn;
             }
 
             DramaDetialTableViewCell* cell = cell = [[DramaDetialTableViewCell alloc] initWithReuseIdentifier:CellIdentifier];
             cell.selectionStyle = UITableViewCellSelectionStyleNone;
-            DramaRelativesModel *dramaRelativesModel =dramaModle.dramaRelatives[indexPath.row - 2];
-            [cell setRelatedData:dramaRelativesModel];
+            if ([dramaModle.dramaRelatives count] > indexPath.row - 2)
+            {
+                DramaRelativesModel *dramaRelativesModel =dramaModle.dramaRelatives[indexPath.row - 2];
+                [cell setRelatedData:dramaRelativesModel];
+            }
             return cell;
         }
     }

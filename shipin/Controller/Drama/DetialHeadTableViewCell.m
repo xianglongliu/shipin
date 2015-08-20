@@ -73,9 +73,14 @@
 
 -(void) setCtrlText:(DramaModel*) dramaModle
 {
-    DramaPostersModel *posterModle =dramaModle.posters[0];
-    NSURL *url =[Tool stringMerge:posterModle.poster];
-    [_imageViewHead sd_setImageWithURL:url placeholderImage:DefaultImage];
+    NSURL *url;
+    if([dramaModle.posters count] > 0 )
+    {
+        DramaPostersModel *posterModle =dramaModle.posters[0];
+        url =[Tool stringMerge:posterModle.poster];
+        [_imageViewHead sd_setImageWithURL:url placeholderImage:DefaultImage];
+    }
+   
     //头像图
     url = [Tool stringMerge:dramaModle.avatar];
     [_imageViewUserHead sd_setImageWithURL:[Tool stringMerge:dramaModle.avatar] placeholderImage:DefaultImage];

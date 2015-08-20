@@ -41,6 +41,7 @@
     [textTel setBackgroundColor:[UIColor whiteColor]];
     textTel.layer.masksToBounds = YES;
     textTel.layer.cornerRadius = 3;
+    textTel.keyboardType = UIKeyboardTypePhonePad;
     [textTel setText:[Config getUserName]];
     [self.view addSubview:textTel];
 //    获取验证码
@@ -55,6 +56,7 @@
 //    验证码
     textIdentifyingCode = [[UITextField alloc ] initWithFrame:CGRectMake(25, textTel.frame.size.height+textTel.frame.origin.y+10, SCREEN_WIDTH-50, 37)];
     [textIdentifyingCode setPlaceholder:@"  请输入验证码"];
+    textIdentifyingCode.keyboardType = UIKeyboardTypePhonePad;
     [textIdentifyingCode setFont:[UIFont systemFontOfSize:12]];
     [textIdentifyingCode setBackgroundColor:[UIColor whiteColor]];
     textIdentifyingCode.layer.masksToBounds = YES;
