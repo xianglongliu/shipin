@@ -32,6 +32,8 @@
         [_imageViewLeft setUserInteractionEnabled:YES];
         [self addSubview:_imageViewLeft];
         
+       
+        
         UILabel *labelbgLeft = [[UILabel alloc ] initWithFrame:CGRectMake(10, _imageViewLeft.frame.origin.y+_imageViewLeft.frame.size.height, _imageViewLeft.frame.size.width, 40)];
         [labelbgLeft setUserInteractionEnabled:YES];
         [labelbgLeft setBackgroundColor:RGB(255, 255, 255)];
@@ -79,6 +81,16 @@
         [labelGzNameLeft setTextAlignment:NSTextAlignmentLeft];
         [labelGzNameLeft setText:@"关注"];
         [self addSubview:labelGzNameLeft];
+        
+        //用户头像
+        _imageViewUserLeft= [[UIImageView alloc ] initWithFrame:CGRectMake(_imageViewLeft.frame.origin.x+_imageViewLeft.frame.size.width-30, _imageViewLeft.frame.origin.x+_imageViewLeft.frame.size.width-52, 22, 22)];
+        [_imageViewUserLeft setBackgroundColor:[UIColor clearColor]];
+        _imageViewUserLeft.layer.masksToBounds = YES;
+        _imageViewUserLeft.layer.cornerRadius = _imageViewUserLeft.frame.size.width/2;
+        [_imageViewUserLeft setContentMode:UIViewContentModeScaleAspectFill];
+        [_imageViewUserLeft setUserInteractionEnabled:YES];
+        [self addSubview:_imageViewUserLeft];
+        
         
 //        右侧数据
          _labelbgRight = [[UILabel alloc ] initWithFrame:CGRectMake(_labelbgLeft.frame.size.width+_labelbgLeft.frame.origin.x+10, 10, (SCREEN_WIDTH-30)/2, 160)];
@@ -142,6 +154,16 @@
         [labelGzNameRight setTextAlignment:NSTextAlignmentLeft];
         [labelGzNameRight setText:@"关注"];
         [self addSubview:labelGzNameRight];
+        
+        //用户头像
+       _imageViewUserRight= [[UIImageView alloc ] initWithFrame:CGRectMake(_imageViewRight.frame.origin.x+_imageViewRight.frame.size.width-30, _imageViewRight.frame.origin.x+_imageViewRight.frame.size.width-38, 22, 22)];
+        [_imageViewUserRight setBackgroundColor:[UIColor clearColor]];
+        _imageViewUserRight.layer.masksToBounds = YES;
+        _imageViewUserRight.layer.cornerRadius = _imageViewUserRight.frame.size.width/2;
+        [_imageViewUserRight setContentMode:UIViewContentModeScaleAspectFill];
+        [_imageViewUserRight setUserInteractionEnabled:YES];
+        [self addSubview:_imageViewUserRight];
+        
     }
     return self;
 }
@@ -156,14 +178,17 @@
         _rightData =rightData;
         //    左面数据
         DramaPostersModel *posterModle;
-        NSLog(@"%d",[leftData.posters count]);
+//        NSLog(@"%d",[leftData.posters count]);
         if ([leftData.posters count] > 0)
         {
             posterModle =leftData.posters[0];
             [_imageViewLeft sd_setImageWithURL:[Tool stringMerge:posterModle.poster] placeholderImage:DefaultImage];
+            [_imageViewUserLeft sd_setImageWithURL:[Tool stringMerge:leftData.avatar] placeholderImage:DefaultImage];
             [_labelFilmNameLeft setText:leftData.name];
             [_labelFilmContentLeft setText:leftData.brief];
             
+            DramaOpModel *countItem=leftData.dramaOp;
+            NSLog(@"%@", [countItem.clicks stringValue]);
             [_labelReadCountLeft setText:[Tool getCount:[leftData.dramaOp.clicks stringValue]] ];
             [_labelGzCountLeft setText:[Tool getCount:[leftData.dramaOp.collects stringValue]] ];
         }
@@ -174,6 +199,7 @@
         {
             posterModle =rightData.posters[0];
             [_imageViewRight sd_setImageWithURL:[Tool stringMerge:posterModle.poster] placeholderImage:DefaultImage];
+            [_imageViewUserRight sd_setImageWithURL:[Tool stringMerge:rightData.avatar] placeholderImage:DefaultImage];
             [_labelFilmNameRight setText:rightData.name];
             [_labelFilmContentRight setText:rightData.brief];
             
@@ -182,7 +208,7 @@
             
         }
         
-        
+//        给图片天点击事件
         _labelbgLeft.tag=[[_leftData.id stringValue] intValue];
         if(!gestureLeft)
         {

@@ -49,20 +49,17 @@
     if ([cellname isEqualToString:@"setview" ])
     {
         _imageViewBg.frame = CGRectMake(0, 0, SCREEN_WIDTH, 170);
-       
         _labelTransparentLayer.frame = CGRectMake(0, _imageViewBg.frame.size.height-34, SCREEN_WIDTH, 34);
-       
         _imageViewHead.frame = CGRectMake(20, 40, 80, 80);
          _imageViewHead.layer.cornerRadius = _imageViewHead.frame.size.width/2;
-      
         self._labelName.frame = CGRectMake(_imageViewHead.frame.origin.y+_imageViewHead.frame.size.width, _imageViewHead.frame.origin.y, SCREEN_WIDTH/2, _imageViewHead.frame.size.height);
         self._labelName.shadowColor = RGB(0, 0, 0);
         self._labelName.shadowOffset = CGSizeMake(0.5f, 1.0f);
         self._labelName.shadowBlur = 2.0f;
         
-//        赋值
+        //        赋值
         [_imageViewHead sd_setImageWithURL:[Tool stringMerge:usermodle.avatar] placeholderImage:DefaultImage];
-        [self._labelName setText:usermodle.name];
+        [self._labelName setText:[Tool isNull:usermodle.name] ];//
     }
     else
     {
@@ -84,7 +81,7 @@
         
 //        赋值
         [_imageViewHead sd_setImageWithURL:[Tool stringMerge:usermodle.avatar]  placeholderImage:DefaultImage];
-        [self._labelName setText:usermodle.name];
+        [self._labelName setText:[Tool isNull:usermodle.name]];
     }
 
     

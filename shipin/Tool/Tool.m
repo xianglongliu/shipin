@@ -90,4 +90,15 @@
     }
     return @"0";
 }
+
++(NSString *)isNull:(NSString *)sourceString
+{
+    if ([sourceString isEqualToString:@"(null)"])
+        return @"";
+    else
+        return sourceString;
+}
+
+
+
 @end

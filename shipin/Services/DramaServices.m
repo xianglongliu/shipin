@@ -103,20 +103,19 @@ IMP_SINGLETON(DramaServices)
 }
 
 
-+ (void)pullAllDramaList:(int)pageNum success:(void (^)(NSArray *array))success failure:(void (^)(NSDictionary *error))failure {
-
++ (void)pullAllDramaList:(int)pageNum success:(void (^)(NSArray *array))success failure:(void (^)(NSDictionary *error))failure
+{
     NSDictionary* paramDict = @{@"page":@(pageNum)};
-
     HttpProtocol *httpProtocol = [[HttpProtocol alloc] init];
-
     httpProtocol.requestUrl=[NSString stringWithFormat:@"%@",URL_ALLDRAMA];
     httpProtocol.param=paramDict;
     httpProtocol.method=@"get";
     //FIXME 替换token变量
     httpProtocol.token=[Config getToken];
 
-    [[HttpManager sharedInstance] httpWithRequest:httpProtocol success:^(AFHTTPRequestOperation *operation, id responseObject){
-
+    [[HttpManager sharedInstance] httpWithRequest:httpProtocol success:^(AFHTTPRequestOperation *operation, id responseObject)
+    {
+        NSLog(@"dramaJson=%@", [responseObject JSONString]);
         if([responseObject isKindOfClass:[NSDictionary class]])
         {
             NSArray<NSDictionary> *datum = [responseObject objectForKey:@"datum"];
@@ -131,18 +130,14 @@ IMP_SINGLETON(DramaServices)
 
                     if(err!=nil)
                     {
-
                         NSLog(@"%@",err );
                     }
                     [dramaArray addObject:dramaModel];
                 }
-
                 if(success)
                     success(dramaArray);
             }
-
         }
-
     } failure:^(AFHTTPRequestOperation *operation, NSError *error){
         if(failure)
             failure(@{@"result":error});

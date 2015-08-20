@@ -48,7 +48,7 @@
 
 -(void) viewDidAppear:(BOOL)animated
 {
-    self._textContent.text = self.selModle.strRightName;
+    self._textContent.text = [Tool isNull:self.selModle.strRightName] ;
 }
 
 

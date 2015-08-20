@@ -20,6 +20,7 @@
     UILabel     *_labelFilmContentLeft;
     UILabel     *_labelReadCountLeft;
     UILabel     *_labelGzCountLeft;
+    UIImageView *_imageViewUserLeft;
     
     UILabel     *_labelbgRight;
     UIImageView *_imageViewRight;
@@ -27,6 +28,7 @@
     UILabel     *_labelFilmContentRight;
     UILabel     *_labelReadCountRight;
     UILabel     *_labelGzCountRight;
+    UIImageView *_imageViewUserRight;
     
     UITapGestureRecognizer *gestureLeft;
     UITapGestureRecognizer *gestureRight;

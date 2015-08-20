@@ -63,7 +63,7 @@
         {
             [self.rightLable  setHidden:NO];
             [_imageviewHead setHidden:YES];
-            [self.rightLable  setText:tModle.strRightName];
+            [self.rightLable  setText:[Tool isNull:tModle.strRightName] ];
         }
     }
     else
@@ -71,7 +71,7 @@
         [_imageviewHead setHidden:YES];
         self.rightLable.frame = CGRectMake(100, 0, SCREEN_WIDTH-115, hegith);
         [self.leftLable  setText:tModle.strLeftName];
-        [self.rightLable  setText:tModle.strRightName];
+        [self.rightLable  setText:[Tool isNull:tModle.strRightName] ];
     }
     
   

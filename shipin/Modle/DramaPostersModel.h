@@ -8,6 +8,12 @@
 
 @interface DramaPostersModel : JSONModel
 
-@property (nonatomic,strong) NSString<Optional>*  poster; //图片url
+@property (nonatomic,assign) NSNumber<Optional> *did;
+@property (nonatomic,strong) NSNumber<Optional> *id;
+@property (nonatomic,strong) NSString<Optional> *poster;
+@property (nonatomic,strong) NSNumber<Optional> *createTime;
+@property (nonatomic,assign) NSNumber<Optional> *updateTime;
+
+
 
 @end

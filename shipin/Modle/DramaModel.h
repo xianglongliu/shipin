@@ -37,17 +37,17 @@
 @property (nonatomic,strong) NSString<Optional> *premiere; //首播时间
 @property (nonatomic,strong) NSArray<Optional,SimilaritiesModel> *similarities; //相似剧集
 @property (nonatomic,strong) NSArray<Optional,DramaRelativesModel> *dramaRelatives; //相关资料
-@property (nonatomic,strong) NSNumber<Optional> *createTime; //创建时间
-@property (nonatomic,strong) NSNumber<Optional> *updateTime; //修改时间
 @property (nonatomic,assign) NSNumber<Optional> *status; //状态  1未审核 2审核
 
 @end
 
 
-
 //相关操作
 @interface DramaOpModel : JSONModel
 
+@property (nonatomic,assign) NSNumber<Optional> *did; //关注数
+@property (nonatomic,strong) NSNumber<Optional> *createTime; //创建时间
+@property (nonatomic,strong) NSNumber<Optional> *updateTime; //修改时间
 @property (nonatomic,assign) NSNumber<Optional> *collects; //关注数
 @property (nonatomic,assign) NSNumber<Optional> *clicks; //阅读数
 

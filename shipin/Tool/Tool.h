@@ -24,5 +24,6 @@
 + (CGSize)boundingRectWithSize:(NSString *)text textFont:(UIFont *)font textSize:(CGSize)size;
 //数量统计，如果为空则=0
 +(NSString *) getCount:(NSString *)count;
-
+//判断字符串是否为空
++(NSString *)isNull:(NSString *)sourceString;
 @end

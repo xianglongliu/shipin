@@ -192,12 +192,12 @@
     if (bIsColl)
     {
         [btnSpreadOut setBackgroundImage:[UIImage imageNamed:@"ico-up-arrow.png"] forState:UIControlStateNormal];
-        [self createSearcheView];
+        [viewSearch removeFromSuperview];
         bIsColl = FALSE;
     }
     else
     {
-        [viewSearch removeFromSuperview];
+        [self createSearcheView];
         [btnSpreadOut setBackgroundImage:[UIImage imageNamed:@"ico-down-arrow.png"] forState:UIControlStateNormal];
         bIsColl = TRUE;
     }
