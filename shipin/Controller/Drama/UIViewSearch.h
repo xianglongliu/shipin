@@ -8,7 +8,13 @@
 
 #import <UIKit/UIKit.h>
 
-@interface UIViewSearch : UIView
+@protocol pushSearchViewDelegate <NSObject>
+@optional
+-(void)pushToSearcheView;
+@end
+
+
+@interface UIViewSearch : UIView<UISearchBarDelegate>
 {
     UIButton    *btnLine1[3];
 
@@ -17,5 +23,9 @@
     UIButton    *btnLine3[28];
     
     UIButton    *btnLine4[7];
+    
+    id<pushSearchViewDelegate> delegate;
 }
+
+@property (nonatomic,retain) id<pushSearchViewDelegate> delegate;
 @end

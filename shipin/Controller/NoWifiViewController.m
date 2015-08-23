@@ -299,7 +299,7 @@
     {
         [Tool showSuccessTip:@"上传成功" view:self.view time:1];
         [self.navigationController popViewControllerAnimated:YES];
-    } failure:^(NSDictionary *error)
+    } failure:^(NSString *error)
     {
          [Tool showSuccessTip:@"上传失败" view:self.view time:1];
     }];

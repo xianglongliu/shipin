@@ -13,6 +13,7 @@
 #import "SetViewController.h"
 #import "LoginViewController.h"
 #import "DramaDetialViewController.h"
+#import "SearchViewController.h"
 
 
 @interface ViewController ()
@@ -29,12 +30,13 @@
     strBtnClick = @"btnGood";
     bIsColl = FALSE;
     _currentPage = 1;
-//    是否登录
+
     [self initViewCtrl];
     [self createSpreadOutButton];
     //加载视频数据1代表最新
     [self loadFindGoodDrama:1];
-    
+    //加载用户信息
+    [self loadUserInfo];
     if (![[Config getLoginFlag ] isEqualToString:@"YES"])
     {
         LoginViewController *loginView = [[LoginViewController alloc ] init];
@@ -43,9 +45,22 @@
     
 }
 
+-(void)loadUserInfo
+{
+    [UserService getUserDetail:0 success:^(UserModel *userModel)
+    {
+        [_btnLogin setImage:[UIImage imageWithData:[NSData dataWithContentsOfURL:[Tool stringMerge:userModel.avatar]]] forState:UIControlStateNormal];
+        
+    } failure:^(NSDictionary *error)
+    {
+        
+    }];
+}
+
 -(void)createSearcheView
 {
     viewSearch = [[UIViewSearch alloc] initWithFrame:CGRectMake(0, _findTableView.frame.origin.y, SCREEN_WIDTH, 240)];
+    viewSearch.delegate = self;
     [self.view addSubview:viewSearch];
 }
 
@@ -55,6 +70,7 @@
     {
         [Config saveIsLogin:@"NO"];
         [self loadFindGoodDrama:1];
+        [self loadUserInfo];
     }
 }
 
@@ -130,10 +146,11 @@
     self._navigationBar = [[ExUINavigationBar alloc ] initWithFrameRect:CGRectMake(0, 0, SCREEN_WIDTH, TABBAR_HEIGHT) BGImage:@"navigationbar.png" StrTitle:@"剧库" ];
     [self.view addSubview:self._navigationBar];
     
-    UIButton *btnLogin = [[UIButton alloc ] initWithFrame:CGRectMake(0, 20, 176/2, 22)];
-    [btnLogin setImage:[UIImage imageNamed:@"image_head.png"] forState:UIControlStateNormal];
-    [btnLogin addTarget:self action:@selector(onButtonPersonalCenter) forControlEvents:UIControlEventTouchUpInside];
-    [self.view addSubview:btnLogin];
+    _btnLogin = [[UIButton alloc ] initWithFrame:CGRectMake(10, 20, 30, 30)];
+    [_btnLogin addTarget:self action:@selector(onButtonPersonalCenter) forControlEvents:UIControlEventTouchUpInside];
+    _btnLogin.layer.masksToBounds = YES;
+    _btnLogin.layer.cornerRadius = _btnLogin.frame.size.width/2;
+    [self.view addSubview:_btnLogin];
     
     btnGood = [[UIButton alloc ] initWithFrame:CGRectMake(0, TABBAR_HEIGHT, SCREEN_WIDTH/2, 40)];
     [btnGood setBackgroundColor:[UIColor blackColor]];
@@ -216,6 +233,8 @@
     //发现好剧
     if ( sender.tag == 100 )
     {
+         bIsColl = TRUE;
+        [self onButtonSpreadOut];
         _findTableView.frame = CGRectMake(0, btnGood.frame.origin.y+btnGood.frame.size.height, SCREEN_WIDTH, SCREEN_HEIGHT-TABBAR_HEIGHT-40);
         strBtnClick = @"btnGood";
         [btnGood setTitleColor:yellowRgb forState:UIControlStateNormal];
@@ -336,17 +355,10 @@
 
          dramaLeft  =[self._arrayVideo objectAtIndex:(indexPath.row*2)];
         //最后一条数组不能越界
-//        if ([self._arrayVideo count] == (indexPath.row*2+1) )
-//        {
-//            dramaRight=nil;
-//        }
-//        else
-//        {
-            if ((indexPath.row*2+1)<[self._arrayVideo count])
-            {
-                dramaRight=[self._arrayVideo objectAtIndex:(indexPath.row*2+1)];
-            }
-//        }
+        if ((indexPath.row*2+1)<[self._arrayVideo count])
+        {
+            dramaRight=[self._arrayVideo objectAtIndex:(indexPath.row*2+1)];
+        }
         allCell.delegate = self;
         [allCell setControlLeftData:dramaLeft rightData:dramaRight ];
         return allCell;
@@ -401,6 +413,16 @@
 -(void) touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event
 {
 
+}
+
+#pragma mark push searchViewController
+-(void) pushToSearcheView
+{
+    bIsColl = TRUE;
+    [self onButtonSpreadOut];
+    SearchViewController *searchView = [[SearchViewController alloc ] init];
+    [self.navigationController pushViewController:searchView animated:YES ];
+    
 }
 - (void)didReceiveMemoryWarning
 {

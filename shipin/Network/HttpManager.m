@@ -165,15 +165,9 @@ IMP_SINGLETON(HttpManager)
                         if( failure )
                             failure(operation1,resultBase.data);
                     }
-
                 }
-
             }
-
         }
-
-
-
     } failure:^(AFHTTPRequestOperation *operation2, NSError *error) {
 
         NSLog(@"Request获取失败");

@@ -80,7 +80,7 @@
 #pragma mark tableview function
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-//    NSLog(@"%ld",[_arrayBrowse count]/2);
+
     return [_arrayBrowse count]/2;
 }
 
@@ -94,19 +94,9 @@
     }
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
     
-//    NSLog(@"%ld",(indexPath.row*2));
-    
     dramaLeft  =[_arrayBrowse objectAtIndex:(indexPath.row*2)];
-    //最后一条数组不能越界
-//    if ([_arrayBrowse count] == (indexPath.row*2+1) )
-//    {
-//        dramaRight=nil;
-//    }
-//    else
-//    {
-//        NSLog(@"%ld",(indexPath.row*2+1));
-        dramaRight=[_arrayBrowse objectAtIndex:(indexPath.row*2+1)];
-//    }
+    dramaRight=[_arrayBrowse objectAtIndex:(indexPath.row*2+1)];
+    
     cell.delegate = self;
     [cell setControlLeftData:dramaLeft rightData:dramaRight ];
 

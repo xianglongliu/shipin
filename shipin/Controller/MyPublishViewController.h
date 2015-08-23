@@ -8,13 +8,15 @@
 
 #import <UIKit/UIKit.h>
 #import "MyPublishModle.h"
-#import "PublishCellTableViewCell.h"
+#import "imageClickDelegate.h"
 
-
-@interface MyPublishViewController : BaseViewController<UITableViewDataSource,UITableViewDelegate>
+@interface MyPublishViewController : BaseViewController<UITableViewDataSource,UITableViewDelegate,imageClickDelegate>
 {
-    NSMutableArray      *_arrayDrama;
+    NSMutableArray      *_arrayPublish;
     UITableView         *_tableView;
+    
+    DramaModel *dramaLeft;
+    DramaModel *dramaRight;
 }
 
 

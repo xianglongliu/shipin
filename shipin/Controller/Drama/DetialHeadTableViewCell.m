@@ -85,7 +85,7 @@
     url = [Tool stringMerge:dramaModle.avatar];
     [_imageViewUserHead sd_setImageWithURL:[Tool stringMerge:dramaModle.avatar] placeholderImage:DefaultImage];
     //发布人名
-    [_labelUserName setText:dramaModle.username];
+    [_labelUserName setText: [Tool isNull:dramaModle.username] ];
     //阅读数量
     DramaOpModel  *countModle =dramaModle.dramaOp;
     [_labelReadCount setText:[countModle.clicks stringValue]];

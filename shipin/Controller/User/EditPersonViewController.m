@@ -143,7 +143,7 @@
     {
         [Tool showWarningTip:@"更新成功" view:self.view time:0.5f];
         [self.navigationController popViewControllerAnimated:YES];
-    } failure:^(NSDictionary *error)
+    } failure:^(NSString *error)
     {
         [Tool showWarningTip:@"更新失败" view:self.view time:1];
     }];

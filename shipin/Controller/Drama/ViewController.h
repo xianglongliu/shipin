@@ -14,7 +14,7 @@
 #import "imageClickDelegate.h"
 #import "UIViewSearch.h"
 
-@interface ViewController : BaseViewController<UITableViewDataSource,UITableViewDelegate,EGORefreshTableHeaderDelegate,imageClickDelegate>
+@interface ViewController : BaseViewController<UITableViewDataSource,UITableViewDelegate,EGORefreshTableHeaderDelegate,imageClickDelegate,pushSearchViewDelegate>
 {
     UITableView         *_findTableView;
     UIButton            *btnAll;
@@ -25,10 +25,13 @@
     BOOL                            _reloading;
     MJRefreshFooterView             *_pullUpRefresh;
     EGORefreshTableHeaderView       *_refreshHeaderView;
-    DramaModel *dramaLeft;
-    DramaModel *dramaRight;
+    
+    DramaModel                  *dramaLeft;
+    DramaModel                  *dramaRight;
     NSString                    *strBtnClick;
     UIViewSearch                *viewSearch;
+    NSURL                       *_urlUser;
+    UIButton                    *_btnLogin;
 }
 
 @property (nonatomic,strong)    ExUINavigationBar       *_navigationBar;

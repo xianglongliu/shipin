@@ -66,7 +66,7 @@ IMP_SINGLETON(UserService)
 }
 
 
-+ (void)updateUserDetail:(UserModel *)userModel success:(void (^)(Boolean *boolean))success failure:(void (^)(NSDictionary *error))failure {
++ (void)updateUserDetail:(UserModel *)userModel success:(void (^)(Boolean *boolean))success failure:(void (^)(NSString *error))failure {
 
     //FIXME 需添加上传图片处理逻辑
     NSDictionary* paramDict = @{@"name":userModel.name,@"brief":userModel.brief,
@@ -119,18 +119,14 @@ IMP_SINGLETON(UserService)
 
                     if(err!=nil)
                     {
-
                         NSLog(@"%@",err );
                     }
                     [dramaArray addObject:dramaModel];
                 }
-
                 if(success)
                     success(dramaArray);
             }
-
         }
-
     } failure:^(AFHTTPRequestOperation *operation, NSError *error){
         if(failure)
             failure(@{@"result":error});
@@ -231,7 +227,7 @@ IMP_SINGLETON(UserService)
 }
 
 
-+ (void)sendPublish:(DramaModel *)dramaModel success:(void (^)(Boolean *boolean))success failure:(void (^)(NSDictionary *error))failure {
++ (void)sendPublish:(DramaModel *)dramaModel success:(void (^)(Boolean *boolean))success failure:(void (^)(NSString *error))failure {
 
     NSDictionary* paramDict = @{@"name":dramaModel.name,@"brief":dramaModel.brief,@"staring":dramaModel.staring,
             @"district":dramaModel.district,
@@ -313,7 +309,6 @@ IMP_SINGLETON(UserService)
 
     [[HttpManager sharedInstance] httpWithRequest:httpProtocol success:^(AFHTTPRequestOperation *operation, id responseObject)
     {
-
         if([responseObject isKindOfClass:[NSArray class]])
         {
             if(responseObject!=nil && [responseObject count]>0)

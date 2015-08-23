@@ -71,6 +71,10 @@
     [self.navigationController popViewControllerAnimated:YES];
 }
 
+-(void) touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event
+{
+    [self._textContent resignFirstResponder ];
+}
 
 - (void)didReceiveMemoryWarning
 {

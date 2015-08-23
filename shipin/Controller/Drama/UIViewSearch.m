@@ -7,8 +7,10 @@
 //
 
 #import "UIViewSearch.h"
+#import "SearchViewController.h"
 
 @implementation UIViewSearch
+@synthesize delegate;
 
 - (instancetype)initWithFrame:(CGRect)frame
 {
@@ -20,6 +22,7 @@
         
         UISearchBar *searchBar = [[UISearchBar alloc ] initWithFrame:CGRectMake(10, 10, SCREEN_WIDTH-20, 30)];
         [searchBar setBackgroundColor:[UIColor whiteColor]];
+        searchBar.delegate = self;
         [self addSubview:searchBar];
         
         NSArray *arrayOne = [[NSArray alloc ] initWithObjects:@"新上线",@"最热门",@"收藏多", nil];
@@ -132,6 +135,15 @@
     
 }
 
+- (BOOL)searchBarShouldBeginEditing:(UISearchBar *)searchBar
+{
+    if ([delegate respondsToSelector:@selector(pushToSearcheView)])
+    {
+        [delegate pushToSearcheView];
+    }
+    return FALSE;
+    
+}
 
 
 @end

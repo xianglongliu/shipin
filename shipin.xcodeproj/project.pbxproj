@@ -37,7 +37,6 @@
 		EE7944F81B7F56C50032DF3A /* AddPublishViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EE7944F71B7F56C50032DF3A /* AddPublishViewController.m */; };
 		EE7944FA1B7F57B10032DF3A /* btn_addpublish.png in Resources */ = {isa = PBXBuildFile; fileRef = EE7944F91B7F57B10032DF3A /* btn_addpublish.png */; };
 		EE7944FD1B7F5BE20032DF3A /* MyPublishModle.m in Sources */ = {isa = PBXBuildFile; fileRef = EE7944FC1B7F5BE20032DF3A /* MyPublishModle.m */; };
-		EE7945001B7F5D5F0032DF3A /* PublishCellTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = EE7944FF1B7F5D5F0032DF3A /* PublishCellTableViewCell.m */; };
 		EE8069FA1B7F148B0098DA30 /* image_collection.png in Resources */ = {isa = PBXBuildFile; fileRef = EE8069F91B7F148B0098DA30 /* image_collection.png */; };
 		EE8069FC1B7F15850098DA30 /* image_heart.png in Resources */ = {isa = PBXBuildFile; fileRef = EE8069FB1B7F15850098DA30 /* image_heart.png */; };
 		EE87D2121B58ADA4002A0DD8 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = EE87D2111B58ADA4002A0DD8 /* main.m */; };
@@ -75,6 +74,8 @@
 		EEABE39F1B7F3F1F00C06C3A /* AttentionPeoperTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = EEABE39E1B7F3F1F00C06C3A /* AttentionPeoperTableViewCell.m */; };
 		EEABE3A21B7F478600C06C3A /* SystemMsgViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EEABE3A11B7F478600C06C3A /* SystemMsgViewController.m */; };
 		EEABE3A81B7F494C00C06C3A /* SystemMsgTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = EEABE3A71B7F494C00C06C3A /* SystemMsgTableViewCell.m */; };
+		EED460871B89AAB5000C2CA5 /* SearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EED460861B89AAB5000C2CA5 /* SearchViewController.m */; };
+		EED4608A1B89BCD7000C2CA5 /* SearchTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = EED460891B89BCD7000C2CA5 /* SearchTableViewCell.m */; };
 		EED7DBAC1B85C4A0000EC19E /* image_defaulthead.png in Resources */ = {isa = PBXBuildFile; fileRef = EED7DBAB1B85C4A0000EC19E /* image_defaulthead.png */; };
 		EED82F4C1B844DC4001AC5F3 /* UIButtonTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = EED82F4B1B844DC4001AC5F3 /* UIButtonTableViewCell.m */; };
 		EED82F4E1B84A9EC001AC5F3 /* btn_floow.png in Resources */ = {isa = PBXBuildFile; fileRef = EED82F4D1B84A9EC001AC5F3 /* btn_floow.png */; };
@@ -170,8 +171,6 @@
 		EE7944F91B7F57B10032DF3A /* btn_addpublish.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = btn_addpublish.png; path = Resource/Button/btn_addpublish.png; sourceTree = "<group>"; };
 		EE7944FB1B7F5BE20032DF3A /* MyPublishModle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MyPublishModle.h; path = Modle/MyPublishModle.h; sourceTree = "<group>"; };
 		EE7944FC1B7F5BE20032DF3A /* MyPublishModle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MyPublishModle.m; path = Modle/MyPublishModle.m; sourceTree = "<group>"; };
-		EE7944FE1B7F5D5F0032DF3A /* PublishCellTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PublishCellTableViewCell.h; path = Controller/PublishCellTableViewCell.h; sourceTree = "<group>"; };
-		EE7944FF1B7F5D5F0032DF3A /* PublishCellTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PublishCellTableViewCell.m; path = Controller/PublishCellTableViewCell.m; sourceTree = "<group>"; };
 		EE8069F91B7F148B0098DA30 /* image_collection.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = image_collection.png; path = Resource/Image/image_collection.png; sourceTree = "<group>"; };
 		EE8069FB1B7F15850098DA30 /* image_heart.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = image_heart.png; path = Resource/Image/image_heart.png; sourceTree = "<group>"; };
 		EE87D20C1B58ADA4002A0DD8 /* shipin.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = shipin.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -240,6 +239,10 @@
 		EEABE3A11B7F478600C06C3A /* SystemMsgViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SystemMsgViewController.m; path = Controller/User/SystemMsgViewController.m; sourceTree = "<group>"; };
 		EEABE3A61B7F494C00C06C3A /* SystemMsgTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SystemMsgTableViewCell.h; path = Controller/User/SystemMsgTableViewCell.h; sourceTree = "<group>"; };
 		EEABE3A71B7F494C00C06C3A /* SystemMsgTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SystemMsgTableViewCell.m; path = Controller/User/SystemMsgTableViewCell.m; sourceTree = "<group>"; };
+		EED460851B89AAB5000C2CA5 /* SearchViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SearchViewController.h; path = Controller/Drama/SearchViewController.h; sourceTree = "<group>"; };
+		EED460861B89AAB5000C2CA5 /* SearchViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SearchViewController.m; path = Controller/Drama/SearchViewController.m; sourceTree = "<group>"; };
+		EED460881B89BCD7000C2CA5 /* SearchTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SearchTableViewCell.h; path = Controller/Drama/SearchTableViewCell.h; sourceTree = "<group>"; };
+		EED460891B89BCD7000C2CA5 /* SearchTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SearchTableViewCell.m; path = Controller/Drama/SearchTableViewCell.m; sourceTree = "<group>"; };
 		EED7DBAB1B85C4A0000EC19E /* image_defaulthead.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = image_defaulthead.png; path = Resource/Image/image_defaulthead.png; sourceTree = "<group>"; };
 		EED82F4A1B844DC4001AC5F3 /* UIButtonTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = UIButtonTableViewCell.h; path = Controller/UIButtonTableViewCell.h; sourceTree = "<group>"; };
 		EED82F4B1B844DC4001AC5F3 /* UIButtonTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = UIButtonTableViewCell.m; path = Controller/UIButtonTableViewCell.m; sourceTree = "<group>"; };
@@ -441,16 +444,14 @@
 				EE7944F61B7F56C50032DF3A /* AddPublishViewController.h */,
 				EE7944F31B7F56610032DF3A /* MyPublishViewController.h */,
 				EEDC184D1B803F130013E61B /* NoWifiViewController.h */,
-				EE7944FE1B7F5D5F0032DF3A /* PublishCellTableViewCell.h */,
+				EED82F4A1B844DC4001AC5F3 /* UIButtonTableViewCell.h */,
 				EEDC184A1B803EC20013E61B /* WifiViewController.h */,
 				EEDC18441B8036310013E61B /* AddPublishTableViewCell.m */,
 				EE7944F71B7F56C50032DF3A /* AddPublishViewController.m */,
 				EE7944F41B7F56610032DF3A /* MyPublishViewController.m */,
 				EEDC184E1B803F130013E61B /* NoWifiViewController.m */,
-				EE7944FF1B7F5D5F0032DF3A /* PublishCellTableViewCell.m */,
-				EEDC184B1B803EC20013E61B /* WifiViewController.m */,
-				EED82F4A1B844DC4001AC5F3 /* UIButtonTableViewCell.h */,
 				EED82F4B1B844DC4001AC5F3 /* UIButtonTableViewCell.m */,
+				EEDC184B1B803EC20013E61B /* WifiViewController.m */,
 			);
 			name = Publish;
 			sourceTree = "<group>";
@@ -563,6 +564,10 @@
 				EE908C301B7EEB7D00505B82 /* FindTableViewCell.m */,
 				EE7530E71B81D32100EA3823 /* UIViewSearch.m */,
 				EE908C341B7EEB7D00505B82 /* ViewController.m */,
+				EED460851B89AAB5000C2CA5 /* SearchViewController.h */,
+				EED460861B89AAB5000C2CA5 /* SearchViewController.m */,
+				EED460881B89BCD7000C2CA5 /* SearchTableViewCell.h */,
+				EED460891B89BCD7000C2CA5 /* SearchTableViewCell.m */,
 			);
 			name = Drama;
 			sourceTree = "<group>";
@@ -933,6 +938,7 @@
 				EE908C371B7EEB7D00505B82 /* ViewController.m in Sources */,
 				EEABE3A81B7F494C00C06C3A /* SystemMsgTableViewCell.m in Sources */,
 				EE908C501B7F0DDF00505B82 /* FXLabel.m in Sources */,
+				EED4608A1B89BCD7000C2CA5 /* SearchTableViewCell.m in Sources */,
 				EEDC187C1B806F240013E61B /* DetialHeadTableViewCell.m in Sources */,
 				EE908C281B7EEB5E00505B82 /* EditPersonViewController.m in Sources */,
 				EEDC184C1B803EC20013E61B /* WifiViewController.m in Sources */,
@@ -968,8 +974,8 @@
 				EEABE39C1B7F3E2900C06C3A /* AttentionPeoperViewController.m in Sources */,
 				EE908C021B7ED66F00505B82 /* BaseService.m in Sources */,
 				EEDC185D1B805F0A0013E61B /* MJRefreshBaseView.m in Sources */,
-				EE7945001B7F5D5F0032DF3A /* PublishCellTableViewCell.m in Sources */,
 				EE7944EB1B7F4F070032DF3A /* AboutViewController.m in Sources */,
+				EED460871B89AAB5000C2CA5 /* SearchViewController.m in Sources */,
 				EE908C3D1B7EEBB800505B82 /* BaseViewController.m in Sources */,
 				EE908C161B7ED68100505B82 /* DramaPostersModel.m in Sources */,
 				EEDCB5C91B63392700EB9135 /* ExUINavigationController.m in Sources */,

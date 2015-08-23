@@ -5,9 +5,10 @@
 
 #import <Foundation/Foundation.h>
 #import "HttpManager.h"
-
-@class UserModel;
-@class DramaModel;
+#import "UserModel.h"
+#import "DramaModel.h"
+//@class UserModel;
+//@class DramaModel;
 
 
 @interface UserService : NSObject
@@ -19,7 +20,7 @@ DEF_SINGLETON(UserService)
 
 //编辑用户基本信息接口
 +(void) updateUserDetail:(UserModel *)userModel success:(void (^)(Boolean * boolean))success
-            failure:(void (^)( NSDictionary *error))failure;
+            failure:(void (^)( NSString *error))failure;
 
 //我的发布
 +(void) getPublishes: (void (^)(NSArray * dramaArray))success
@@ -36,7 +37,7 @@ DEF_SINGLETON(UserService)
 
 //发布剧目
 +(void) sendPublish:(DramaModel *)dramaModel success:(void (^)(Boolean * boolean))success
-            failure:(void (^)( NSDictionary *error))failure;
+            failure:(void (^)( NSString *error))failure;
 
 
 //添加收藏

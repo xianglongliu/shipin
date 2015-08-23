@@ -8,6 +8,8 @@
 
 #import "MyPublishViewController.h"
 #import "AddPublishViewController.h"
+#import "AllTableViewCell.h"
+#import "DramaDetialViewController.h"
 
 @interface MyPublishViewController ()
 
@@ -19,7 +21,7 @@
 {
     [super viewDidLoad];
     
-    _arrayDrama = [[NSMutableArray alloc ] initWithCapacity:0];
+    _arrayPublish = [[NSMutableArray alloc ] initWithCapacity:0];
     
     [self initViewCtrl];
 }
@@ -64,11 +66,6 @@
     [_tableView setBackgroundColor:RGBA(238, 238, 238, 1)];
     [self.view addSubview:_tableView];
     
-    //如果我的发布为空
-    if ([_arrayDrama count] <= 0)
-    {
-        [_tableView setHidden:YES];
-    }
     //先加载数据
     [self loadNetWorkData];
 }
@@ -77,7 +74,14 @@
 {
     [UserService getPublishes:^(NSArray *dramaArray)
     {
-        _arrayDrama= [[NSMutableArray alloc ] initWithArray:dramaArray];
+        _arrayPublish= [[NSMutableArray alloc ] initWithArray:dramaArray];
+        
+        //如果我的发布为空
+        if ([_arrayPublish count] <= 0)
+        {
+            [_tableView setHidden:YES];
+        }
+        
         [_tableView reloadData];
         
     } failure:^(NSDictionary *error)
@@ -105,31 +109,30 @@
 #pragma mark tableview function
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return [_arrayDrama count];
+    return [_arrayPublish count]/2;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-//    MessageModel *systemMsgModle = [[MessageModel alloc ] init];
-    
-    static NSString *CellIdentifier = @"PublishCellTableViewCell";
-    PublishCellTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+    static NSString *showCell = @"AllTableViewCell";
+    AllTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:showCell] ;
     if (cell == nil)
     {
-        cell = [[PublishCellTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
+        cell = [[AllTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:showCell];
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
     }
     
-//    systemMsgModle = [_arraySystemMsg objectAtIndex:indexPath.row];
-    
-//    [cell setItemText:systemMsgModle];
-    
+    dramaLeft  =[_arrayPublish objectAtIndex:(indexPath.row*2)];
+    dramaRight=[_arrayPublish objectAtIndex:(indexPath.row*2+1)];
+    cell.delegate = self;
+    [cell setControlLeftData:dramaLeft rightData:dramaRight ];
+
     return cell;
 }
 
 -(CGFloat) tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    return (SCREEN_HEIGHT-TABBAR_HEIGHT)/3;
+    return 170;
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
@@ -138,6 +141,18 @@
 }
 
 
+-(void)mViewControllerShouldPush:(DramaModel *)itemData
+{
+    if ([self.navigationController respondsToSelector:@selector(interactivePopGestureRecognizer)])
+    {
+        self.navigationController.interactivePopGestureRecognizer.delegate = nil;
+    }
+    
+    DramaDetialViewController *dramaDetialView = [[DramaDetialViewController alloc ] init];
+    dramaDetialView.nId = [[itemData.id stringValue] intValue];
+    [self.navigationController pushViewController:dramaDetialView animated:YES];
+    
+}
 
 
 - (void)didReceiveMemoryWarning {
