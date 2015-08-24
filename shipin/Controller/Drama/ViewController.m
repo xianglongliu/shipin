@@ -197,6 +197,16 @@
 #pragma mark  创建展开收起按钮
 -(void) createSpreadOutButton
 {
+    _lableNewLine = [[UILabel alloc ] initWithFrame:CGRectMake(0, btnGood.frame.size.height+btnGood.frame.origin.y, SCREEN_WIDTH, 40)];
+    [_lableNewLine setText:@"新上线"];
+    [_lableNewLine setBackgroundColor:[UIColor clearColor]];
+    [_lableNewLine setFont:[UIFont systemFontOfSize:14]];
+    [_lableNewLine setTextAlignment:NSTextAlignmentCenter];
+    [_lableNewLine setTextColor:RGB(153, 153, 153)];
+    [self.view addSubview:_lableNewLine];
+    [_lableNewLine setHidden:YES];
+    
+    
     btnSpreadOut = [[UIButton alloc ] initWithFrame:CGRectMake(SCREEN_WIDTH-50, btnGood.frame.size.height+btnGood.frame.origin.y, 40, 30)];
     [btnSpreadOut setBackgroundImage:[UIImage imageNamed:@"ico-up-arrow.png"] forState:UIControlStateNormal];
     [self.view addSubview:btnSpreadOut];
@@ -233,6 +243,7 @@
     //发现好剧
     if ( sender.tag == 100 )
     {
+        [_lableNewLine setHidden:YES];
          bIsColl = TRUE;
         [self onButtonSpreadOut];
         _findTableView.frame = CGRectMake(0, btnGood.frame.origin.y+btnGood.frame.size.height, SCREEN_WIDTH, SCREEN_HEIGHT-TABBAR_HEIGHT-40);
@@ -246,6 +257,7 @@
     //全部剧目
     if ( sender.tag == 101 )
     {
+        [_lableNewLine setHidden:NO];
          _findTableView.frame = CGRectMake(0, btnGood.frame.origin.y+btnGood.frame.size.height+40, SCREEN_WIDTH, SCREEN_HEIGHT-TABBAR_HEIGHT-80);
         strBtnClick = @"btnAll";
         [btnGood setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];

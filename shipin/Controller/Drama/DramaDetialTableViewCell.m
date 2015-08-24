@@ -232,20 +232,20 @@
     {
         if ([smilaritiesModelArray count] >0)
         {
-            dramaPosters = [smilaritiesModelArray objectAtIndex:0];
-            [_imageViewLeft sd_setImageWithURL:[Tool stringMerge:dramaPosters.poster] placeholderImage:DefaultImage];
+            similaritiesItem = [smilaritiesModelArray objectAtIndex:0];
+            [_imageViewLeft sd_setImageWithURL:[Tool stringMerge:similaritiesItem.cover] placeholderImage:DefaultImage];
             [_labelFilmNameLeft setText:similaritiesItem.name];
         }
         if ([smilaritiesModelArray count] >1)
         {
-            dramaPosters = [smilaritiesModelArray objectAtIndex:1];
-            [_imageViewCenter sd_setImageWithURL:[Tool stringMerge:dramaPosters.poster] placeholderImage:DefaultImage];
+            similaritiesItem = [smilaritiesModelArray objectAtIndex:1];
+            [_imageViewCenter sd_setImageWithURL:[Tool stringMerge:similaritiesItem.cover] placeholderImage:DefaultImage];
             [_labelFilmNameCenter setText:similaritiesItem.name];
         }
         if ([smilaritiesModelArray count] >2)
         {
-            dramaPosters = [smilaritiesModelArray objectAtIndex:2];
-            [_imageViewRight sd_setImageWithURL:[Tool stringMerge:dramaPosters.poster] placeholderImage:DefaultImage];
+            similaritiesItem = [smilaritiesModelArray objectAtIndex:2];
+            [_imageViewRight sd_setImageWithURL:[Tool stringMerge:similaritiesItem.cover] placeholderImage:DefaultImage];
             [_labelFilmNameRight setText:similaritiesItem.name];
         }
     }
