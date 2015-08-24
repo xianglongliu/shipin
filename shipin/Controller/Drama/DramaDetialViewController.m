@@ -179,14 +179,14 @@
     {
         if( clickIndex == 0)
         {
-            DramaDetialTableViewCell* cell = cell = [[DramaDetialTableViewCell alloc] initWithReuseIdentifier:CellIdentifier];
+            DramaDetialTableViewCell* cell = [[DramaDetialTableViewCell alloc] initWithReuseIdentifier:CellIdentifier];
              cell.selectionStyle = UITableViewCellSelectionStyleNone;
              [cell setIntroductionText:@"基本剧情简介" headImage:nil imageHeight:0];
             return cell;
         }
         if( clickIndex == 1)//项目信息
         {
-            DramaDetialTableViewCell* cell = cell = [[DramaDetialTableViewCell alloc] initWithReuseIdentifier:CellIdentifier];
+            DramaDetialTableViewCell* cell = [[DramaDetialTableViewCell alloc] initWithReuseIdentifier:CellIdentifier];
              cell.selectionStyle = UITableViewCellSelectionStyleNone;
             [cell setProjectInfo:dramaModle];
             return cell;
@@ -199,7 +199,7 @@
                 cellBtn.selectionStyle = UITableViewCellSelectionStyleNone;
             }
             
-            DramaDetialTableViewCell* cell = cell = [[DramaDetialTableViewCell alloc] initWithReuseIdentifier:CellIdentifier];
+            DramaDetialTableViewCell* cell = [[DramaDetialTableViewCell alloc] initWithReuseIdentifier:CellIdentifier];
             cell.selectionStyle = UITableViewCellSelectionStyleNone;
             
             if ([dramaModle.dramaRelatives count] > indexPath.row - 2)
@@ -216,16 +216,16 @@
     {
         if( clickIndex == 0)
         {
-            DramaDetialTableViewCell* cell = cell = [[DramaDetialTableViewCell alloc] initWithReuseIdentifier:CellIdentifier];
+            DramaDetialTableViewCell* cell  = [[DramaDetialTableViewCell alloc] initWithReuseIdentifier:CellIdentifier];
              cell.selectionStyle = UITableViewCellSelectionStyleNone;
             [cell setIntroductionText:dramaModle.brief headImage:nil imageHeight:0];
             return cell;
         }
         if( clickIndex == 1)//相似剧集
         {
-            DramaDetialTableViewCell* cell = cell = [[DramaDetialTableViewCell alloc] initWithReuseIdentifier:CellIdentifier];
+            DramaDetialTableViewCell* cell = [[DramaDetialTableViewCell alloc] initWithReuseIdentifier:CellIdentifier];
              cell.selectionStyle = UITableViewCellSelectionStyleNone;
-            [cell setSimilarDrama:[[NSMutableArray alloc ] initWithArray:dramaModle.similarities]];
+            [cell setSimilarDrama:[[NSMutableArray alloc ] initWithArray:dramaModle.similarities] Parent:@"detial"];
             return cell;
         }
         if( clickIndex == 2)//相关资料
@@ -237,7 +237,7 @@
                 
                 return cellBtn;
             }
-            DramaDetialTableViewCell* cell = cell = [[DramaDetialTableViewCell alloc] initWithReuseIdentifier:CellIdentifier];
+            DramaDetialTableViewCell* cell = [[DramaDetialTableViewCell alloc] initWithReuseIdentifier:CellIdentifier];
             cell.selectionStyle = UITableViewCellSelectionStyleNone;
             if ([dramaModle.dramaRelatives count] > indexPath.row - 2)
             {
@@ -267,7 +267,7 @@
                 return cellBtn;
              }
              //图片
-             DramaDetialTableViewCell* cell = cell = [[DramaDetialTableViewCell alloc] initWithReuseIdentifier:CellIdentifier];
+             DramaDetialTableViewCell* cell = [[DramaDetialTableViewCell alloc] initWithReuseIdentifier:CellIdentifier];
              cell.selectionStyle = UITableViewCellSelectionStyleNone;
              
              DramaPostersModel *posterModle =dramaModle.posters[indexPath.row - 4];
@@ -290,7 +290,7 @@
                 return cellBtn;
             }
 
-            DramaDetialTableViewCell* cell = cell = [[DramaDetialTableViewCell alloc] initWithReuseIdentifier:CellIdentifier];
+            DramaDetialTableViewCell* cell = [[DramaDetialTableViewCell alloc] initWithReuseIdentifier:CellIdentifier];
             cell.selectionStyle = UITableViewCellSelectionStyleNone;
             if ([dramaModle.dramaRelatives count] > indexPath.row - 2)
             {
@@ -415,6 +415,7 @@
     if (indexPath.row == 0)
     {
         PersonInfoViewController *personInfoView = [[PersonInfoViewController alloc ] init];
+        personInfoView._uId = [[dramaModle.uId stringValue] intValue];
         [self.navigationController pushViewController:personInfoView animated:YES];
     }
     if (clickIndex == 2)

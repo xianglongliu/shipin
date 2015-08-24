@@ -10,6 +10,7 @@
 #import "TextTableViewCell.h"
 #import "EditPersonViewController.h"
 #import "SetViewHeadTableViewCell.h"
+#import "DramaDetialTableViewCell.h"
 
 @interface PersonInfoViewController ()
 
@@ -26,7 +27,7 @@
 {
     [super viewDidLoad];
     [self.view setBackgroundColor:[UIColor whiteColor]];
-    
+    _myDramaArray= [[NSMutableArray alloc ] initWithCapacity:0];
     mutableArray = [[NSMutableArray alloc ] initWithCapacity:0];
     
     [self loadUserInfo];
@@ -34,19 +35,18 @@
 
 -(void)initViewCtrl
 {
-    UITableView *tableView = [[UITableView alloc ] initWithFrame:CGRectMake(0, -20, SCREEN_WIDTH, SCREEN_HEIGHT+20) style:UITableViewStylePlain];
-    tableView.delegate = self;
-    tableView.dataSource = self;
-    tableView.separatorColor = RGB(221, 221, 221);
-    [tableView setBackgroundColor:RGB(238, 238, 238)];
-    [self.view addSubview:tableView];
+    _tableView = [[UITableView alloc ] initWithFrame:CGRectMake(0, -20, SCREEN_WIDTH, SCREEN_HEIGHT+20) style:UITableViewStylePlain];
+    _tableView.delegate = self;
+    _tableView.dataSource = self;
+    _tableView.separatorColor = RGB(221, 221, 221);
+    [_tableView setBackgroundColor:RGB(238, 238, 238)];
+    [self.view addSubview:_tableView];
     //back button
     UIButton *btnLogin = [[UIButton alloc ] initWithFrame:backButtonFram];
     [btnLogin setImage:[UIImage imageNamed:@"btn_back.png"] forState:UIControlStateNormal];
     [btnLogin addTarget:self action:@selector(onButtonBack) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:btnLogin];
 
-   
 }
 
 -(void) loadUserInfo
@@ -71,7 +71,16 @@
              [mutableArray addObject:tModle];
          }
          
-         [self initViewCtrl];
+         //获取我的发布信息
+         [UserService getPublishes:^(NSArray *dramaArray)
+         {
+             _myDramaArray = [NSMutableArray arrayWithArray:dramaArray];
+            [self initViewCtrl];
+         } failure:^(NSDictionary *error){
+             
+         }];
+         
+        
          
      } failure:^(NSDictionary *error)
      {
@@ -101,14 +110,14 @@
         [cell setBackgroundColor:RGB(238, 238, 238)];
         [cell setHeadCellData:self.userModel cellName:@"personinfo"];
         
-        UIButton *btnFollow = [[UIButton alloc ] initWithFrame:CGRectMake(SCREEN_WIDTH/1.7f, 210, 40, 25)];
+        UIButton *btnFollow = [[UIButton alloc ] initWithFrame:CGRectMake(SCREEN_WIDTH/1.75f, 214, 40, 25)];
         [btnFollow setTitle:@"关注" forState:UIControlStateNormal];
         [btnFollow setTitleColor:yellowRgb forState:UIControlStateNormal];
         btnFollow.titleLabel.font = [UIFont systemFontOfSize:12];
         [btnFollow addTarget:self action:@selector(onButtonFollow) forControlEvents:UIControlEventTouchUpInside];
         [cell addSubview:btnFollow];
         
-        UIButton *btnFollowImage = [[UIButton alloc ] initWithFrame:CGRectMake(btnFollow.frame.origin.x-10, 217, 12, 12)];
+        UIButton *btnFollowImage = [[UIButton alloc ] initWithFrame:CGRectMake(btnFollow.frame.origin.x-10, 221, 12, 12)];
         [btnFollowImage setImage:[UIImage imageNamed:@"btn_floow.png"] forState:UIControlStateNormal];
         [btnFollowImage addTarget:self action:@selector(onButtonFollow) forControlEvents:UIControlEventTouchUpInside];
         [cell addSubview:btnFollowImage];
@@ -119,13 +128,16 @@
     //add edit button
     if (indexPath.row == 1)
     {
-        UIButton *btnEdit = [[UIButton alloc ] initWithFrame:CGRectMake(SCREEN_WIDTH-60, 0, 60, 30)];
-        [btnEdit setTitle:@"编辑" forState:UIControlStateNormal];
-        [btnEdit setTitleColor:yellowRgb forState:UIControlStateNormal];
-        btnEdit.titleLabel.font = [UIFont systemFontOfSize:12];
-        [btnEdit addTarget:self action:@selector(onButtonEdit) forControlEvents:UIControlEventTouchUpInside];
-        [cell addSubview:btnEdit];
-        
+        if (self._uId == 0 )//如果是查看自己的资料则可以编辑
+        {
+            UIButton *btnEdit = [[UIButton alloc ] initWithFrame:CGRectMake(SCREEN_WIDTH-60, 0, 60, 30)];
+            [btnEdit setTitle:@"编辑" forState:UIControlStateNormal];
+            [btnEdit setTitleColor:yellowRgb forState:UIControlStateNormal];
+            btnEdit.titleLabel.font = [UIFont systemFontOfSize:12];
+            [btnEdit addTarget:self action:@selector(onButtonEdit) forControlEvents:UIControlEventTouchUpInside];
+            [cell addSubview:btnEdit];
+        }
+      
         cell.textLabel.text = @"基本信息";
         [cell.textLabel setFont:[UIFont systemFontOfSize:12]];
         [cell.textLabel setTextColor:RGB(153, 153, 153)];
@@ -151,6 +163,13 @@
         cell.textLabel.text = @"发布的剧目";
         [cell.textLabel setFont:[UIFont systemFontOfSize:12]];
         [cell.textLabel setTextColor:RGB(153, 153, 153)];
+        return cell;
+    }
+    else if(indexPath.row == 9)
+    {
+        DramaDetialTableViewCell* cell = [[DramaDetialTableViewCell alloc] initWithReuseIdentifier:CellIdentifier];
+        cell.selectionStyle = UITableViewCellSelectionStyleNone;
+        [cell setSimilarDrama:[[NSMutableArray alloc ] initWithArray:_myDramaArray] Parent:@"publish"];
         return cell;
     }
     else if (indexPath.row == 10)
@@ -205,7 +224,7 @@
     else if (indexPath.row == 8)
         return 30;
     else if (indexPath.row == 9)
-        return 170;
+        return 200;
     else if (indexPath.row == 10)
         return 80;
     else

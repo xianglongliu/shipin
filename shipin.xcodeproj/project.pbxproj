@@ -555,6 +555,8 @@
 				EEDC187D1B8086B90013E61B /* DramaDetialTableViewCell.h */,
 				EEDC18771B8068C00013E61B /* DramaDetialViewController.h */,
 				EE908C2F1B7EEB7D00505B82 /* FindTableViewCell.h */,
+				EED460881B89BCD7000C2CA5 /* SearchTableViewCell.h */,
+				EED460851B89AAB5000C2CA5 /* SearchViewController.h */,
 				EE7530E61B81D32100EA3823 /* UIViewSearch.h */,
 				EE908C331B7EEB7D00505B82 /* ViewController.h */,
 				EE908C391B7EEBA700505B82 /* AllTableViewCell.m */,
@@ -562,12 +564,10 @@
 				EEDC187E1B8086B90013E61B /* DramaDetialTableViewCell.m */,
 				EEDC18781B8068C00013E61B /* DramaDetialViewController.m */,
 				EE908C301B7EEB7D00505B82 /* FindTableViewCell.m */,
+				EED460891B89BCD7000C2CA5 /* SearchTableViewCell.m */,
+				EED460861B89AAB5000C2CA5 /* SearchViewController.m */,
 				EE7530E71B81D32100EA3823 /* UIViewSearch.m */,
 				EE908C341B7EEB7D00505B82 /* ViewController.m */,
-				EED460851B89AAB5000C2CA5 /* SearchViewController.h */,
-				EED460861B89AAB5000C2CA5 /* SearchViewController.m */,
-				EED460881B89BCD7000C2CA5 /* SearchTableViewCell.h */,
-				EED460891B89BCD7000C2CA5 /* SearchTableViewCell.m */,
 			);
 			name = Drama;
 			sourceTree = "<group>";
@@ -575,13 +575,9 @@
 		EE908C1E1B7EEB2E00505B82 /* User */ = {
 			isa = PBXGroup;
 			children = (
-				EE7944F21B7F56350032DF3A /* Publish */,
-				EE7944E81B7F4EE30032DF3A /* Help */,
-				EE7944E71B7F4ED40032DF3A /* Feedback */,
-				EE7944E61B7F4EC80032DF3A /* About */,
-				EEABE3A91B7F4B8400C06C3A /* SystemMsg */,
 				EEABE39D1B7F3F1F00C06C3A /* AttentionPeoperTableViewCell.h */,
 				EEABE39A1B7F3E2900C06C3A /* AttentionPeoperViewController.h */,
+				EEDA73D01B82DDD1008823CE /* BrowseViewController.h */,
 				EE908C201B7EEB5E00505B82 /* EditPersonViewController.h */,
 				EEABE3971B7F37FF00C06C3A /* ModifyUserinfoViewController.h */,
 				EE908C221B7EEB5E00505B82 /* PersonInfoViewController.h */,
@@ -590,14 +586,18 @@
 				EE908C261B7EEB5E00505B82 /* TextTableViewCell.h */,
 				EEABE39E1B7F3F1F00C06C3A /* AttentionPeoperTableViewCell.m */,
 				EEABE39B1B7F3E2900C06C3A /* AttentionPeoperViewController.m */,
+				EEDA73D11B82DDD1008823CE /* BrowseViewController.m */,
 				EE908C211B7EEB5E00505B82 /* EditPersonViewController.m */,
 				EEABE3981B7F37FF00C06C3A /* ModifyUserinfoViewController.m */,
 				EE908C231B7EEB5E00505B82 /* PersonInfoViewController.m */,
 				EE908C251B7EEB5E00505B82 /* SetViewController.m */,
 				EE20D6541B7F1347001B2E92 /* SetViewHeadTableViewCell.m */,
 				EE908C271B7EEB5E00505B82 /* TextTableViewCell.m */,
-				EEDA73D01B82DDD1008823CE /* BrowseViewController.h */,
-				EEDA73D11B82DDD1008823CE /* BrowseViewController.m */,
+				EE7944E61B7F4EC80032DF3A /* About */,
+				EE7944E71B7F4ED40032DF3A /* Feedback */,
+				EE7944E81B7F4EE30032DF3A /* Help */,
+				EE7944F21B7F56350032DF3A /* Publish */,
+				EEABE3A91B7F4B8400C06C3A /* SystemMsg */,
 			);
 			name = User;
 			sourceTree = "<group>";

@@ -214,7 +214,7 @@
 }
 
 //相似剧集
--(void)setSimilarDrama:(NSMutableArray*)smilaritiesModelArray;
+-(void)setSimilarDrama:(NSMutableArray*)smilaritiesModelArray Parent:(NSString *)parent
 {
     _labelXsjj.frame  = CGRectMake(20, 10, SCREEN_WIDTH/2, 18);
 
@@ -228,25 +228,66 @@
     
     _labelFilmNameRight.frame  = CGRectMake(_imageViewRight.frame.origin.x, _imageViewRight.frame.origin.y+_imageViewRight.frame.size.height+5,_imageViewRight.frame.size.width, _labelFilmNameLeft.frame.size.height);
 
-    if ([smilaritiesModelArray count] >0)
+    if ([parent isEqualToString:@"detial"])
     {
-        similaritiesItem = [smilaritiesModelArray objectAtIndex:0];
-        [_imageViewLeft sd_setImageWithURL:[Tool stringMerge:similaritiesItem.cover] placeholderImage:DefaultImage];
-        [_labelFilmNameLeft setText:similaritiesItem.name];
+        if ([smilaritiesModelArray count] >0)
+        {
+            dramaPosters = [smilaritiesModelArray objectAtIndex:0];
+            [_imageViewLeft sd_setImageWithURL:[Tool stringMerge:dramaPosters.poster] placeholderImage:DefaultImage];
+            [_labelFilmNameLeft setText:similaritiesItem.name];
+        }
+        if ([smilaritiesModelArray count] >1)
+        {
+            dramaPosters = [smilaritiesModelArray objectAtIndex:1];
+            [_imageViewCenter sd_setImageWithURL:[Tool stringMerge:dramaPosters.poster] placeholderImage:DefaultImage];
+            [_labelFilmNameCenter setText:similaritiesItem.name];
+        }
+        if ([smilaritiesModelArray count] >2)
+        {
+            dramaPosters = [smilaritiesModelArray objectAtIndex:2];
+            [_imageViewRight sd_setImageWithURL:[Tool stringMerge:dramaPosters.poster] placeholderImage:DefaultImage];
+            [_labelFilmNameRight setText:similaritiesItem.name];
+        }
     }
-    if ([smilaritiesModelArray count] >1)
+    else
     {
-        similaritiesItem = [smilaritiesModelArray objectAtIndex:1];
-        [_imageViewCenter sd_setImageWithURL:[Tool stringMerge:similaritiesItem.cover] placeholderImage:DefaultImage];
-        [_labelFilmNameCenter setText:similaritiesItem.name];
+        if ([smilaritiesModelArray count] >0)
+        {
+            //影片名称
+             _dramaModel=[smilaritiesModelArray objectAtIndex:0];
+            [_labelFilmNameLeft setText:_dramaModel.name];
+            //图片
+            if([_dramaModel.posters count] > 0 )
+            {
+                DramaPostersModel *item = [_dramaModel.posters objectAtIndex:0];
+                [_imageViewLeft sd_setImageWithURL:[Tool stringMerge:item.poster] placeholderImage:DefaultImage];
+            }
+        }
+        if ([smilaritiesModelArray count] >1)
+        {
+            //影片名称
+            _dramaModel=[smilaritiesModelArray objectAtIndex:1];
+            [_labelFilmNameCenter setText:_dramaModel.name];
+            //图片
+            if([_dramaModel.posters count] > 0 )
+            {
+                DramaPostersModel *item = [_dramaModel.posters objectAtIndex:0];
+                [_imageViewCenter sd_setImageWithURL:[Tool stringMerge:item.poster] placeholderImage:DefaultImage];
+            }
+        }
+        if ([smilaritiesModelArray count] >2)
+        {
+            //影片名称
+            _dramaModel=[smilaritiesModelArray objectAtIndex:2];
+            [_labelFilmNameRight setText:_dramaModel.name];
+            //图片
+            if([_dramaModel.posters count] > 0 )
+            {
+                DramaPostersModel *item = [_dramaModel.posters objectAtIndex:0];
+                [_imageViewRight sd_setImageWithURL:[Tool stringMerge:item.poster] placeholderImage:DefaultImage];
+            }
+        }
     }
-    if ([smilaritiesModelArray count] >2)
-    {
-        similaritiesItem = [smilaritiesModelArray objectAtIndex:2];
-        [_imageViewRight sd_setImageWithURL:[Tool stringMerge:similaritiesItem.cover] placeholderImage:DefaultImage];
-        [_labelFilmNameRight setText:similaritiesItem.name];
-    }
-
 }
 
 -(void)setRelatedData:(DramaRelativesModel*)dramaRelativesModel

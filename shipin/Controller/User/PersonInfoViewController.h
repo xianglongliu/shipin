@@ -13,6 +13,8 @@
 {
     NSMutableArray  *mutableArray;
     UIWebView       *phoneCallWebView;
+    NSMutableArray  *_myDramaArray;
+    UITableView     *_tableView ;
 }
 
 @property(nonatomic,strong)UserModel *userModel;

@@ -22,6 +22,8 @@
     // Do any additional setup after loading the view.
     [self.view setBackgroundColor:[UIColor whiteColor] ];
     mutableArray = [[NSMutableArray alloc ] initWithCapacity:0];
+    isSelectImage = FALSE;
+    
     [self loadUserInfo];
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(UpdateuserModle:) name:@"nof_UpdateuserModle" object:nil];
@@ -138,14 +140,22 @@
     updateItem = mutableArray[6];
     uModle.mobile =updateItem.strRightName;//电话
     
-    
+    if (isSelectImage)
+    {
+        uModle.hImage =UIImageJPEGRepresentation(imageviewHead.image, 1);
+    }
+    else
+    {
+        uModle.hImage=nil;
+    }
+
     [UserService updateUserDetail:uModle success:^(Boolean *boolean)
     {
         [Tool showWarningTip:@"更新成功" view:self.view time:0.5f];
         [self.navigationController popViewControllerAnimated:YES];
     } failure:^(NSString *error)
     {
-        [Tool showWarningTip:@"更新失败" view:self.view time:1];
+        [Tool showWarningTip:error view:self.view time:1];
     }];
 }
 
@@ -171,6 +181,15 @@
         TextModel * tModle = [[TextModel alloc ] init];
         tModle =  mutableArray[indexPath.row];
         [cell setLableText:tModle viewName:@"EditPersonViewController" cellHegith:70];
+        
+        //    头像
+        imageviewHead = [[UIImageView alloc ] initWithFrame:CGRectMake(SCREEN_WIDTH-90, 10, 50, 50)];
+        imageviewHead.layer.cornerRadius =imageviewHead.frame.size.width/2;
+        imageviewHead.layer.masksToBounds = YES;
+        [imageviewHead setContentMode:UIViewContentModeScaleAspectFill];
+        [imageviewHead setBackgroundColor:[UIColor clearColor]];
+        [cell addSubview:imageviewHead];
+        
         return cell;
     }
     else
@@ -197,7 +216,6 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-   
     //头像
     if (indexPath.row == 0)
     {
@@ -239,12 +257,14 @@
     [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent animated:YES];
     if (mediaPicker.editMode == FSEditModeNone)
     {
-        [self._imageViewHeadImage setImage:mediaInfo.originalImage ];
+        [imageviewHead setImage:mediaInfo.originalImage ];
     }
     else
     {
         UIImage *img = mediaPicker.editMode == FSEditModeCircular? mediaInfo.circularEditedImage:mediaInfo.editedImage;
-        [self._imageViewHeadImage setImage:img ];
+        [imageviewHead setImage:img ];
+        isSelectImage = TRUE;
+
     }
 }
 

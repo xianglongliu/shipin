@@ -10,7 +10,7 @@
 #import "DramaModel.h"
 #import "DramaRelativesModel.h"
 #import "SimilaritiesModel.h"
-
+#import "DramaPostersModel.h"
 
 @interface DramaDetialTableViewCell : UITableViewCell
 {
@@ -43,6 +43,9 @@
 //    相似剧集
     SimilaritiesModel *similaritiesItem;
     
+    DramaPostersModel   *dramaPosters;//发布的图片
+    DramaModel          *_dramaModel;
+    
 }
 @property (nonatomic ,strong) UILabel       *_labelText;
 @property (nonatomic ,strong) UIImageView   *_imageView;
@@ -51,7 +54,7 @@
 -(void)setIntroductionText:(NSString*)text  headImage:(NSURL*)imageUrl imageHeight:(float)height;
 -(void)setProjectInfo:(DramaModel*)dramaModel;
 //相似剧集
--(void)setSimilarDrama:(NSMutableArray*)smilaritiesModelArray;
+-(void)setSimilarDrama:(NSMutableArray*)smilaritiesModelArray Parent:(NSString *)parent;
 
 -(void)setRelatedData:(DramaRelativesModel*)dramaModel;
 

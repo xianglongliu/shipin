@@ -59,16 +59,16 @@
     
     curSelModle.strLeftName =self.selModle.strLeftName;
     curSelModle.strRightName =self._textContent.text;
-    [self onButtonBack];
-    
     [[NSNotificationCenter defaultCenter] postNotificationName:@"nof_UpdateuserModle" object:curSelModle];
-   
+    
+    [self.navigationController popViewControllerAnimated:YES];
+
 }
 
 
 -(void) onButtonBack
 {
-    [self.navigationController popViewControllerAnimated:YES];
+    [self onButtonModifyUserInfo];
 }
 
 -(void) touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event

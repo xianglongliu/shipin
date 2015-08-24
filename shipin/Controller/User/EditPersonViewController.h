@@ -17,13 +17,14 @@
     NSMutableArray          *mutableArray;
     UIAlertView             *_MediaAlert;
     UITableView             *tableViewPersonInfo;
+    UIImageView             *imageviewHead;
+    
+    BOOL                    isSelectImage;
 }
 @property (nonatomic,strong)    ExUINavigationBar       *_navigationBar;
-@property (nonatomic,strong)    UIImageView             *_imageViewHeadImage;
+//@property (nonatomic,strong)    UIImageView             *_imageViewHeadImage;
 @property(nonatomic,strong)     TextModel               *userInfoModel;
-
 @property(nonatomic,strong)     UserModel               *_userModel;
-
 @property(nonatomic,assign)     int                     _uId;
 
 @end

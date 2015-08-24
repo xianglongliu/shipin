@@ -52,10 +52,10 @@
 
 -(void) setItemText:(UserModel *) userModleItem
 {
-    [_imageViewHead  sd_setImageWithURL:[NSURL URLWithString:userModleItem.avatar] placeholderImage:DefaultImage];
-    [_labelName setText:userModleItem.name];
-    [_labelCompany setText:userModleItem.corporation];
-    [_lableTitle setText:userModleItem.position];
+    [_imageViewHead  sd_setImageWithURL:[Tool stringMerge:userModleItem.avatar] placeholderImage:DefaultImage];
+    [_labelName setText:[Tool isNull:userModleItem.name]];
+    [_labelCompany setText:[Tool isNull:userModleItem.corporation] ];
+    [_lableTitle setText:[Tool isNull:userModleItem.position]];
 }
 
 @end

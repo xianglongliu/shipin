@@ -8,7 +8,7 @@
 
 #import "AttentionPeoperViewController.h"
 #import "AttentionPeoperTableViewCell.h"
-
+#import "PersonInfoViewController.h"
 
 @interface AttentionPeoperViewController ()
 
@@ -50,11 +50,12 @@
     [UserService getFollows:^(NSArray *followArray)
     {
         arrayAPeoper = [[NSMutableArray alloc ] initWithArray:followArray];
+         [_tableViewPersonInfo reloadData];
     } failure:^(NSDictionary *error)
     {
         [Tool showWarningTip:@"读取数据失败" view:self.view time:1];
     }];
-    [_tableViewPersonInfo reloadData];
+   
 }
 -(void) onButtonBack
 {
@@ -94,7 +95,12 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    UserModel *userModle = [[UserModel alloc ] init];
+    userModle = [arrayAPeoper objectAtIndex:indexPath.row];
     
+    PersonInfoViewController *personInfoView = [[PersonInfoViewController alloc ] init];
+    personInfoView._uId = [[userModle.id stringValue] intValue];
+    [self.navigationController pushViewController:personInfoView animated:YES];
 }
 
 - (void)didReceiveMemoryWarning
