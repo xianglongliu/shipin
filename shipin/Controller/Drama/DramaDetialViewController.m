@@ -9,7 +9,7 @@
 #import "DramaDetialViewController.h"
 #import "PersonInfoViewController.h"
 #import "UIWebViewLoad.h"
-
+#import "CommentHeaderScrollTableView.h"
 
 @interface DramaDetialViewController ()
 
@@ -51,7 +51,7 @@
     
     [self loadNetWorkData];
 }
-//添加收藏
+#pragma  mark //添加收藏
 -(void)onButtonColloction
 {
     [UserService addCollection:self.nId success:^(Boolean *boolean)
@@ -60,7 +60,7 @@
  
     } failure:^(NSString *error)
      {
-        [Tool showWarningTip:error view:self.view time:1];
+        [Tool showWarningTip:@"已收藏" view:self.view time:1];
     }];
 }
 
@@ -224,9 +224,16 @@
         }
         if( clickIndex == 1)//相似剧集
         {
-            DramaDetialTableViewCell* cell = [[DramaDetialTableViewCell alloc] initWithReuseIdentifier:CellIdentifier];
-             cell.selectionStyle = UITableViewCellSelectionStyleNone;
-            [cell setSimilarDrama:[[NSMutableArray alloc ] initWithArray:dramaModle.similarities] Parent:@"detial"];
+//            DramaDetialTableViewCell* cell = [[DramaDetialTableViewCell alloc] initWithReuseIdentifier:CellIdentifier];
+//             cell.selectionStyle = UITableViewCellSelectionStyleNone;
+//            [cell setSimilarDrama:[[NSMutableArray alloc ] initWithArray:dramaModle.similarities] Parent:@"detial"];
+          
+            NSMutableArray *array =[[NSMutableArray alloc ] initWithArray:dramaModle.similarities];
+            UIView *userLogoList=[[CommentHeaderScrollTableView alloc]
+                                  initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, ((SCREEN_WIDTH-60)/3) *1.5f)
+                                  viewerList:array
+                                  navigation:self.navigationController];
+            [cell addSubview:userLogoList];
             return cell;
         }
         if( clickIndex == 2)//相关资料
@@ -286,11 +293,11 @@
                 return cell;
              }
          }
-        if( clickIndex == 1)//项目信息
-        {
-            UITableViewCell* cellBtn = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
-            cellBtn.selectionStyle = UITableViewCellSelectionStyleNone;
-        }
+//        if( clickIndex == 1)//项目信息
+//        {
+//            UITableViewCell* cellBtn = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
+//            cellBtn.selectionStyle = UITableViewCellSelectionStyleNone;
+//        }
         if( clickIndex == 2)//相关资料
         {
             if ( [dramaModle.posters count] == indexPath.row - 3 )

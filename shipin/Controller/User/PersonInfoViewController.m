@@ -209,7 +209,7 @@
     [UserService addFollow:[[self.userModel.id stringValue ] intValue] success:^(Boolean *boolean) {
         [Tool showWarningTip:@"关注成功" view:self.view time:1];
     } failure:^(NSString *error) {
-        [Tool showWarningTip:error view:self.view time:1];
+        [Tool showWarningTip:@"已关注" view:self.view time:1];
     }];
 }
 

@@ -20,6 +20,8 @@
 		EE6DD5131B8C581600348615 /* btn_toback_selected.png in Resources */ = {isa = PBXBuildFile; fileRef = EE6DD5111B8C581600348615 /* btn_toback_selected.png */; };
 		EE6DD5141B8C581600348615 /* btn_toback.png in Resources */ = {isa = PBXBuildFile; fileRef = EE6DD5121B8C581600348615 /* btn_toback.png */; };
 		EE6DD5161B8C5C4000348615 /* loading_black_280x180.gif in Resources */ = {isa = PBXBuildFile; fileRef = EE6DD5151B8C5C4000348615 /* loading_black_280x180.gif */; };
+		EE6DD51B1B8C752200348615 /* CommentHeaderScrollTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = EE6DD51A1B8C752200348615 /* CommentHeaderScrollTableView.m */; };
+		EE6DD51E1B8C754D00348615 /* CommentHeaderCell.m in Sources */ = {isa = PBXBuildFile; fileRef = EE6DD51D1B8C754D00348615 /* CommentHeaderCell.m */; };
 		EE7242821B809C3300ABBAE6 /* btn_share.png in Resources */ = {isa = PBXBuildFile; fileRef = EE7242811B809C3300ABBAE6 /* btn_share.png */; };
 		EE726FA41B819ED900C66CF9 /* Icon-40.png in Resources */ = {isa = PBXBuildFile; fileRef = EE726F9A1B819ED900C66CF9 /* Icon-40.png */; };
 		EE726FA51B819ED900C66CF9 /* Icon-40@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = EE726F9B1B819ED900C66CF9 /* Icon-40@2x.png */; };
@@ -157,6 +159,10 @@
 		EE6DD5111B8C581600348615 /* btn_toback_selected.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = btn_toback_selected.png; path = Resource/Button/btn_toback_selected.png; sourceTree = "<group>"; };
 		EE6DD5121B8C581600348615 /* btn_toback.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = btn_toback.png; path = Resource/Button/btn_toback.png; sourceTree = "<group>"; };
 		EE6DD5151B8C5C4000348615 /* loading_black_280x180.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; name = loading_black_280x180.gif; path = Resource/loading_black_280x180.gif; sourceTree = "<group>"; };
+		EE6DD5191B8C752200348615 /* CommentHeaderScrollTableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CommentHeaderScrollTableView.h; path = ExView/CommentHeaderScrollTableView.h; sourceTree = "<group>"; };
+		EE6DD51A1B8C752200348615 /* CommentHeaderScrollTableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CommentHeaderScrollTableView.m; path = ExView/CommentHeaderScrollTableView.m; sourceTree = "<group>"; };
+		EE6DD51C1B8C754D00348615 /* CommentHeaderCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CommentHeaderCell.h; path = ExView/CommentHeaderCell.h; sourceTree = "<group>"; };
+		EE6DD51D1B8C754D00348615 /* CommentHeaderCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CommentHeaderCell.m; path = ExView/CommentHeaderCell.m; sourceTree = "<group>"; };
 		EE7184301B58EA9D00C4EF24 /* shipin.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = shipin.pch; sourceTree = "<group>"; };
 		EE7242811B809C3300ABBAE6 /* btn_share.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = btn_share.png; path = Resource/Button/btn_share.png; sourceTree = "<group>"; };
 		EE726F9A1B819ED900C66CF9 /* Icon-40.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Icon-40.png"; path = "Resource/Icon/Icon-40.png"; sourceTree = "<group>"; };
@@ -737,6 +743,10 @@
 		EEDCB5C61B63391000EB9135 /* ExView */ = {
 			isa = PBXGroup;
 			children = (
+				EE6DD51C1B8C754D00348615 /* CommentHeaderCell.h */,
+				EE6DD51D1B8C754D00348615 /* CommentHeaderCell.m */,
+				EE6DD5191B8C752200348615 /* CommentHeaderScrollTableView.h */,
+				EE6DD51A1B8C752200348615 /* CommentHeaderScrollTableView.m */,
 				EE6DD5041B8C557F00348615 /* PhotoBrowser */,
 				EEDC18511B805F010013E61B /* RefreshTableHeaderView */,
 				EEDC18501B805EFC0013E61B /* MJRefresh */,
@@ -984,6 +994,7 @@
 				EEDC184C1B803EC20013E61B /* WifiViewController.m in Sources */,
 				EE20D6551B7F1347001B2E92 /* SetViewHeadTableViewCell.m in Sources */,
 				EEDCB5C51B6335ED00EB9135 /* Config.m in Sources */,
+				EE6DD51B1B8C752200348615 /* CommentHeaderScrollTableView.m in Sources */,
 				EE6845B51B7E025800D6D6F5 /* HttpResultBase.m in Sources */,
 				EE6DD5091B8C558E00348615 /* JKPhotoBrowser.m in Sources */,
 				EE7944F51B7F56610032DF3A /* MyPublishViewController.m in Sources */,
@@ -1030,6 +1041,7 @@
 				EE6DD50D1B8C564900348615 /* ViewPostion.m in Sources */,
 				EE908C3A1B7EEBA700505B82 /* AllTableViewCell.m in Sources */,
 				EE87D2121B58ADA4002A0DD8 /* main.m in Sources */,
+				EE6DD51E1B8C754D00348615 /* CommentHeaderCell.m in Sources */,
 				EEDCB5D71B633E9200EB9135 /* ImageUtil.m in Sources */,
 				EE908C191B7ED68100505B82 /* MessageModel.m in Sources */,
 				EE908C1A1B7ED68100505B82 /* ScreenShotsModel.m in Sources */,
