@@ -68,44 +68,50 @@ IMP_SINGLETON(UserService)
 
 + (void)updateUserDetail:(UserModel *)userModel success:(void (^)(Boolean *boolean))success failure:(void (^)(NSString *error))failure
 {
-    NSDictionary* paramDict ;
-    if (userModel.hImage == nil)
-    {
-        //FIXME 需添加上传图片处理逻辑
-        paramDict = @{@"name":userModel.name,@"brief":userModel.brief,
-                                    @"corporation":userModel.corporation,
-                                    @"position":userModel.position,
-                                    @"email":userModel.email
-                                    };
-    }
-    else
-    {
-        //FIXME 需添加上传图片处理逻辑
-        paramDict = @{@"name":userModel.name,@"brief":userModel.brief,
-                                    @"corporation":userModel.corporation,
-                                    @"position":userModel.position,
-                                    @"email":userModel.email,
-                                    @"avatarFile":userModel.hImage
-                                    };
-    }
-  
-    
+    NSDictionary* paramDict = @{@"name":userModel.name,@"brief":userModel.brief,
+            @"corporation":userModel.corporation,
+            @"position":userModel.position,
+            @"email":userModel.email
+    };
+
     HttpProtocol *httpProtocol = [[HttpProtocol alloc] init];
     httpProtocol.requestUrl= [NSString stringWithFormat:@"%@",URL_USER_UPDATE];
     httpProtocol.param=paramDict;
     httpProtocol.method=@"post";
-    
+
     httpProtocol.token=[Config getToken];
+
+    if (userModel.hImage == nil)
+    {
+        [[HttpManager sharedInstance] addHttpRequest:httpProtocol  success:^(AFHTTPRequestOperation *operation, Boolean *boolean){
+
+            if(success)
+                success(boolean);
+
+        } failure:^(AFHTTPRequestOperation *operation, NSString *error){
+            if(failure)
+                failure(error);
+        }];
+
+    }
+    else
+    {
+
+        [[HttpManager sharedInstance] imageHttpRequest:httpProtocol imageData:userModel.hImage  success:^(AFHTTPRequestOperation *operation, Boolean *boolean){
+
+            if(success)
+                success(boolean);
+
+        } failure:^(AFHTTPRequestOperation *operation, NSString *error){
+            if(failure)
+                failure(error);
+        }];
+    }
+  
     
-    [[HttpManager sharedInstance] addHttpRequest:httpProtocol  success:^(AFHTTPRequestOperation *operation, Boolean *boolean){
-        
-        if(success)
-            success(boolean);
-        
-    } failure:^(AFHTTPRequestOperation *operation, NSString *error){
-        if(failure)
-            failure(error);
-    }];
+
+    
+
 }
 
 

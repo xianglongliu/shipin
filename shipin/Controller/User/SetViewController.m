@@ -69,7 +69,7 @@
 {
     if (section == 0)
     {
-        return 4;
+        return 3;
     }
     else
     {
@@ -134,10 +134,10 @@
                 {
                     cell.textLabel.text =  @"系统消息";
                 }
-                if(indexPath.row == 3)
-                {
-                    cell.textLabel.text =  @"最近浏览";
-                }
+//                if(indexPath.row == 3)
+//                {
+//                    cell.textLabel.text =  @"最近浏览";
+//                }
                 
                 break;
             case 1:
@@ -244,12 +244,12 @@
                 SystemMsgViewController *systemMsgView = [[SystemMsgViewController alloc ] init];
                 [self.navigationController pushViewController:systemMsgView animated:YES];
             }
-            if (indexPath.row == 3)//最近浏览
-            {
-                BrowseViewController *browseView = [[BrowseViewController alloc ] init];
-                browseView.strViewName =  @"最近浏览";
-                [self.navigationController pushViewController:browseView animated:YES];
-            }
+//            if (indexPath.row == 3)//最近浏览
+//            {
+//                BrowseViewController *browseView = [[BrowseViewController alloc ] init];
+//                browseView.strViewName =  @"最近浏览";
+//                [self.navigationController pushViewController:browseView animated:YES];
+//            }
             break;
         case 1:
             if (indexPath.row == 0)//分享

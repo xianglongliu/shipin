@@ -10,6 +10,7 @@
 #import "PersonInfoViewController.h"
 #import "UIWebViewLoad.h"
 
+
 @interface DramaDetialViewController ()
 
 @end
@@ -94,7 +95,7 @@
 {
     if( clickIndex == 0)
     {
-        return 4+[dramaModle.posters count ]+1;
+        return 6;
     }
     else if( clickIndex == 1)
     {
@@ -251,7 +252,7 @@
     {
          if( clickIndex == 0)//剧情简介
          {
-             if ( [dramaModle.posters count] == indexPath.row - 4 )
+             if (  indexPath.row == 5 )
              {
                  UITableViewCell* cellBtn = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
                  cellBtn.selectionStyle = UITableViewCellSelectionStyleNone;
@@ -266,14 +267,24 @@
                  [cellBtn addSubview:btnSave];
                 return cellBtn;
              }
-             //图片
-             DramaDetialTableViewCell* cell = [[DramaDetialTableViewCell alloc] initWithReuseIdentifier:CellIdentifier];
-             cell.selectionStyle = UITableViewCellSelectionStyleNone;
-             
-             DramaPostersModel *posterModle =dramaModle.posters[indexPath.row - 4];
-             NSURL *url =[Tool stringMerge:posterModle.poster];
-             [cell setIntroductionText:@"" headImage:url imageHeight:SCREEN_WIDTH-106];
-             return cell;
+             else
+             {
+                 //图片
+                 DramaDetialTableViewCell* cell = [[DramaDetialTableViewCell alloc] initWithReuseIdentifier:CellIdentifier];
+                 cell.selectionStyle = UITableViewCellSelectionStyleNone;
+                 
+                 DramaPostersModel *posterModle =dramaModle.posters[0];
+                 NSURL *url =[Tool stringMerge:posterModle.poster];
+                 [cell setIntroductionText:@"" headImage:url imageHeight:SCREEN_WIDTH-106];
+                 
+                 UILabel *labelImageCount = [[UILabel alloc ] initWithFrame:CGRectMake(10, 10, 50, 20)];
+                 [labelImageCount setText:[NSString stringWithFormat:@"共%ld张",(unsigned long)[dramaModle.posters count]]];
+                 [labelImageCount setTextColor:[UIColor whiteColor]];
+                 [labelImageCount setFont:[UIFont boldSystemFontOfSize:13]];
+                 [labelImageCount setTextAlignment:NSTextAlignmentCenter];
+                 [cell addSubview:labelImageCount];
+                return cell;
+             }
          }
         if( clickIndex == 1)//项目信息
         {
@@ -308,7 +319,10 @@
 {
     if(indexPath.row == 0)
     {
-        return SCREEN_WIDTH-40;
+        if( indexPath.row == 5 )
+            return 70;
+        else
+            return  SCREEN_WIDTH-40;
     }
     if (indexPath.row == 1)
     {
@@ -348,7 +362,6 @@
         {
             return 40;
         }
-        
     }
     else
     {
@@ -356,12 +369,16 @@
         {
             return 50;
         }
-        else if( [dramaModle.posters count] == indexPath.row - 4 )
+        if( clickIndex == 0)
         {
-            return 70;
+            if( indexPath.row == 5 )
+            {
+                return 70;
+            }
+            else
+                return  SCREEN_WIDTH-100;
+
         }
-        else
-            return  SCREEN_WIDTH-100;
     }
     return 0;
 }
@@ -425,7 +442,32 @@
         webView.dramaRelativesModel = dramaRelativesModel;
         [self.navigationController pushViewController:webView animated:YES];
     }
+    if( clickIndex == 0)
+    {
+        if( indexPath.row == 4 )
+        {
+            NSMutableArray *arrayImage = [[NSMutableArray alloc ] initWithCapacity:0];
+            for (int i = 0; i < [dramaModle.posters count]; i++)
+            {
+                DramaPostersModel *imageItem =[dramaModle.posters objectAtIndex:i];
+                [arrayImage addObject: [Tool stringMerge:imageItem.poster ] ];
+            }
+            [self browerPhotoes:arrayImage page:0];
+        }
+    }
 }
+
+
+#pragma mark- 浏览大图
+- (void)browerPhotoes:(NSArray *)array page:(NSInteger)page
+{
+    JKPhotoBrowser  *photoBorwser = [[JKPhotoBrowser alloc] initWithFrame:[UIScreen mainScreen].bounds];
+    photoBorwser.currentPage = page;
+    photoBorwser.assetsArray = [NSMutableArray arrayWithArray:array];
+    [photoBorwser show:YES];
+}
+
+
 
 - (void)didReceiveMemoryWarning
 {

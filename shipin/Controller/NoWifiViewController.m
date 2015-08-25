@@ -297,11 +297,13 @@
 {
     [UserService sendPublish:_dramaModel success:^(Boolean *boolean)
     {
-        [Tool showSuccessTip:@"上传成功" view:self.view time:1];
-        [self.navigationController popViewControllerAnimated:YES];
+        [Tool showSuccessTip:@"发布成功" view:self.view time:1];
+        
+        [self.navigationController popToViewController:[self.navigationController.viewControllers objectAtIndex:([self.navigationController.viewControllers count] -3)] animated:YES];
+        
     } failure:^(NSString *error)
     {
-         [Tool showSuccessTip:@"上传失败" view:self.view time:1];
+         [Tool showSuccessTip:@"发布失败" view:self.view time:1];
     }];
      
 }

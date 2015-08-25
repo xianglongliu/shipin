@@ -14,7 +14,7 @@
 #import "imageClickDelegate.h"
 #import "UIViewSearch.h"
 
-@interface ViewController : BaseViewController<UITableViewDataSource,UITableViewDelegate,EGORefreshTableHeaderDelegate,imageClickDelegate,pushSearchViewDelegate>
+@interface ViewController : BaseViewController<UITableViewDataSource,UITableViewDelegate,EGORefreshTableHeaderDelegate,imageClickDelegate,pushSearchViewDelegate,UIGestureRecognizerDelegate>
 {
     UITableView         *_findTableView;
     UIButton            *btnAll;

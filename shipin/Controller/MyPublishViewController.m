@@ -90,6 +90,10 @@
     }];
 }
 
+//-(void) viewDidAppear:(BOOL)animated
+//{
+//    [self loadNetWorkData ];
+//}
 
 //添加发布内容
 - (void)onButtonAddDrama

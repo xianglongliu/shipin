@@ -66,4 +66,8 @@ DEF_SINGLETON(HttpManager)
 - (void )addHttpRequest:(HttpProtocol *)httpProtocol success:(void (^)(AFHTTPRequestOperation *operation, Boolean *boolean))success
                  failure:(void (^)(AFHTTPRequestOperation *operation, NSString *error))failure;
 
+//图片处理
+- (void )imageHttpRequest:(HttpProtocol *)httpProtocol imageData:(NSData *)imageData success:(void (^)(AFHTTPRequestOperation *operation, Boolean *boolean))success
+                failure:(void (^)(AFHTTPRequestOperation *operation, NSString *error))failure;
+
 @end

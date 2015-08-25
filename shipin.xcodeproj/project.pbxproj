@@ -13,6 +13,13 @@
 		EE6845B31B7E025800D6D6F5 /* HttpManager.m in Sources */ = {isa = PBXBuildFile; fileRef = EE6845AE1B7E025800D6D6F5 /* HttpManager.m */; };
 		EE6845B41B7E025800D6D6F5 /* HttpProtocol.m in Sources */ = {isa = PBXBuildFile; fileRef = EE6845B01B7E025800D6D6F5 /* HttpProtocol.m */; };
 		EE6845B51B7E025800D6D6F5 /* HttpResultBase.m in Sources */ = {isa = PBXBuildFile; fileRef = EE6845B21B7E025800D6D6F5 /* HttpResultBase.m */; };
+		EE6DD5091B8C558E00348615 /* JKPhotoBrowser.m in Sources */ = {isa = PBXBuildFile; fileRef = EE6DD5061B8C558E00348615 /* JKPhotoBrowser.m */; };
+		EE6DD50A1B8C558E00348615 /* JKPhotoBrowserCell.m in Sources */ = {isa = PBXBuildFile; fileRef = EE6DD5081B8C558E00348615 /* JKPhotoBrowserCell.m */; };
+		EE6DD50D1B8C564900348615 /* ViewPostion.m in Sources */ = {isa = PBXBuildFile; fileRef = EE6DD50C1B8C564900348615 /* ViewPostion.m */; };
+		EE6DD5101B8C567B00348615 /* JKUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = EE6DD50F1B8C567B00348615 /* JKUtil.m */; };
+		EE6DD5131B8C581600348615 /* btn_toback_selected.png in Resources */ = {isa = PBXBuildFile; fileRef = EE6DD5111B8C581600348615 /* btn_toback_selected.png */; };
+		EE6DD5141B8C581600348615 /* btn_toback.png in Resources */ = {isa = PBXBuildFile; fileRef = EE6DD5121B8C581600348615 /* btn_toback.png */; };
+		EE6DD5161B8C5C4000348615 /* loading_black_280x180.gif in Resources */ = {isa = PBXBuildFile; fileRef = EE6DD5151B8C5C4000348615 /* loading_black_280x180.gif */; };
 		EE7242821B809C3300ABBAE6 /* btn_share.png in Resources */ = {isa = PBXBuildFile; fileRef = EE7242811B809C3300ABBAE6 /* btn_share.png */; };
 		EE726FA41B819ED900C66CF9 /* Icon-40.png in Resources */ = {isa = PBXBuildFile; fileRef = EE726F9A1B819ED900C66CF9 /* Icon-40.png */; };
 		EE726FA51B819ED900C66CF9 /* Icon-40@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = EE726F9B1B819ED900C66CF9 /* Icon-40@2x.png */; };
@@ -139,6 +146,17 @@
 		EE6845B01B7E025800D6D6F5 /* HttpProtocol.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = HttpProtocol.m; path = Network/HttpProtocol.m; sourceTree = "<group>"; };
 		EE6845B11B7E025800D6D6F5 /* HttpResultBase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HttpResultBase.h; path = Network/HttpResultBase.h; sourceTree = "<group>"; };
 		EE6845B21B7E025800D6D6F5 /* HttpResultBase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = HttpResultBase.m; path = Network/HttpResultBase.m; sourceTree = "<group>"; };
+		EE6DD5051B8C558E00348615 /* JKPhotoBrowser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = JKPhotoBrowser.h; path = ExView/PhotoBrowser/JKPhotoBrowser.h; sourceTree = "<group>"; };
+		EE6DD5061B8C558E00348615 /* JKPhotoBrowser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = JKPhotoBrowser.m; path = ExView/PhotoBrowser/JKPhotoBrowser.m; sourceTree = "<group>"; };
+		EE6DD5071B8C558E00348615 /* JKPhotoBrowserCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = JKPhotoBrowserCell.h; path = ExView/PhotoBrowser/JKPhotoBrowserCell.h; sourceTree = "<group>"; };
+		EE6DD5081B8C558E00348615 /* JKPhotoBrowserCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = JKPhotoBrowserCell.m; path = ExView/PhotoBrowser/JKPhotoBrowserCell.m; sourceTree = "<group>"; };
+		EE6DD50B1B8C564900348615 /* ViewPostion.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ViewPostion.h; path = ExView/PhotoBrowser/ViewPostion.h; sourceTree = "<group>"; };
+		EE6DD50C1B8C564900348615 /* ViewPostion.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ViewPostion.m; path = ExView/PhotoBrowser/ViewPostion.m; sourceTree = "<group>"; };
+		EE6DD50E1B8C567B00348615 /* JKUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = JKUtil.h; path = ExView/PhotoBrowser/JKUtil.h; sourceTree = "<group>"; };
+		EE6DD50F1B8C567B00348615 /* JKUtil.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = JKUtil.m; path = ExView/PhotoBrowser/JKUtil.m; sourceTree = "<group>"; };
+		EE6DD5111B8C581600348615 /* btn_toback_selected.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = btn_toback_selected.png; path = Resource/Button/btn_toback_selected.png; sourceTree = "<group>"; };
+		EE6DD5121B8C581600348615 /* btn_toback.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = btn_toback.png; path = Resource/Button/btn_toback.png; sourceTree = "<group>"; };
+		EE6DD5151B8C5C4000348615 /* loading_black_280x180.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; name = loading_black_280x180.gif; path = Resource/loading_black_280x180.gif; sourceTree = "<group>"; };
 		EE7184301B58EA9D00C4EF24 /* shipin.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = shipin.pch; sourceTree = "<group>"; };
 		EE7242811B809C3300ABBAE6 /* btn_share.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = btn_share.png; path = Resource/Button/btn_share.png; sourceTree = "<group>"; };
 		EE726F9A1B819ED900C66CF9 /* Icon-40.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Icon-40.png"; path = "Resource/Icon/Icon-40.png"; sourceTree = "<group>"; };
@@ -377,6 +395,21 @@
 			name = Services;
 			sourceTree = "<group>";
 		};
+		EE6DD5041B8C557F00348615 /* PhotoBrowser */ = {
+			isa = PBXGroup;
+			children = (
+				EE6DD5051B8C558E00348615 /* JKPhotoBrowser.h */,
+				EE6DD5071B8C558E00348615 /* JKPhotoBrowserCell.h */,
+				EE6DD50E1B8C567B00348615 /* JKUtil.h */,
+				EE6DD50B1B8C564900348615 /* ViewPostion.h */,
+				EE6DD5061B8C558E00348615 /* JKPhotoBrowser.m */,
+				EE6DD5081B8C558E00348615 /* JKPhotoBrowserCell.m */,
+				EE6DD50F1B8C567B00348615 /* JKUtil.m */,
+				EE6DD50C1B8C564900348615 /* ViewPostion.m */,
+			);
+			name = PhotoBrowser;
+			sourceTree = "<group>";
+		};
 		EE71843A1B58F49700C4EF24 /* Resource */ = {
 			isa = PBXGroup;
 			children = (
@@ -385,6 +418,7 @@
 				EE726FB31B81AEA600C66CF9 /* 640.png */,
 				EE726FAF1B81A0C400C66CF9 /* Default-568h@2x.png */,
 				EEDCB5D11B633E4200EB9135 /* navigationbar.png */,
+				EE6DD5151B8C5C4000348615 /* loading_black_280x180.gif */,
 				EE908C491B7F072500505B82 /* Button */,
 				D5FEE0101B770E7400E8AC03 /* check */,
 				EE726F991B819ECB00C66CF9 /* Icon */,
@@ -631,6 +665,8 @@
 			isa = PBXGroup;
 			children = (
 				EED82F4D1B84A9EC001AC5F3 /* btn_floow.png */,
+				EE6DD5111B8C581600348615 /* btn_toback_selected.png */,
+				EE6DD5121B8C581600348615 /* btn_toback.png */,
 				EE7530E91B81D6B300EA3823 /* ico-down-arrow.png */,
 				EE7530EA1B81D6B300EA3823 /* ico-up-arrow.png */,
 				EE7242811B809C3300ABBAE6 /* btn_share.png */,
@@ -701,6 +737,7 @@
 		EEDCB5C61B63391000EB9135 /* ExView */ = {
 			isa = PBXGroup;
 			children = (
+				EE6DD5041B8C557F00348615 /* PhotoBrowser */,
 				EEDC18511B805F010013E61B /* RefreshTableHeaderView */,
 				EEDC18501B805EFC0013E61B /* MJRefresh */,
 				EE908C4E1B7F0DDF00505B82 /* FXLabel.h */,
@@ -847,6 +884,7 @@
 				EE726FA71B819ED900C66CF9 /* Icon-60@2x.png in Resources */,
 				EEDC18751B805F160013E61B /* whiteArrow.png in Resources */,
 				EE726FAA1B819ED900C66CF9 /* Icon-Small.png in Resources */,
+				EE6DD5131B8C581600348615 /* btn_toback_selected.png in Resources */,
 				EED82F4E1B84A9EC001AC5F3 /* btn_floow.png in Resources */,
 				EE726FAC1B819ED900C66CF9 /* iTunesArtwork.png in Resources */,
 				EEDC18481B8038FC0013E61B /* image_computer.png in Resources */,
@@ -864,8 +902,10 @@
 				EEDC185C1B805F0A0013E61B /* MJRefresh.bundle in Resources */,
 				EE726FA61B819ED900C66CF9 /* Icon-60.png in Resources */,
 				EEDC18701B805F160013E61B /* blueArrow@2x.png in Resources */,
+				EE6DD5141B8C581600348615 /* btn_toback.png in Resources */,
 				EEDC18741B805F160013E61B /* grayArrow@2x.png in Resources */,
 				EE726FAD1B819ED900C66CF9 /* iTunesArtwork@2x.png in Resources */,
+				EE6DD5161B8C5C4000348615 /* loading_black_280x180.gif in Resources */,
 				EEDC186D1B805F160013E61B /* blackArrow.png in Resources */,
 				EE7530EC1B81D6B300EA3823 /* ico-up-arrow.png in Resources */,
 				EE726FB41B81AEA600C66CF9 /* 640_1136.png in Resources */,
@@ -945,6 +985,7 @@
 				EE20D6551B7F1347001B2E92 /* SetViewHeadTableViewCell.m in Sources */,
 				EEDCB5C51B6335ED00EB9135 /* Config.m in Sources */,
 				EE6845B51B7E025800D6D6F5 /* HttpResultBase.m in Sources */,
+				EE6DD5091B8C558E00348615 /* JKPhotoBrowser.m in Sources */,
 				EE7944F51B7F56610032DF3A /* MyPublishViewController.m in Sources */,
 				EE908C2E1B7EEB6600505B82 /* LoginViewController.m in Sources */,
 				EEDC18421B8032A80013E61B /* NetWorkState.m in Sources */,
@@ -982,9 +1023,11 @@
 				EE908C181B7ED68100505B82 /* FilmModel.m in Sources */,
 				EE908C291B7EEB5E00505B82 /* PersonInfoViewController.m in Sources */,
 				EEDCB5CC1B63398D00EB9135 /* ExUINavigationBar.m in Sources */,
+				EE6DD50A1B8C558E00348615 /* JKPhotoBrowserCell.m in Sources */,
 				EE7944EE1B7F4F2E0032DF3A /* FeedBackViewController.m in Sources */,
 				EEDC185F1B805F0A0013E61B /* MJRefreshFooterView.m in Sources */,
 				EE908C041B7ED66F00505B82 /* UserService.m in Sources */,
+				EE6DD50D1B8C564900348615 /* ViewPostion.m in Sources */,
 				EE908C3A1B7EEBA700505B82 /* AllTableViewCell.m in Sources */,
 				EE87D2121B58ADA4002A0DD8 /* main.m in Sources */,
 				EEDCB5D71B633E9200EB9135 /* ImageUtil.m in Sources */,
@@ -992,6 +1035,7 @@
 				EE908C1A1B7ED68100505B82 /* ScreenShotsModel.m in Sources */,
 				EE908C2B1B7EEB5E00505B82 /* TextTableViewCell.m in Sources */,
 				EEDC18711B805F160013E61B /* CircleView.m in Sources */,
+				EE6DD5101B8C567B00348615 /* JKUtil.m in Sources */,
 				EEDC18601B805F0A0013E61B /* MJRefreshHeaderView.m in Sources */,
 				EE908C2A1B7EEB5E00505B82 /* SetViewController.m in Sources */,
 				EEDC187F1B8086B90013E61B /* DramaDetialTableViewCell.m in Sources */,

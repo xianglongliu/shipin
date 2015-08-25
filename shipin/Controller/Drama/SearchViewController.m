@@ -40,7 +40,7 @@
     _tableViewSearch = [[UITableView alloc ] initWithFrame:CGRectMake(0, TABBAR_HEIGHT, SCREEN_WIDTH, SCREEN_HEIGHT-TABBAR_HEIGHT) style:UITableViewStylePlain];
     _tableViewSearch.dataSource = self;
     _tableViewSearch.delegate = self;
-    _tableViewSearch.separatorColor = RGB(221, 221, 221);
+    _tableViewSearch.separatorColor = [UIColor clearColor];
     [_tableViewSearch setBackgroundColor:RGBA(238, 238, 238, 1)];
     [self.view addSubview:_tableViewSearch];
     
@@ -63,7 +63,7 @@
 #pragma mark tableview function
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return [_arraySearch count];
+    return 2;// [_arraySearch count];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -81,7 +81,7 @@
 
 -(CGFloat) tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    return 64;
+    return 122;
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath

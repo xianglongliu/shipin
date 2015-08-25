@@ -43,6 +43,8 @@
         [self.navigationController pushViewController:loginView animated:YES];
     }
     
+    //添加上下滑动手势
+//    [self addSwipe];
 }
 
 -(void)loadUserInfo
@@ -87,10 +89,64 @@
     [_refreshHeaderView egoRefreshScrollViewDataSourceDidFinishedLoading:_findTableView];
 }
 
-#pragma mark UIScrollViewDelegate Methods
+#pragma mark 上下滑动
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView
 {
-    
+//    CGFloat height = _findTableView.frame.size.height;
+//    CGFloat distanceFromButton = _findTableView.contentSize.height - _findTableView.contentOffset.y;
+//    if (distanceFromButton == height)
+//    {
+//        NSLog(@"=====滑动到底了");
+//    }
+//    
+//    if (_findTableView.contentOffset.y == 0)
+//    {
+//        NSLog(@"=====滑动到顶了");
+//    }
+    if([strBtnClick isEqualToString: @"btnAll" ])
+    {
+        if(scrollView.contentOffset.y < 0)
+        {
+            [UIView animateWithDuration:.3f animations:^{
+                btnGood.alpha=1;
+                btnAll.alpha=1;
+                _findTableView.frame = CGRectMake(0, btnGood.frame.origin.y+btnGood.frame.size.height+40, SCREEN_WIDTH, SCREEN_HEIGHT-TABBAR_HEIGHT-80);
+                _lableNewLine.frame = CGRectMake(0, btnGood.frame.size.height+btnGood.frame.origin.y, SCREEN_WIDTH, 40);
+                btnSpreadOut.frame = CGRectMake(SCREEN_WIDTH-50, btnGood.frame.size.height+btnGood.frame.origin.y, 40, 30);
+            }];
+        }
+        else if(scrollView.contentOffset.y > 0)
+        {
+            [UIView animateWithDuration:.3f animations:^{
+                btnGood.alpha=0;
+                btnAll.alpha=0;
+               _findTableView.frame = CGRectMake(0, btnGood.frame.origin.y+btnGood.frame.size.height, SCREEN_WIDTH, SCREEN_HEIGHT-TABBAR_HEIGHT-40);
+                _lableNewLine.frame = CGRectMake(0, TABBAR_HEIGHT, SCREEN_WIDTH, 40);
+                btnSpreadOut.frame = CGRectMake(SCREEN_WIDTH-50, TABBAR_HEIGHT, 40, 30);
+            }];
+        }
+
+    }
+    else
+    {
+        if(scrollView.contentOffset.y < 0)
+        {
+            [UIView animateWithDuration:.3f animations:^{
+                btnGood.alpha=1;
+                btnAll.alpha=1;
+                _findTableView.frame = CGRectMake(0, btnGood.frame.origin.y+btnGood.frame.size.height, SCREEN_WIDTH, SCREEN_HEIGHT-TABBAR_HEIGHT-40);
+            }];
+        }
+        else if(scrollView.contentOffset.y > 0)
+        {
+            [UIView animateWithDuration:.3f animations:^{
+                btnGood.alpha=0;
+                btnAll.alpha=0;
+                _findTableView.frame = CGRectMake(0, TABBAR_HEIGHT, SCREEN_WIDTH, SCREEN_HEIGHT-TABBAR_HEIGHT);
+            }];
+        }
+
+    }
     [_refreshHeaderView egoRefreshScrollViewDidScroll:scrollView];
 }
 
@@ -205,7 +261,6 @@
     [_lableNewLine setTextColor:RGB(153, 153, 153)];
     [self.view addSubview:_lableNewLine];
     [_lableNewLine setHidden:YES];
-    
     
     btnSpreadOut = [[UIButton alloc ] initWithFrame:CGRectMake(SCREEN_WIDTH-50, btnGood.frame.size.height+btnGood.frame.origin.y, 40, 30)];
     [btnSpreadOut setBackgroundImage:[UIImage imageNamed:@"ico-up-arrow.png"] forState:UIControlStateNormal];
@@ -436,6 +491,7 @@
     [self.navigationController pushViewController:searchView animated:YES ];
     
 }
+
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];

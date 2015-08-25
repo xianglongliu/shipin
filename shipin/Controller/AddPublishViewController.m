@@ -102,7 +102,7 @@
 
 -(CGFloat) tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    return (SCREEN_HEIGHT-TABBAR_HEIGHT)/2-60;
+    return (SCREEN_HEIGHT-TABBAR_HEIGHT)/2-30;
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath

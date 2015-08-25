@@ -25,7 +25,10 @@
     if ((self=[super initWithFrame:rect]))
     {
         UILabel *labelTitle = [[UILabel alloc] initWithFrame:CGRectMake(0, 7, SCREEN_WIDTH, TABBAR_HEIGHT)];
-        labelTitle.font = [UIFont boldSystemFontOfSize:15];
+        if(iPhone4 || iPhone5)
+            labelTitle.font = [UIFont boldSystemFontOfSize:18];
+        else
+            labelTitle.font = [UIFont boldSystemFontOfSize:15];
         labelTitle.textColor = [UIColor whiteColor];
         labelTitle.backgroundColor = [UIColor clearColor];
         [labelTitle setTextAlignment:NSTextAlignmentCenter];

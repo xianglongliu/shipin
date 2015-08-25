@@ -12,6 +12,7 @@
 #import "DramaDetialTableViewCell.h"
 #import "DramaRelativesModel.h"
 #import "SimilaritiesModel.h"
+#import "JKPhotoBrowser.h"
 
 @interface DramaDetialViewController : BaseViewController<UITableViewDataSource,UITableViewDelegate>
 {

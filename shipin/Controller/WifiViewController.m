@@ -55,10 +55,10 @@
     [self.view addSubview:btnSave];
 }
 
-//保存用户修改的用户信息
+
 -(void) onButtonEnsureAdd
 {
-    
+    [self.navigationController popToViewController:[self.navigationController.viewControllers objectAtIndex:([self.navigationController.viewControllers count] -3)] animated:YES];
 }
 
 -(void) onButtonBack

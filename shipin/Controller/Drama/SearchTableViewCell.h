@@ -7,7 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "DramaPostersModel.h"
 
 @interface SearchTableViewCell : UITableViewCell
+{
+    UILabel         *_labelName;
+    UIImageView     *_imageView;
+}
 
 @end

@@ -77,6 +77,31 @@ IMP_SINGLETON(HttpManager)
     return _request;
 }
 
+
+- (NSMutableURLRequest*)createFormRequest:(HttpProtocol *)httpProtocol
+{
+    _httpProtocol = httpProtocol;
+    NSString* method = httpProtocol.method;
+
+    _request = [self.requestSerializer requestWithMethod:method
+                                               URLString:httpProtocol.requestUrl
+                                              parameters:httpProtocol.param
+                                                   error:nil];
+    if (httpProtocol.token != nil) {
+
+        [_request setValue:httpProtocol.token forHTTPHeaderField:@"token"];
+    }
+
+    if (httpProtocol.deviceId != nil) {
+
+        [_request setValue:httpProtocol.deviceId forHTTPHeaderField:@"deviceId"];
+    }
+
+    [_request setValue:@"gzip" forHTTPHeaderField:@"Accept-Encoding"];
+
+
+    return _request;
+}
 - (void)httpWithRequest:(HttpProtocol *)qinHttpProtocol success:(void (^)(AFHTTPRequestOperation *operation, id responseObject))success
                                                            failure:(void (^)(AFHTTPRequestOperation *operation, NSError *error))failure {
 
@@ -201,7 +226,7 @@ IMP_SINGLETON(HttpManager)
         NSURLRequest* request = [self createRequest:httpProtocol];
 
 
-        AFHTTPRequestOperation* op = [_manager HTTPRequestOperationWithRequest:request success:^(AFHTTPRequestOperation *operation1, id responseObject1) {
+        AFHTTPRequestOperation* op = [_manager HTTPRequestOperationWithRequest:request  success:^(AFHTTPRequestOperation *operation1, id responseObject1) {
 
             NSURLRequest* request = [operation1 request];
             NSLog(@"[%@]%@\nHeader:%@\nBody:%@", request.HTTPMethod, request.URL, request.allHTTPHeaderFields, [[NSString alloc] initWithData:request.HTTPBody  encoding:NSUTF8StringEncoding]);
@@ -233,6 +258,106 @@ IMP_SINGLETON(HttpManager)
                         if( failure )
                             failure(operation1,@"已添加,不能重复添加");
                     }
+
+            }
+
+
+
+        } failure:^(AFHTTPRequestOperation *operation2, NSError *error) {
+
+            NSLog(@"Request获取失败");
+
+            NSURLRequest* request = [operation2 request];
+            NSLog(@"[%@]%@\nHeader:%@\nBody:%@\nError:%@", request.HTTPMethod, request.URL, request.allHTTPHeaderFields, [[NSString alloc] initWithData:request.HTTPBody  encoding:NSUTF8StringEncoding],error);
+
+//            @try
+            {
+                if (error.code == -1005) {
+
+                } else {
+                    NSLog(@"Error during connection: %@",error.description);
+                    failure(operation2, @"添加失败");
+                }
+
+                if( failure )
+                    failure(operation2, @"添加失败");
+            }
+
+        }];
+
+        [op start];
+
+    }
+
+}
+
+- (void)imageHttpRequest:(HttpProtocol *)httpProtocol imageData:(NSData *)imageData success:(void (^)(AFHTTPRequestOperation *operation, Boolean *boolean))success failure:(void (^)(AFHTTPRequestOperation *operation, NSString *error))failure {
+
+    {
+
+        NSString* method = httpProtocol.method;
+
+        _request = [self.requestSerializer multipartFormRequestWithMethod:method
+                                                   URLString:httpProtocol.requestUrl
+                                                  parameters:httpProtocol.param
+                                                constructingBodyWithBlock:^(id <AFMultipartFormData> formData){
+
+                                                    NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+                                                    formatter.dateFormat = @"yyyyMMddHHmmss";
+                                                    NSString *str = [formatter stringFromDate:[NSDate date]];
+                                                    NSString *fileName = [NSString stringWithFormat:@"%@.jpg", str];
+
+                                                    // 上传图片，以文件流的格式
+                                                    [formData appendPartWithFileData:imageData name:@"avatarFile" fileName:fileName mimeType:@"image/jpeg"];
+                                                }
+                                                       error:nil];
+        if (httpProtocol.token != nil) {
+
+            [_request setValue:httpProtocol.token forHTTPHeaderField:@"token"];
+        }
+
+        if (httpProtocol.deviceId != nil) {
+
+            [_request setValue:httpProtocol.deviceId forHTTPHeaderField:@"deviceId"];
+        }
+
+        [_request setValue:@"gzip" forHTTPHeaderField:@"Accept-Encoding"];
+
+       // NSURLRequest* request = [self createRequest:httpProtocol];
+
+
+        AFHTTPRequestOperation* op = [_manager HTTPRequestOperationWithRequest:_request  success:^(AFHTTPRequestOperation *operation1, id responseObject1) {
+
+            NSURLRequest* request = [operation1 request];
+            NSLog(@"[%@]%@\nHeader:%@\nBody:%@", request.HTTPMethod, request.URL, request.allHTTPHeaderFields, [[NSString alloc] initWithData:request.HTTPBody  encoding:NSUTF8StringEncoding]);
+
+
+            if (!OBJ_IS_NIL(responseObject1)) {
+
+//                if( !OBJ_IS_NIL([responseObject1 objectForKey:@"code"]) )
+//
+//                {
+                NSLog(@"Request获取成功");
+
+                HttpResultBase *resultBase = [[HttpResultBase alloc] init];
+
+                resultBase.code =[[responseObject1 objectForKey:@"code"] intValue] ;
+
+                //resultBase.data =[responseObject1 objectForKey:@"data"];
+
+                if( SUCCESS_CODE == resultBase.code){
+                    NSLog(@"Request获取成功");
+
+                    if( success )
+                        success(operation1, true);
+                }
+                else if( 301 == resultBase.code || 302 == resultBase.code  )
+                {
+                    NSLog(@"重复添加");
+
+                    if( failure )
+                        failure(operation1,@"已添加,不能重复添加");
+                }
 
             }
 
