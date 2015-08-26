@@ -69,7 +69,11 @@ NSString *const cellIdentifier=@"HorzonItemCell";
 
     if(self.similaritiedItem)
     {
-        [cell.imageView sd_setImageWithURL:[Tool stringMerge:self.similaritiedItem.cover] placeholderImage:nil];
+        if([self.similaritiedItem.cover length] == 0)
+            [cell.imageView sd_setImageWithURL:[Tool stringMerge:self.similaritiedItem.cover] placeholderImage:nil];
+        else
+              [cell.imageView sd_setImageWithURL:[NSURL URLWithString:netWorkUrl] placeholderImage:nil];
+      
         [cell.labelName setText:self.similaritiedItem.name];
     }
     return cell;

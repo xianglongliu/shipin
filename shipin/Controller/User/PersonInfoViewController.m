@@ -11,6 +11,7 @@
 #import "EditPersonViewController.h"
 #import "SetViewHeadTableViewCell.h"
 #import "DramaDetialTableViewCell.h"
+#import "CommentHeaderScrollTableView.h"
 
 @interface PersonInfoViewController ()
 
@@ -28,13 +29,19 @@
     [super viewDidLoad];
     [self.view setBackgroundColor:[UIColor whiteColor]];
     _myDramaArray= [[NSMutableArray alloc ] initWithCapacity:0];
-    mutableArray = [[NSMutableArray alloc ] initWithCapacity:0];
-    
-    [self loadUserInfo];
+    mutableArray = [[NSMutableArray alloc ] initWithCapacity:0]; 
 }
 
+-(void) viewDidAppear:(BOOL)animated
+{
+    [self loadUserInfo];
+}
 -(void)initViewCtrl
 {
+    if(_tableView)
+    {
+        [_tableView removeFromSuperview];
+    }
     _tableView = [[UITableView alloc ] initWithFrame:CGRectMake(0, -20, SCREEN_WIDTH, SCREEN_HEIGHT+20) style:UITableViewStylePlain];
     _tableView.delegate = self;
     _tableView.dataSource = self;
@@ -167,9 +174,30 @@
     }
     else if(indexPath.row == 9)
     {
-        DramaDetialTableViewCell* cell = [[DramaDetialTableViewCell alloc] initWithReuseIdentifier:CellIdentifier];
-        cell.selectionStyle = UITableViewCellSelectionStyleNone;
-        [cell setSimilarDrama:[[NSMutableArray alloc ] initWithArray:_myDramaArray] Parent:@"publish"];
+         NSMutableArray *array =[[NSMutableArray alloc ] initWithCapacity:0];
+        for (int i = 0; i < [_myDramaArray count]; i++ )
+        {
+            dramaModle =_myDramaArray[i];
+            SimilaritiesModel *similarities = [[SimilaritiesModel alloc ] init];
+            
+            similarities.Id =dramaModle.id;
+            if([dramaModle.posters count] > 0 )
+            {
+                DramaPostersModel *imageItem = [[DramaPostersModel alloc ] init];
+                imageItem = dramaModle.posters[0];
+                similarities.cover =imageItem.poster;
+            }
+
+            similarities.name =dramaModle.name;
+            [array addObject:similarities];
+        }
+       
+        UIView *userLogoList=[[CommentHeaderScrollTableView alloc]
+                              initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, ((SCREEN_WIDTH-60)/3) *1.5f)
+                              viewerList:array
+                              navigation:self.navigationController];
+        [cell addSubview:userLogoList];
+        
         return cell;
     }
     else if (indexPath.row == 10)

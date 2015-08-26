@@ -15,6 +15,8 @@
     UIWebView       *phoneCallWebView;
     NSMutableArray  *_myDramaArray;
     UITableView     *_tableView ;
+
+    DramaModel          *dramaModle;
 }
 
 @property(nonatomic,strong)UserModel *userModel;

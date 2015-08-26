@@ -22,6 +22,10 @@
 
 @implementation ViewController
 
+-(void) viewDidAppear:(BOOL)animated
+{
+    [self loadUserInfo ];
+}
 
 - (void)viewDidLoad
 {
@@ -35,16 +39,13 @@
     [self createSpreadOutButton];
     //加载视频数据1代表最新
     [self loadFindGoodDrama:1];
-    //加载用户信息
-    [self loadUserInfo];
+//    //加载用户信息
+//    [self loadUserInfo];
     if (![[Config getLoginFlag ] isEqualToString:@"YES"])
     {
         LoginViewController *loginView = [[LoginViewController alloc ] init];
         [self.navigationController pushViewController:loginView animated:YES];
     }
-    
-    //添加上下滑动手势
-//    [self addSwipe];
 }
 
 -(void)loadUserInfo

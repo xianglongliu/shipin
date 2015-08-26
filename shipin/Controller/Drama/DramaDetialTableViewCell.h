@@ -25,23 +25,23 @@
     UILabel     *_labelPlayDate;
     UILabel     *_labelPlayDateName;
 //    相似剧集
-    UILabel     *_labelXsjj;
-    
-    UIImageView *_imageViewLeft;
-    UILabel     *_labelFilmNameLeft;
-    
-    UIImageView *_imageViewCenter;
-    UILabel     *_labelFilmNameCenter;
-    
-    UIImageView *_imageViewRight;
-    UILabel     *_labelFilmNameRight;
+//    UILabel     *_labelXsjj;
+//    
+//    UIImageView *_imageViewLeft;
+//    UILabel     *_labelFilmNameLeft;
+//    
+//    UIImageView *_imageViewCenter;
+//    UILabel     *_labelFilmNameCenter;
+//    
+//    UIImageView *_imageViewRight;
+//    UILabel     *_labelFilmNameRight;
     
 //    相关资料
     UILabel     *_labelTitle;
     UILabel     *_labelContent;
     UILabel     *_labelLine;
 //    相似剧集
-    SimilaritiesModel *similaritiesItem;
+//    SimilaritiesModel *similaritiesItem;
     
     DramaPostersModel   *dramaPosters;//发布的图片
     DramaModel          *_dramaModel;
@@ -54,7 +54,7 @@
 -(void)setIntroductionText:(NSString*)text  headImage:(NSURL*)imageUrl imageHeight:(float)height;
 -(void)setProjectInfo:(DramaModel*)dramaModel;
 //相似剧集
--(void)setSimilarDrama:(NSMutableArray*)smilaritiesModelArray Parent:(NSString *)parent;
+//-(void)setSimilarDrama:(NSMutableArray*)smilaritiesModelArray Parent:(NSString *)parent;
 
 -(void)setRelatedData:(DramaRelativesModel*)dramaModel;
 

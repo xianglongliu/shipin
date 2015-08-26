@@ -744,18 +744,18 @@
 			isa = PBXGroup;
 			children = (
 				EE6DD51C1B8C754D00348615 /* CommentHeaderCell.h */,
-				EE6DD51D1B8C754D00348615 /* CommentHeaderCell.m */,
 				EE6DD5191B8C752200348615 /* CommentHeaderScrollTableView.h */,
+				EEDCB5CA1B63398D00EB9135 /* ExUINavigationBar.h */,
+				EEDCB5C71B63392700EB9135 /* ExUINavigationController.h */,
+				EE908C4E1B7F0DDF00505B82 /* FXLabel.h */,
+				EE6DD51D1B8C754D00348615 /* CommentHeaderCell.m */,
 				EE6DD51A1B8C752200348615 /* CommentHeaderScrollTableView.m */,
+				EEDCB5CB1B63398D00EB9135 /* ExUINavigationBar.m */,
+				EEDCB5C81B63392700EB9135 /* ExUINavigationController.m */,
+				EE908C4F1B7F0DDF00505B82 /* FXLabel.m */,
+				EEDC18501B805EFC0013E61B /* MJRefresh */,
 				EE6DD5041B8C557F00348615 /* PhotoBrowser */,
 				EEDC18511B805F010013E61B /* RefreshTableHeaderView */,
-				EEDC18501B805EFC0013E61B /* MJRefresh */,
-				EE908C4E1B7F0DDF00505B82 /* FXLabel.h */,
-				EE908C4F1B7F0DDF00505B82 /* FXLabel.m */,
-				EEDCB5CA1B63398D00EB9135 /* ExUINavigationBar.h */,
-				EEDCB5CB1B63398D00EB9135 /* ExUINavigationBar.m */,
-				EEDCB5C71B63392700EB9135 /* ExUINavigationController.h */,
-				EEDCB5C81B63392700EB9135 /* ExUINavigationController.m */,
 			);
 			name = ExView;
 			sourceTree = "<group>";

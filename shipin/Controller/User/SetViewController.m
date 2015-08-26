@@ -29,7 +29,12 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     //创建tableview
+}
+
+-(void) viewDidAppear:(BOOL)animated
+{
     [self loadUserInfo];
+
 }
 
 -(void) loadUserInfo
@@ -37,21 +42,22 @@
     [UserService getUserDetail:0 success:^(UserModel *userModel)
     {
         self.userModel =userModel;
-        
+        if (_tableView)
+        {
+            [_tableView removeFromSuperview];
+        }
         _tableView = [[UITableView alloc ] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, SCREEN_HEIGHT) style:UITableViewStyleGrouped];
         _tableView.delegate = self;
         _tableView.dataSource = self;
         _tableView.separatorColor = RGB(221,221,221);
         _tableView.scrollEnabled = YES;
         [_tableView setBackgroundColor:RGB(238,238,238)];
-        self.automaticallyAdjustsScrollViewInsets = FALSE;
         [self.view addSubview:_tableView];
         
         UIButton *btnBack = [[UIButton alloc ] initWithFrame:backButtonFram];
         [btnBack setImage:[UIImage imageNamed:@"btn_back.png"] forState:UIControlStateNormal];
         [btnBack addTarget:self action:@selector(onButtonBack) forControlEvents:UIControlEventTouchUpInside];
         [self.view addSubview:btnBack];
-        
         
     } failure:^(NSDictionary *error)
     {
@@ -134,10 +140,6 @@
                 {
                     cell.textLabel.text =  @"系统消息";
                 }
-//                if(indexPath.row == 3)
-//                {
-//                    cell.textLabel.text =  @"最近浏览";
-//                }
                 
                 break;
             case 1:
@@ -244,12 +246,6 @@
                 SystemMsgViewController *systemMsgView = [[SystemMsgViewController alloc ] init];
                 [self.navigationController pushViewController:systemMsgView animated:YES];
             }
-//            if (indexPath.row == 3)//最近浏览
-//            {
-//                BrowseViewController *browseView = [[BrowseViewController alloc ] init];
-//                browseView.strViewName =  @"最近浏览";
-//                [self.navigationController pushViewController:browseView animated:YES];
-//            }
             break;
         case 1:
             if (indexPath.row == 0)//分享
