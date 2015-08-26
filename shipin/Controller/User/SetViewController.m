@@ -39,6 +39,7 @@
 
 -(void) loadUserInfo
 {
+    [FVCustomAlertView showDefaultLoadingAlertOnView:self.view withTitle:nil withBlur:NO allowTap:YES];
     [UserService getUserDetail:0 success:^(UserModel *userModel)
     {
         self.userModel =userModel;
@@ -58,9 +59,10 @@
         [btnBack setImage:[UIImage imageNamed:@"btn_back.png"] forState:UIControlStateNormal];
         [btnBack addTarget:self action:@selector(onButtonBack) forControlEvents:UIControlEventTouchUpInside];
         [self.view addSubview:btnBack];
-        
+        [FVCustomAlertView hideAlertFromView:self.view fading:YES];
     } failure:^(NSDictionary *error)
     {
+        [FVCustomAlertView hideAlertFromView:self.view fading:YES];
         [Tool showWarningTip:@"获取用户信息失败" view:self.view time:1];
     }];
 }

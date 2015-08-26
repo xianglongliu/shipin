@@ -25,6 +25,12 @@
     UIButton    *btnLine4[7];
     
     id<pushSearchViewDelegate> delegate;
+    
+    NSArray     *_arrayOne;
+    NSArray     *_arrayTwo;
+    NSArray     *_arrayThree;
+    NSArray     *_arrayFour;
+    
 }
 
 @property (nonatomic,retain) id<pushSearchViewDelegate> delegate;

@@ -58,6 +58,7 @@
 
 -(void) loadUserInfo
 {
+    [FVCustomAlertView showDefaultLoadingAlertOnView:self.view withTitle:nil withBlur:NO allowTap:YES];
     [UserService getUserDetail:self._uId success:^(UserModel *userModel)
      {
          self.userModel =userModel;
@@ -83,14 +84,14 @@
          {
              _myDramaArray = [NSMutableArray arrayWithArray:dramaArray];
             [self initViewCtrl];
+             [FVCustomAlertView hideAlertFromView:self.view fading:YES];
          } failure:^(NSDictionary *error){
-             
+             [FVCustomAlertView hideAlertFromView:self.view fading:YES];
          }];
-         
-        
          
      } failure:^(NSDictionary *error)
      {
+         [FVCustomAlertView hideAlertFromView:self.view fading:YES];
          [Tool showWarningTip:@"获取用户信息失败" view:self.view time:1];
      }];
 }

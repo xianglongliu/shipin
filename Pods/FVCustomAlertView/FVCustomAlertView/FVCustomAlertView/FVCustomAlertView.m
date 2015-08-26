@@ -8,12 +8,12 @@
 
 #import "FVCustomAlertView.h"
 
-static const NSInteger kInsetValue = 6;
+static const NSInteger kInsetValue = 10;
 static const NSUInteger kFinalViewTag = 1337;
 static const NSUInteger kAlertViewTag = 1338;
 static const CGFloat kFadeOutDuration = 0.5f;
 static const CGFloat kFadeInDuration = 0.2f;
-static const CGFloat kActivityIndicatorSize = 50;
+static const CGFloat kActivityIndicatorSize = 26;
 static const CGFloat kOtherIconsSize = 30;
 
 @interface FVCustomAlertView ()
@@ -50,17 +50,14 @@ static UIView *currentView = nil;
                allowTap:(BOOL)tap
 {
     if ([view viewWithTag:kFinalViewTag]) {
-        //don't allow 2 alerts on the same view
         NSLog(@"Can't add two FVCustomAlertViews on the same view. Hide the current view first.");
         return;
     }
 
-    //get window size and position
     CGRect windowRect = [[UIScreen mainScreen] bounds];
 
-    //create the final view with a special tag
     UIView *resultView = [[UIView alloc] initWithFrame:windowRect];
-    resultView.tag = kFinalViewTag; //set tag to retrieve later
+    resultView.tag = kFinalViewTag; 
     resultView.alpha = 0.0f;
 
     if (blur) {
@@ -70,55 +67,81 @@ static UIView *currentView = nil;
       visualEffectView.frame = windowRect;
       [resultView addSubview:visualEffectView];
     }
-
-    //create shadow view by adding a black background with custom opacity
+    
     UIView *shadowView = [[UIView alloc] initWithFrame:windowRect];
     shadowView.backgroundColor = [UIColor blackColor];
     shadowView.alpha = shadowAlpha;
     [resultView addSubview:shadowView];
 
-    //create the main alert view centered
-    //with custom width and height
-    //and custom background
-    //and custom corner radius
-    //and custom opacity
-    UIView *alertView = [[UIView alloc] initWithFrame:CGRectMake(windowRect.size.width/2 - width/2,
-                                                                 windowRect.size.height/2 - height/2,
-                                                                 width, height)];
-    alertView.tag = kAlertViewTag; //set tag to retrieve later
-
-    //set background color
-    //if a background image is used, use the image instead.
+    
+    UIView *alertView = [[UIView alloc] init];
+    alertView.tag = kAlertViewTag;
     alertView.backgroundColor = backgroundColor;
     if (backgroundImage) {
         alertView.backgroundColor = [[UIColor alloc] initWithPatternImage:backgroundImage];
     }
     alertView.layer.cornerRadius = cornerRadius;
     alertView.alpha = alpha;
-
-    //create the title label centered with multiple lines
-    //and custom color
+    //title = [title stringByAppendingString:@"提示提示示提示提示提示"];
+    //title
     UILabel *titleLabel = [[UILabel alloc] init];
     titleLabel.text = title;
-    titleLabel.textAlignment = NSTextAlignmentCenter;
+    titleLabel.textAlignment = NSTextAlignmentLeft;
     titleLabel.textColor = titleColor;
-
-    //set the number of lines to 0 (unlimited)
-    //set a maximum size to the label
-    //then get the size that fits the maximum size
-    titleLabel.numberOfLines = 0;
-    CGSize requiredSize = [titleLabel sizeThatFits:CGSizeMake(width - kInsetValue, height - kInsetValue)];
-    titleLabel.frame = CGRectMake(width/2 - requiredSize.width / 2, kInsetValue, requiredSize.width, requiredSize.height);
+    titleLabel.font = [UIFont systemFontOfSize:12];
+    
+//    titleLabel.numberOfLines = 0;
+//    CGSize requiredSize = [titleLabel sizeThatFits:CGSizeMake(width - kInsetValue, height - kInsetValue)];
+//    titleLabel.frame = CGRectMake(width/2 - requiredSize.width / 2, kInsetValue, requiredSize.width, requiredSize.height);
+    
+    [titleLabel sizeToFit];
+    
+    
+    float maxWidth = 205;
+    float paddingWidth = 20;
+    float contentTop = 15;
+    
+    if(titleLabel.frame.size.width <= width-(paddingWidth*2)){
+        titleLabel.frame = CGRectMake((width-titleLabel.frame.size.width)/2, contentTop+kInsetValue+kOtherIconsSize, titleLabel.frame.size.width, 12);
+    }
+    else if(titleLabel.frame.size.width+(paddingWidth*2) <= maxWidth){
+        width = titleLabel.frame.size.width+(paddingWidth*2);
+         titleLabel.frame = CGRectMake(paddingWidth, contentTop+kInsetValue+kOtherIconsSize, titleLabel.frame.size.width, 12);
+    }
+    else if(titleLabel.frame.size.width >= maxWidth-(paddingWidth*2)){
+        width = maxWidth;
+        height = 110;
+        titleLabel.numberOfLines = 0;
+        CGSize requiredSize = [titleLabel sizeThatFits:CGSizeMake(width - paddingWidth*2, height - kInsetValue)];
+        titleLabel.frame = CGRectMake(paddingWidth, contentTop+kInsetValue+kOtherIconsSize, width - paddingWidth*2, requiredSize.height+7);
+        
+        NSMutableAttributedString *attributedString = [[NSMutableAttributedString alloc] initWithString:title];
+        NSMutableParagraphStyle *paragraphStyle = [[NSMutableParagraphStyle alloc] init];
+        [paragraphStyle setLineSpacing:5];//调整行间距
+        [attributedString addAttribute:NSParagraphStyleAttributeName value:paragraphStyle range:NSMakeRange(0, [title length])];
+        titleLabel.attributedText = attributedString;
+        //[titleLabel setBackgroundColor:[UIColor colorWithRed:255 green:255 blue:255 alpha:0.5]];
+    }
+    
+    
+    
     [alertView addSubview:titleLabel];
 
-    //check wether the alert is of custom type or not
-    //if it is, set the custom view
     UIView *content = type == FVAlertTypeCustom ? contentView : [self contentViewFromType:type];
 
-    content.frame = CGRectApplyAffineTransform(content.frame, CGAffineTransformMakeTranslation(width/2 - content.frame.size.width/2, titleLabel.frame.origin.y + titleLabel.frame.size.height + kInsetValue));
-
+    
+    content.frame = CGRectMake((width-content.frame.size.width)/2, contentTop, content.frame.size.width, content.frame.size.height);
+    
+    //loading
+    if (type == FVAlertTypeLoading) {
+        content.frame = CGRectMake((width-content.frame.size.width)/2, (height-content.frame.size.height)/2, content.frame.size.width, content.frame.size.height);
+    }
     [alertView addSubview:content];
-
+    
+    alertView.frame = CGRectMake(windowRect.size.width/2 - width/2,
+                                 windowRect.size.height/2 - height/2,
+                                 width, height);
+    
     [resultView addSubview:alertView];
 
     if (tap) {
@@ -143,7 +166,7 @@ static UIView *currentView = nil;
                      blur:blur
           backgroundImage:nil
           backgroundColor:[UIColor blackColor]
-             cornerRadius:10.0
+             cornerRadius:3.0
               shadowAlpha:0.1
                     alpha:0.8
               contentView:nil
@@ -155,13 +178,13 @@ static UIView *currentView = nil;
     [self showAlertOnView:view
                 withTitle:title
                titleColor:[UIColor whiteColor]
-                    width:100.0
-                   height:100.0
+                    width:115.0
+                   height:95.0
                      blur:blur
           backgroundImage:nil
           backgroundColor:[UIColor blackColor]
-             cornerRadius:10.0
-              shadowAlpha:0.1
+             cornerRadius:3.0
+              shadowAlpha:0.3
                     alpha:0.8
               contentView:nil
                      type:FVAlertTypeDone
@@ -172,13 +195,13 @@ static UIView *currentView = nil;
     [self showAlertOnView:view
                 withTitle:title
                titleColor:[UIColor whiteColor]
-                    width:100.0
-                   height:100.0
+                    width:115.0
+                   height:95.0
                      blur:blur
           backgroundImage:nil
           backgroundColor:[UIColor blackColor]
-             cornerRadius:10.0
-              shadowAlpha:0.1
+             cornerRadius:3.0
+              shadowAlpha:0.3
                     alpha:0.8
               contentView:nil
                      type:FVAlertTypeError
@@ -189,13 +212,13 @@ static UIView *currentView = nil;
     [self showAlertOnView:view
                 withTitle:title
                titleColor:[UIColor whiteColor]
-                    width:100.0
-                   height:100.0
+                    width:115.0
+                   height:95.0
                      blur:blur
           backgroundImage:nil
           backgroundColor:[UIColor blackColor]
-             cornerRadius:10.0
-              shadowAlpha:0.1
+             cornerRadius:3.0
+              shadowAlpha:0.3
                     alpha:0.8
               contentView:nil
                      type:FVAlertTypeWarning
@@ -205,8 +228,8 @@ static UIView *currentView = nil;
 + (NSArray *)setupCustomActivityIndicator {
     NSMutableArray *array = [NSMutableArray array];
     //iterate through all the images and add it to the array for the animation
-    for (int i = 1; i <= 20; i++) {
-        UIImage *image = [UIImage imageNamed:[NSString stringWithFormat:@"%d",i]];
+    for (int i = 1; i <= 9; i++) {
+        UIImage *image = [UIImage imageNamed:[NSString stringWithFormat:@"loading_%d.png",i]];
         [array addObject:image];
     }
     return array;
@@ -218,8 +241,8 @@ static UIView *currentView = nil;
     switch (type) {
         case FVAlertTypeLoading:
         {
-            content.frame = CGRectMake(0, 0, kActivityIndicatorSize, kActivityIndicatorSize);
-            content.animationDuration = 0.7;
+            content.frame = CGRectMake(0, 25, kActivityIndicatorSize, kActivityIndicatorSize);
+            content.animationDuration = 1.3;
             content.animationImages = [self setupCustomActivityIndicator];
             [content startAnimating];
         }
@@ -227,19 +250,19 @@ static UIView *currentView = nil;
         case FVAlertTypeDone:
         {
             content.frame = CGRectMake(0, kInsetValue, kOtherIconsSize, kOtherIconsSize);
-            content.image = [UIImage imageNamed:@"checkmark"];
+            content.image = [UIImage imageNamed:@"success.png"];
         }
             break;
         case FVAlertTypeError:
         {
             content.frame = CGRectMake(0, kInsetValue, kOtherIconsSize, kOtherIconsSize);
-            content.image = [UIImage imageNamed:@"cross"];
+            content.image = [UIImage imageNamed:@"error.png"];
         }
             break;
         case FVAlertTypeWarning:
         {
             content.frame = CGRectMake(0, kInsetValue, kOtherIconsSize, kOtherIconsSize);
-            content.image = [UIImage imageNamed:@"warning"];
+            content.image = [UIImage imageNamed:@"warning_0.png"];
         }
             break;
         default:

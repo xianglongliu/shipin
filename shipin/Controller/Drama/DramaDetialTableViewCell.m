@@ -102,50 +102,7 @@
     [_labelPlayDateName setFont:[UIFont systemFontOfSize:13]];
     [_labelPlayDateName setTextColor:RGB(102, 102, 102)];
     [self addSubview:_labelPlayDateName];
-    
-//    _labelXsjj = [[UILabel alloc ] initWithFrame:CGRectZero];
-//    [_labelXsjj setBackgroundColor:[UIColor clearColor]];
-//    [_labelXsjj setFont:[UIFont boldSystemFontOfSize:13]];
-//    [_labelXsjj setTextColor:RGB(102, 102, 102)];
-//    [_labelXsjj setText:@"相似剧集"];
-//    [self addSubview:_labelXsjj];
-////    相似剧集图片
-//    _imageViewLeft = [[UIImageView alloc ] initWithFrame:CGRectZero];
-//    _imageViewLeft.layer.masksToBounds = YES;
-//    [_imageViewLeft setContentMode:UIViewContentModeScaleAspectFill];
-//    [self addSubview:_imageViewLeft];
-//    
-//    _labelFilmNameLeft = [[UILabel alloc ] initWithFrame:CGRectZero];
-//    [_labelFilmNameLeft setBackgroundColor:[UIColor clearColor]];
-//    [_labelFilmNameLeft setFont:[UIFont boldSystemFontOfSize:10]];
-//    [_labelFilmNameLeft setTextColor:RGB(34, 34, 34)];
-//    [_labelFilmNameLeft setTextAlignment:NSTextAlignmentCenter];
-//    [self addSubview:_labelFilmNameLeft];
-//    
-//    _imageViewCenter = [[UIImageView alloc ] initWithFrame:CGRectZero];
-//    _imageViewCenter.layer.masksToBounds = YES;
-//    [_imageViewCenter setContentMode:UIViewContentModeScaleAspectFill];
-//    [self addSubview:_imageViewCenter];
-//    
-//    _labelFilmNameCenter = [[UILabel alloc ] initWithFrame:CGRectZero];
-//    [_labelFilmNameCenter setBackgroundColor:[UIColor clearColor]];
-//    [_labelFilmNameCenter setFont:[UIFont boldSystemFontOfSize:10]];
-//    [_labelFilmNameCenter setTextColor:RGB(34, 34, 34)];
-//    [_labelFilmNameCenter setTextAlignment:NSTextAlignmentCenter];
-//    [self addSubview:_labelFilmNameCenter];
-//    
-//    _imageViewRight = [[UIImageView alloc ] initWithFrame:CGRectZero];
-//    _imageViewRight.layer.masksToBounds = YES;
-//    [_imageViewRight setContentMode:UIViewContentModeScaleAspectFill];
-//    [self addSubview:_imageViewRight];
-//    
-//    _labelFilmNameRight = [[UILabel alloc ] initWithFrame:CGRectZero];
-//    [_labelFilmNameRight setBackgroundColor:[UIColor clearColor]];
-//    [_labelFilmNameRight setFont:[UIFont boldSystemFontOfSize:10]];
-//    [_labelFilmNameRight setTextColor:RGB(34, 34, 34)];
-//    [_labelFilmNameRight setTextAlignment:NSTextAlignmentCenter];
-//    [self addSubview:_labelFilmNameRight];
-    
+        
 //    相关资料
     _labelTitle = [[UILabel alloc ] initWithFrame:CGRectZero];
     [_labelTitle setBackgroundColor:[UIColor clearColor]];
@@ -163,7 +120,6 @@
     [_labelLine setBackgroundColor:RGB(221, 221, 221)];
     [self addSubview:_labelLine];
 
-
 }
 
 //剧情简介
@@ -173,16 +129,12 @@
     CGRect frame = [self frame];
     //文本赋值
     self._labelText.text = text;
-//    [Tool setLabelSpacing:self._labelText spacing:4 alignment:NSTextAlignmentLeft];
     float textHeight =[Tool CalcString:self._labelText.text fontSize:[UIFont systemFontOfSize:FontSize] andWidth:SCREEN_WIDTH-20].height;
     self._labelText.frame = CGRectMake(13, 0, SCREEN_WIDTH-26,textHeight+20 );
     self._imageView.frame = CGRectMake(13, 0, SCREEN_WIDTH-26,height );
-    
     [self._imageView sd_setImageWithURL:imageUrl placeholderImage:DefaultImage];
-    
     //计算出自适应的高度
     frame.size.height = textHeight+20 +height;
-    
     self.frame = frame;
 }
 
@@ -212,83 +164,6 @@
     [_labelPlayDateName setText:dramaModel.premiere];
 
 }
-
-////相似剧集
-//-(void)setSimilarDrama:(NSMutableArray*)smilaritiesModelArray Parent:(NSString *)parent
-//{
-//    _labelXsjj.frame  = CGRectMake(20, 10, SCREEN_WIDTH/2, 18);
-//
-//    _imageViewLeft.frame =CGRectMake(20, 45, (SCREEN_WIDTH-60)/3, ((SCREEN_WIDTH-60)/3) *1.5f);
-//    _labelFilmNameLeft.frame  = CGRectMake(_imageViewLeft.frame.origin.x, _imageViewLeft.frame.origin.y+_imageViewLeft.frame.size.height+5, _imageViewLeft.frame.size.width, 18);
-//    
-//    _imageViewCenter.frame =CGRectMake(_imageViewLeft.frame.origin.x+_imageViewLeft.frame.size.width+10, 45, _imageViewLeft.frame.size.width, _imageViewLeft.frame.size.height);
-//    _labelFilmNameCenter.frame  = CGRectMake(_imageViewCenter.frame.origin.x, _imageViewLeft.frame.origin.y+_imageViewLeft.frame.size.height+5,_labelFilmNameLeft.frame.size.width, _labelFilmNameLeft.frame.size.height);
-//    
-//    _imageViewRight.frame =CGRectMake(_imageViewCenter.frame.origin.x+_imageViewCenter.frame.size.width+10, _imageViewCenter.frame.origin.y, _imageViewLeft.frame.size.width, _imageViewLeft.frame.size.height);
-//    
-//    _labelFilmNameRight.frame  = CGRectMake(_imageViewRight.frame.origin.x, _imageViewRight.frame.origin.y+_imageViewRight.frame.size.height+5,_imageViewRight.frame.size.width, _labelFilmNameLeft.frame.size.height);
-//
-//    if ([parent isEqualToString:@"detial"])
-//    {
-//        if ([smilaritiesModelArray count] >0)
-//        {
-//            similaritiesItem = [smilaritiesModelArray objectAtIndex:0];
-//            [_imageViewLeft sd_setImageWithURL:[Tool stringMerge:similaritiesItem.cover] placeholderImage:DefaultImage];
-//            [_labelFilmNameLeft setText:similaritiesItem.name];
-//        }
-//        if ([smilaritiesModelArray count] >1)
-//        {
-//            similaritiesItem = [smilaritiesModelArray objectAtIndex:1];
-//            [_imageViewCenter sd_setImageWithURL:[Tool stringMerge:similaritiesItem.cover] placeholderImage:DefaultImage];
-//            [_labelFilmNameCenter setText:similaritiesItem.name];
-//        }
-//        if ([smilaritiesModelArray count] >2)
-//        {
-//            similaritiesItem = [smilaritiesModelArray objectAtIndex:2];
-//            [_imageViewRight sd_setImageWithURL:[Tool stringMerge:similaritiesItem.cover] placeholderImage:DefaultImage];
-//            [_labelFilmNameRight setText:similaritiesItem.name];
-//        }
-//    }
-//    else
-//    {
-//        if ([smilaritiesModelArray count] >0)
-//        {
-//            //影片名称
-//             _dramaModel=[smilaritiesModelArray objectAtIndex:0];
-//            [_labelFilmNameLeft setText:_dramaModel.name];
-//            //图片
-//            if([_dramaModel.posters count] > 0 )
-//            {
-//                DramaPostersModel *item = [_dramaModel.posters objectAtIndex:0];
-//                [_imageViewLeft sd_setImageWithURL:[Tool stringMerge:item.poster] placeholderImage:DefaultImage];
-//            }
-//        }
-//        if ([smilaritiesModelArray count] >1)
-//        {
-//            //影片名称
-//            _dramaModel=[smilaritiesModelArray objectAtIndex:1];
-//            [_labelFilmNameCenter setText:_dramaModel.name];
-//            //图片
-//            if([_dramaModel.posters count] > 0 )
-//            {
-//                DramaPostersModel *item = [_dramaModel.posters objectAtIndex:0];
-//                [_imageViewCenter sd_setImageWithURL:[Tool stringMerge:item.poster] placeholderImage:DefaultImage];
-//            }
-//        }
-//        if ([smilaritiesModelArray count] >2)
-//        {
-//            //影片名称
-//            _dramaModel=[smilaritiesModelArray objectAtIndex:2];
-//            [_labelFilmNameRight setText:_dramaModel.name];
-//            //图片
-//            if([_dramaModel.posters count] > 0 )
-//            {
-//                DramaPostersModel *item = [_dramaModel.posters objectAtIndex:0];
-//                [_imageViewRight sd_setImageWithURL:[Tool stringMerge:item.poster] placeholderImage:DefaultImage];
-//            }
-//        }
-//    }
-//}
 
 -(void)setRelatedData:(DramaRelativesModel*)dramaRelativesModel
 {

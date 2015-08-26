@@ -326,6 +326,7 @@
 #pragma mark 加载好剧数据
 -(void) loadFindGoodDrama:(int )pageNumber
 {
+    [FVCustomAlertView showDefaultLoadingAlertOnView:self.view withTitle:nil withBlur:NO allowTap:YES];
     if([ strBtnClick isEqualToString: @"btnAll"])
     {
         [DramaServices pullAllDramaList:pageNumber  success:^(NSArray *array)
@@ -348,9 +349,10 @@
                      [_findTableView reloadData];
                  }
              }
-             
+              [FVCustomAlertView hideAlertFromView:self.view fading:YES];
          } failure:^(NSDictionary *error)
          {
+             [FVCustomAlertView hideAlertFromView:self.view fading:YES];
              [Tool showWarningTip:@"请求数据失败" view:self.view time:2];
          }];
     }
@@ -377,9 +379,10 @@
                      [_findTableView reloadData];
                  }
              }
-             
+              [FVCustomAlertView hideAlertFromView:self.view fading:YES];
          } failure:^(NSDictionary *error)
          {
+              [FVCustomAlertView hideAlertFromView:self.view fading:YES];
              [Tool showWarningTip:@"请求数据失败" view:self.view time:2];
          }];
     }
