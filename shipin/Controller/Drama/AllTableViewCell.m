@@ -202,7 +202,6 @@
             
             [_labelReadCountRight setText:[Tool getCount:[rightData.dramaOp.clicks stringValue]] ];
             [_labelGzCountRight setText:[Tool getCount:[rightData.dramaOp.collects stringValue]] ];
-            
         }
         
 //        给图片添加点击事件
@@ -213,7 +212,6 @@
             gestureLeft.numberOfTapsRequired=1;
             [_labelbgLeft addGestureRecognizer:gestureLeft];
         }
-        
         _labelbgRight.tag=[[_rightData.id stringValue] intValue];
         if(!gestureRight)
         {
@@ -236,7 +234,6 @@
     }
     
 }
-
 
 
 @end

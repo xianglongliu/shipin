@@ -20,37 +20,37 @@
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    arrayHeight = [[NSArray alloc ] initWithObjects:@"30",@"40",@"15",@"30",@"80",@"15",@"30",@"110",@"15",@"30",@"40",@"40",@"40",@"40",@"40",@"15",@"30",@"40",@"80", nil];
+    arrayHeight = [[NSArray alloc ] initWithObjects:@"30",@"40",@"15",@"30",@"80",@"15",@"30",@"40",@"40",@"40",@"40",@"40",@"15",@"30",@"40",@"80", nil];
     _dramaModel = [[DramaModel alloc ] init];
     [self initViewCtrl];
-//    
-//    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(PublishshowKeyboard:) name:UIKeyboardWillShowNotification object:nil];
-//    
-//    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(PublishHideKeyboard:) name:UIKeyboardWillHideNotification object:nil];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(PublishshowKeyboard:) name:UIKeyboardWillShowNotification object:nil];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(PublishHideKeyboard:) name:UIKeyboardWillHideNotification object:nil];
     
 }
 
 //
-//#pragma mark    弹出键盘，显示菜单
-//- (void)PublishshowKeyboard:(NSNotification *)notification
-//{
-//    NSDictionary* info = [notification userInfo];
-//    //kbSize即為鍵盤尺寸 (有width, height)
-//    CGSize kbSize = [[info objectForKey:UIKeyboardFrameEndUserInfoKey] CGRectValue].size;//得到鍵盤的高度
-//    [UIView beginAnimations:@"animal" context:nil];
-//    [UIView setAnimationDuration:0.25];
-//    self.view.frame = CGRectMake(0, -kbSize.height, SCREEN_WIDTH, SCREEN_HEIGHT);
-//    [UIView commitAnimations];
-//}
-//
-//- (void)PublishHideKeyboard:(NSNotification *)notification
-//{
-//    [UIView beginAnimations:@"animal" context:nil];
-//    [UIView setAnimationDuration:0.25];
-//    self.view.frame = CGRectMake(0,0, SCREEN_WIDTH, SCREEN_HEIGHT);
-//    [UIView commitAnimations];
-//}
-//
+#pragma mark    弹出键盘，显示菜单
+- (void)PublishshowKeyboard:(NSNotification *)notification
+{
+    NSDictionary* info = [notification userInfo];
+    //kbSize即為鍵盤尺寸 (有width, height)
+    CGSize kbSize = [[info objectForKey:UIKeyboardFrameEndUserInfoKey] CGRectValue].size;//得到鍵盤的高度
+    [UIView beginAnimations:@"animal" context:nil];
+    [UIView setAnimationDuration:0.25];
+    _tableView.frame = CGRectMake(0, TABBAR_HEIGHT, SCREEN_WIDTH, SCREEN_HEIGHT-TABBAR_HEIGHT-kbSize.height);
+    [UIView commitAnimations];
+}
+
+- (void)PublishHideKeyboard:(NSNotification *)notification
+{
+    [UIView beginAnimations:@"animal" context:nil];
+    [UIView setAnimationDuration:0.25];
+    _tableView.frame = CGRectMake(0, TABBAR_HEIGHT, SCREEN_WIDTH, SCREEN_HEIGHT-TABBAR_HEIGHT);
+    [UIView commitAnimations];
+}
+
 
 
 -(void) initViewCtrl
@@ -82,7 +82,7 @@
 #pragma mark tableview function
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return 19;
+    return 16;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -153,31 +153,31 @@
         [cell setBackgroundColor:RGB(238, 238, 238)];
         return cell;
     }
+//    if (indexPath.row == 6)
+//    {
+//        cell.textLabel.text = @"影片图集";
+//        [cell.textLabel setTextColor:RGB(153, 153, 153)];
+//        return cell;
+//    }
+//    if (indexPath.row == 7)
+//    {
+//        cell.textLabel.text = @"";
+//        [cell setBackgroundColor:[UIColor whiteColor]];
+//        return cell;
+//    }
+//    if (indexPath.row == 8)
+//    {
+//        [cell setBackgroundColor:RGB(238, 238, 238)];
+//        return cell;
+//    }
     if (indexPath.row == 6)
-    {
-        cell.textLabel.text = @"影片图集";
-        [cell.textLabel setTextColor:RGB(153, 153, 153)];
-        return cell;
-    }
-    if (indexPath.row == 7)
-    {
-        cell.textLabel.text = @"";
-        [cell setBackgroundColor:[UIColor whiteColor]];
-        return cell;
-    }
-    if (indexPath.row == 8)
-    {
-        [cell setBackgroundColor:RGB(238, 238, 238)];
-        return cell;
-    }
-    if (indexPath.row == 9)
     {
         cell.textLabel.text = @"项目信息";
         [cell setBackgroundColor:RGB(246, 246, 246)];
         [cell.textLabel setTextColor:RGB(153, 153, 153)];
         return cell;
     }
-    if (indexPath.row == 10)
+    if (indexPath.row == 7)
     {
         cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
         cell.textLabel.text = @"导演";
@@ -192,7 +192,7 @@
          [_textFieldDirector addTarget:self action:@selector(textFieldEditChanged:) forControlEvents:UIControlEventEditingChanged];
         return cell;
     }
-    if (indexPath.row == 11)
+    if (indexPath.row == 8)
     {
         cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
         cell.textLabel.text = @"主演";
@@ -207,7 +207,7 @@
          [_textFieldStaring addTarget:self action:@selector(textFieldEditChanged:) forControlEvents:UIControlEventEditingChanged];
         return cell;
     }
-    if (indexPath.row == 12)
+    if (indexPath.row == 9)
     {
         cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
         cell.textLabel.text = @"地区";
@@ -222,7 +222,7 @@
          [_textFieldDistrict addTarget:self action:@selector(textFieldEditChanged:) forControlEvents:UIControlEventEditingChanged];
         return cell;
     }
-    if (indexPath.row == 13)
+    if (indexPath.row == 10)
     {
         cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
         cell.textLabel.text = @"语言";
@@ -237,7 +237,7 @@
         
         return cell;
     }
-    if (indexPath.row == 14)
+    if (indexPath.row == 11)
     {
         cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
         cell.textLabel.text = @"首播";
@@ -253,19 +253,19 @@
         
         return cell;
     }
-    if (indexPath.row == 15)
+    if (indexPath.row == 12)
     {
         cell.textLabel.text = @"";
         return cell;
     }
-    if (indexPath.row == 16)
+    if (indexPath.row == 13)
     {
         cell.textLabel.text = @"推荐语";
         [cell.textLabel setTextColor:RGB(153, 153, 153)];
         [cell setBackgroundColor:[UIColor whiteColor]];
         return cell;
     }
-    if (indexPath.row == 17)
+    if (indexPath.row == 14)
     {
         cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
         _textFieldRecommend = [[UITextField alloc ] initWithFrame:CGRectMake(20, 0, SCREEN_WIDTH-100, [[arrayHeight objectAtIndex:indexPath.row] integerValue])];
@@ -278,7 +278,7 @@
         return cell;
     }
     
-    if (indexPath.row == 18)
+    if (indexPath.row == 15)
     {
         UIButton *btnAdd = [[UIButton alloc ] initWithFrame:CGRectMake(20, 20, SCREEN_WIDTH-40, 40)];
         [btnAdd setTitle:@"确认添加" forState:UIControlStateNormal];

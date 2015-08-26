@@ -22,6 +22,8 @@
         [self addSubview:_imageViewHead];
         
         _imageViewUserHead = [[UIImageView alloc ] initWithFrame:CGRectMake(10, _imageViewHead.frame.origin.y+_imageViewHead.frame.size.height+10, 20, 20)];
+        _imageViewUserHead.layer.masksToBounds = YES;
+        _imageViewUserHead.layer.cornerRadius=20/2;
         [self addSubview:_imageViewUserHead];
         
         //发布人名字

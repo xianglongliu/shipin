@@ -224,10 +224,6 @@
         }
         if( clickIndex == 1)//相似剧集
         {
-//            DramaDetialTableViewCell* cell = [[DramaDetialTableViewCell alloc] initWithReuseIdentifier:CellIdentifier];
-//             cell.selectionStyle = UITableViewCellSelectionStyleNone;
-//            [cell setSimilarDrama:[[NSMutableArray alloc ] initWithArray:dramaModle.similarities] Parent:@"detial"];
-          
             NSMutableArray *array =[[NSMutableArray alloc ] initWithArray:dramaModle.similarities];
             UIView *userLogoList=[[CommentHeaderScrollTableView alloc]
                                   initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, ((SCREEN_WIDTH-60)/3) *1.5f)
@@ -280,10 +276,12 @@
                  DramaDetialTableViewCell* cell = [[DramaDetialTableViewCell alloc] initWithReuseIdentifier:CellIdentifier];
                  cell.selectionStyle = UITableViewCellSelectionStyleNone;
                  
-                 DramaPostersModel *posterModle =dramaModle.posters[0];
-                 NSURL *url =[Tool stringMerge:posterModle.poster];
-                 [cell setIntroductionText:@"" headImage:url imageHeight:SCREEN_WIDTH-106];
-                 
+                 if ([dramaModle.posters count] > 0 )
+                 {
+                     DramaPostersModel *posterModle =dramaModle.posters[0];
+                     NSURL *url =[Tool stringMerge:posterModle.poster];
+                     [cell setIntroductionText:@"" headImage:url imageHeight:SCREEN_WIDTH-106];
+                 }
                  UILabel *labelImageCount = [[UILabel alloc ] initWithFrame:CGRectMake(10, 10, 50, 20)];
                  [labelImageCount setText:[NSString stringWithFormat:@"共%ld张",(unsigned long)[dramaModle.posters count]]];
                  [labelImageCount setTextColor:[UIColor whiteColor]];
