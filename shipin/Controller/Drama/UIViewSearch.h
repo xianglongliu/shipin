@@ -26,10 +26,10 @@
     
     id<pushSearchViewDelegate> delegate;
     
-    NSArray     *_arrayOne;
-    NSArray     *_arrayTwo;
-    NSArray     *_arrayThree;
-    NSArray     *_arrayFour;
+    NSMutableArray     *_arrayOne;
+    NSMutableArray     *_arrayTwo;
+    NSMutableArray     *_arrayThree;
+    NSMutableArray     *_arrayFour;
     
 }
 

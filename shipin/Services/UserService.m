@@ -381,7 +381,7 @@ IMP_SINGLETON(UserService)
                      NSError* err = nil;
                      UserModel *msgModel = [[UserModel alloc] initWithString:[msg JSONString] error:&err];
 
-                     [[LKDBHelper getUsingLKDBHelper] insertToDB:msgModel];
+//                     [[LKDBHelper getUsingLKDBHelper] insertToDB:msgModel];
 
                      if(err!=nil)
                      {

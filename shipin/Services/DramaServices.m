@@ -6,6 +6,7 @@
 #import "LKDBHelper.h"
 #import "Drama.h"
 #import "DramaDetail.h"
+#import "DramaTags.h"
 
 
 @protocol NSDictionary;
@@ -170,5 +171,43 @@ IMP_SINGLETON(DramaServices)
     }];
 }
 
++ (void)getDramaTags {
+
+    HttpProtocol *httpProtocol = [[HttpProtocol alloc] init];
+    httpProtocol.requestUrl=[NSString stringWithFormat:@"%@",URL_DRAMA_TAGS];
+    httpProtocol.param=nil;
+    httpProtocol.method=@"get";
+    httpProtocol.token=@"g4TD4B9vO7z8GR3yKYlVwg==";//[Config getToken];
+
+    [[HttpManager sharedInstance] httpWithRequest:httpProtocol success:^(AFHTTPRequestOperation *operation, id responseObject)
+    {
+//        NSLog(@"getDramaTags=%@", [responseObject JSONString]);
+        if([responseObject isKindOfClass:[NSArray class]])
+        {
+            if(responseObject!=nil && [responseObject count]>0)
+            {
+                for (NSDictionary *drama in responseObject)
+                {
+                    NSLog(@"getDramaTags=%@", [drama JSONString]);
+
+
+                    //插入数据库
+                    NSError* err = nil;
+                    DramaTags *dramaModel = [[DramaTags alloc] initWithString:[drama JSONString] error:&err];
+
+                    if(err!=nil)
+                    {
+                        NSLog(@"%@",err );
+                    }
+                    [[LKDBHelper getUsingLKDBHelper] insertToDB:dramaModel];
+
+                }
+            }
+        }
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error){
+
+    }];
+
+}
 
 @end

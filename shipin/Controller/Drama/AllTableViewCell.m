@@ -189,6 +189,17 @@
             NSLog(@"%@", [countItem.clicks stringValue]);
             [_labelReadCountLeft setText:[Tool getCount:[leftData.dramaOp.clicks stringValue]] ];
             [_labelGzCountLeft setText:[Tool getCount:[leftData.dramaOp.collects stringValue]] ];
+        } else{
+
+            [_imageViewLeft sd_setImageWithURL:nil placeholderImage:DefaultImage];
+            [_imageViewUserLeft sd_setImageWithURL:nil placeholderImage:[UIImage imageNamed:@"image_defaulthead.png"]];
+            [_labelFilmNameLeft setText:leftData.name];
+            [_labelFilmContentLeft setText:leftData.brief];
+
+            DramaOpModel *countItem=leftData.dramaOp;
+            NSLog(@"%@", [countItem.clicks stringValue]);
+            [_labelReadCountLeft setText:[Tool getCount:[leftData.dramaOp.clicks stringValue]] ];
+            [_labelGzCountLeft setText:[Tool getCount:[leftData.dramaOp.collects stringValue]] ];
         }
         
         //    右面数据
@@ -200,6 +211,15 @@
             [_labelFilmNameRight setText:rightData.name];
             [_labelFilmContentRight setText:rightData.brief];
             
+            [_labelReadCountRight setText:[Tool getCount:[rightData.dramaOp.clicks stringValue]] ];
+            [_labelGzCountRight setText:[Tool getCount:[rightData.dramaOp.collects stringValue]] ];
+        } else{
+
+            [_imageViewRight sd_setImageWithURL:nil placeholderImage:DefaultImage];
+            [_imageViewUserRight sd_setImageWithURL:nil placeholderImage:[UIImage imageNamed:@"image_defaulthead.png"]];
+            [_labelFilmNameRight setText:rightData.name];
+            [_labelFilmContentRight setText:rightData.brief];
+
             [_labelReadCountRight setText:[Tool getCount:[rightData.dramaOp.clicks stringValue]] ];
             [_labelGzCountRight setText:[Tool getCount:[rightData.dramaOp.collects stringValue]] ];
         }

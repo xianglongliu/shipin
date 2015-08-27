@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		D5FEE0131B770EB000E8AC03 /* uncheckawardblack.png in Resources */ = {isa = PBXBuildFile; fileRef = D5FEE0111B770EB000E8AC03 /* uncheckawardblack.png */; };
 		D5FEE0141B770EB000E8AC03 /* uncheckgoods.png in Resources */ = {isa = PBXBuildFile; fileRef = D5FEE0121B770EB000E8AC03 /* uncheckgoods.png */; };
+		E83F3EB7BE7477960F9E2F7F /* DramaTags.m in Sources */ = {isa = PBXBuildFile; fileRef = E83F3EBDB5472A3A1F69E7F2 /* DramaTags.m */; };
+		E83F3ECAC32AF289818AAB6B /* picture_default.png in Resources */ = {isa = PBXBuildFile; fileRef = E83F3228F43F97E01FB8C42C /* picture_default.png */; };
 		EE20D6551B7F1347001B2E92 /* SetViewHeadTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = EE20D6541B7F1347001B2E92 /* SetViewHeadTableViewCell.m */; };
 		EE625BBA1B8EAAF100DB8C2B /* Drama.m in Sources */ = {isa = PBXBuildFile; fileRef = EE625BB31B8EAAF100DB8C2B /* Drama.m */; };
 		EE625BBB1B8EAAF100DB8C2B /* DramaDetail.m in Sources */ = {isa = PBXBuildFile; fileRef = EE625BB51B8EAAF100DB8C2B /* DramaDetail.m */; };
@@ -156,6 +158,9 @@
 		B4677DC82867240B0DF6E557 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		D5FEE0111B770EB000E8AC03 /* uncheckawardblack.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = uncheckawardblack.png; path = Resource/check/uncheckawardblack.png; sourceTree = "<group>"; };
 		D5FEE0121B770EB000E8AC03 /* uncheckgoods.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = uncheckgoods.png; path = Resource/check/uncheckgoods.png; sourceTree = "<group>"; };
+		E83F30EF1DEFCAD10A5867C9 /* DramaTags.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DramaTags.h; sourceTree = "<group>"; };
+		E83F3228F43F97E01FB8C42C /* picture_default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = picture_default.png; sourceTree = "<group>"; };
+		E83F3EBDB5472A3A1F69E7F2 /* DramaTags.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DramaTags.m; sourceTree = "<group>"; };
 		EE20D6531B7F1347001B2E92 /* SetViewHeadTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SetViewHeadTableViewCell.h; path = Controller/User/SetViewHeadTableViewCell.h; sourceTree = "<group>"; };
 		EE20D6541B7F1347001B2E92 /* SetViewHeadTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SetViewHeadTableViewCell.m; path = Controller/User/SetViewHeadTableViewCell.m; sourceTree = "<group>"; };
 		EE625BB21B8EAAF100DB8C2B /* Drama.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Drama.h; path = entity/Drama.h; sourceTree = "<group>"; };
@@ -422,6 +427,8 @@
 				EE625BB71B8EAAF100DB8C2B /* MyCollection.m */,
 				EE625BB81B8EAAF100DB8C2B /* MyDrama.h */,
 				EE625BB91B8EAAF100DB8C2B /* MyDrama.m */,
+				E83F3EBDB5472A3A1F69E7F2 /* DramaTags.m */,
+				E83F30EF1DEFCAD10A5867C9 /* DramaTags.h */,
 			);
 			name = entity;
 			sourceTree = "<group>";
@@ -492,6 +499,7 @@
 				EE726F991B819ECB00C66CF9 /* Icon */,
 				EE908C3E1B7F05F700505B82 /* Image */,
 				EE8E0B311B8DAAB3005F4BDF /* Loading */,
+				E83F3228F43F97E01FB8C42C /* picture_default.png */,
 			);
 			name = Resource;
 			sourceTree = "<group>";
@@ -1025,6 +1033,7 @@
 				EE8E0B3C1B8DAABB005F4BDF /* loading_2.png in Resources */,
 				EE726FA91B819ED900C66CF9 /* Icon-76@2x.png in Resources */,
 				EE726FA41B819ED900C66CF9 /* Icon-40.png in Resources */,
+				E83F3ECAC32AF289818AAB6B /* picture_default.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1147,6 +1156,7 @@
 				EE625BD01B8EAB3A00DB8C2B /* DramaModel.m in Sources */,
 				EE908C2A1B7EEB5E00505B82 /* SetViewController.m in Sources */,
 				EEDC187F1B8086B90013E61B /* DramaDetialTableViewCell.m in Sources */,
+				E83F3EB7BE7477960F9E2F7F /* DramaTags.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1262,6 +1272,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				USER_HEADER_SEARCH_PATHS = "\"${PROJECT_DIR}/Pods\"/**";
 			};
 			name = Debug;
 		};
@@ -1278,6 +1289,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				USER_HEADER_SEARCH_PATHS = "\"${PROJECT_DIR}/Pods\"/**";
 			};
 			name = Release;
 		};

@@ -6,10 +6,13 @@
 //  Copyright (c) 2015年 dust.zhang. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
 #import <XCTest/XCTest.h>
+#import "DramaServices.h"
 
-@interface shipinTests : XCTestCase
+@interface shipinTests : XCTestCase{
+
+    XCTestExpectation *expectation;
+}
 
 @end
 
@@ -27,8 +30,59 @@
 
 - (void)testExample {
     // This is an example of a functional test case.
-    XCTAssert(YES, @"Pass");
+    //XCTAssert(YES, @"Pass");
+    expectation=[self expectationWithDescription:@"test"];
+    @try{
+
+
+        [DramaServices pullAllDramaList:1 success:^(NSArray *array) {
+
+            NSLog(@"coun=%d",[array count]);
+
+
+//            [expectation fulfill];
+        } failure:^(NSDictionary *error) {
+
+        }];
+
+
+        [self waitForExpectationsWithTimeout:10.0 handler:^(NSError *err){
+            if(err){
+                NSLog(@"Timeout Error:%@",err);
+            }
+        }];
+    }@catch (NSException *exception) {
+
+        NSLog(@"initFromServer error:%@", [exception description]);
+    }
+
 }
+
+- (void)testDetail {
+    // This is an example of a functional test case.
+    //XCTAssert(YES, @"Pass");
+    expectation=[self expectationWithDescription:@"test"];
+    @try{
+
+
+        [DramaServices getDramaTags];
+
+
+        [self waitForExpectationsWithTimeout:10.0 handler:^(NSError *err){
+            if(err){
+                NSLog(@"Timeout Error:%@",err);
+            }
+        }];
+    }@catch (NSException *exception) {
+
+        NSLog(@"initFromServer error:%@", [exception description]);
+    }
+
+}
+
+
+
+
 
 - (void)testPerformanceExample {
     // This is an example of a performance test case.

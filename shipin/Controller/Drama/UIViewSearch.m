@@ -6,8 +6,10 @@
 //  Copyright (c) 2015年 dust.zhang. All rights reserved.
 //
 
+#import <LKDBHelper/LKDBHelper.h>
 #import "UIViewSearch.h"
 #import "SearchViewController.h"
+#import "DramaTags.h"
 
 @implementation UIViewSearch
 @synthesize delegate;
@@ -17,6 +19,11 @@
     self = [super initWithFrame:frame];
     if (self)
     {
+
+        DramaTags *tag = [[DramaTags alloc] init];
+        tag.id=0;
+        tag.name=@"全部";
+
         // Initialization code
         self.backgroundColor = [UIColor whiteColor];
         
@@ -25,11 +32,12 @@
         searchBar.delegate = self;
         [self addSubview:searchBar];
         
-        _arrayOne = [[NSArray alloc ] initWithObjects:@"新上线",@"最热门",@"收藏多", nil];
+        _arrayOne = [[NSMutableArray alloc] init];
+        [_arrayOne addObjectsFromArray:[self getTags:@(1)]];
         for (int i = 0; i < 3; i++)
         {
             btnLine1[i] = [[UIButton alloc ] initWithFrame:CGRectMake(10+(i*43), searchBar.frame.size.height+searchBar.frame.origin.y+10, 40, 15)];
-            [ btnLine1[i] setTitle:_arrayOne[i] forState:UIControlStateNormal];
+            [ btnLine1[i] setTitle:[_arrayOne[i] name] forState:UIControlStateNormal];
              btnLine1[i].titleLabel.font = [UIFont systemFontOfSize:10];
              btnLine1[i].layer.masksToBounds = YES;
              btnLine1[i].layer.cornerRadius =2;
@@ -46,7 +54,14 @@
                 [ btnLine1[i] setTitleColor:RGB(153, 153, 153) forState:UIControlStateNormal];
             }
         }
-        _arrayTwo = [[NSArray alloc ] initWithObjects:@"全部",@"美国",@"内地",@"香港",@"台湾",@"日本",@"韩国",@"英国",@"法国",@"其他", nil];
+
+        _arrayTwo = [[NSMutableArray alloc] init];
+
+
+
+        [_arrayTwo addObject:tag];
+        [_arrayTwo addObjectsFromArray:[self getTags:@(2)]];
+//        _arrayTwo = [[NSArray alloc ] initWithArray:[self getTags:@(2)]];
 
         for (int row = 0; row <2; row++)
         {
@@ -55,7 +70,7 @@
                 if ((row*7)+i < [_arrayTwo count])
                 {
                     btnLine2[(row*7)+i] = [[UIButton alloc ] initWithFrame:CGRectMake(10+(i*43),  btnLine1[0].frame.size.height+ btnLine1[0].frame.origin.y+10 +(row*25), 40, 15)];
-                    [btnLine2[(row*7)+i] setTitle:_arrayTwo[(row*7)+i] forState:UIControlStateNormal];
+                    [btnLine2[(row*7)+i] setTitle:[_arrayTwo[(row * 7) + i] name] forState:UIControlStateNormal];
                     btnLine2[(row*7)+i].titleLabel.font = [UIFont systemFontOfSize:10];
                     btnLine2[(row*7)+i].layer.masksToBounds = YES;
                     btnLine2[(row*7)+i].layer.cornerRadius =2;
@@ -76,12 +91,13 @@
                 }
             }
         }
-       
+
+
+        _arrayThree = [[NSMutableArray alloc] init];
+        [_arrayThree addObject:tag];
+        [_arrayThree addObjectsFromArray:[self getTags:@(3)]];
         
-       _arrayThree = [[NSArray alloc ] initWithObjects:@"全部",@"剧情",@"喜剧",@"家庭",@"爱情",@"古装",@"偶像",
-                             @"历史",@"悬疑",@"都市",@"恐怖",@"武侠",@"警匪",@"动画",
-                             @"犯罪",@"动作",@"传记",@"纪录片",@"运动",@"歌舞",@"冒险",
-                             @"奇幻",@"真人秀",@"其他",nil];
+//       _arrayThree = [[NSArray alloc ] initWithArray:[self getTags:@(3)]];
         
         for (int row = 0; row <4; row++)
         {
@@ -90,7 +106,7 @@
                 if ((row*7)+i < [_arrayThree count])
                 {
                     btnLine3[(row*7)+i] = [[UIButton alloc ] initWithFrame:CGRectMake(10+(i*43),  btnLine2[7].frame.size.height+ btnLine2[7].frame.origin.y+10 +(row*23), 40, 15)];
-                    [btnLine3[(row*7)+i] setTitle:_arrayThree[(row*7)+i] forState:UIControlStateNormal];
+                    [btnLine3[(row*7)+i] setTitle:[_arrayThree[(row * 7) + i] name] forState:UIControlStateNormal];
                     btnLine3[(row*7)+i].titleLabel.font = [UIFont systemFontOfSize:10];
                     btnLine3[(row*7)+i].layer.masksToBounds = YES;
                     btnLine3[(row*7)+i].layer.cornerRadius =2;
@@ -112,11 +128,14 @@
             }
         }
 
-        _arrayFour = [[NSArray alloc ] initWithObjects:@"全部",@"2015年",@"2014年",@"2013年",@"2012年",@"2011年",@"更早", nil];
-        for (int i = 0; i < 7; i++)
+        _arrayFour = [[NSMutableArray alloc] init];
+        [_arrayFour addObject:tag];
+        [_arrayFour addObjectsFromArray:[self getTags:@(4)]];
+//        _arrayFour = [[NSArray alloc ] initWithArray:[self getTags:@(4)]];
+        for (int i = 0; i < [_arrayFour count]; i++)
         {
             btnLine4[i] = [[UIButton alloc ] initWithFrame:CGRectMake(10+(i*43), btnLine3[22].frame.size.height+ btnLine3[22].frame.origin.y+10 , 40, 15)];
-            [ btnLine4[i] setTitle:_arrayFour[i] forState:UIControlStateNormal];
+            [ btnLine4[i] setTitle:[_arrayFour[i] name] forState:UIControlStateNormal];
             btnLine4[i].titleLabel.font = [UIFont systemFontOfSize:10];
             btnLine4[i].layer.masksToBounds = YES;
             btnLine4[i].layer.cornerRadius =2;
@@ -218,6 +237,20 @@
             [ btnLine4[btnIndex] setTitleColor:RGB(153, 153, 153) forState:UIControlStateNormal];
         }
     }
+}
+
+-(NSMutableArray *) getTags:(NSNumber *)type{
+
+    LKDBHelper *helper = [LKDBHelper getUsingLKDBHelper];
+    NSString *orderBy = @"CAST(id as integer) asc";
+    NSString *where = [NSString stringWithFormat:@"type=%@", type];
+    NSMutableArray *tagArray = [helper search:[DramaTags class] where:where orderBy:orderBy offset:0 count:50];
+
+   if(tagArray!=nil){
+
+       return tagArray;
+   } else
+       return [[NSMutableArray alloc] init];
 }
 
 @end

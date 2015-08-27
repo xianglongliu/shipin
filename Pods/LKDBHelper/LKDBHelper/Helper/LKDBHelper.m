@@ -155,6 +155,7 @@
 
 - (void)setDBPath:(NSString *)filePath
 {
+    NSLog(@"dbPath==%@",filePath);
     if (self.bindingQueue && [self.dbPath isEqualToString:filePath]) {
         return;
     }

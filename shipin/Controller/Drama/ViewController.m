@@ -56,7 +56,10 @@
     }
 
     [self loadUserInfo ];
-   
+
+    //获取所有tags
+    [DramaServices getDramaTags];
+
 }
 
 //加载用户头像

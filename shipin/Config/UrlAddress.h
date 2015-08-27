@@ -38,3 +38,7 @@
 #define     URL_USER_FOLLOWS  [URL_SERVERADDRESS stringByAppendingString:@"/user/follows"]
 //编辑个人资料
 #define     URL_USER_UPDATE  [URL_SERVERADDRESS stringByAppendingString:@"/user/update"]
+//标签获取
+#define     URL_DRAMA_TAGS  [URL_SERVERADDRESS stringByAppendingString:@"/drama/tags"]
+//搜素
+#define     URL_SEARCH  [URL_SERVERADDRESS stringByAppendingString:@"/drama/search"]

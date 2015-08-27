@@ -21,7 +21,7 @@ DEF_SINGLETON(DramaServices)
 +(void)getDramaDetail:(int)dId success:(void (^)(id dramaModel))success
                                failure:(void (^)( NSDictionary *error))failure;
 
-
-
+//获取tag标签
++(void)getDramaTags;
 
 @end

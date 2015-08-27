@@ -31,7 +31,7 @@
     [super viewDidLoad];
     [self.view setBackgroundColor:[UIColor whiteColor]];
     _myDramaArray= [[NSMutableArray alloc ] initWithCapacity:0];
-    mutableArray = [[NSMutableArray alloc ] initWithCapacity:0]; 
+    mutableArray = [[NSMutableArray alloc ] initWithCapacity:0];
 }
 
 -(void) viewDidAppear:(BOOL)animated
@@ -195,7 +195,7 @@
     //add edit button
     if (indexPath.row == 1)
     {
-        if (self._uId == 0 )//如果是查看自己的资料则可以编辑
+        if (self._uId == [[Config getUserId] intValue])//如果是查看自己的资料则可以编辑
         {
             UIButton *btnEdit = [[UIButton alloc ] initWithFrame:CGRectMake(SCREEN_WIDTH-60, 0, 60, 30)];
             [btnEdit setTitle:@"编辑" forState:UIControlStateNormal];
