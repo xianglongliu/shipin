@@ -10,6 +10,22 @@
 		D5FEE0131B770EB000E8AC03 /* uncheckawardblack.png in Resources */ = {isa = PBXBuildFile; fileRef = D5FEE0111B770EB000E8AC03 /* uncheckawardblack.png */; };
 		D5FEE0141B770EB000E8AC03 /* uncheckgoods.png in Resources */ = {isa = PBXBuildFile; fileRef = D5FEE0121B770EB000E8AC03 /* uncheckgoods.png */; };
 		EE20D6551B7F1347001B2E92 /* SetViewHeadTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = EE20D6541B7F1347001B2E92 /* SetViewHeadTableViewCell.m */; };
+		EE625BBA1B8EAAF100DB8C2B /* Drama.m in Sources */ = {isa = PBXBuildFile; fileRef = EE625BB31B8EAAF100DB8C2B /* Drama.m */; };
+		EE625BBB1B8EAAF100DB8C2B /* DramaDetail.m in Sources */ = {isa = PBXBuildFile; fileRef = EE625BB51B8EAAF100DB8C2B /* DramaDetail.m */; };
+		EE625BBC1B8EAAF100DB8C2B /* MyCollection.m in Sources */ = {isa = PBXBuildFile; fileRef = EE625BB71B8EAAF100DB8C2B /* MyCollection.m */; };
+		EE625BBD1B8EAAF100DB8C2B /* MyDrama.m in Sources */ = {isa = PBXBuildFile; fileRef = EE625BB91B8EAAF100DB8C2B /* MyDrama.m */; };
+		EE625BD01B8EAB3A00DB8C2B /* DramaModel.m in Sources */ = {isa = PBXBuildFile; fileRef = EE625BBF1B8EAB3A00DB8C2B /* DramaModel.m */; };
+		EE625BD11B8EAB3A00DB8C2B /* DramaPostersModel.m in Sources */ = {isa = PBXBuildFile; fileRef = EE625BC11B8EAB3A00DB8C2B /* DramaPostersModel.m */; };
+		EE625BD21B8EAB3A00DB8C2B /* DramaRelativesModel.m in Sources */ = {isa = PBXBuildFile; fileRef = EE625BC31B8EAB3A00DB8C2B /* DramaRelativesModel.m */; };
+		EE625BD31B8EAB3A00DB8C2B /* FilmModel.m in Sources */ = {isa = PBXBuildFile; fileRef = EE625BC51B8EAB3A00DB8C2B /* FilmModel.m */; };
+		EE625BD41B8EAB3A00DB8C2B /* MessageModel.m in Sources */ = {isa = PBXBuildFile; fileRef = EE625BC71B8EAB3A00DB8C2B /* MessageModel.m */; };
+		EE625BD51B8EAB3A00DB8C2B /* MyPublishModle.m in Sources */ = {isa = PBXBuildFile; fileRef = EE625BC91B8EAB3A00DB8C2B /* MyPublishModle.m */; };
+		EE625BD61B8EAB3A00DB8C2B /* ScreenShotsModel.m in Sources */ = {isa = PBXBuildFile; fileRef = EE625BCB1B8EAB3A00DB8C2B /* ScreenShotsModel.m */; };
+		EE625BD71B8EAB3A00DB8C2B /* SimilaritiesModel.m in Sources */ = {isa = PBXBuildFile; fileRef = EE625BCD1B8EAB3A00DB8C2B /* SimilaritiesModel.m */; };
+		EE625BD81B8EAB3A00DB8C2B /* UserModel.m in Sources */ = {isa = PBXBuildFile; fileRef = EE625BCF1B8EAB3A00DB8C2B /* UserModel.m */; };
+		EE625BDD1B8EDF0800DB8C2B /* error.png in Resources */ = {isa = PBXBuildFile; fileRef = EE625BDA1B8EDF0800DB8C2B /* error.png */; };
+		EE625BDE1B8EDF0800DB8C2B /* success.png in Resources */ = {isa = PBXBuildFile; fileRef = EE625BDB1B8EDF0800DB8C2B /* success.png */; };
+		EE625BDF1B8EDF0800DB8C2B /* warning_0.png in Resources */ = {isa = PBXBuildFile; fileRef = EE625BDC1B8EDF0800DB8C2B /* warning_0.png */; };
 		EE6845B31B7E025800D6D6F5 /* HttpManager.m in Sources */ = {isa = PBXBuildFile; fileRef = EE6845AE1B7E025800D6D6F5 /* HttpManager.m */; };
 		EE6845B41B7E025800D6D6F5 /* HttpProtocol.m in Sources */ = {isa = PBXBuildFile; fileRef = EE6845B01B7E025800D6D6F5 /* HttpProtocol.m */; };
 		EE6845B51B7E025800D6D6F5 /* HttpResultBase.m in Sources */ = {isa = PBXBuildFile; fileRef = EE6845B21B7E025800D6D6F5 /* HttpResultBase.m */; };
@@ -45,7 +61,6 @@
 		EE7944F51B7F56610032DF3A /* MyPublishViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EE7944F41B7F56610032DF3A /* MyPublishViewController.m */; };
 		EE7944F81B7F56C50032DF3A /* AddPublishViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EE7944F71B7F56C50032DF3A /* AddPublishViewController.m */; };
 		EE7944FA1B7F57B10032DF3A /* btn_addpublish.png in Resources */ = {isa = PBXBuildFile; fileRef = EE7944F91B7F57B10032DF3A /* btn_addpublish.png */; };
-		EE7944FD1B7F5BE20032DF3A /* MyPublishModle.m in Sources */ = {isa = PBXBuildFile; fileRef = EE7944FC1B7F5BE20032DF3A /* MyPublishModle.m */; };
 		EE8069FA1B7F148B0098DA30 /* image_collection.png in Resources */ = {isa = PBXBuildFile; fileRef = EE8069F91B7F148B0098DA30 /* image_collection.png */; };
 		EE8069FC1B7F15850098DA30 /* image_heart.png in Resources */ = {isa = PBXBuildFile; fileRef = EE8069FB1B7F15850098DA30 /* image_heart.png */; };
 		EE87D2121B58ADA4002A0DD8 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = EE87D2111B58ADA4002A0DD8 /* main.m */; };
@@ -64,14 +79,6 @@
 		EE908C021B7ED66F00505B82 /* BaseService.m in Sources */ = {isa = PBXBuildFile; fileRef = EE908BFD1B7ED66F00505B82 /* BaseService.m */; };
 		EE908C031B7ED66F00505B82 /* DramaServices.m in Sources */ = {isa = PBXBuildFile; fileRef = EE908BFF1B7ED66F00505B82 /* DramaServices.m */; };
 		EE908C041B7ED66F00505B82 /* UserService.m in Sources */ = {isa = PBXBuildFile; fileRef = EE908C011B7ED66F00505B82 /* UserService.m */; };
-		EE908C151B7ED68100505B82 /* DramaModel.m in Sources */ = {isa = PBXBuildFile; fileRef = EE908C061B7ED68100505B82 /* DramaModel.m */; };
-		EE908C161B7ED68100505B82 /* DramaPostersModel.m in Sources */ = {isa = PBXBuildFile; fileRef = EE908C081B7ED68100505B82 /* DramaPostersModel.m */; };
-		EE908C171B7ED68100505B82 /* DramaRelativesModel.m in Sources */ = {isa = PBXBuildFile; fileRef = EE908C0A1B7ED68100505B82 /* DramaRelativesModel.m */; };
-		EE908C181B7ED68100505B82 /* FilmModel.m in Sources */ = {isa = PBXBuildFile; fileRef = EE908C0C1B7ED68100505B82 /* FilmModel.m */; };
-		EE908C191B7ED68100505B82 /* MessageModel.m in Sources */ = {isa = PBXBuildFile; fileRef = EE908C0E1B7ED68100505B82 /* MessageModel.m */; };
-		EE908C1A1B7ED68100505B82 /* ScreenShotsModel.m in Sources */ = {isa = PBXBuildFile; fileRef = EE908C101B7ED68100505B82 /* ScreenShotsModel.m */; };
-		EE908C1B1B7ED68100505B82 /* SimilaritiesModel.m in Sources */ = {isa = PBXBuildFile; fileRef = EE908C121B7ED68100505B82 /* SimilaritiesModel.m */; };
-		EE908C1C1B7ED68100505B82 /* UserModel.m in Sources */ = {isa = PBXBuildFile; fileRef = EE908C141B7ED68100505B82 /* UserModel.m */; };
 		EE908C281B7EEB5E00505B82 /* EditPersonViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EE908C211B7EEB5E00505B82 /* EditPersonViewController.m */; };
 		EE908C291B7EEB5E00505B82 /* PersonInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EE908C231B7EEB5E00505B82 /* PersonInfoViewController.m */; };
 		EE908C2A1B7EEB5E00505B82 /* SetViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EE908C251B7EEB5E00505B82 /* SetViewController.m */; };
@@ -151,6 +158,35 @@
 		D5FEE0121B770EB000E8AC03 /* uncheckgoods.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = uncheckgoods.png; path = Resource/check/uncheckgoods.png; sourceTree = "<group>"; };
 		EE20D6531B7F1347001B2E92 /* SetViewHeadTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SetViewHeadTableViewCell.h; path = Controller/User/SetViewHeadTableViewCell.h; sourceTree = "<group>"; };
 		EE20D6541B7F1347001B2E92 /* SetViewHeadTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SetViewHeadTableViewCell.m; path = Controller/User/SetViewHeadTableViewCell.m; sourceTree = "<group>"; };
+		EE625BB21B8EAAF100DB8C2B /* Drama.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Drama.h; path = entity/Drama.h; sourceTree = "<group>"; };
+		EE625BB31B8EAAF100DB8C2B /* Drama.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Drama.m; path = entity/Drama.m; sourceTree = "<group>"; };
+		EE625BB41B8EAAF100DB8C2B /* DramaDetail.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DramaDetail.h; path = entity/DramaDetail.h; sourceTree = "<group>"; };
+		EE625BB51B8EAAF100DB8C2B /* DramaDetail.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DramaDetail.m; path = entity/DramaDetail.m; sourceTree = "<group>"; };
+		EE625BB61B8EAAF100DB8C2B /* MyCollection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MyCollection.h; path = entity/MyCollection.h; sourceTree = "<group>"; };
+		EE625BB71B8EAAF100DB8C2B /* MyCollection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MyCollection.m; path = entity/MyCollection.m; sourceTree = "<group>"; };
+		EE625BB81B8EAAF100DB8C2B /* MyDrama.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MyDrama.h; path = entity/MyDrama.h; sourceTree = "<group>"; };
+		EE625BB91B8EAAF100DB8C2B /* MyDrama.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MyDrama.m; path = entity/MyDrama.m; sourceTree = "<group>"; };
+		EE625BBE1B8EAB3A00DB8C2B /* DramaModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DramaModel.h; path = Modle/DramaModel.h; sourceTree = "<group>"; };
+		EE625BBF1B8EAB3A00DB8C2B /* DramaModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DramaModel.m; path = Modle/DramaModel.m; sourceTree = "<group>"; };
+		EE625BC01B8EAB3A00DB8C2B /* DramaPostersModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DramaPostersModel.h; path = Modle/DramaPostersModel.h; sourceTree = "<group>"; };
+		EE625BC11B8EAB3A00DB8C2B /* DramaPostersModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DramaPostersModel.m; path = Modle/DramaPostersModel.m; sourceTree = "<group>"; };
+		EE625BC21B8EAB3A00DB8C2B /* DramaRelativesModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DramaRelativesModel.h; path = Modle/DramaRelativesModel.h; sourceTree = "<group>"; };
+		EE625BC31B8EAB3A00DB8C2B /* DramaRelativesModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DramaRelativesModel.m; path = Modle/DramaRelativesModel.m; sourceTree = "<group>"; };
+		EE625BC41B8EAB3A00DB8C2B /* FilmModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FilmModel.h; path = Modle/FilmModel.h; sourceTree = "<group>"; };
+		EE625BC51B8EAB3A00DB8C2B /* FilmModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FilmModel.m; path = Modle/FilmModel.m; sourceTree = "<group>"; };
+		EE625BC61B8EAB3A00DB8C2B /* MessageModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MessageModel.h; path = Modle/MessageModel.h; sourceTree = "<group>"; };
+		EE625BC71B8EAB3A00DB8C2B /* MessageModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MessageModel.m; path = Modle/MessageModel.m; sourceTree = "<group>"; };
+		EE625BC81B8EAB3A00DB8C2B /* MyPublishModle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MyPublishModle.h; path = Modle/MyPublishModle.h; sourceTree = "<group>"; };
+		EE625BC91B8EAB3A00DB8C2B /* MyPublishModle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MyPublishModle.m; path = Modle/MyPublishModle.m; sourceTree = "<group>"; };
+		EE625BCA1B8EAB3A00DB8C2B /* ScreenShotsModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ScreenShotsModel.h; path = Modle/ScreenShotsModel.h; sourceTree = "<group>"; };
+		EE625BCB1B8EAB3A00DB8C2B /* ScreenShotsModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ScreenShotsModel.m; path = Modle/ScreenShotsModel.m; sourceTree = "<group>"; };
+		EE625BCC1B8EAB3A00DB8C2B /* SimilaritiesModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SimilaritiesModel.h; path = Modle/SimilaritiesModel.h; sourceTree = "<group>"; };
+		EE625BCD1B8EAB3A00DB8C2B /* SimilaritiesModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SimilaritiesModel.m; path = Modle/SimilaritiesModel.m; sourceTree = "<group>"; };
+		EE625BCE1B8EAB3A00DB8C2B /* UserModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = UserModel.h; path = Modle/UserModel.h; sourceTree = "<group>"; };
+		EE625BCF1B8EAB3A00DB8C2B /* UserModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = UserModel.m; path = Modle/UserModel.m; sourceTree = "<group>"; };
+		EE625BDA1B8EDF0800DB8C2B /* error.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = error.png; path = Resource/FVCustomAlertView/error.png; sourceTree = "<group>"; };
+		EE625BDB1B8EDF0800DB8C2B /* success.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = success.png; path = Resource/FVCustomAlertView/success.png; sourceTree = "<group>"; };
+		EE625BDC1B8EDF0800DB8C2B /* warning_0.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = warning_0.png; path = Resource/FVCustomAlertView/warning_0.png; sourceTree = "<group>"; };
 		EE6845AD1B7E025800D6D6F5 /* HttpManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HttpManager.h; path = Network/HttpManager.h; sourceTree = "<group>"; };
 		EE6845AE1B7E025800D6D6F5 /* HttpManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = HttpManager.m; path = Network/HttpManager.m; sourceTree = "<group>"; };
 		EE6845AF1B7E025800D6D6F5 /* HttpProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HttpProtocol.h; path = Network/HttpProtocol.h; sourceTree = "<group>"; };
@@ -202,8 +238,6 @@
 		EE7944F61B7F56C50032DF3A /* AddPublishViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AddPublishViewController.h; path = Controller/AddPublishViewController.h; sourceTree = "<group>"; };
 		EE7944F71B7F56C50032DF3A /* AddPublishViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AddPublishViewController.m; path = Controller/AddPublishViewController.m; sourceTree = "<group>"; };
 		EE7944F91B7F57B10032DF3A /* btn_addpublish.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = btn_addpublish.png; path = Resource/Button/btn_addpublish.png; sourceTree = "<group>"; };
-		EE7944FB1B7F5BE20032DF3A /* MyPublishModle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MyPublishModle.h; path = Modle/MyPublishModle.h; sourceTree = "<group>"; };
-		EE7944FC1B7F5BE20032DF3A /* MyPublishModle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MyPublishModle.m; path = Modle/MyPublishModle.m; sourceTree = "<group>"; };
 		EE8069F91B7F148B0098DA30 /* image_collection.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = image_collection.png; path = Resource/Image/image_collection.png; sourceTree = "<group>"; };
 		EE8069FB1B7F15850098DA30 /* image_heart.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = image_heart.png; path = Resource/Image/image_heart.png; sourceTree = "<group>"; };
 		EE87D20C1B58ADA4002A0DD8 /* shipin.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = shipin.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -230,22 +264,6 @@
 		EE908BFF1B7ED66F00505B82 /* DramaServices.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DramaServices.m; path = Services/DramaServices.m; sourceTree = "<group>"; };
 		EE908C001B7ED66F00505B82 /* UserService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = UserService.h; path = Services/UserService.h; sourceTree = "<group>"; };
 		EE908C011B7ED66F00505B82 /* UserService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = UserService.m; path = Services/UserService.m; sourceTree = "<group>"; };
-		EE908C051B7ED68100505B82 /* DramaModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DramaModel.h; path = Modle/DramaModel.h; sourceTree = "<group>"; };
-		EE908C061B7ED68100505B82 /* DramaModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DramaModel.m; path = Modle/DramaModel.m; sourceTree = "<group>"; };
-		EE908C071B7ED68100505B82 /* DramaPostersModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DramaPostersModel.h; path = Modle/DramaPostersModel.h; sourceTree = "<group>"; };
-		EE908C081B7ED68100505B82 /* DramaPostersModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DramaPostersModel.m; path = Modle/DramaPostersModel.m; sourceTree = "<group>"; };
-		EE908C091B7ED68100505B82 /* DramaRelativesModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DramaRelativesModel.h; path = Modle/DramaRelativesModel.h; sourceTree = "<group>"; };
-		EE908C0A1B7ED68100505B82 /* DramaRelativesModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DramaRelativesModel.m; path = Modle/DramaRelativesModel.m; sourceTree = "<group>"; };
-		EE908C0B1B7ED68100505B82 /* FilmModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FilmModel.h; path = Modle/FilmModel.h; sourceTree = "<group>"; };
-		EE908C0C1B7ED68100505B82 /* FilmModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FilmModel.m; path = Modle/FilmModel.m; sourceTree = "<group>"; };
-		EE908C0D1B7ED68100505B82 /* MessageModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MessageModel.h; path = Modle/MessageModel.h; sourceTree = "<group>"; };
-		EE908C0E1B7ED68100505B82 /* MessageModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MessageModel.m; path = Modle/MessageModel.m; sourceTree = "<group>"; };
-		EE908C0F1B7ED68100505B82 /* ScreenShotsModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ScreenShotsModel.h; path = Modle/ScreenShotsModel.h; sourceTree = "<group>"; };
-		EE908C101B7ED68100505B82 /* ScreenShotsModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ScreenShotsModel.m; path = Modle/ScreenShotsModel.m; sourceTree = "<group>"; };
-		EE908C111B7ED68100505B82 /* SimilaritiesModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SimilaritiesModel.h; path = Modle/SimilaritiesModel.h; sourceTree = "<group>"; };
-		EE908C121B7ED68100505B82 /* SimilaritiesModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SimilaritiesModel.m; path = Modle/SimilaritiesModel.m; sourceTree = "<group>"; };
-		EE908C131B7ED68100505B82 /* UserModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = UserModel.h; path = Modle/UserModel.h; sourceTree = "<group>"; };
-		EE908C141B7ED68100505B82 /* UserModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = UserModel.m; path = Modle/UserModel.m; sourceTree = "<group>"; };
 		EE908C201B7EEB5E00505B82 /* EditPersonViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EditPersonViewController.h; path = Controller/User/EditPersonViewController.h; sourceTree = "<group>"; };
 		EE908C211B7EEB5E00505B82 /* EditPersonViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = EditPersonViewController.m; path = Controller/User/EditPersonViewController.m; sourceTree = "<group>"; };
 		EE908C221B7EEB5E00505B82 /* PersonInfoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PersonInfoViewController.h; path = Controller/User/PersonInfoViewController.h; sourceTree = "<group>"; };
@@ -393,6 +411,31 @@
 			name = check;
 			sourceTree = "<group>";
 		};
+		EE625BB11B8EAAE800DB8C2B /* entity */ = {
+			isa = PBXGroup;
+			children = (
+				EE625BB21B8EAAF100DB8C2B /* Drama.h */,
+				EE625BB31B8EAAF100DB8C2B /* Drama.m */,
+				EE625BB41B8EAAF100DB8C2B /* DramaDetail.h */,
+				EE625BB51B8EAAF100DB8C2B /* DramaDetail.m */,
+				EE625BB61B8EAAF100DB8C2B /* MyCollection.h */,
+				EE625BB71B8EAAF100DB8C2B /* MyCollection.m */,
+				EE625BB81B8EAAF100DB8C2B /* MyDrama.h */,
+				EE625BB91B8EAAF100DB8C2B /* MyDrama.m */,
+			);
+			name = entity;
+			sourceTree = "<group>";
+		};
+		EE625BD91B8EDEFE00DB8C2B /* FVCustomAlertView */ = {
+			isa = PBXGroup;
+			children = (
+				EE625BDA1B8EDF0800DB8C2B /* error.png */,
+				EE625BDB1B8EDF0800DB8C2B /* success.png */,
+				EE625BDC1B8EDF0800DB8C2B /* warning_0.png */,
+			);
+			name = FVCustomAlertView;
+			sourceTree = "<group>";
+		};
 		EE6845AC1B7E025000D6D6F5 /* Network */ = {
 			isa = PBXGroup;
 			children = (
@@ -437,17 +480,18 @@
 		EE71843A1B58F49700C4EF24 /* Resource */ = {
 			isa = PBXGroup;
 			children = (
-				EE8E0B311B8DAAB3005F4BDF /* Loading */,
-				EEEE3C9B1B82126D00F87ABE /* use.txt */,
+				EE625BD91B8EDEFE00DB8C2B /* FVCustomAlertView */,
+				EE6DD5151B8C5C4000348615 /* loading_black_280x180.gif */,
 				EE726FB21B81AEA600C66CF9 /* 640_1136.png */,
 				EE726FB31B81AEA600C66CF9 /* 640.png */,
 				EE726FAF1B81A0C400C66CF9 /* Default-568h@2x.png */,
 				EEDCB5D11B633E4200EB9135 /* navigationbar.png */,
-				EE6DD5151B8C5C4000348615 /* loading_black_280x180.gif */,
+				EEEE3C9B1B82126D00F87ABE /* use.txt */,
 				EE908C491B7F072500505B82 /* Button */,
 				D5FEE0101B770E7400E8AC03 /* check */,
 				EE726F991B819ECB00C66CF9 /* Icon */,
 				EE908C3E1B7F05F700505B82 /* Image */,
+				EE8E0B311B8DAAB3005F4BDF /* Loading */,
 			);
 			name = Resource;
 			sourceTree = "<group>";
@@ -536,11 +580,12 @@
 		EE87D20E1B58ADA4002A0DD8 /* shipin */ = {
 			isa = PBXGroup;
 			children = (
-				EEDA73D61B83095E008823CE /* imageClickDelegate.h */,
 				EE87D2131B58ADA4002A0DD8 /* AppDelegate.h */,
+				EEDA73D61B83095E008823CE /* imageClickDelegate.h */,
 				EE87D2141B58ADA4002A0DD8 /* AppDelegate.m */,
 				EEDCB5BF1B6335CD00EB9135 /* Config */,
 				EE87D2351B58DD42002A0DD8 /* Controller */,
+				EE625BB11B8EAAE800DB8C2B /* entity */,
 				EEDCB5C61B63391000EB9135 /* ExView */,
 				EEDCB5D41B633E8B00EB9135 /* logic */,
 				EEDCB6091B6366A300EB9135 /* Modle */,
@@ -809,24 +854,24 @@
 		EEDCB6091B6366A300EB9135 /* Modle */ = {
 			isa = PBXGroup;
 			children = (
-				EE908C051B7ED68100505B82 /* DramaModel.h */,
-				EE908C071B7ED68100505B82 /* DramaPostersModel.h */,
-				EE908C091B7ED68100505B82 /* DramaRelativesModel.h */,
-				EE908C0B1B7ED68100505B82 /* FilmModel.h */,
-				EE908C0D1B7ED68100505B82 /* MessageModel.h */,
-				EE7944FB1B7F5BE20032DF3A /* MyPublishModle.h */,
-				EE908C0F1B7ED68100505B82 /* ScreenShotsModel.h */,
-				EE908C111B7ED68100505B82 /* SimilaritiesModel.h */,
-				EE908C131B7ED68100505B82 /* UserModel.h */,
-				EE908C061B7ED68100505B82 /* DramaModel.m */,
-				EE908C081B7ED68100505B82 /* DramaPostersModel.m */,
-				EE908C0A1B7ED68100505B82 /* DramaRelativesModel.m */,
-				EE908C0C1B7ED68100505B82 /* FilmModel.m */,
-				EE908C0E1B7ED68100505B82 /* MessageModel.m */,
-				EE7944FC1B7F5BE20032DF3A /* MyPublishModle.m */,
-				EE908C101B7ED68100505B82 /* ScreenShotsModel.m */,
-				EE908C121B7ED68100505B82 /* SimilaritiesModel.m */,
-				EE908C141B7ED68100505B82 /* UserModel.m */,
+				EE625BBE1B8EAB3A00DB8C2B /* DramaModel.h */,
+				EE625BBF1B8EAB3A00DB8C2B /* DramaModel.m */,
+				EE625BC01B8EAB3A00DB8C2B /* DramaPostersModel.h */,
+				EE625BC11B8EAB3A00DB8C2B /* DramaPostersModel.m */,
+				EE625BC21B8EAB3A00DB8C2B /* DramaRelativesModel.h */,
+				EE625BC31B8EAB3A00DB8C2B /* DramaRelativesModel.m */,
+				EE625BC41B8EAB3A00DB8C2B /* FilmModel.h */,
+				EE625BC51B8EAB3A00DB8C2B /* FilmModel.m */,
+				EE625BC61B8EAB3A00DB8C2B /* MessageModel.h */,
+				EE625BC71B8EAB3A00DB8C2B /* MessageModel.m */,
+				EE625BC81B8EAB3A00DB8C2B /* MyPublishModle.h */,
+				EE625BC91B8EAB3A00DB8C2B /* MyPublishModle.m */,
+				EE625BCA1B8EAB3A00DB8C2B /* ScreenShotsModel.h */,
+				EE625BCB1B8EAB3A00DB8C2B /* ScreenShotsModel.m */,
+				EE625BCC1B8EAB3A00DB8C2B /* SimilaritiesModel.h */,
+				EE625BCD1B8EAB3A00DB8C2B /* SimilaritiesModel.m */,
+				EE625BCE1B8EAB3A00DB8C2B /* UserModel.h */,
+				EE625BCF1B8EAB3A00DB8C2B /* UserModel.m */,
 			);
 			name = Modle;
 			sourceTree = "<group>";
@@ -938,11 +983,14 @@
 				EE726FAC1B819ED900C66CF9 /* iTunesArtwork.png in Resources */,
 				EEDC18481B8038FC0013E61B /* image_computer.png in Resources */,
 				EE726FB51B81AEA600C66CF9 /* 640.png in Resources */,
+				EE625BDE1B8EDF0800DB8C2B /* success.png in Resources */,
 				EEDC186F1B805F160013E61B /* blueArrow.png in Resources */,
+				EE625BDD1B8EDF0800DB8C2B /* error.png in Resources */,
 				EE7242821B809C3300ABBAE6 /* btn_share.png in Resources */,
 				EE8E0B411B8DAABB005F4BDF /* loading_7.png in Resources */,
 				EE908C481B7F071700505B82 /* image_personhead.png in Resources */,
 				EE87D21D1B58ADA4002A0DD8 /* Images.xcassets in Resources */,
+				EE625BDF1B8EDF0800DB8C2B /* warning_0.png in Resources */,
 				EE8E0B3E1B8DAABB005F4BDF /* loading_4.png in Resources */,
 				EE726FA51B819ED900C66CF9 /* Icon-40@2x.png in Resources */,
 				EE8E0B421B8DAABB005F4BDF /* loading_8.png in Resources */,
@@ -1027,12 +1075,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				EE908C171B7ED68100505B82 /* DramaRelativesModel.m in Sources */,
 				EED82F4C1B844DC4001AC5F3 /* UIButtonTableViewCell.m in Sources */,
+				EE625BD51B8EAB3A00DB8C2B /* MyPublishModle.m in Sources */,
 				EE908C371B7EEB7D00505B82 /* ViewController.m in Sources */,
 				EEABE3A81B7F494C00C06C3A /* SystemMsgTableViewCell.m in Sources */,
 				EE908C501B7F0DDF00505B82 /* FXLabel.m in Sources */,
 				EED4608A1B89BCD7000C2CA5 /* SearchTableViewCell.m in Sources */,
+				EE625BD21B8EAB3A00DB8C2B /* DramaRelativesModel.m in Sources */,
 				EEDC187C1B806F240013E61B /* DetialHeadTableViewCell.m in Sources */,
 				EE908C281B7EEB5E00505B82 /* EditPersonViewController.m in Sources */,
 				EEDC184C1B803EC20013E61B /* WifiViewController.m in Sources */,
@@ -1040,27 +1089,26 @@
 				EEDCB5C51B6335ED00EB9135 /* Config.m in Sources */,
 				EE6DD51B1B8C752200348615 /* CommentHeaderScrollTableView.m in Sources */,
 				EE6845B51B7E025800D6D6F5 /* HttpResultBase.m in Sources */,
+				EE625BBC1B8EAAF100DB8C2B /* MyCollection.m in Sources */,
 				EE6DD5091B8C558E00348615 /* JKPhotoBrowser.m in Sources */,
 				EE7944F51B7F56610032DF3A /* MyPublishViewController.m in Sources */,
+				EE625BBA1B8EAAF100DB8C2B /* Drama.m in Sources */,
 				EE908C2E1B7EEB6600505B82 /* LoginViewController.m in Sources */,
 				EEDC18421B8032A80013E61B /* NetWorkState.m in Sources */,
-				EE908C1B1B7ED68100505B82 /* SimilaritiesModel.m in Sources */,
 				EEDC18791B8068C00013E61B /* DramaDetialViewController.m in Sources */,
 				EE908C031B7ED66F00505B82 /* DramaServices.m in Sources */,
-				EE908C151B7ED68100505B82 /* DramaModel.m in Sources */,
 				EEDA73D51B8300C1008823CE /* UIWebViewLoad.m in Sources */,
 				EEABE3A21B7F478600C06C3A /* SystemMsgViewController.m in Sources */,
 				EE6845B31B7E025800D6D6F5 /* HttpManager.m in Sources */,
 				EE908C351B7EEB7D00505B82 /* FindTableViewCell.m in Sources */,
 				EEDC18721B805F160013E61B /* EGORefreshTableHeaderView.m in Sources */,
-				EE7944FD1B7F5BE20032DF3A /* MyPublishModle.m in Sources */,
 				EE6845B41B7E025800D6D6F5 /* HttpProtocol.m in Sources */,
 				EEDCB6131B63864100EB9135 /* Tool.m in Sources */,
+				EE625BD11B8EAB3A00DB8C2B /* DramaPostersModel.m in Sources */,
 				EE87D2151B58ADA4002A0DD8 /* AppDelegate.m in Sources */,
 				EEDA73D21B82DDD1008823CE /* BrowseViewController.m in Sources */,
 				EEDC18451B8036310013E61B /* AddPublishTableViewCell.m in Sources */,
 				EE7530E81B81D32100EA3823 /* UIViewSearch.m in Sources */,
-				EE908C1C1B7ED68100505B82 /* UserModel.m in Sources */,
 				EEDC185E1B805F0A0013E61B /* MJRefreshConst.m in Sources */,
 				EEABE39F1B7F3F1F00C06C3A /* AttentionPeoperTableViewCell.m in Sources */,
 				EEABE3991B7F37FF00C06C3A /* ModifyUserinfoViewController.m in Sources */,
@@ -1073,26 +1121,30 @@
 				EE7944EB1B7F4F070032DF3A /* AboutViewController.m in Sources */,
 				EED460871B89AAB5000C2CA5 /* SearchViewController.m in Sources */,
 				EE908C3D1B7EEBB800505B82 /* BaseViewController.m in Sources */,
-				EE908C161B7ED68100505B82 /* DramaPostersModel.m in Sources */,
 				EEDCB5C91B63392700EB9135 /* ExUINavigationController.m in Sources */,
-				EE908C181B7ED68100505B82 /* FilmModel.m in Sources */,
 				EE908C291B7EEB5E00505B82 /* PersonInfoViewController.m in Sources */,
 				EEDCB5CC1B63398D00EB9135 /* ExUINavigationBar.m in Sources */,
+				EE625BD31B8EAB3A00DB8C2B /* FilmModel.m in Sources */,
 				EE6DD50A1B8C558E00348615 /* JKPhotoBrowserCell.m in Sources */,
 				EE7944EE1B7F4F2E0032DF3A /* FeedBackViewController.m in Sources */,
 				EEDC185F1B805F0A0013E61B /* MJRefreshFooterView.m in Sources */,
 				EE908C041B7ED66F00505B82 /* UserService.m in Sources */,
 				EE6DD50D1B8C564900348615 /* ViewPostion.m in Sources */,
 				EE908C3A1B7EEBA700505B82 /* AllTableViewCell.m in Sources */,
+				EE625BD41B8EAB3A00DB8C2B /* MessageModel.m in Sources */,
 				EE87D2121B58ADA4002A0DD8 /* main.m in Sources */,
 				EE6DD51E1B8C754D00348615 /* CommentHeaderCell.m in Sources */,
 				EEDCB5D71B633E9200EB9135 /* ImageUtil.m in Sources */,
-				EE908C191B7ED68100505B82 /* MessageModel.m in Sources */,
-				EE908C1A1B7ED68100505B82 /* ScreenShotsModel.m in Sources */,
+				EE625BBD1B8EAAF100DB8C2B /* MyDrama.m in Sources */,
+				EE625BBB1B8EAAF100DB8C2B /* DramaDetail.m in Sources */,
+				EE625BD81B8EAB3A00DB8C2B /* UserModel.m in Sources */,
+				EE625BD71B8EAB3A00DB8C2B /* SimilaritiesModel.m in Sources */,
 				EE908C2B1B7EEB5E00505B82 /* TextTableViewCell.m in Sources */,
 				EEDC18711B805F160013E61B /* CircleView.m in Sources */,
 				EE6DD5101B8C567B00348615 /* JKUtil.m in Sources */,
+				EE625BD61B8EAB3A00DB8C2B /* ScreenShotsModel.m in Sources */,
 				EEDC18601B805F0A0013E61B /* MJRefreshHeaderView.m in Sources */,
+				EE625BD01B8EAB3A00DB8C2B /* DramaModel.m in Sources */,
 				EE908C2A1B7EEB5E00505B82 /* SetViewController.m in Sources */,
 				EEDC187F1B8086B90013E61B /* DramaDetialTableViewCell.m in Sources */,
 			);

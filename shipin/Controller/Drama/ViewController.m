@@ -14,7 +14,12 @@
 #import "LoginViewController.h"
 #import "DramaDetialViewController.h"
 #import "SearchViewController.h"
+#import "LKDBHelper.h"
+#import "Drama.h"
+#import "FVCustomAlertView.h"
 
+
+@protocol Drama;
 
 @interface ViewController ()
 
@@ -24,7 +29,11 @@
 
 -(void) viewDidAppear:(BOOL)animated
 {
-    [self loadUserInfo ];
+    if([[Config getUpdateUserHeadImage] isEqualToString:@"YES"])
+    {
+        [self loadUserInfo ];
+        [Config setUpdateUserHeadImage:@"NO"];
+    }
 }
 
 - (void)viewDidLoad
@@ -39,25 +48,43 @@
     [self createSpreadOutButton];
     //加载视频数据1代表最新
     [self loadFindGoodDrama:1];
-//    //加载用户信息
-//    [self loadUserInfo];
+
     if (![[Config getLoginFlag ] isEqualToString:@"YES"])
     {
         LoginViewController *loginView = [[LoginViewController alloc ] init];
         [self.navigationController pushViewController:loginView animated:YES];
     }
+
+    [self loadUserInfo ];
+   
 }
 
+//加载用户头像
 -(void)loadUserInfo
 {
-    [UserService getUserDetail:0 success:^(UserModel *userModel)
+    [FVCustomAlertView showDefaultLoadingAlertOnView:self.view withTitle:nil withBlur:NO allowTap:YES];
+    if([Config getUserId]!=nil && ![[Config getUserId] isEqualToString:@""])
     {
-        [_btnLogin setImage:[UIImage imageWithData:[NSData dataWithContentsOfURL:[Tool stringMerge:userModel.avatar]]] forState:UIControlStateNormal];
-        
-    } failure:^(NSDictionary *error)
+        LKDBHelper *helper = [LKDBHelper getUsingLKDBHelper];
+        NSString *where = [NSString stringWithFormat:@"id=%@", @([[Config getUserId] intValue])];
+        UserModel *   userModel = [helper searchSingle:[UserModel class] where:where orderBy:nil];
+        if(userModel!= nil)
+        {
+            [_btnLogin setImage:[UIImage imageWithData:[NSData dataWithContentsOfURL:[Tool stringMerge:userModel.avatar]]] forState:UIControlStateNormal];
+        }
+        [FVCustomAlertView hideAlertFromView:self.view fading:YES];
+    }
+    else
     {
-        
-    }];
+        [UserService getUserDetail:0 success:^(UserModel *userModel)
+        {
+            [_btnLogin setImage:[UIImage imageWithData:[NSData dataWithContentsOfURL:[Tool stringMerge:userModel.avatar]]] forState:UIControlStateNormal];
+            [FVCustomAlertView hideAlertFromView:self.view fading:YES];
+        } failure:^(NSDictionary *error)
+        {
+            [FVCustomAlertView hideAlertFromView:self.view fading:YES];
+        }];
+    }
 }
 
 -(void)createSearcheView
@@ -207,6 +234,7 @@
     [_btnLogin addTarget:self action:@selector(onButtonPersonalCenter) forControlEvents:UIControlEventTouchUpInside];
     _btnLogin.layer.masksToBounds = YES;
     _btnLogin.layer.cornerRadius = _btnLogin.frame.size.width/2;
+    [_btnLogin setImage:[UIImage imageNamed:@"image_defaulthead.png"] forState:UIControlStateNormal];
     [self.view addSubview:_btnLogin];
     
     btnGood = [[UIButton alloc ] initWithFrame:CGRectMake(0, TABBAR_HEIGHT, SCREEN_WIDTH/2, 40)];
@@ -327,66 +355,132 @@
 -(void) loadFindGoodDrama:(int )pageNumber
 {
     [FVCustomAlertView showDefaultLoadingAlertOnView:self.view withTitle:nil withBlur:NO allowTap:YES];
+
     if([ strBtnClick isEqualToString: @"btnAll"])
     {
-        [DramaServices pullAllDramaList:pageNumber  success:^(NSArray *array)
-         {
-             self._arrayNewVideo =[[NSMutableArray alloc ] initWithArray:array];
-             if (pageNumber  == 1 )
+        if ([NetWorkState getNetWorkState] == NotReachable )
+        {
+            //获取本地数据
+            NSMutableArray *dramaArray = [self getOldData:@(pageNumber) type:@""];
+            if([dramaArray count]>0){
+                
+                self._arrayVideo = dramaArray;
+                [_findTableView reloadData];
+            }
+            [FVCustomAlertView hideAlertFromView:self.view fading:YES];
+        }
+        else
+        {
+            [DramaServices pullAllDramaList:pageNumber  success:^(NSArray *array)
              {
-                 self._arrayVideo = [[NSMutableArray alloc]initWithArray:self._arrayNewVideo];
-                 [_findTableView reloadData];
-             }
-             else
-             {
-                 if (self._arrayNewVideo.count == 0)
+                 self._arrayNewVideo =[[NSMutableArray alloc ] initWithArray:array];
+                 if (pageNumber  == 1 )
                  {
-                     [Tool showWarningTip:@"没有更多数据!" view:self.view time:1];
-                 }
-                 if (self._arrayNewVideo.count != 0)
-                 {
-                     [self._arrayVideo addObjectsFromArray:self._arrayNewVideo];
+                     self._arrayVideo = [[NSMutableArray alloc]initWithArray:self._arrayNewVideo];
                      [_findTableView reloadData];
                  }
-             }
-              [FVCustomAlertView hideAlertFromView:self.view fading:YES];
-         } failure:^(NSDictionary *error)
-         {
-             [FVCustomAlertView hideAlertFromView:self.view fading:YES];
-             [Tool showWarningTip:@"请求数据失败" view:self.view time:2];
-         }];
+                 else
+                 {
+                     if (self._arrayNewVideo.count == 0)
+                     {
+                         [Tool showWarningTip:@"没有更多数据!" view:self.view time:1];
+                     }
+                     if (self._arrayNewVideo.count != 0)
+                     {
+                         [self._arrayVideo addObjectsFromArray:self._arrayNewVideo];
+                         [_findTableView reloadData];
+                     }
+                 }
+                [FVCustomAlertView hideAlertFromView:self.view fading:YES];
+             } failure:^(NSDictionary *error)
+             {
+                 [FVCustomAlertView hideAlertFromView:self.view fading:YES];
+                 [Tool showWarningTip:@"请求数据失败" view:self.view time:2];
+             }];
+        }
     }
     else
     {
-        [DramaServices pullDramaGoodData:pageNumber  success:^(NSArray *array)
-         {
-             self._arrayNewVideo =[[NSMutableArray alloc ] initWithArray:array];
-             
-             if (pageNumber  == 1 )
+        if ([NetWorkState getNetWorkState] == NotReachable )
+        {
+            //获取本地数据
+            NSMutableArray *dramaArray = [self getOldData:@(pageNumber) type:@"1"];
+            if([dramaArray count]>0)
+            {
+                self._arrayVideo = dramaArray;
+                [_findTableView reloadData];
+            }
+            [FVCustomAlertView hideAlertFromView:self.view fading:YES];
+        }
+        else
+        {
+            [DramaServices pullDramaGoodData:pageNumber  success:^(NSArray *array)
              {
-                 self._arrayVideo = [[NSMutableArray alloc]initWithArray:self._arrayNewVideo];
-                 [_findTableView reloadData];
-             }
-             else
-             {
-                 if (self._arrayNewVideo.count == 0)
+                 self._arrayNewVideo =[[NSMutableArray alloc ] initWithArray:array];
+                 
+                 if (pageNumber  == 1 )
                  {
-                     [Tool showWarningTip:@"没有更多数据!" view:self.view time:1];
-                 }
-                 if (self._arrayNewVideo.count != 0)
-                 {
-                     [self._arrayVideo addObjectsFromArray:self._arrayNewVideo];
+                     self._arrayVideo = [[NSMutableArray alloc]initWithArray:self._arrayNewVideo];
                      [_findTableView reloadData];
                  }
-             }
-              [FVCustomAlertView hideAlertFromView:self.view fading:YES];
-         } failure:^(NSDictionary *error)
-         {
-              [FVCustomAlertView hideAlertFromView:self.view fading:YES];
-             [Tool showWarningTip:@"请求数据失败" view:self.view time:2];
-         }];
+                 else
+                 {
+                     if (self._arrayNewVideo.count == 0)
+                     {
+                         [Tool showWarningTip:@"没有更多数据!" view:self.view time:1];
+                     }
+                     if (self._arrayNewVideo.count != 0)
+                     {
+                         [self._arrayVideo addObjectsFromArray:self._arrayNewVideo];
+                         [_findTableView reloadData];
+                     }
+                 }
+                 [FVCustomAlertView hideAlertFromView:self.view fading:YES];
+             } failure:^(NSDictionary *error)
+             {
+                 [FVCustomAlertView hideAlertFromView:self.view fading:YES];
+                 [Tool showWarningTip:@"请求数据失败" view:self.view time:2];
+             }];
+        }
+    }
+}
+
+//获取本地数据
+-(NSMutableArray *)getOldData:(NSNumber *)number type:(NSString *)type{
+
+    LKDBHelper *helper = [LKDBHelper getUsingLKDBHelper];
+    NSString *orderBy = @"CAST(id as integer) desc";
+    NSString *where = [NSString stringWithFormat:@"type=%@", @"1"];
+    NSMutableArray *dramaArray;
+    if([type isEqualToString:@"1"]){
+        dramaArray = [helper search:[Drama class] where:where orderBy:orderBy offset:0 count:10];
+
+    } else{
+
+         dramaArray = [helper search:[Drama class] where:nil orderBy:orderBy offset:0 count:10];
+
     }
 
+    if([dramaArray count]>0){
+
+        NSMutableArray* array = [[NSMutableArray alloc] init];
+        for(Drama *drama in dramaArray){
+
+            NSLog(@"dramaContent::%@",drama.content);
+
+            NSError* err = nil;
+            DramaModel *dramaModel = [[DramaModel alloc] initWithString:drama.content error:&err];
+
+            if(err!=nil)
+            {
+                NSLog(@"getOldDatasERROR:::%@",err );
+            }
+            [array addObject:dramaModel];
+
+        }
+        return array;
+    }
+    return [[NSMutableArray alloc] init];
 }
 
 #pragma mark tableview function

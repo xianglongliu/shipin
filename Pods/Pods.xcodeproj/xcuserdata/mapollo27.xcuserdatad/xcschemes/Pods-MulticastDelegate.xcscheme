@@ -14,7 +14,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "B30ADCC3D5A08468B7A5B577"
+               BlueprintIdentifier = "4140D53A9945EBA59BDE4062"
                BuildableName = "libPods-MulticastDelegate.a"
                BlueprintName = "Pods-MulticastDelegate"
                ReferencedContainer = "container:Pods.xcodeproj">

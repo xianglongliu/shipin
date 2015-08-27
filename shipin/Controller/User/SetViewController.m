@@ -16,6 +16,8 @@
 #import "UseHelpViewController.h"
 #import "MyPublishViewController.h"
 #import "BrowseViewController.h"
+#import "LKDBHelper.h"
+#import "FVCustomAlertView.h"
 
 
 @interface SetViewController ()
@@ -28,43 +30,63 @@
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    //创建tableview
+    [self loadUserInfo ];
 }
 
--(void) viewDidAppear:(BOOL)animated
+-(void) viewWillAppear:(BOOL)animated
 {
-    [self loadUserInfo];
-
+    if([[Config getUpdateUserHeadImage] isEqualToString:@"YES"])
+        [self loadUserInfo ];
 }
 
 -(void) loadUserInfo
 {
     [FVCustomAlertView showDefaultLoadingAlertOnView:self.view withTitle:nil withBlur:NO allowTap:YES];
-    [UserService getUserDetail:0 success:^(UserModel *userModel)
+    
+    if ([NetWorkState getNetWorkState] == NotReachable )
     {
-        self.userModel =userModel;
-        if (_tableView)
-        {
-            [_tableView removeFromSuperview];
-        }
-        _tableView = [[UITableView alloc ] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, SCREEN_HEIGHT) style:UITableViewStyleGrouped];
-        _tableView.delegate = self;
-        _tableView.dataSource = self;
-        _tableView.separatorColor = RGB(221,221,221);
-        _tableView.scrollEnabled = YES;
-        [_tableView setBackgroundColor:RGB(238,238,238)];
-        [self.view addSubview:_tableView];
-        
-        UIButton *btnBack = [[UIButton alloc ] initWithFrame:backButtonFram];
-        [btnBack setImage:[UIImage imageNamed:@"btn_back.png"] forState:UIControlStateNormal];
-        [btnBack addTarget:self action:@selector(onButtonBack) forControlEvents:UIControlEventTouchUpInside];
-        [self.view addSubview:btnBack];
+        LKDBHelper *helper = [LKDBHelper getUsingLKDBHelper];
+        NSString *where = [NSString stringWithFormat:@"id=%@", @([[Config getUserId] intValue])];
+        UserModel *   userModel = [helper searchSingle:[UserModel class] where:where orderBy:nil];
+        self.userModel = userModel;
+        [self createTable];
         [FVCustomAlertView hideAlertFromView:self.view fading:YES];
-    } failure:^(NSDictionary *error)
+    }
+    else
     {
-        [FVCustomAlertView hideAlertFromView:self.view fading:YES];
-        [Tool showWarningTip:@"获取用户信息失败" view:self.view time:1];
-    }];
+        [UserService getUserDetail:0 success:^(UserModel *userModel)
+         {
+             self.userModel =userModel;
+             [self createTable];
+             [FVCustomAlertView hideAlertFromView:self.view fading:YES];
+
+         } failure:^(NSDictionary *error)
+         {
+             [FVCustomAlertView hideAlertFromView:self.view fading:YES];
+             [Tool showWarningTip:@"获取用户信息失败" view:self.view time:1];
+         }];
+    }
+}
+
+-(void) createTable
+{
+    if (_tableView)
+    {
+        [_tableView removeFromSuperview];
+    }
+    _tableView = [[UITableView alloc ] initWithFrame:CGRectMake(0, -20, SCREEN_WIDTH, SCREEN_HEIGHT+20) style:UITableViewStyleGrouped];
+    _tableView.delegate = self;
+    _tableView.dataSource = self;
+    _tableView.separatorColor = RGB(221,221,221);
+    _tableView.scrollEnabled = YES;
+    [_tableView setBackgroundColor:RGB(238,238,238)];
+    [self.view addSubview:_tableView];
+    
+    UIButton *btnBack = [[UIButton alloc ] initWithFrame:backButtonFram];
+    [btnBack setImage:[UIImage imageNamed:@"btn_back.png"] forState:UIControlStateNormal];
+    [btnBack addTarget:self action:@selector(onButtonBack) forControlEvents:UIControlEventTouchUpInside];
+    [self.view addSubview:btnBack];
+
 }
 
 -(void) onButtonBack
@@ -108,7 +130,7 @@
                     cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
                     
                     //我的收藏
-                    UIButton *btnCollection =[[UIButton alloc ] initWithFrame:CGRectMake(0, 170-34, SCREEN_WIDTH/2, 34)];
+                    UIButton *btnCollection =[[UIButton alloc ] initWithFrame:CGRectMake(0, 170-14, SCREEN_WIDTH/2, 34)];
                     [btnCollection setTitle:@"           我的收藏" forState:UIControlStateNormal];
                     btnCollection.titleLabel.font = [UIFont systemFontOfSize:12];
                     [btnCollection setContentHorizontalAlignment:UIControlContentHorizontalAlignmentLeft];
@@ -120,7 +142,7 @@
                     [btnCollection addSubview:imageView];
                     
                     //我的关注的人
-                    UIButton *btnFollow =[[UIButton alloc ] initWithFrame:CGRectMake(SCREEN_WIDTH/2, 170-34, SCREEN_WIDTH/2, 34)];
+                    UIButton *btnFollow =[[UIButton alloc ] initWithFrame:CGRectMake(SCREEN_WIDTH/2, 170-14, SCREEN_WIDTH/2, 34)];
                     [btnFollow setTitle:@"           我关注的人" forState:UIControlStateNormal];
                     btnFollow.titleLabel.font = [UIFont systemFontOfSize:12];
                     [btnFollow setContentHorizontalAlignment:UIControlContentHorizontalAlignmentLeft];
@@ -217,7 +239,7 @@
     if(indexPath.section == 0)
     {
         if (indexPath.row == 0)
-            return 170;
+            return 190;
         else
             return 40;
     }
@@ -235,7 +257,7 @@
             if (indexPath.row == 0)
             {
                 PersonInfoViewController *personInfoView = [[PersonInfoViewController alloc ] init];
-                personInfoView._uId = 0;
+                personInfoView._uId = [[Config getUserId] intValue];
                 [self.navigationController pushViewController:personInfoView animated:YES];
             }
             if (indexPath.row == 1)//我的发布

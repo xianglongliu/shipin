@@ -25,7 +25,7 @@
         
         self.labelName=[[UILabel alloc]initWithFrame:CGRectMake(self.imageView.frame.origin.x, self.imageView.frame.origin.y+self.imageView.frame.size.height+5, self.imageView.frame.size.width, 18)];
         [self.labelName setBackgroundColor:[UIColor clearColor]];
-        [self.labelName setFont:[UIFont boldSystemFontOfSize:10]];
+        [self.labelName setFont:[UIFont systemFontOfSize:9]];
         [self.labelName setTextColor:RGB(34, 34, 34)];
         [self.labelName setTextAlignment:NSTextAlignmentCenter];
         [self.contentView addSubview:self.labelName];

@@ -8,6 +8,8 @@
 
 #import "BrowseViewController.h"
 #import "DramaDetialViewController.h"
+#import "LKDBHelper.h"
+#import "MyCollection.h"
 
 @interface BrowseViewController ()
 
@@ -33,42 +35,54 @@
     [btnBack addTarget:self action:@selector(onButtonBack) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:btnBack];
     
+    _tableViewBrowse = [[UITableView alloc ] initWithFrame:CGRectMake(0, TABBAR_HEIGHT, SCREEN_WIDTH, SCREEN_HEIGHT-TABBAR_HEIGHT) style:UITableViewStylePlain];
+    _tableViewBrowse.dataSource = self;
+    _tableViewBrowse.delegate = self;
+    _tableViewBrowse.separatorColor = RGB(221, 221, 221);
+    [_tableViewBrowse setBackgroundColor:RGBA(238, 238, 238, 1)];
+    [self.view addSubview:_tableViewBrowse];
+    
     [self loadNetWorkData];
 }
 
 
 -(void) loadNetWorkData
 {
-    if ( [self.strViewName isEqualToString:@"最近浏览" ] )
+    if ([NetWorkState getNetWorkState] == NotReachable )
     {
-        [UserService getCollections:^(NSArray *dramaArray)
+        LKDBHelper *helper = [LKDBHelper getUsingLKDBHelper];
+        NSString *orderBy = @"CAST(id as integer) desc";
+        NSMutableArray * dramaArray = [helper search:[MyCollection class] where:nil orderBy:orderBy offset:0 count:10];
+        
+        if(dramaArray!=nil && [dramaArray count]>0)
         {
-            _arrayBrowse =[[NSMutableArray alloc ] initWithArray:dramaArray];
+            NSMutableArray* array = [[NSMutableArray alloc] init];
+            for(MyCollection *drama in dramaArray)
+            {
+                NSError* err = nil;
+                DramaModel *dramaModel = [[DramaModel alloc] initWithString:drama.content error:&err];
+                
+                if(err!=nil)
+                {
+                    NSLog(@"getOldDatasERROR:::%@",err );
+                }
+                [array addObject:dramaModel];
+            }
+            _arrayBrowse=array;
             [_tableViewBrowse reloadData];
-        } failure:^(NSDictionary *error)
-        {
-            [Tool showWarningTip:@"请求我的收藏数据失败" view:self.view time:2];
-        }];
+        }
     }
-    if ( [self.strViewName isEqualToString:@"我的收藏" ] )
+    else
     {
         [UserService getCollections:^(NSArray *dramaArray)
-        {
-            _arrayBrowse =[[NSMutableArray alloc ] initWithArray:dramaArray];
-            
-            _tableViewBrowse = [[UITableView alloc ] initWithFrame:CGRectMake(0, TABBAR_HEIGHT, SCREEN_WIDTH, SCREEN_HEIGHT-TABBAR_HEIGHT) style:UITableViewStylePlain];
-            _tableViewBrowse.dataSource = self;
-            _tableViewBrowse.delegate = self;
-            _tableViewBrowse.separatorColor = RGB(221, 221, 221);
-            [_tableViewBrowse setBackgroundColor:RGBA(238, 238, 238, 1)];
-            [self.view addSubview:_tableViewBrowse];
-            
-            [_tableViewBrowse reloadData];
+         {
+             _arrayBrowse =[[NSMutableArray alloc ] initWithArray:dramaArray];
+             
+             [_tableViewBrowse reloadData];
          } failure:^(NSDictionary *error)
          {
              [Tool showWarningTip:@"请求我的收藏数据失败" view:self.view time:2];
          }];
-
     }
 }
 -(void) onButtonBack

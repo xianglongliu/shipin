@@ -7,6 +7,9 @@
 @interface DramaServices : BaseService
 
 DEF_SINGLETON(DramaServices)
+
+@property(nonatomic, strong) NSNumberFormatter* numberFormatter;
+
 //获取发现频道数据，传指定页码
 +(void) pullDramaGoodData:(int)pageNum success:(void (^)(NSArray * array))success
                                        failure:(void (^)( NSDictionary *error))failure;

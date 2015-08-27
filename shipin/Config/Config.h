@@ -10,6 +10,9 @@
 
 @interface Config : NSObject
 
+//保存userId
++(void) saveUserId:(NSString *)name;
++(NSString *) getUserId;
 //保存手机号
 +(void) saveUserName:(NSString *)name;
 +(NSString *) getUserName;
@@ -22,5 +25,8 @@
 //判断是否从登陆跳转
 +(NSString *) getIsLogin;
 +(void) saveIsLogin:(NSString *)flag;
+//用户是否上传头像
++(NSString *)getUpdateUserHeadImage;
++(void)setUpdateUserHeadImage:(NSString *)flag;
 
 @end

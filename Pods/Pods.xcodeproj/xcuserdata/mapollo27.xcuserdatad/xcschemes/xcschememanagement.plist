@@ -9,6 +9,11 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>Pods-FMDB.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>Pods-FSMediaPicker-FSMediaPicker.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -30,6 +35,11 @@
 			<false/>
 		</dict>
 		<key>Pods-JSONModel.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>Pods-LKDBHelper.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
@@ -62,57 +72,67 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>0AE75BB6328AB97974949F71</key>
+		<key>10DBA6A78327B694A77D68E9</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>275AB170EC7DC358064727C9</key>
+		<key>165C57C4EAAA11057A8EF816</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>41ADEE8CDA8AC149F18BC286</key>
+		<key>4140D53A9945EBA59BDE4062</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>5206732749FC00C517610D82</key>
+		<key>57699EAE1D5450B64C0D3D90</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>6D63AAC75C3770DB48BD0D7E</key>
+		<key>70062BCBE7FC9CCB8C927301</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>867D77C88B476350D71762C0</key>
+		<key>724667429EF3A83ABB62F411</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>960155337CE20E9E262A0C09</key>
+		<key>7F6183ADED910D93629DA3E5</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>B30ADCC3D5A08468B7A5B577</key>
+		<key>9C01D7D053CD99A0B0619E54</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>C3E712E068122FC4F7434FF4</key>
+		<key>D4CAD19148EF90766F5F52C3</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>C7579B78C48910F07FF2C8A5</key>
+		<key>E3B0C05BD877670C1DA5EBF4</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>C9CF595F961CC0B0F5382D60</key>
+		<key>F641654F0C4771B2A8F0C5E8</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>F7EE97EE4C28F77E503239EC</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>F8FC1C5B63671E1EA5941B30</key>
 		<dict>
 			<key>primary</key>
 			<true/>

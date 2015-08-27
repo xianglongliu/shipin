@@ -9,6 +9,7 @@
 #import "AttentionPeoperViewController.h"
 #import "AttentionPeoperTableViewCell.h"
 #import "PersonInfoViewController.h"
+#import "LKDBHelper.h"
 
 @interface AttentionPeoperViewController ()
 
@@ -47,15 +48,28 @@
 
 -(void) loadNetWorkData
 {
-    [UserService getFollows:^(NSArray *followArray)
+    if ([NetWorkState getNetWorkState] == NotReachable )
     {
-        arrayAPeoper = [[NSMutableArray alloc ] initWithArray:followArray];
-         [_tableViewPersonInfo reloadData];
-    } failure:^(NSDictionary *error)
+        LKDBHelper *helper = [LKDBHelper getUsingLKDBHelper];
+        NSString *orderBy = @"CAST(id as integer) desc";
+        NSMutableArray * userArray = [helper search:[UserModel class] where:nil orderBy:orderBy offset:0 count:10];
+        if(userArray!=nil && [userArray count]>0)
+        {
+            arrayAPeoper=userArray;
+            [_tableViewPersonInfo reloadData];
+        }
+    }
+    else
     {
-        [Tool showWarningTip:@"读取数据失败" view:self.view time:1];
-    }];
-   
+        [UserService getFollows:^(NSArray *followArray)
+         {
+             arrayAPeoper = [[NSMutableArray alloc ] initWithArray:followArray];
+             [_tableViewPersonInfo reloadData];
+         } failure:^(NSDictionary *error)
+         {
+             [Tool showWarningTip:@"读取数据失败" view:self.view time:1];
+         }];
+    }
 }
 -(void) onButtonBack
 {

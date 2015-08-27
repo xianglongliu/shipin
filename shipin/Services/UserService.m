@@ -5,6 +5,10 @@
 #import "HttpProtocol.h"
 #import "MessageModel.h"
 #import "DramaModel.h"
+#import "LKDBHelper.h"
+#import "Drama.h"
+#import "MyDrama.h"
+#import "MyCollection.h"
 
 
 @protocol NSDictionary;
@@ -16,11 +20,10 @@
 IMP_SINGLETON(UserService)
 
 + (void)getUserDetail:(int)uId success:(void (^)(UserModel *userModel))success failure:(void (^)(NSDictionary *error))failure {
-    
+
     NSDictionary* paramDict = @{@"uid":@(uId)};
     HttpProtocol *httpProtocol = [[HttpProtocol alloc] init];
     httpProtocol.method=@"get";
-    //FIXME 替换token变量
     httpProtocol.token=[Config getToken];
     
     if(uId==0)
@@ -38,7 +41,14 @@ IMP_SINGLETON(UserService)
             NSLog(@"%@", [responseObject JSONString]);
             NSError* err = nil;
             UserModel *userModel = [[UserModel alloc] initWithString:[responseObject JSONString] error:&err];
-            
+
+            if([[Config getUserName] isEqualToString: userModel.mobile]){
+
+
+                [Config saveUserId:[userModel.id stringValue]];
+            }
+            //插入数据库
+            [[LKDBHelper getUsingLKDBHelper] insertToDB:userModel];
             if(err!=nil)
             {
                 NSLog(@"%@",err );
@@ -120,7 +130,9 @@ IMP_SINGLETON(UserService)
     httpProtocol.method=@"get";
     //FIXME 替换token变量
     httpProtocol.token=[Config getToken];
-    
+
+
+
     [[HttpManager sharedInstance] httpWithRequest:httpProtocol success:^(AFHTTPRequestOperation *operation, id responseObject){
         
         NSMutableArray *dramaArray= [[NSMutableArray alloc] init];
@@ -133,6 +145,12 @@ IMP_SINGLETON(UserService)
                 
                 for (NSDictionary *drama in datum)
                 {
+                    //插入数据库
+                    MyDrama *dramaEntity = [[MyDrama alloc] init];
+                    dramaEntity.id =drama[@"id"];
+                    dramaEntity.content=[drama JSONString];
+                    [[LKDBHelper getUsingLKDBHelper] insertToDB:dramaEntity];
+
                     NSLog(@"dramaJson=%@", [drama JSONString]);
                     NSError* err = nil;
                     DramaModel *dramaModel = [[DramaModel alloc] initWithString:[drama JSONString] error:&err];
@@ -157,7 +175,9 @@ IMP_SINGLETON(UserService)
 }
 
 + (void)getCollections:(void (^)(NSArray *dramaArray))success failure:(void (^)(NSDictionary *error))failure {
-    
+
+
+
     HttpProtocol *httpProtocol = [[HttpProtocol alloc] init];
     httpProtocol.requestUrl=[NSString stringWithFormat:@"%@",URL_COLLECTION];
     httpProtocol.param=nil;
@@ -176,8 +196,15 @@ IMP_SINGLETON(UserService)
                 
                 for (NSDictionary *msg in datum)
                 {
-                    NSString *dram= [msg objectForKey:@"drama"];
+                    NSDictionary *dram= [msg objectForKey:@"drama"];
                     NSLog(@"msgJson=%@", [dram JSONString]);
+
+                    //插入数据库
+                    MyCollection *dramaEntity = [[MyCollection alloc] init];
+                    dramaEntity.id = dram[@"id"];
+                    dramaEntity.content=[dram JSONString];
+                    [[LKDBHelper getUsingLKDBHelper] insertToDB:dramaEntity];
+
                     NSError* err = nil;
                     DramaModel *msgModel = [[DramaModel alloc] initWithString:[dram JSONString] error:&err];
                     
@@ -230,7 +257,10 @@ IMP_SINGLETON(UserService)
                      NSLog(@"msgJson=%@", [msg JSONString]);
                      NSError* err = nil;
                      MessageModel *msgModel = [[MessageModel alloc] initWithString:[msg JSONString] error:&err];
-                     
+
+
+                     [[LKDBHelper getUsingLKDBHelper] insertToDB:msgModel];
+
                      if(err!=nil)
                      {
                          if(failure)
@@ -328,7 +358,8 @@ IMP_SINGLETON(UserService)
 }
 
 + (void)getFollows:(void (^)(NSArray *followArray))success failure:(void (^)(NSDictionary *error))failure {
-    
+
+
     HttpProtocol *httpProtocol = [[HttpProtocol alloc] init];
     httpProtocol.requestUrl=[NSString stringWithFormat:@"%@",URL_USER_FOLLOWS];
     httpProtocol.param=nil;
@@ -349,7 +380,9 @@ IMP_SINGLETON(UserService)
                      NSLog(@"msgJson=%@", [msg JSONString]);
                      NSError* err = nil;
                      UserModel *msgModel = [[UserModel alloc] initWithString:[msg JSONString] error:&err];
-                     
+
+                     [[LKDBHelper getUsingLKDBHelper] insertToDB:msgModel];
+
                      if(err!=nil)
                      {
                          if(failure)

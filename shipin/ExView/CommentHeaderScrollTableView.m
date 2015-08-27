@@ -36,7 +36,7 @@ NSString *const cellIdentifier=@"HorzonItemCell";
 }
 
 -(void) initTableView{
-    CGRect rect = CGRectMake(0, 0, self.frame.size.width, ((SCREEN_WIDTH-60)/3) *1.5f);
+    CGRect rect = CGRectMake(0, 0, self.frame.size.width, 150);
     
     UICollectionViewFlowLayout *horizontalCellLayout=[UICollectionViewFlowLayout new];
     horizontalCellLayout.scrollDirection=UICollectionViewScrollDirectionHorizontal;
@@ -86,16 +86,17 @@ NSString *const cellIdentifier=@"HorzonItemCell";
 
 -(void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
 {
-//    NSLog(@"%d",indexPath.row);
-//    self.similaritiedItem =[self.userLogoList objectAtIndex:indexPath.row];
+    NSLog(@"%ld",(long)indexPath.row);
+    self.similaritiedItem =[self.userLogoList objectAtIndex:indexPath.row];
     
-//    DramaDetialViewController *dramaDetialView=[[DramaDetialViewController alloc]init];
-//    dramaDetialView.nId=[[self.similaritiedItem.Id stringValue] intValue];
-//    [self.navigation pushViewController:dramaDetialView animated:YES];
+    DramaDetialViewController *dramaDetialView=[[DramaDetialViewController alloc]init];
+    dramaDetialView.nId=[[self.similaritiedItem.Id stringValue] intValue];
+    [self.navigation pushViewController:dramaDetialView animated:YES];
     
 }
 
--(BOOL)collectionView:(UICollectionView *)collectionView shouldSelectItemAtIndexPath:(NSIndexPath *)indexPath{
+-(BOOL)collectionView:(UICollectionView *)collectionView shouldSelectItemAtIndexPath:(NSIndexPath *)indexPath
+{
     return YES;
 }
 

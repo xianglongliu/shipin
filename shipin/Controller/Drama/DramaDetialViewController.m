@@ -9,6 +9,8 @@
 #import "DramaDetialViewController.h"
 #import "PersonInfoViewController.h"
 #import "UIWebViewLoad.h"
+#import "LKDBHelper.h"
+#import "DramaDetail.h"
 #import "CommentHeaderScrollTableView.h"
 
 @interface DramaDetialViewController ()
@@ -69,7 +71,6 @@
     
 }
 
-
 -(void) onButtonBack
 {
     [self.navigationController popViewControllerAnimated:YES];
@@ -78,19 +79,54 @@
 
 -(void) loadNetWorkData
 {
-    [DramaServices getDramaDetail:self.nId  success:^(id dramaModel)
-     {
-         dramaModle = dramaModel;
-         [_tableView reloadData];
-         
-    } failure:^(NSDictionary *error)
-     {
-         [Tool showWarningTip:@"加载剧目详情失败" view:self.view time:1];
-    }];
+//    读取本地数据
+    if ([NetWorkState getNetWorkState] == NotReachable )
+    {
+        DramaModel *drama= [self getLocalData:self.nId];
+        if(drama!=nil)
+        {
+            dramaModle = drama;
+            [_tableView reloadData];
+        }
+    }
+    else
+    {
+        [DramaServices getDramaDetail:self.nId  success:^(id dramaModel)
+         {
+             dramaModle = dramaModel;
+             [_tableView reloadData];
+             
+         } failure:^(NSDictionary *error)
+         {
+             [Tool showWarningTip:@"加载剧目详情失败" view:self.view time:1];
+         }];
+    }
+}
+
+-(DramaModel *)getLocalData:(int)nId
+{
+    LKDBHelper *helper = [LKDBHelper getUsingLKDBHelper];
+    NSString *where = [NSString stringWithFormat:@"id=%@", @(nId)];
+    DramaDetail*   dramaDetail = [helper searchSingle:[DramaDetail class] where:where orderBy:nil];
+
+    if(dramaDetail!= nil)
+    {
+        NSError* err = nil;
+        DramaModel *dramaModel = [[DramaModel alloc] initWithString:dramaDetail.content error:&err];
+        if(err!=nil)
+        {
+            NSLog(@"DramaDetialViewController.getLocalDataError::::%@",err );
+            return nil;
+        }
+        else
+        {
+            return dramaModel;
+        }
+    }
+    return nil;
 }
 
 #pragma mark tableview function
-
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     if( clickIndex == 0)
@@ -211,7 +247,6 @@
             
             return cell;
         }
-        
     }
     else if(indexPath.row == 3 )//简介
     {
@@ -226,7 +261,7 @@
         {
             NSMutableArray *array =[[NSMutableArray alloc ] initWithArray:dramaModle.similarities];
             UIView *userLogoList=[[CommentHeaderScrollTableView alloc]
-                                  initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, ((SCREEN_WIDTH-60)/3) *1.5f)
+                                  initWithFrame:CGRectMake(0, 50, SCREEN_WIDTH, 200)
                                   viewerList:array
                                   navigation:self.navigationController];
             [cell addSubview:userLogoList];
@@ -437,15 +472,18 @@
     if (indexPath.row == 0)
     {
         PersonInfoViewController *personInfoView = [[PersonInfoViewController alloc ] init];
-        personInfoView._uId = [[dramaModle.uId stringValue] intValue];
+        personInfoView._uId = [[dramaModle.uid stringValue] intValue];
         [self.navigationController pushViewController:personInfoView animated:YES];
+        return;
     }
-    if (clickIndex == 2)
+    //链接地址
+    if (indexPath.row >=2 && clickIndex == 2)
     {
         DramaRelativesModel *dramaRelativesModel =dramaModle.dramaRelatives[indexPath.row - 2];
         UIWebViewLoad *webView = [[UIWebViewLoad alloc ] init];
         webView.dramaRelativesModel = dramaRelativesModel;
         [self.navigationController pushViewController:webView animated:YES];
+        return;
     }
     if( clickIndex == 0)
     {

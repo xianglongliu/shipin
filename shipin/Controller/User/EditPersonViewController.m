@@ -151,6 +151,7 @@
 
     [UserService updateUserDetail:uModle success:^(Boolean *boolean)
     {
+        [Config setUpdateUserHeadImage:@"YES"];
         [Tool showWarningTip:@"更新成功" view:self.view time:0.5f];
         [self.navigationController popViewControllerAnimated:YES];
     } failure:^(NSString *error)

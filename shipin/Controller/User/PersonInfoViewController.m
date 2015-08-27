@@ -11,7 +11,9 @@
 #import "EditPersonViewController.h"
 #import "SetViewHeadTableViewCell.h"
 #import "DramaDetialTableViewCell.h"
+#import "LKDBHelper.h"
 #import "CommentHeaderScrollTableView.h"
+#import "FVCustomAlertView.h"
 
 @interface PersonInfoViewController ()
 
@@ -58,42 +60,99 @@
 
 -(void) loadUserInfo
 {
-    [FVCustomAlertView showDefaultLoadingAlertOnView:self.view withTitle:nil withBlur:NO allowTap:YES];
-    [UserService getUserDetail:self._uId success:^(UserModel *userModel)
-     {
-         self.userModel =userModel;
-         
-         NSArray *arrLeft = [NSArray arrayWithObjects:@"个人简介",@"公司名称",@"公司职位",@"公司邮箱",@"联系电话", nil];
-         NSArray *arrRight = [NSArray arrayWithObjects:[NSString stringWithFormat:@"%@",self.userModel.brief],
-                              [NSString stringWithFormat:@"%@",self.userModel.corporation],
-                              [NSString stringWithFormat:@"%@",self.userModel.position],
-                              [NSString stringWithFormat:@"%@",self.userModel.email],
-                              [NSString stringWithFormat:@"%@",self.userModel.mobile], nil];
-         
-         for(int i = 0 ; i < [arrLeft count]; i++)
+    if ([NetWorkState getNetWorkState] == NotReachable )
+    {
+        LKDBHelper *helper = [LKDBHelper getUsingLKDBHelper];
+        NSString *where = [NSString stringWithFormat:@"id=%@", @(self._uId)];
+        UserModel *   userModel = [helper searchSingle:[UserModel class] where:where orderBy:nil];
+        
+        if(userModel!= nil && ![userModel.id isEqualToNumber:@([[Config getUserId] intValue])])
+        {
+            self.userModel =userModel;
+            NSArray *arrLeft = [NSArray arrayWithObjects:@"个人简介",@"公司名称",@"公司职位",@"公司邮箱",@"联系电话", nil];
+            NSArray *arrRight = [NSArray arrayWithObjects:[NSString stringWithFormat:@"%@",self.userModel.brief],
+                                 [NSString stringWithFormat:@"%@",self.userModel.corporation],
+                                 [NSString stringWithFormat:@"%@",self.userModel.position],
+                                 [NSString stringWithFormat:@"%@",self.userModel.email],
+                                 [NSString stringWithFormat:@"%@",self.userModel.mobile], nil];
+            
+            for(int i = 0 ; i < [arrLeft count]; i++)
+            {
+                TextModel * tModle = [[TextModel alloc ] init];
+                tModle.strLeftName = [arrLeft objectAtIndex:i];
+                tModle.strRightName = [arrRight objectAtIndex:i];
+                [mutableArray addObject:tModle];
+            }
+        }
+        else
+        {
+            [UserService getUserDetail:self._uId success:^(UserModel *userModel)
+             {
+                 self.userModel =userModel;
+                 
+                 NSArray *arrLeft = [NSArray arrayWithObjects:@"个人简介",@"公司名称",@"公司职位",@"公司邮箱",@"联系电话", nil];
+                 NSArray *arrRight = [NSArray arrayWithObjects:[NSString stringWithFormat:@"%@",self.userModel.brief],
+                                      [NSString stringWithFormat:@"%@",self.userModel.corporation],
+                                      [NSString stringWithFormat:@"%@",self.userModel.position],
+                                      [NSString stringWithFormat:@"%@",self.userModel.email],
+                                      [NSString stringWithFormat:@"%@",self.userModel.mobile], nil];
+                 
+                 for(int i = 0 ; i < [arrLeft count]; i++)
+                 {
+                     TextModel * tModle = [[TextModel alloc ] init];
+                     tModle.strLeftName = [arrLeft objectAtIndex:i];
+                     tModle.strRightName = [arrRight objectAtIndex:i];
+                     
+                     [mutableArray addObject:tModle];
+                 }
+                 
+             } failure:^(NSDictionary *error)
+             {
+                 [Tool showWarningTip:@"获取用户信息失败" view:self.view time:1];
+             }];
+            
+        }
+    }
+    else
+    {
+        [FVCustomAlertView showDefaultLoadingAlertOnView:self.view withTitle:nil withBlur:NO allowTap:YES];
+        [UserService getUserDetail:self._uId success:^(UserModel *userModel)
          {
-             TextModel * tModle = [[TextModel alloc ] init];
-             tModle.strLeftName = [arrLeft objectAtIndex:i];
-             tModle.strRightName = [arrRight objectAtIndex:i];
+             self.userModel =userModel;
              
-             [mutableArray addObject:tModle];
-         }
-         
-         //获取我的发布信息
-         [UserService getPublishes:^(NSArray *dramaArray)
+             NSArray *arrLeft = [NSArray arrayWithObjects:@"个人简介",@"公司名称",@"公司职位",@"公司邮箱",@"联系电话", nil];
+             NSArray *arrRight = [NSArray arrayWithObjects:[NSString stringWithFormat:@"%@",self.userModel.brief],
+                                  [NSString stringWithFormat:@"%@",self.userModel.corporation],
+                                  [NSString stringWithFormat:@"%@",self.userModel.position],
+                                  [NSString stringWithFormat:@"%@",self.userModel.email],
+                                  [NSString stringWithFormat:@"%@",self.userModel.mobile], nil];
+             
+             for(int i = 0 ; i < [arrLeft count]; i++)
+             {
+                 TextModel * tModle = [[TextModel alloc ] init];
+                 tModle.strLeftName = [arrLeft objectAtIndex:i];
+                 tModle.strRightName = [arrRight objectAtIndex:i];
+                 
+                 [mutableArray addObject:tModle];
+             }
+             
+             //获取我的发布信息
+             [UserService getPublishes:^(NSArray *dramaArray)
+              {
+                  _myDramaArray = [NSMutableArray arrayWithArray:dramaArray];
+                  [self initViewCtrl];
+                  
+                  [FVCustomAlertView hideAlertFromView:self.view fading:YES];
+              } failure:^(NSDictionary *error){
+                  [FVCustomAlertView hideAlertFromView:self.view fading:YES];
+              }];
+             
+         } failure:^(NSDictionary *error)
          {
-             _myDramaArray = [NSMutableArray arrayWithArray:dramaArray];
-            [self initViewCtrl];
              [FVCustomAlertView hideAlertFromView:self.view fading:YES];
-         } failure:^(NSDictionary *error){
-             [FVCustomAlertView hideAlertFromView:self.view fading:YES];
+             [Tool showWarningTip:@"获取用户信息失败" view:self.view time:1];
          }];
-         
-     } failure:^(NSDictionary *error)
-     {
-         [FVCustomAlertView hideAlertFromView:self.view fading:YES];
-         [Tool showWarningTip:@"获取用户信息失败" view:self.view time:1];
-     }];
+    }
 }
 
 

@@ -33,7 +33,7 @@
             [_imageViewHead setContentMode:UIViewContentModeScaleAspectFill];
             [self addSubview:_imageViewHead];
             
-            //影院名称
+            //用户名名称
             self._labelName = [[FXLabel alloc] initWithFrame:CGRectZero];
             [self._labelName setTextColor:[UIColor whiteColor]];
             [self._labelName setBackgroundColor:[UIColor clearColor]];
@@ -48,11 +48,12 @@
 {
     if ([cellname isEqualToString:@"setview" ])
     {
-        _imageViewBg.frame = CGRectMake(0, 0, SCREEN_WIDTH, 170);
+        _imageViewBg.frame = CGRectMake(0, 0, SCREEN_WIDTH, 190);
         _labelTransparentLayer.frame = CGRectMake(0, _imageViewBg.frame.size.height-34, SCREEN_WIDTH, 34);
-        _imageViewHead.frame = CGRectMake(20, 40, 80, 80);
+        _imageViewHead.frame = CGRectMake(20, 60, 80, 80);
          _imageViewHead.layer.cornerRadius = _imageViewHead.frame.size.width/2;
-        self._labelName.frame = CGRectMake(_imageViewHead.frame.origin.y+_imageViewHead.frame.size.width, _imageViewHead.frame.origin.y, SCREEN_WIDTH/2, _imageViewHead.frame.size.height);
+        
+        self._labelName.frame = CGRectMake(_imageViewHead.frame.origin.x+_imageViewHead.frame.size.width+10, _imageViewHead.frame.origin.y, SCREEN_WIDTH/2, _imageViewHead.frame.size.height);
         self._labelName.shadowColor = RGB(0, 0, 0);
         self._labelName.shadowOffset = CGSizeMake(0.5f, 1.0f);
         self._labelName.shadowBlur = 2.0f;

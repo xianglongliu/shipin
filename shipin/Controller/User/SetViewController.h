@@ -11,10 +11,9 @@
 @interface SetViewController : BaseViewController<UITableViewDataSource,UITableViewDelegate,UIScrollViewDelegate>
 {
     UITableView *_tableView;
-    
-    
-    
 }
+
+
 @property(nonatomic,strong)UserModel *userModel;
 
 @end

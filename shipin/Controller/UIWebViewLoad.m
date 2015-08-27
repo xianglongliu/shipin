@@ -49,6 +49,25 @@
     return TRUE;
 }
 
+
+
+#pragma mark - webview
+- (void)webViewDidFinishLoad:(UIWebView *)webView
+{
+    [FVCustomAlertView hideAlertFromView:self.view fading:YES];
+}
+
+- (void)webView:(UIWebView *)webView didFailLoadWithError:(NSError *)error
+{
+    [FVCustomAlertView hideAlertFromView:self.view fading:YES];
+}
+
+
+- (void)webViewDidStartLoad:(UIWebView *)webView
+{
+    [FVCustomAlertView showDefaultLoadingAlertOnView:self.view withTitle:nil withBlur:NO allowTap:YES];
+}
+
 -(void) onButtonBack
 {
     [self.navigationController popViewControllerAnimated:YES];

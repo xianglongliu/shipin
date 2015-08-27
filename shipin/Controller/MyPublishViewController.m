@@ -10,6 +10,8 @@
 #import "AddPublishViewController.h"
 #import "AllTableViewCell.h"
 #import "DramaDetialViewController.h"
+#import "LKDBHelper.h"
+#import "MyDrama.h"
 
 @interface MyPublishViewController ()
 
@@ -72,22 +74,50 @@
 
 -(void) loadNetWorkData
 {
-    [UserService getPublishes:^(NSArray *dramaArray)
-    {
-        _arrayPublish= [[NSMutableArray alloc ] initWithArray:dramaArray];
-        
-        //如果我的发布为空
-        if ([_arrayPublish count] <= 0)
-        {
-            [_tableView setHidden:YES];
+    LKDBHelper *helper = [LKDBHelper getUsingLKDBHelper];
+    NSString *orderBy = @"CAST(id as integer) desc";
+    NSMutableArray * dramaArray = [helper search:[MyDrama class] where:nil orderBy:orderBy offset:0 count:10];
+
+    if(dramaArray!=nil && [dramaArray count]>0){
+
+
+        NSMutableArray* array = [[NSMutableArray alloc] init];
+        for(MyDrama *drama in dramaArray){
+
+            NSError* err = nil;
+            DramaModel *dramaModel = [[DramaModel alloc] initWithString:drama.content error:&err];
+
+            if(err!=nil)
+            {
+                NSLog(@"getOldDatasERROR:::%@",err );
+            }
+            [array addObject:dramaModel];
+
         }
-        
+
+        _arrayPublish=array;
         [_tableView reloadData];
-        
-    } failure:^(NSDictionary *error)
-    {
-        [Tool showWarningTip:@"加载我的发布失败" view:self.view time:1];
-    }];
+    }
+
+        [UserService getPublishes:^(NSArray *dramaArray)
+        {
+            _arrayPublish= [[NSMutableArray alloc ] initWithArray:dramaArray];
+
+            //如果我的发布为空
+            if ([_arrayPublish count] <= 0)
+            {
+                [_tableView setHidden:YES];
+            }
+
+            [_tableView reloadData];
+
+        } failure:^(NSDictionary *error)
+        {
+            [Tool showWarningTip:@"加载我的发布失败" view:self.view time:1];
+        }];
+
+
+
 }
 
 //添加发布内容

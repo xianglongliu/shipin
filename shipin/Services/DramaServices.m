@@ -3,6 +3,9 @@
 #import "HttpProtocol.h"
 #import "HttpManager.h"
 #import "DramaModel.h"
+#import "LKDBHelper.h"
+#import "Drama.h"
+#import "DramaDetail.h"
 
 
 @protocol NSDictionary;
@@ -10,6 +13,7 @@
 @implementation DramaServices
 
 IMP_SINGLETON(DramaServices)
+
 
 + (void)pullDramaGoodData:(int)pageNum success:(void (^)(NSArray *array))success failure:(void (^)(NSDictionary *error))failure
 {
@@ -32,6 +36,14 @@ IMP_SINGLETON(DramaServices)
             {
                 for (NSDictionary *drama in datum)
                 {
+
+                    //插入数据库
+                    Drama *dramaEntity = [[Drama alloc] init];
+                    dramaEntity.id =  drama[@"id"];
+                    dramaEntity.content=[drama JSONString];
+                    dramaEntity.type= drama[@"type"];
+
+                    [[LKDBHelper getUsingLKDBHelper] insertToDB:dramaEntity];
                     NSLog(@"dramaJson=%@", [drama JSONString]);
                     NSError* err = nil;
                     DramaModel *dramaModel = [[DramaModel alloc] initWithString:[drama JSONString] error:&err];
@@ -58,7 +70,6 @@ IMP_SINGLETON(DramaServices)
         NSDictionary* paramDict = @{@"did":@(dId)};
         HttpProtocol *httpProtocol = [[HttpProtocol alloc] init];
         httpProtocol.method=@"get";
-        //FIXME 替换token变量
         httpProtocol.token=[Config getToken];
         httpProtocol.param=paramDict;
         httpProtocol.requestUrl=[NSString stringWithFormat:@"%@",URL_DETIAL];
@@ -66,7 +77,18 @@ IMP_SINGLETON(DramaServices)
         {
             if([responseObject isKindOfClass:[NSDictionary class]])
             {
+
+
+
                 NSLog(@"%@", [responseObject JSONString]);
+                //插入数据库
+                DramaDetail *dramaDetail = [[DramaDetail alloc] init];
+                dramaDetail.id = responseObject[@"id"];
+                dramaDetail.content=[responseObject JSONString];
+
+                [[LKDBHelper getUsingLKDBHelper] insertToDB:dramaDetail];
+
+
                 NSError* err = nil;
                 DramaModel *dramaModel = [[DramaModel alloc] initWithString:[responseObject JSONString] error:&err];
 
@@ -106,7 +128,6 @@ IMP_SINGLETON(DramaServices)
     httpProtocol.requestUrl=[NSString stringWithFormat:@"%@",URL_ALLDRAMA];
     httpProtocol.param=paramDict;
     httpProtocol.method=@"get";
-    //FIXME 替换token变量
     httpProtocol.token=[Config getToken];
 
     [[HttpManager sharedInstance] httpWithRequest:httpProtocol success:^(AFHTTPRequestOperation *operation, id responseObject)
@@ -121,6 +142,15 @@ IMP_SINGLETON(DramaServices)
                 for (NSDictionary *drama in datum)
                 {
                     NSLog(@"dramaJson=%@", [drama JSONString]);
+
+
+                    //插入数据库
+                    Drama *dramaEntity = [[Drama alloc] init];
+                    dramaEntity.id = drama[@"id"];
+                    dramaEntity.content=[drama JSONString];
+                    dramaEntity.type= drama[@"type"];
+                    [[LKDBHelper getUsingLKDBHelper] insertToDB:dramaEntity];
+
                     NSError* err = nil;
                     DramaModel *dramaModel = [[DramaModel alloc] initWithString:[drama JSONString] error:&err];
 

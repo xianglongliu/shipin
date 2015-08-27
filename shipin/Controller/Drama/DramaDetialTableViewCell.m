@@ -157,6 +157,12 @@
     _labelPlayDate.frame  = CGRectMake(20, _labelLang.frame.origin.y+_labelLang.frame.size.height+10, 60, 18);
     _labelPlayDateName.frame  = CGRectMake(85, _labelLang.frame.origin.y+_labelLang.frame.size.height+10, SCREEN_WIDTH, 18);
     
+    _labelLine.frame  = CGRectMake(10, _labelPlayDateName.frame.origin.y+_labelPlayDateName.frame.size.height+20, SCREEN_WIDTH-20, 1);
+    [_labelLine setBackgroundColor:RGB(238, 238, 238)];
+    
+    _labelTitle.frame  = CGRectMake(20, _labelLine.frame.origin.y+_labelLine.frame.size.height, SCREEN_WIDTH-40, 30);
+    [_labelTitle setText:@"相似剧集"];
+    
     [_labelDirectorName setText:dramaModel.director];
     [_labelZyName setText:dramaModel.staring];
     [_labelPlaceName setText:dramaModel.district];

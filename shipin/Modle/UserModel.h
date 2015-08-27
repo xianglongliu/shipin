@@ -1,5 +1,6 @@
 
 #import <Foundation/Foundation.h>
+#import "JSONModel.h"
 
 
 @interface UserModel : JSONModel

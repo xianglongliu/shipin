@@ -15,7 +15,7 @@
 @interface DramaModel : JSONModel
 
 @property (nonatomic,strong) NSNumber<Optional> *id; //剧目id
-@property (nonatomic,strong) NSNumber<Optional> *uId; //用户id
+@property (nonatomic,strong) NSNumber<Optional> *uid; //用户id
 @property (nonatomic,strong) NSString<Optional> *username; //用户名称
 @property (nonatomic,strong) NSString<Optional> *avatar; //用户头像
 @property (nonatomic,strong) NSString<Optional> *name; //剧目名称

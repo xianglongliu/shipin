@@ -10,7 +10,18 @@
 
 @implementation Config
 
++(void) saveUserId:(NSString *)userId;
+{
+    NSUserDefaults *user = [NSUserDefaults standardUserDefaults];
+    [user setValue:userId forKey:@"userId"];
+    [user synchronize];
+}
 
++(NSString *) getUserId
+{
+    NSUserDefaults *user = [NSUserDefaults standardUserDefaults];
+    return [user objectForKey:@"userId"];
+}
 +(void) saveUserName:(NSString *)name;
 {
     NSUserDefaults *user = [NSUserDefaults standardUserDefaults];
@@ -62,17 +73,16 @@
     [user synchronize];
 }
 
-//+(void) saveUserId:(NSString *)userid;
-//{
-//    NSUserDefaults *userid = [NSUserDefaults standardUserDefaults];
-//    [userid setValue:userid forKey:@"userid"];
-//    [userid synchronize];
-//}
-//
-//+(NSString *) getUserId
-//{
-//    NSUserDefaults *uuseridser = [NSUserDefaults standardUserDefaults];
-//    return [userid objectForKey:@"userid"];
-//}
++(NSString *)getUpdateUserHeadImage
+{
+    NSUserDefaults *user = [NSUserDefaults standardUserDefaults];
+    return [user objectForKey:@"isUploadimage"];
+}
++(void)setUpdateUserHeadImage:(NSString *)flag
+{
+    NSUserDefaults *upload = [NSUserDefaults standardUserDefaults];
+    [upload setValue:flag forKey:@"isUploadimage"];
+    [upload synchronize];
+}
 
 @end
