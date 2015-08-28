@@ -169,14 +169,12 @@
 
 -(void) setControlLeftData:(DramaModel *)leftData rightData:(DramaModel *)rightData
 {
-//    NSLog(@"%@",leftData.name );
     if([leftData.name length] > 0 )
     {
         _leftData =leftData;
         _rightData =rightData;
         //    左面数据
         DramaPostersModel *posterModle;
-//        NSLog(@"%d",[leftData.posters count]);
         if ([leftData.posters count] > 0)
         {
             posterModle =leftData.posters[0];
@@ -226,18 +224,23 @@
         
 //        给图片添加点击事件
         _labelbgLeft.tag=[[_leftData.id stringValue] intValue];
+        _imageViewLeft.tag=[[_leftData.id stringValue] intValue];
         if(!gestureLeft)
         {
             gestureLeft=[[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(imageClick:)];
             gestureLeft.numberOfTapsRequired=1;
             [_labelbgLeft addGestureRecognizer:gestureLeft];
+            [_imageViewLeft addGestureRecognizer:gestureLeft];
         }
+        
         _labelbgRight.tag=[[_rightData.id stringValue] intValue];
+        _imageViewRight.tag=[[_leftData.id stringValue] intValue];
         if(!gestureRight)
         {
             gestureRight=[[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(imageClick:)];
             gestureRight.numberOfTapsRequired=1;
             [_labelbgRight addGestureRecognizer:gestureRight];
+            [_imageViewRight addGestureRecognizer:gestureRight];
         }
     }
 }

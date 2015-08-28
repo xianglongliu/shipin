@@ -17,6 +17,7 @@
     UITableView     *_tableView ;
 
     DramaModel          *dramaModle;
+    NSString            *_mobile;
 }
 
 @property(nonatomic,strong)UserModel *userModel;

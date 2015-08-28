@@ -142,7 +142,6 @@ IMP_SINGLETON(UserService)
             NSArray<NSDictionary> *datum = [responseObject objectForKey:@"datum"];
             if(datum!=nil && [datum count]>0)
             {
-                
                 for (NSDictionary *drama in datum)
                 {
                     //插入数据库

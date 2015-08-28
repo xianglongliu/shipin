@@ -69,12 +69,16 @@
         if(userModel!= nil && ![userModel.id isEqualToNumber:@([[Config getUserId] intValue])])
         {
             self.userModel =userModel;
+            if (self._uId == 0 )
+                _mobile = self.userModel.mobile;
+            else
+                _mobile = @"***";
             NSArray *arrLeft = [NSArray arrayWithObjects:@"个人简介",@"公司名称",@"公司职位",@"公司邮箱",@"联系电话", nil];
             NSArray *arrRight = [NSArray arrayWithObjects:[NSString stringWithFormat:@"%@",self.userModel.brief],
                                  [NSString stringWithFormat:@"%@",self.userModel.corporation],
                                  [NSString stringWithFormat:@"%@",self.userModel.position],
                                  [NSString stringWithFormat:@"%@",self.userModel.email],
-                                 [NSString stringWithFormat:@"%@",self.userModel.mobile], nil];
+                                 [NSString stringWithFormat:@"%@",_mobile], nil];//,self.userModel.mobile
             
             for(int i = 0 ; i < [arrLeft count]; i++)
             {
@@ -89,13 +93,16 @@
             [UserService getUserDetail:self._uId success:^(UserModel *userModel)
              {
                  self.userModel =userModel;
-                 
+                 if (self._uId == 0 )
+                     _mobile = self.userModel.mobile;
+                 else
+                     _mobile = @"***";
                  NSArray *arrLeft = [NSArray arrayWithObjects:@"个人简介",@"公司名称",@"公司职位",@"公司邮箱",@"联系电话", nil];
                  NSArray *arrRight = [NSArray arrayWithObjects:[NSString stringWithFormat:@"%@",self.userModel.brief],
                                       [NSString stringWithFormat:@"%@",self.userModel.corporation],
                                       [NSString stringWithFormat:@"%@",self.userModel.position],
                                       [NSString stringWithFormat:@"%@",self.userModel.email],
-                                      [NSString stringWithFormat:@"%@",self.userModel.mobile], nil];
+                                      [NSString stringWithFormat:@"%@",_mobile], nil];
                  
                  for(int i = 0 ; i < [arrLeft count]; i++)
                  {
@@ -119,13 +126,16 @@
         [UserService getUserDetail:self._uId success:^(UserModel *userModel)
          {
              self.userModel =userModel;
-             
+             if (self._uId == 0 )
+                 _mobile = self.userModel.mobile;
+             else
+                 _mobile = @"***";
              NSArray *arrLeft = [NSArray arrayWithObjects:@"个人简介",@"公司名称",@"公司职位",@"公司邮箱",@"联系电话", nil];
              NSArray *arrRight = [NSArray arrayWithObjects:[NSString stringWithFormat:@"%@",self.userModel.brief],
                                   [NSString stringWithFormat:@"%@",self.userModel.corporation],
                                   [NSString stringWithFormat:@"%@",self.userModel.position],
                                   [NSString stringWithFormat:@"%@",self.userModel.email],
-                                  [NSString stringWithFormat:@"%@",self.userModel.mobile], nil];
+                                  [NSString stringWithFormat:@"%@",_mobile], nil];
              
              for(int i = 0 ; i < [arrLeft count]; i++)
              {
@@ -253,7 +263,7 @@
         }
        
         UIView *userLogoList=[[CommentHeaderScrollTableView alloc]
-                              initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, ((SCREEN_WIDTH-60)/3) *1.5f)
+                              initWithFrame:CGRectMake(0, 20, SCREEN_WIDTH, 200)
                               viewerList:array
                               navigation:self.navigationController];
         [cell addSubview:userLogoList];
@@ -312,7 +322,7 @@
     else if (indexPath.row == 8)
         return 30;
     else if (indexPath.row == 9)
-        return 200;
+        return 170;
     else if (indexPath.row == 10)
         return 80;
     else

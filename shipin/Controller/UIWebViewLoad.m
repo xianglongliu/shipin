@@ -49,8 +49,6 @@
     return TRUE;
 }
 
-
-
 #pragma mark - webview
 - (void)webViewDidFinishLoad:(UIWebView *)webView
 {
