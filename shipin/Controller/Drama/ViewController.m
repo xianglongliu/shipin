@@ -558,7 +558,7 @@
     {
         DramaModel *itemData = [[DramaModel alloc ] init];
         itemData = self._arrayVideo[indexPath.row];
-        
+
         DramaDetialViewController *dramaDetialView = [[DramaDetialViewController alloc ] init];
         dramaDetialView.nId = [[itemData.id stringValue] intValue];
         [self.navigationController pushViewController:dramaDetialView animated:YES];
@@ -567,7 +567,7 @@
 //    //打开播放器
 //    MPMoviePlayerViewController *playerView =[[MPMoviePlayerViewController alloc]initWithContentURL:[NSURL URLWithString:itemData.trailerUrl]];
 //    [self presentMoviePlayerViewControllerAnimated:playerView];
-    
+
 }
 
 

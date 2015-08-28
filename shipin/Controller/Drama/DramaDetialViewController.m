@@ -260,12 +260,18 @@
         }
         if( clickIndex == 1)//相似剧集
         {
+
             NSMutableArray *array =[[NSMutableArray alloc ] initWithArray:dramaModle.similarities];
-            UIView *userLogoList=[[CommentHeaderScrollTableView alloc]
-                                  initWithFrame:CGRectMake(0, 50, SCREEN_WIDTH, 200)
-                                  viewerList:array
-                                  navigation:self.navigationController];
-            [cell addSubview:userLogoList];
+
+            if(array.count>1){
+
+                UIView *userLogoList=[[CommentHeaderScrollTableView alloc]
+                        initWithFrame:CGRectMake(0, 50, SCREEN_WIDTH, 200)
+                           viewerList:array
+                           navigation:self.navigationController];
+                [cell addSubview:userLogoList];
+
+            }
             return cell;
         }
         if( clickIndex == 2)//相关资料

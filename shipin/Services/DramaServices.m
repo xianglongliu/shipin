@@ -41,6 +41,7 @@ IMP_SINGLETON(DramaServices)
                     //插入数据库
                     Drama *dramaEntity = [[Drama alloc] init];
                     dramaEntity.id =  drama[@"id"];
+                    dramaEntity.uid= drama[@"uid"];
                     dramaEntity.content=[drama JSONString];
                     dramaEntity.type= drama[@"type"];
 
@@ -148,6 +149,7 @@ IMP_SINGLETON(DramaServices)
                     //插入数据库
                     Drama *dramaEntity = [[Drama alloc] init];
                     dramaEntity.id = drama[@"id"];
+                    dramaEntity.uid= drama[@"uid"];
                     dramaEntity.content=[drama JSONString];
                     dramaEntity.type= drama[@"type"];
                     [[LKDBHelper getUsingLKDBHelper] insertToDB:dramaEntity];
@@ -177,7 +179,8 @@ IMP_SINGLETON(DramaServices)
     httpProtocol.requestUrl=[NSString stringWithFormat:@"%@",URL_DRAMA_TAGS];
     httpProtocol.param=nil;
     httpProtocol.method=@"get";
-    httpProtocol.token=@"g4TD4B9vO7z8GR3yKYlVwg==";//[Config getToken];
+//    httpProtocol.token=@"g4TD4B9vO7z8GR3yKYlVwg==";
+    httpProtocol.token=[Config getToken];
 
     [[HttpManager sharedInstance] httpWithRequest:httpProtocol success:^(AFHTTPRequestOperation *operation, id responseObject)
     {
@@ -208,6 +211,69 @@ IMP_SINGLETON(DramaServices)
 
     }];
 
+}
+
+
++ (void)searchDrama:(int)pageNum keyWorld:(NSString *)keyWorld tids:(NSArray *)tids success:(void (^)(NSArray *array))success failure:(void (^)(NSDictionary *error))failure
+{
+    NSMutableDictionary *paramDict = [[NSMutableDictionary alloc] init];
+
+    if(pageNum!=0){
+        paramDict[@"page"] = @(pageNum);
+    }
+    if(keyWorld!=nil){
+
+        paramDict[@"keyword"] = keyWorld;
+    }
+    if(tids!=nil){
+
+        paramDict[@"tids"] = [tids componentsJoinedByString:@","];
+    }
+    HttpProtocol *httpProtocol = [[HttpProtocol alloc] init];
+    httpProtocol.requestUrl=[NSString stringWithFormat:@"%@",URL_SEARCH];
+    httpProtocol.param=paramDict;
+    httpProtocol.method=@"get";
+    httpProtocol.token=[Config getToken];
+//    httpProtocol.token=@"g4TD4B9vO7z8GR3yKYlVwg==";//[Config getToken];
+
+    [[HttpManager sharedInstance] httpWithRequest:httpProtocol success:^(AFHTTPRequestOperation *operation, id responseObject)
+    {
+        NSLog(@"dramaJson=%@", [responseObject JSONString]);
+        if([responseObject isKindOfClass:[NSDictionary class]])
+        {
+            NSArray<NSDictionary> *datum = [responseObject objectForKey:@"datum"];
+            if(datum!=nil && [datum count]>0)
+            {
+                NSMutableArray *dramaArray= [[NSMutableArray alloc] init];
+                for (NSDictionary *drama in datum)
+                {
+                    NSLog(@"dramaJson=%@", [drama JSONString]);
+
+
+                    //插入数据库
+//                    Drama *dramaEntity = [[Drama alloc] init];
+//                    dramaEntity.id = drama[@"id"];
+//                    dramaEntity.content=[drama JSONString];
+//                    dramaEntity.type= drama[@"type"];
+//                    [[LKDBHelper getUsingLKDBHelper] insertToDB:dramaEntity];
+
+                    NSError* err = nil;
+                    DramaModel *dramaModel = [[DramaModel alloc] initWithString:[drama JSONString] error:&err];
+
+                    if(err!=nil)
+                    {
+                        NSLog(@"%@",err );
+                    }
+                    [dramaArray addObject:dramaModel];
+                }
+                if(success)
+                    success(dramaArray);
+            }
+        }
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error){
+        if(failure)
+            failure(@{@"result":error});
+    }];
 }
 
 @end

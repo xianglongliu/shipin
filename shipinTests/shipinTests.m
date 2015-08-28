@@ -65,7 +65,14 @@
     @try{
 
 
-        [DramaServices getDramaTags];
+
+        NSArray *array1 = @[@2];
+        [DramaServices searchDrama:1 keyWorld:@"四" tids:nil success:^(NSArray *array) {
+
+            NSLog(@"arrayCount=%d",array.count);
+        } failure:^(NSDictionary *error) {
+
+        }];
 
 
         [self waitForExpectationsWithTimeout:10.0 handler:^(NSError *err){

@@ -24,4 +24,7 @@ DEF_SINGLETON(DramaServices)
 //获取tag标签
 +(void)getDramaTags;
 
+//搜索接口 参数都是可选
++ (void)searchDrama:(int)pageNum keyWorld:(NSString *)keyWorld tids:(NSArray *)tids success:(void (^)(NSArray *array))success failure:(void (^)(NSDictionary *error))failure;
+
 @end
