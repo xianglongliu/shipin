@@ -40,7 +40,7 @@ blue:((float)(rgbValue & 0xFF))/255.0 alpha:1.0]
 
 #define backButtonFram  CGRectMake(10, 25, 45, 22)
 
-#define netWorkUrl @"http://f.hiphotos.baidu.com/image/pic/item/42166d224f4a20a4bb6d32c092529822720ed042.jpg"
+#define netWorkUrl                      @"image_defaulthead.png"
 //无网络加载默认图片
 #define     DefaultImage                [UIImage imageNamed:@"picture_default.png"]
 

@@ -16,6 +16,7 @@
     self = [super initWithStyle:UITableViewCellStyleDefault reuseIdentifier:reuseIdentifier];
     if (self)
     {
+        [self setBackgroundColor:[UIColor whiteColor]];
         [self initLayuot];
     }
     return self;
@@ -36,6 +37,7 @@
     self._labelText.numberOfLines = 0;
     [self._labelText setLineBreakMode:NSLineBreakByCharWrapping];
     [self._labelText setFont:[ UIFont systemFontOfSize:FontSize]];
+    [self._labelText setBackgroundColor:[UIColor clearColor]];
     [self addSubview:self._labelText];
     
 //    导演
@@ -120,6 +122,11 @@
     [_labelLine setBackgroundColor:RGB(221, 221, 221)];
     [self addSubview:_labelLine];
 
+    
+    labelTop = [[UILabel alloc ] initWithFrame: CGRectMake(-5, -5, 10, 10)];
+    [labelTop setBackgroundColor:[UIColor whiteColor]];
+    [self addSubview:labelTop];
+    
 }
 
 //剧情简介
@@ -130,8 +137,8 @@
     //文本赋值
     self._labelText.text = text;
     float textHeight =[Tool CalcString:self._labelText.text fontSize:[UIFont systemFontOfSize:FontSize] andWidth:SCREEN_WIDTH-20].height;
-    self._labelText.frame = CGRectMake(13, 0, SCREEN_WIDTH-26,textHeight+20 );
-    self._imageView.frame = CGRectMake(13, 0, SCREEN_WIDTH-26,height );
+    self._labelText.frame = CGRectMake(20, 0, SCREEN_WIDTH-40,textHeight+20 );
+    self._imageView.frame = CGRectMake(20, 0, SCREEN_WIDTH-40,height );
     [self._imageView sd_setImageWithURL:imageUrl placeholderImage:DefaultImage];
     //计算出自适应的高度
     frame.size.height = textHeight+20 +height;
@@ -160,8 +167,11 @@
     _labelLine.frame  = CGRectMake(10, _labelPlayDateName.frame.origin.y+_labelPlayDateName.frame.size.height+20, SCREEN_WIDTH-20, 1);
     [_labelLine setBackgroundColor:RGB(238, 238, 238)];
     
-    _labelTitle.frame  = CGRectMake(20, _labelLine.frame.origin.y+_labelLine.frame.size.height, SCREEN_WIDTH-40, 30);
-    [_labelTitle setText:@"相似剧集"];
+     if([dramaModel.similarities count] > 0 )
+     {
+         _labelTitle.frame  = CGRectMake(20, _labelLine.frame.origin.y+_labelLine.frame.size.height, SCREEN_WIDTH-40, 30);
+         [_labelTitle setText:@"相似剧集"];
+     }
     
     [_labelDirectorName setText:dramaModel.director];
     [_labelZyName setText:dramaModel.staring];

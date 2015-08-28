@@ -73,7 +73,10 @@
         UserModel *   userModel = [helper searchSingle:[UserModel class] where:where orderBy:nil];
         if(userModel!= nil)
         {
-            [_btnLogin setImage:[UIImage imageWithData:[NSData dataWithContentsOfURL:[Tool stringMerge:userModel.avatar]]] forState:UIControlStateNormal];
+            if ([userModel.avatar length] == 0)
+                [_btnLogin setImage:[UIImage imageNamed:@"image_defaulthead.png"] forState:UIControlStateNormal];
+            else
+                [_btnLogin setImage:[UIImage imageWithData:[NSData dataWithContentsOfURL:[Tool stringMerge:userModel.avatar]]] forState:UIControlStateNormal];
         }
         [FVCustomAlertView hideAlertFromView:self.view fading:YES];
     }
@@ -81,7 +84,10 @@
     {
         [UserService getUserDetail:0 success:^(UserModel *userModel)
         {
-            [_btnLogin setImage:[UIImage imageWithData:[NSData dataWithContentsOfURL:[Tool stringMerge:userModel.avatar]]] forState:UIControlStateNormal];
+            if ([userModel.avatar length] == 0)
+                [_btnLogin setImage:[UIImage imageNamed:@"image_defaulthead.png"] forState:UIControlStateNormal];
+            else
+                [_btnLogin setImage:[UIImage imageWithData:[NSData dataWithContentsOfURL:[Tool stringMerge:userModel.avatar]]] forState:UIControlStateNormal];
             [FVCustomAlertView hideAlertFromView:self.view fading:YES];
         } failure:^(NSDictionary *error)
         {

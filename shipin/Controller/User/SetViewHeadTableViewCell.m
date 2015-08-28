@@ -26,7 +26,7 @@
             
             //        头像
             _imageViewHead = [[UIImageView alloc ] initWithFrame:CGRectZero];
-            [_imageViewHead setImage:[UIImage imageNamed:@"image_head.png"]];
+            [_imageViewHead setImage:[UIImage imageNamed:@"image_defaulthead.png"]];
             _imageViewHead.layer.masksToBounds = YES;
             _imageViewHead.layer.borderWidth=4;
             _imageViewHead.layer.borderColor=RGB(251, 226, 199).CGColor;

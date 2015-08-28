@@ -24,6 +24,7 @@
 -(void)viewWillAppear:(BOOL)animated
 {
      [[UIApplication sharedApplication] setStatusBarHidden:YES];
+     [self loadUserInfo];
 }
 
 - (void)viewDidLoad
@@ -34,10 +35,7 @@
     mutableArray = [[NSMutableArray alloc ] initWithCapacity:0];
 }
 
--(void) viewDidAppear:(BOOL)animated
-{
-    [self loadUserInfo];
-}
+
 -(void)initViewCtrl
 {
     if(_tableView)
@@ -69,7 +67,7 @@
         if(userModel!= nil && ![userModel.id isEqualToNumber:@([[Config getUserId] intValue])])
         {
             self.userModel =userModel;
-            if (self._uId == 0 )
+            if (self._uId == [[Config getUserId] intValue] )
                 _mobile = self.userModel.mobile;
             else
                 _mobile = @"***";
@@ -93,7 +91,7 @@
             [UserService getUserDetail:self._uId success:^(UserModel *userModel)
              {
                  self.userModel =userModel;
-                 if (self._uId == 0 )
+                 if (self._uId == [[Config getUserId] intValue] )
                      _mobile = self.userModel.mobile;
                  else
                      _mobile = @"***";
@@ -126,7 +124,7 @@
         [UserService getUserDetail:self._uId success:^(UserModel *userModel)
          {
              self.userModel =userModel;
-             if (self._uId == 0 )
+             if (self._uId == [[Config getUserId] intValue] )
                  _mobile = self.userModel.mobile;
              else
                  _mobile = @"***";
@@ -287,6 +285,36 @@
     return cell;
 }
 
+-(CGFloat) tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    if (indexPath.row == 0)
+        return 250;
+    else if (indexPath.row == 1)
+        return 30;
+    else if (indexPath.row == 7)
+        return 13;
+    else if (indexPath.row == 8)
+        return 30;
+    else if (indexPath.row == 9)
+    {
+        if ([_myDramaArray count] > 0 )
+             return 170;
+        else
+             return 0;
+    }
+    else if (indexPath.row == 10)
+        return 80;
+    else
+        return 40;
+    
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    
+}
+
+
 -(void)onButtonTel
 {
     if ([self.userModel.mobile length]> 0)
@@ -312,29 +340,6 @@
     }];
 }
 
--(CGFloat) tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    if (indexPath.row == 0)
-        return 250;
-    else if (indexPath.row == 1)
-        return 30;
-    else if (indexPath.row == 7)
-        return 13;
-    else if (indexPath.row == 8)
-        return 30;
-    else if (indexPath.row == 9)
-        return 170;
-    else if (indexPath.row == 10)
-        return 80;
-    else
-        return 40;
-    
-}
-
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    
-}
 
 -(void) onButtonEdit
 {

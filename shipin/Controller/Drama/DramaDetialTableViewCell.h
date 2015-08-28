@@ -33,6 +33,9 @@
     DramaPostersModel   *dramaPosters;//发布的图片
     DramaModel          *_dramaModel;
     
+    
+    UILabel *labelTop;
+    
 }
 @property (nonatomic ,strong) UILabel       *_labelText;
 @property (nonatomic ,strong) UIImageView   *_imageView;

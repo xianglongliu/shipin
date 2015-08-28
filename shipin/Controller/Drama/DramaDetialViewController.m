@@ -234,6 +234,7 @@
             {
                 UITableViewCell* cellBtn = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
                 cellBtn.selectionStyle = UITableViewCellSelectionStyleNone;
+                return cellBtn;
             }
             
             DramaDetialTableViewCell* cell = [[DramaDetialTableViewCell alloc] initWithReuseIdentifier:CellIdentifier];
@@ -326,11 +327,6 @@
                 return cell;
              }
          }
-//        if( clickIndex == 1)//项目信息
-//        {
-//            UITableViewCell* cellBtn = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
-//            cellBtn.selectionStyle = UITableViewCellSelectionStyleNone;
-//        }
         if( clickIndex == 2)//相关资料
         {
             if ( [dramaModle.posters count] == indexPath.row - 3 )
@@ -392,7 +388,10 @@
         }
         if( clickIndex == 1)
         {
-            return  200;
+            if([dramaModle.similarities count] <= 0 )
+                return 0;
+            else
+                return  200;
         }
         if( clickIndex == 2)
         {
