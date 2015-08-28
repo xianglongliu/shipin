@@ -263,7 +263,7 @@
 
             NSMutableArray *array =[[NSMutableArray alloc ] initWithArray:dramaModle.similarities];
 
-            if(array.count>1){
+            if(array.count>0){
 
                 UIView *userLogoList=[[CommentHeaderScrollTableView alloc]
                         initWithFrame:CGRectMake(0, 50, SCREEN_WIDTH, 200)
