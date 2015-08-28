@@ -257,7 +257,7 @@
             if (indexPath.row == 0)
             {
                 PersonInfoViewController *personInfoView = [[PersonInfoViewController alloc ] init];
-                personInfoView._uId = 0;//[[Config getUserId] intValue];
+                personInfoView._uId = [[Config getUserId] intValue];
                 [self.navigationController pushViewController:personInfoView animated:YES];
             }
             if (indexPath.row == 1)//我的发布

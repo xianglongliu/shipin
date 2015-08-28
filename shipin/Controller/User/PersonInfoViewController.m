@@ -205,6 +205,7 @@
     //add edit button
     if (indexPath.row == 1)
     {
+        NSLog(@"%@",[Config getUserId]);
         if (self._uId == [[Config getUserId] intValue])//如果是查看自己的资料则可以编辑
         {
             UIButton *btnEdit = [[UIButton alloc ] initWithFrame:CGRectMake(SCREEN_WIDTH-60, 0, 60, 30)];
