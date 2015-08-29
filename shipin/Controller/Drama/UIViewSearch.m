@@ -20,10 +20,10 @@
     if (self)
     {
 
-        _strType = @"新上线";
-        _strCountry = @"全部";
-        _strPlot= @"全部";
-        _strYear= @"全部";
+        _strType = @"1";
+        _strCountry = @"0";
+        _strPlot= @"0";
+        _strYear= @"0";
         
         DramaTags *tag = [[DramaTags alloc] init];
         tag.id=0;
@@ -174,7 +174,7 @@
         if (btnIndex == sender.tag)
         {
             _tagModle =  [_arrayOne objectAtIndex:btnIndex];
-            _strType =_tagModle.name;
+            _strType =[_tagModle.id stringValue];
             
             [self tagClick:_strType Country:_strCountry Plot:_strPlot Year:_strYear];
             [ btnLine1[btnIndex] setBackgroundColor:yellowRgb];
@@ -197,7 +197,7 @@
         if (btnIndex == sender.tag)
         {
             _tagModle =  [_arrayTwo objectAtIndex:btnIndex];
-            _strCountry =_tagModle.name;
+            _strCountry =[_tagModle.id stringValue];
 
             [self tagClick:_strType Country:_strCountry Plot:_strPlot Year:_strYear];
             [ btnLine2[btnIndex] setBackgroundColor:yellowRgb];
@@ -220,7 +220,7 @@
         if (btnIndex == sender.tag)
         {
             _tagModle =  [_arrayThree objectAtIndex:btnIndex];
-            _strPlot =_tagModle.name;
+            _strPlot =[_tagModle.id stringValue];
             
             [self tagClick:_strType Country:_strCountry Plot:_strPlot Year:_strYear];
             [ btnLine3[btnIndex] setBackgroundColor:yellowRgb];
@@ -242,7 +242,7 @@
         if (btnIndex == sender.tag)
         {
             _tagModle =  [_arrayFour objectAtIndex:btnIndex];
-            _strYear =_tagModle.name;
+            _strYear =[_tagModle.id stringValue];
             
             [self tagClick:_strType Country:_strCountry Plot:_strPlot Year:_strYear];
             [ btnLine4[btnIndex] setBackgroundColor:yellowRgb];
