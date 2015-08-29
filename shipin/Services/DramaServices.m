@@ -179,8 +179,8 @@ IMP_SINGLETON(DramaServices)
     httpProtocol.requestUrl=[NSString stringWithFormat:@"%@",URL_DRAMA_TAGS];
     httpProtocol.param=nil;
     httpProtocol.method=@"get";
-//    httpProtocol.token=@"g4TD4B9vO7z8GR3yKYlVwg==";
-    httpProtocol.token=[Config getToken];
+    httpProtocol.token=@"g4TD4B9vO7z8GR3yKYlVwg==";
+//    httpProtocol.token=[Config getToken];
 
     [[HttpManager sharedInstance] httpWithRequest:httpProtocol success:^(AFHTTPRequestOperation *operation, id responseObject)
     {
@@ -238,7 +238,7 @@ IMP_SINGLETON(DramaServices)
 
     [[HttpManager sharedInstance] httpWithRequest:httpProtocol success:^(AFHTTPRequestOperation *operation, id responseObject)
     {
-        NSLog(@"dramaJson=%@", [responseObject JSONString]);
+        NSLog(@"responseObject=%@", [responseObject JSONString]);
         if([responseObject isKindOfClass:[NSDictionary class]])
         {
             NSArray<NSDictionary> *datum = [responseObject objectForKey:@"datum"];
