@@ -59,7 +59,25 @@
 
     //获取所有tags
     [DramaServices getDramaTags];
+    
+    [[NSNotificationCenter defaultCenter ] addObserver:self selector:@selector(SearchDrama:) name:@"notification_tags" object:nil];
 
+}
+
+-(void) SearchDrama: notification
+{
+    NSMutableArray *array =[notification object];
+    
+    [DramaServices searchDrama:1 keyWorld:@"" tids:array success:^(NSArray *array)
+    {
+        self._arrayVideo =[[NSMutableArray alloc ] initWithArray:array];
+        [_findTableView reloadData];
+        
+    } failure:^(NSDictionary *error) {
+        
+    }];
+    
+    
 }
 
 //加载用户头像
@@ -534,7 +552,7 @@
             dramaRight=[self._arrayVideo objectAtIndex:(indexPath.row*2+1)];
         }
         allCell.delegate = self;
-        [allCell setControlLeftData:dramaLeft rightData:dramaRight ];
+        [allCell setControlLeftData:dramaLeft rightData:dramaRight type:@""];
         return allCell;
     }
     return cell;

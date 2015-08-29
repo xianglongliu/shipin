@@ -27,66 +27,66 @@
     // Put teardown code here. This method is called after the invocation of each test method in the class.
     [super tearDown];
 }
-
-- (void)testExample {
-    // This is an example of a functional test case.
-    //XCTAssert(YES, @"Pass");
-    expectation=[self expectationWithDescription:@"test"];
-    @try{
-
-
-        [DramaServices pullAllDramaList:1 success:^(NSArray *array) {
-
-            NSLog(@"coun=%d",[array count]);
-
-
-//            [expectation fulfill];
-        } failure:^(NSDictionary *error) {
-
-        }];
-
-
-        [self waitForExpectationsWithTimeout:10.0 handler:^(NSError *err){
-            if(err){
-                NSLog(@"Timeout Error:%@",err);
-            }
-        }];
-    }@catch (NSException *exception) {
-
-        NSLog(@"initFromServer error:%@", [exception description]);
-    }
-
-}
-
-- (void)testDetail {
-    // This is an example of a functional test case.
-    //XCTAssert(YES, @"Pass");
-    expectation=[self expectationWithDescription:@"test"];
-    @try{
-
-
-
-        NSArray *array1 = @[@2];
-        [DramaServices searchDrama:1 keyWorld:@"四" tids:nil success:^(NSArray *array) {
-
-            NSLog(@"arrayCount=%d",array.count);
-        } failure:^(NSDictionary *error) {
-
-        }];
-
-
-        [self waitForExpectationsWithTimeout:10.0 handler:^(NSError *err){
-            if(err){
-                NSLog(@"Timeout Error:%@",err);
-            }
-        }];
-    }@catch (NSException *exception) {
-
-        NSLog(@"initFromServer error:%@", [exception description]);
-    }
-
-}
-
+//
+//- (void)testExample {
+//    // This is an example of a functional test case.
+//    //XCTAssert(YES, @"Pass");
+//    expectation=[self expectationWithDescription:@"test"];
+//    @try{
+//
+//
+//        [DramaServices pullAllDramaList:1 success:^(NSArray *array) {
+//
+//            NSLog(@"coun=%d",[array count]);
+//
+//
+////            [expectation fulfill];
+//        } failure:^(NSDictionary *error) {
+//
+//        }];
+//
+//
+//        [self waitForExpectationsWithTimeout:10.0 handler:^(NSError *err){
+//            if(err){
+//                NSLog(@"Timeout Error:%@",err);
+//            }
+//        }];
+//    }@catch (NSException *exception) {
+//
+//        NSLog(@"initFromServer error:%@", [exception description]);
+//    }
+//
+//}
+//
+//- (void)testDetail {
+//    // This is an example of a functional test case.
+//    //XCTAssert(YES, @"Pass");
+//    expectation=[self expectationWithDescription:@"test"];
+//    @try{
+//
+//
+//
+//        NSArray *array1 = @[@2];
+//        [DramaServices searchDrama:1 keyWorld:@"四" tids:nil success:^(NSArray *array) {
+//
+//            NSLog(@"arrayCount=%d",array.count);
+//        } failure:^(NSDictionary *error) {
+//
+//        }];
+//
+//
+//        [self waitForExpectationsWithTimeout:10.0 handler:^(NSError *err){
+//            if(err){
+//                NSLog(@"Timeout Error:%@",err);
+//            }
+//        }];
+//    }@catch (NSException *exception) {
+//
+//        NSLog(@"initFromServer error:%@", [exception description]);
+//    }
+//
+//}
+//
 
 
 

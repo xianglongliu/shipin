@@ -13,5 +13,7 @@
     UITableView     *_tableViewSearch;
     NSMutableArray  *_arraySearch;
     UISearchBar     *_searchBar;
+    
+    DramaModel      *_dramaModle;
 }
 @end

@@ -138,7 +138,10 @@
 #pragma mark tableview function
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return [_arrayPublish count]/2;
+    if([_arrayPublish count]%2 == 0)
+        return [_arrayPublish count]/2;
+    else
+        return [_arrayPublish count]/2+[_arrayPublish count]%2;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -151,10 +154,27 @@
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
     }
     
-    dramaLeft  =[_arrayPublish objectAtIndex:(indexPath.row*2)];
-    dramaRight=[_arrayPublish objectAtIndex:(indexPath.row*2+1)];
+    if([_arrayPublish count]%2 == 0)
+    {
+        dramaLeft  =[_arrayPublish objectAtIndex:(indexPath.row*2)];
+        dramaRight=[_arrayPublish objectAtIndex:(indexPath.row*2+1)];
+    }
+    else
+    {
+//        NSLog(@"%ld",(indexPath.row*2));
+//        NSLog(@"%ld",(indexPath.row*2)+1);
+        dramaLeft  =[_arrayPublish objectAtIndex:(indexPath.row*2)];
+        if ( ((indexPath.row*2)+1) < [_arrayPublish count] )
+        {
+            dramaRight=[_arrayPublish objectAtIndex:(indexPath.row*2+1)];
+        }
+        else
+            dramaRight =nil;
+        
+    }
+    
     cell.delegate = self;
-    [cell setControlLeftData:dramaLeft rightData:dramaRight ];
+    [cell setControlLeftData:dramaLeft rightData:dramaRight type:@"publish"];
 
     return cell;
 }
@@ -168,7 +188,6 @@
 {
     
 }
-
 
 -(void)mViewControllerShouldPush:(DramaModel *)itemData
 {

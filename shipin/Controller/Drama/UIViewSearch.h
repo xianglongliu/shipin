@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "DramaTags.h"
 
 @protocol pushSearchViewDelegate <NSObject>
 @optional
@@ -30,6 +31,14 @@
     NSMutableArray     *_arrayTwo;
     NSMutableArray     *_arrayThree;
     NSMutableArray     *_arrayFour;
+    
+    
+    NSString            *_strType;
+    NSString            *_strCountry;
+    NSString            *_strPlot;
+    NSString            *_strYear;
+    
+    DramaTags           *_tagModle;
     
 }
 

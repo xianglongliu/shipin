@@ -94,8 +94,11 @@
 #pragma mark tableview function
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-
-    return [_arrayBrowse count]/2;
+//    NSLog(@"%ld",[_arrayBrowse count]/2+[_arrayBrowse count]%2);
+    if([_arrayBrowse count]%2 == 0)
+        return [_arrayBrowse count]/2;
+    else
+        return [_arrayBrowse count]/2+[_arrayBrowse count]%2;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -108,11 +111,27 @@
     }
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
     
-    dramaLeft  =[_arrayBrowse objectAtIndex:(indexPath.row*2)];
-    dramaRight=[_arrayBrowse objectAtIndex:(indexPath.row*2+1)];
+    if([_arrayBrowse count]%2 == 0)
+    {
+        dramaLeft  =[_arrayBrowse objectAtIndex:(indexPath.row*2)];
+        dramaRight=[_arrayBrowse objectAtIndex:(indexPath.row*2+1)];
+    }
+    else
+    {
+        NSLog(@"%ld",(indexPath.row*2));
+        NSLog(@"%ld",(indexPath.row*2)+1);
+        dramaLeft  =[_arrayBrowse objectAtIndex:(indexPath.row*2)];
+        if ( ((indexPath.row*2)+1) < [_arrayBrowse count] )
+        {
+            dramaRight=[_arrayBrowse objectAtIndex:(indexPath.row*2+1)];
+        }
+        else
+            dramaRight =nil;
+        
+    }
     
     cell.delegate = self;
-    [cell setControlLeftData:dramaLeft rightData:dramaRight ];
+    [cell setControlLeftData:dramaLeft rightData:dramaRight type:@""];
 
     return cell;
 }

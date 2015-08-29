@@ -8,6 +8,7 @@
 
 #import "SearchViewController.h"
 #import "SearchTableViewCell.h"
+#import "DramaDetialViewController.h"
 
 @interface SearchViewController ()
 
@@ -63,7 +64,7 @@
 #pragma mark tableview function
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return 2;// [_arraySearch count];
+    return  [_arraySearch count];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -76,6 +77,9 @@
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
     }
     
+    _dramaModle = [_arraySearch objectAtIndex:indexPath.row];
+    [cell setCtrlData:_dramaModle];
+    
     return cell;
 }
 
@@ -86,13 +90,32 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    _dramaModle = [_arraySearch objectAtIndex:indexPath.row];
     
+    DramaDetialViewController *dramaDetialView = [[DramaDetialViewController alloc ] init];
+    dramaDetialView.nId = [ [_dramaModle.id stringValue ] intValue];
+    [self.navigationController pushViewController:dramaDetialView animated:YES];
 }
 
 - (void)searchBarSearchButtonClicked:(UISearchBar *)searchBar
 {
     [_searchBar resignFirstResponder];
+    //关键字搜索
+    [DramaServices searchDrama:1 keyWorld:searchBar.text tids:nil success:^(NSArray *array)
+    {
+        if ([array count] == 0 )
+        {
+            [Tool showWarningTip:@"没有相关电影" view:self.view time:1];
+            return ;
+        }
+        _arraySearch = [[NSMutableArray alloc ] initWithArray:array];
+        [_tableViewSearch reloadData];
+        
+    } failure:^(NSDictionary *error) {
+        [Tool showWarningTip:@"搜索失败" view:self.view time:1];
+    }];
 }
+
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];

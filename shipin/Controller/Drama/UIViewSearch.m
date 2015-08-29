@@ -9,7 +9,7 @@
 #import <LKDBHelper/LKDBHelper.h>
 #import "UIViewSearch.h"
 #import "SearchViewController.h"
-#import "DramaTags.h"
+
 
 @implementation UIViewSearch
 @synthesize delegate;
@@ -20,6 +20,11 @@
     if (self)
     {
 
+        _strType = @"新上线";
+        _strCountry = @"全部";
+        _strPlot= @"全部";
+        _strYear= @"全部";
+        
         DramaTags *tag = [[DramaTags alloc] init];
         tag.id=0;
         tag.name=@"全部";
@@ -56,12 +61,8 @@
         }
 
         _arrayTwo = [[NSMutableArray alloc] init];
-
-
-
         [_arrayTwo addObject:tag];
         [_arrayTwo addObjectsFromArray:[self getTags:@(2)]];
-//        _arrayTwo = [[NSArray alloc ] initWithArray:[self getTags:@(2)]];
 
         for (int row = 0; row <2; row++)
         {
@@ -172,6 +173,10 @@
     {
         if (btnIndex == sender.tag)
         {
+            _tagModle =  [_arrayOne objectAtIndex:btnIndex];
+            _strType =_tagModle.name;
+            
+            [self tagClick:_strType Country:_strCountry Plot:_strPlot Year:_strYear];
             [ btnLine1[btnIndex] setBackgroundColor:yellowRgb];
             [ btnLine1[btnIndex] setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
         }
@@ -191,6 +196,10 @@
     {
         if (btnIndex == sender.tag)
         {
+            _tagModle =  [_arrayTwo objectAtIndex:btnIndex];
+            _strCountry =_tagModle.name;
+
+            [self tagClick:_strType Country:_strCountry Plot:_strPlot Year:_strYear];
             [ btnLine2[btnIndex] setBackgroundColor:yellowRgb];
             [ btnLine2[btnIndex] setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
         }
@@ -210,6 +219,10 @@
     {
         if (btnIndex == sender.tag)
         {
+            _tagModle =  [_arrayThree objectAtIndex:btnIndex];
+            _strPlot =_tagModle.name;
+            
+            [self tagClick:_strType Country:_strCountry Plot:_strPlot Year:_strYear];
             [ btnLine3[btnIndex] setBackgroundColor:yellowRgb];
             [ btnLine3[btnIndex] setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
         }
@@ -228,6 +241,10 @@
     {
         if (btnIndex == sender.tag)
         {
+            _tagModle =  [_arrayFour objectAtIndex:btnIndex];
+            _strYear =_tagModle.name;
+            
+            [self tagClick:_strType Country:_strCountry Plot:_strPlot Year:_strYear];
             [ btnLine4[btnIndex] setBackgroundColor:yellowRgb];
             [ btnLine4[btnIndex] setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
         }
@@ -238,6 +255,14 @@
         }
     }
 }
+
+-(void) tagClick:(NSString *)one Country:(NSString *)country Plot:(NSString *)plot Year:(NSString *)year
+{
+    NSMutableArray *arrayTags = [[NSMutableArray alloc ] initWithObjects:one,country,plot,year, nil];
+    
+    [[NSNotificationCenter defaultCenter ] postNotificationName:@"notification_tags" object:arrayTags];
+}
+
 
 -(NSMutableArray *) getTags:(NSNumber *)type{
 

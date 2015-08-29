@@ -61,7 +61,6 @@
     [textIdentifyingCode setBackgroundColor:[UIColor whiteColor]];
     textIdentifyingCode.layer.masksToBounds = YES;
     textIdentifyingCode.layer.cornerRadius = 3;
-//    [textIdentifyingCode setText:@"7700"];
     [self.view addSubview:textIdentifyingCode];
 
 //    是否同意协议
@@ -137,7 +136,7 @@
         NSDictionary *d = responseObject;
         if([[d objectForKey:@"code"] integerValue]== 0 )
         {
-            textIdentifyingCode.text = [d objectForKey:@"data"] ;
+//            textIdentifyingCode.text = [d objectForKey:@"data"] ;
             [self Countdown60];
         }
         else
@@ -191,8 +190,6 @@
              //保存登陆状态
              [Config saveLoginFlag:@"YES"];
              [Config saveIsLogin:@"YES"];
-             //保存用户id
-//             [Config saveUserId:@"YES"];
              
             if( [[Config getToken] length] > 0  )
             {

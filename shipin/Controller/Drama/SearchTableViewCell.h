@@ -13,6 +13,10 @@
 {
     UILabel         *_labelName;
     UIImageView     *_imageView;
+    UILabel         *_labelContent;
 }
+
+-(void) setCtrlData:(DramaModel *)dramaItem;
+
 
 @end

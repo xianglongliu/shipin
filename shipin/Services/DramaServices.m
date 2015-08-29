@@ -217,24 +217,24 @@ IMP_SINGLETON(DramaServices)
 + (void)searchDrama:(int)pageNum keyWorld:(NSString *)keyWorld tids:(NSArray *)tids success:(void (^)(NSArray *array))success failure:(void (^)(NSDictionary *error))failure
 {
     NSMutableDictionary *paramDict = [[NSMutableDictionary alloc] init];
-
-    if(pageNum!=0){
+    if(pageNum!=0)
+    {
         paramDict[@"page"] = @(pageNum);
     }
-    if(keyWorld!=nil){
-
+    if(keyWorld!=nil)
+    {
         paramDict[@"keyword"] = keyWorld;
     }
-    if(tids!=nil){
-
+    if(tids!=nil)
+    {
         paramDict[@"tids"] = [tids componentsJoinedByString:@","];
     }
+    
     HttpProtocol *httpProtocol = [[HttpProtocol alloc] init];
     httpProtocol.requestUrl=[NSString stringWithFormat:@"%@",URL_SEARCH];
     httpProtocol.param=paramDict;
     httpProtocol.method=@"get";
     httpProtocol.token=[Config getToken];
-//    httpProtocol.token=@"g4TD4B9vO7z8GR3yKYlVwg==";//[Config getToken];
 
     [[HttpManager sharedInstance] httpWithRequest:httpProtocol success:^(AFHTTPRequestOperation *operation, id responseObject)
     {
@@ -242,20 +242,12 @@ IMP_SINGLETON(DramaServices)
         if([responseObject isKindOfClass:[NSDictionary class]])
         {
             NSArray<NSDictionary> *datum = [responseObject objectForKey:@"datum"];
+             NSMutableArray *dramaArray= [[NSMutableArray alloc] init];
             if(datum!=nil && [datum count]>0)
-            {
-                NSMutableArray *dramaArray= [[NSMutableArray alloc] init];
+            {  
                 for (NSDictionary *drama in datum)
                 {
                     NSLog(@"dramaJson=%@", [drama JSONString]);
-
-
-                    //插入数据库
-//                    Drama *dramaEntity = [[Drama alloc] init];
-//                    dramaEntity.id = drama[@"id"];
-//                    dramaEntity.content=[drama JSONString];
-//                    dramaEntity.type= drama[@"type"];
-//                    [[LKDBHelper getUsingLKDBHelper] insertToDB:dramaEntity];
 
                     NSError* err = nil;
                     DramaModel *dramaModel = [[DramaModel alloc] initWithString:[drama JSONString] error:&err];
@@ -269,6 +261,10 @@ IMP_SINGLETON(DramaServices)
                 if(success)
                     success(dramaArray);
             }
+            else
+                if(success)
+                    success(dramaArray);
+
         }
     } failure:^(AFHTTPRequestOperation *operation, NSError *error){
         if(failure)

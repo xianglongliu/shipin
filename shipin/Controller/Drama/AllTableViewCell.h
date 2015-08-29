@@ -29,6 +29,13 @@
     UILabel     *_labelReadCountRight;
     UILabel     *_labelGzCountRight;
     UIImageView *_imageViewUserRight;
+    UILabel     *_labelReadNameRight;
+    UILabel     *_labelGzNameRight;
+    UILabel     *_labelbgDowmRight;
+    
+    UILabel     *_labelStateLeft;
+    UILabel     *_labelStateRight;
+    
     
     UITapGestureRecognizer *gestureLeft;
     UITapGestureRecognizer *gestureRight;
@@ -41,6 +48,6 @@
 
 @property (nonatomic, strong) id <imageClickDelegate> delegate;
 
--(void) setControlLeftData:(DramaModel *)leftData rightData:(DramaModel *)rightData;
+-(void) setControlLeftData:(DramaModel *)leftData rightData:(DramaModel *)rightData type:(NSString *) type;
 
 @end

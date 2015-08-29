@@ -40,6 +40,13 @@
         [labelTextBg setBackgroundColor:[UIColor whiteColor] ];
         [self addSubview:labelTextBg];
         
+        
+        _labelContent= [[UILabel alloc ] initWithFrame:CGRectMake(labelImageBg.frame.size.width+labelImageBg.frame.origin.x+10, labelImageBg.frame.origin.y+10, labelBg.frame.size.width-labelImageBg.frame.size.width-20, labelImageBg.frame.size.height-20)];
+        [_labelContent setBackgroundColor:[UIColor clearColor] ];
+        _labelContent.numberOfLines = 0;
+        [_labelContent setLineBreakMode:NSLineBreakByCharWrapping];
+        [_labelContent setFont:[UIFont systemFontOfSize:10]];
+        [self addSubview:_labelContent];
     }
     return self;
 }
@@ -49,9 +56,11 @@
     if ([dramaItem.posters count] > 0 )
     {
         DramaPostersModel *imageUrl = dramaItem.posters[0];
-        [_imageView sd_setImageWithURL:[NSURL URLWithString:imageUrl.poster] placeholderImage:DefaultImage];
+        [_imageView sd_setImageWithURL:[Tool stringMerge:imageUrl.poster] placeholderImage:DefaultImage];
     }
     
+    [_labelName setText:[NSString stringWithFormat:@"   %@",dramaItem.name] ];
+    [_labelContent setText:dramaItem.brief];
 }
 
 @end

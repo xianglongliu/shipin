@@ -197,7 +197,6 @@
         [btnFollowImage addTarget:self action:@selector(onButtonFollow) forControlEvents:UIControlEventTouchUpInside];
         [cell addSubview:btnFollowImage];
         
-        
         return cell;
     }
     //add edit button

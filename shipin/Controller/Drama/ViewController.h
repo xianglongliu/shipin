@@ -13,6 +13,7 @@
 #import "MJRefreshFooterView.h"
 #import "imageClickDelegate.h"
 #import "UIViewSearch.h"
+#import "DramaTags.h"
 
 @interface ViewController : BaseViewController<UITableViewDataSource,UITableViewDelegate,EGORefreshTableHeaderDelegate,imageClickDelegate,pushSearchViewDelegate,UIGestureRecognizerDelegate>
 {

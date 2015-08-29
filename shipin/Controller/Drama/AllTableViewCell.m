@@ -26,9 +26,9 @@
         
         _imageViewLeft = [[UIImageView alloc ] initWithFrame:CGRectMake(10, 10, (SCREEN_WIDTH-30)/2, (SCREEN_WIDTH-30)/2-40)];
         [_imageViewLeft setBackgroundColor:[UIColor grayColor]];
-        _imageViewLeft.layer.masksToBounds = YES;
-        _imageViewLeft.layer.cornerRadius = 3;
-        [_imageViewLeft setContentMode:UIViewContentModeScaleAspectFill];
+//        _imageViewLeft.layer.masksToBounds = YES;
+//        _imageViewLeft.layer.cornerRadius = 3;
+//        [_imageViewLeft setContentMode:UIViewContentModeScaleAspectFill];
         [_imageViewLeft setUserInteractionEnabled:YES];
         [self addSubview:_imageViewLeft];
         
@@ -42,12 +42,14 @@
         [_labelFilmNameLeft setBackgroundColor:[UIColor clearColor]];
         [_labelFilmNameLeft setTextColor:RGB(34, 34, 34)];
         [_labelFilmNameLeft setFont:[UIFont systemFontOfSize:12]];
+         [_labelFilmNameLeft setUserInteractionEnabled:YES];
         [self addSubview:_labelFilmNameLeft];
         //介绍
         _labelFilmContentLeft = [[UILabel alloc ] initWithFrame:CGRectMake(15, _labelFilmNameLeft.frame.size.height+_labelFilmNameLeft.frame.origin.y+5, _imageViewLeft.frame.size.width-10, 12)];
         [_labelFilmContentLeft setBackgroundColor:[UIColor clearColor]];
         [_labelFilmContentLeft setTextColor:RGB(153, 153, 153)];
         [_labelFilmContentLeft setFont:[UIFont systemFontOfSize:8]];
+         [_labelFilmContentLeft setUserInteractionEnabled:YES];
         [self addSubview:_labelFilmContentLeft];
         //阅读数量
         _labelReadCountLeft= [[UILabel alloc ] initWithFrame:CGRectMake(5, labelbgLeft.frame.size.height+labelbgLeft.frame.origin.y+2, 15, 12)];
@@ -55,6 +57,7 @@
         [_labelReadCountLeft setTextColor:yellowRgb];
         [_labelReadCountLeft setFont:[UIFont systemFontOfSize:7]];
         [_labelReadCountLeft setTextAlignment:NSTextAlignmentRight];
+         [_labelReadCountLeft setUserInteractionEnabled:YES];
         [self addSubview:_labelReadCountLeft];
         
         UILabel *labelReadNameLeft= [[UILabel alloc ] initWithFrame:CGRectMake(_labelReadCountLeft.frame.origin.x+_labelReadCountLeft.frame.size.width+3, labelbgLeft.frame.size.height+labelbgLeft.frame.origin.y+2, 30, 12)];
@@ -62,6 +65,7 @@
         [labelReadNameLeft setTextColor:RGB(153, 153, 153)];
         [labelReadNameLeft setFont:[UIFont systemFontOfSize:7]];
         [labelReadNameLeft setTextAlignment:NSTextAlignmentLeft];
+         [labelReadNameLeft setUserInteractionEnabled:YES];
         [labelReadNameLeft setText:@"阅读"];
         [self addSubview:labelReadNameLeft];
         
@@ -70,6 +74,7 @@
         [_labelGzCountLeft setTextColor:yellowRgb];
         [_labelGzCountLeft setFont:[UIFont systemFontOfSize:7]];
         [_labelGzCountLeft setTextAlignment:NSTextAlignmentRight];
+         [_labelGzCountLeft setUserInteractionEnabled:YES];
         [self addSubview:_labelGzCountLeft];
         
         UILabel *labelGzNameLeft= [[UILabel alloc ] initWithFrame:CGRectMake(_labelGzCountLeft.frame.origin.x+_labelGzCountLeft.frame.size.width+3, labelbgLeft.frame.size.height+labelbgLeft.frame.origin.y+2, 30, 12)];
@@ -77,8 +82,18 @@
         [labelGzNameLeft setTextColor:RGB(153, 153, 153)];
         [labelGzNameLeft setFont:[UIFont systemFontOfSize:7]];
         [labelGzNameLeft setTextAlignment:NSTextAlignmentLeft];
+         [labelGzNameLeft setUserInteractionEnabled:YES];
         [labelGzNameLeft setText:@"关注"];
         [self addSubview:labelGzNameLeft];
+        
+        _labelStateLeft = [[UILabel alloc ] initWithFrame:CGRectMake(_labelReadCountLeft.frame.origin.x+_labelReadCountLeft.frame.size.width+20, labelbgLeft.frame.size.height+labelbgLeft.frame.origin.y+2, SCREEN_WIDTH/4, 12)];
+        [_labelStateLeft setBackgroundColor:[UIColor clearColor]];
+        [_labelStateLeft setTextColor:RGB(153, 153, 153)];
+        [_labelStateLeft setFont:[UIFont systemFontOfSize:7]];
+        [_labelStateLeft setTextAlignment:NSTextAlignmentCenter];
+        [_labelStateLeft setText:@"审核"];
+        [_labelStateLeft setHidden:YES];
+        [self addSubview:_labelStateLeft];
         
 //        右侧数据
          _labelbgRight = [[UILabel alloc ] initWithFrame:CGRectMake(_labelbgLeft.frame.size.width+_labelbgLeft.frame.origin.x+10, 10, (SCREEN_WIDTH-30)/2, 160)];
@@ -94,10 +109,10 @@
         _imageViewRight.layer.cornerRadius = 3;
         [self addSubview:_imageViewRight];
         
-        UILabel *labelbgRight = [[UILabel alloc ] initWithFrame:CGRectMake(_imageViewRight.frame.origin.x, _imageViewRight.frame.origin.y+_imageViewLeft.frame.size.height, _imageViewLeft.frame.size.width, 40)];
-        [labelbgRight setUserInteractionEnabled:YES];
-        [labelbgRight setBackgroundColor:RGB(255, 255, 255)];
-        [self addSubview:labelbgRight];
+         _labelbgDowmRight = [[UILabel alloc ] initWithFrame:CGRectMake(_imageViewRight.frame.origin.x, _imageViewRight.frame.origin.y+_imageViewLeft.frame.size.height, _imageViewLeft.frame.size.width, 40)];
+        [_labelbgDowmRight setUserInteractionEnabled:YES];
+        [_labelbgDowmRight setBackgroundColor:RGB(255, 255, 255)];
+        [self addSubview:_labelbgDowmRight];
 
         
         _labelFilmNameRight = [[UILabel alloc ] initWithFrame:CGRectMake(_imageViewRight.frame.origin.x+5, _imageViewRight.frame.size.height+_imageViewRight.frame.origin.y+5, _imageViewRight.frame.size.width-10, 15)];
@@ -113,20 +128,20 @@
         [self addSubview:_labelFilmContentRight];
         
         //阅读数量
-        _labelReadCountRight= [[UILabel alloc ] initWithFrame:CGRectMake(labelbgRight.frame.origin.x, labelbgRight.frame.size.height+labelbgRight.frame.origin.y+2, 15, 12)];
+        _labelReadCountRight= [[UILabel alloc ] initWithFrame:CGRectMake(_labelbgDowmRight.frame.origin.x, _labelbgDowmRight.frame.size.height+_labelbgDowmRight.frame.origin.y+2, 15, 12)];
         [_labelReadCountRight setBackgroundColor:[UIColor clearColor]];
         [_labelReadCountRight setTextColor:yellowRgb];
         [_labelReadCountRight setFont:[UIFont systemFontOfSize:7]];
         [_labelReadCountRight setTextAlignment:NSTextAlignmentRight];
         [self addSubview:_labelReadCountRight];
         
-        UILabel *labelReadNameRight= [[UILabel alloc ] initWithFrame:CGRectMake(_labelReadCountRight.frame.origin.x+_labelReadCountRight.frame.size.width+3, labelbgLeft.frame.size.height+labelbgLeft.frame.origin.y+2, 30, 12)];
-        [labelReadNameRight setBackgroundColor:[UIColor clearColor]];
-        [labelReadNameRight setTextColor:RGB(153, 153, 153)];
-        [labelReadNameRight setFont:[UIFont systemFontOfSize:7]];
-        [labelReadNameRight setTextAlignment:NSTextAlignmentLeft];
-        [labelReadNameRight setText:@"阅读"];
-        [self addSubview:labelReadNameRight];
+        _labelReadNameRight= [[UILabel alloc ] initWithFrame:CGRectMake(_labelReadCountRight.frame.origin.x+_labelReadCountRight.frame.size.width+3, labelbgLeft.frame.size.height+labelbgLeft.frame.origin.y+2, 30, 12)];
+        [_labelReadNameRight setBackgroundColor:[UIColor clearColor]];
+        [_labelReadNameRight setTextColor:RGB(153, 153, 153)];
+        [_labelReadNameRight setFont:[UIFont systemFontOfSize:7]];
+        [_labelReadNameRight setTextAlignment:NSTextAlignmentLeft];
+        [_labelReadNameRight setText:@"阅读"];
+        [self addSubview:_labelReadNameRight];
 
         _labelGzCountRight= [[UILabel alloc ] initWithFrame:CGRectMake(SCREEN_WIDTH-45, labelbgLeft.frame.size.height+labelbgLeft.frame.origin.y+2, 15, 12)];
         [_labelGzCountRight setBackgroundColor:[UIColor clearColor]];
@@ -135,13 +150,13 @@
         [_labelGzCountRight setTextAlignment:NSTextAlignmentRight];
         [self addSubview:_labelGzCountRight];
         
-        UILabel *labelGzNameRight= [[UILabel alloc ] initWithFrame:CGRectMake(_labelGzCountRight.frame.origin.x+_labelGzCountRight.frame.size.width+3, labelbgLeft.frame.size.height+labelbgLeft.frame.origin.y+2, 30, 12)];
-        [labelGzNameRight setBackgroundColor:[UIColor clearColor]];
-        [labelGzNameRight setTextColor:RGB(153, 153, 153)];
-        [labelGzNameRight setFont:[UIFont systemFontOfSize:7]];
-        [labelGzNameRight setTextAlignment:NSTextAlignmentLeft];
-        [labelGzNameRight setText:@"关注"];
-        [self addSubview:labelGzNameRight];
+        _labelGzNameRight= [[UILabel alloc ] initWithFrame:CGRectMake(_labelGzCountRight.frame.origin.x+_labelGzCountRight.frame.size.width+3, labelbgLeft.frame.size.height+labelbgLeft.frame.origin.y+2, 30, 12)];
+        [_labelGzNameRight setBackgroundColor:[UIColor clearColor]];
+        [_labelGzNameRight setTextColor:RGB(153, 153, 153)];
+        [_labelGzNameRight setFont:[UIFont systemFontOfSize:7]];
+        [_labelGzNameRight setTextAlignment:NSTextAlignmentLeft];
+        [_labelGzNameRight setText:@"关注"];
+        [self addSubview:_labelGzNameRight];
         
         
         //用户头像
@@ -162,44 +177,83 @@
         [_imageViewUserRight setUserInteractionEnabled:YES];
         [self addSubview:_imageViewUserRight];
         
+        _labelStateRight = [[UILabel alloc ] initWithFrame:CGRectMake(_labelReadCountRight.frame.origin.x+_labelReadCountRight.frame.size.width+20, _labelbgDowmRight.frame.size.height+_labelbgDowmRight.frame.origin.y+2, SCREEN_WIDTH/4, 12)];
+        [_labelStateRight setBackgroundColor:[UIColor clearColor]];
+        [_labelStateRight setTextColor:RGB(153, 153, 153)];
+        [_labelStateRight setFont:[UIFont systemFontOfSize:7]];
+        [_labelStateRight setTextAlignment:NSTextAlignmentCenter];
+        [_labelStateRight setText:@"审核"];
+        [_labelStateRight setHidden:YES];
+        [self addSubview:_labelStateRight];
+
+        
     }
     return self;
 }
 
-
--(void) setControlLeftData:(DramaModel *)leftData rightData:(DramaModel *)rightData
+-(void) showHideRightCtrl:(BOOL) SH
 {
-    if([leftData.name length] > 0 )
+    [_labelbgRight setHidden:SH];
+    [_imageViewRight  setHidden:SH];
+    [_labelFilmNameRight  setHidden:SH];
+    [_labelFilmContentRight setHidden:SH];
+    [_labelReadCountRight setHidden:SH];
+    [_labelGzCountRight  setHidden:SH];
+    [_imageViewUserRight  setHidden:SH];
+    [_labelReadNameRight setHidden:SH];
+    [_labelGzNameRight setHidden:SH];
+    [_labelbgDowmRight setHidden:SH];
+}
+
+-(void) setControlLeftData:(DramaModel *)leftData rightData:(DramaModel *)rightData type:(NSString *) type
+{
+    _leftData =leftData;
+    _rightData =rightData;
+    //    左面数据
+    DramaPostersModel *posterModle;
+    if ([leftData.posters count] > 0)
     {
-        _leftData =leftData;
-        _rightData =rightData;
-        //    左面数据
-        DramaPostersModel *posterModle;
-        if ([leftData.posters count] > 0)
-        {
-            posterModle =leftData.posters[0];
-            [_imageViewLeft sd_setImageWithURL:[Tool stringMerge:posterModle.poster] placeholderImage:DefaultImage];
-            [_imageViewUserLeft sd_setImageWithURL:[Tool stringMerge:leftData.avatar] placeholderImage:[UIImage imageNamed:@"image_defaulthead.png"]];
-            [_labelFilmNameLeft setText:leftData.name];
-            [_labelFilmContentLeft setText:leftData.brief];
-            
-            DramaOpModel *countItem=leftData.dramaOp;
-            NSLog(@"%@", [countItem.clicks stringValue]);
-            [_labelReadCountLeft setText:[Tool getCount:[leftData.dramaOp.clicks stringValue]] ];
-            [_labelGzCountLeft setText:[Tool getCount:[leftData.dramaOp.collects stringValue]] ];
-        } else{
-
-            [_imageViewLeft sd_setImageWithURL:nil placeholderImage:DefaultImage];
-            [_imageViewUserLeft sd_setImageWithURL:nil placeholderImage:[UIImage imageNamed:@"image_defaulthead.png"]];
-            [_labelFilmNameLeft setText:leftData.name];
-            [_labelFilmContentLeft setText:leftData.brief];
-
-            DramaOpModel *countItem=leftData.dramaOp;
-            NSLog(@"%@", [countItem.clicks stringValue]);
-            [_labelReadCountLeft setText:[Tool getCount:[leftData.dramaOp.clicks stringValue]] ];
-            [_labelGzCountLeft setText:[Tool getCount:[leftData.dramaOp.collects stringValue]] ];
-        }
+        posterModle =leftData.posters[0];
+        [_imageViewLeft sd_setImageWithURL:[Tool stringMerge:posterModle.poster] placeholderImage:DefaultImage];
+        [_imageViewUserLeft sd_setImageWithURL:[Tool stringMerge:leftData.avatar] placeholderImage:[UIImage imageNamed:@"image_defaulthead.png"]];
+        [_labelFilmNameLeft setText:leftData.name];
+        [_labelFilmContentLeft setText:leftData.brief];
         
+        DramaOpModel *countItem=leftData.dramaOp;
+        NSLog(@"%@", [countItem.clicks stringValue]);
+        [_labelReadCountLeft setText:[Tool getCount:[leftData.dramaOp.clicks stringValue]] ];
+        [_labelGzCountLeft setText:[Tool getCount:[leftData.dramaOp.collects stringValue]] ];
+        if ([type isEqualToString:@"publish"])
+        {
+            [_labelStateLeft setHidden:NO];
+            if ([[leftData.status stringValue] intValue] == 1)
+                [_labelStateLeft setText:@"未审核"];
+            else
+               [_labelStateLeft setText:@"审核通过"];
+        }
+    }
+    else
+    {
+        [_imageViewLeft sd_setImageWithURL:[Tool stringMerge:posterModle.poster] placeholderImage:DefaultImage];
+        [_imageViewUserLeft sd_setImageWithURL:[Tool stringMerge:leftData.avatar] placeholderImage:[UIImage imageNamed:@"image_defaulthead.png"]];
+        [_labelFilmNameLeft setText:leftData.name];
+        [_labelFilmContentLeft setText:leftData.brief];
+
+        DramaOpModel *countItem=leftData.dramaOp;
+        NSLog(@"%@", [countItem.clicks stringValue]);
+        [_labelReadCountLeft setText:[Tool getCount:[leftData.dramaOp.clicks stringValue]] ];
+        [_labelGzCountLeft setText:[Tool getCount:[leftData.dramaOp.collects stringValue]] ];
+        if ([type isEqualToString:@"publish"])
+        {
+            [_labelStateLeft setHidden:NO];
+            if ([[leftData.status stringValue] intValue] == 1)
+                [_labelStateLeft setText:@"未审核"];
+            else
+                [_labelStateLeft setText:@"审核通过"];
+        }
+    }
+    if (rightData != nil)
+    {
         //    右面数据
         if ([rightData.posters count] > 0)
         {
@@ -211,37 +265,53 @@
             
             [_labelReadCountRight setText:[Tool getCount:[rightData.dramaOp.clicks stringValue]] ];
             [_labelGzCountRight setText:[Tool getCount:[rightData.dramaOp.collects stringValue]] ];
-        } else{
-
-            [_imageViewRight sd_setImageWithURL:nil placeholderImage:DefaultImage];
-            [_imageViewUserRight sd_setImageWithURL:nil placeholderImage:[UIImage imageNamed:@"image_defaulthead.png"]];
+            if ([type isEqualToString:@"publish"])
+            {
+                [_labelStateRight setHidden:NO];
+                if ([[rightData.status stringValue] intValue] == 1)
+                    [_labelStateRight setText:@"未审核"];
+                else
+                    [_labelStateRight setText:@"审核通过"];
+            }
+        }
+        else
+        {
+            
+            [_imageViewRight sd_setImageWithURL:[Tool stringMerge:posterModle.poster] placeholderImage:DefaultImage];
+            [_imageViewUserRight sd_setImageWithURL:[Tool stringMerge:rightData.avatar] placeholderImage:[UIImage imageNamed:@"image_defaulthead.png"]];
             [_labelFilmNameRight setText:rightData.name];
             [_labelFilmContentRight setText:rightData.brief];
-
+            
             [_labelReadCountRight setText:[Tool getCount:[rightData.dramaOp.clicks stringValue]] ];
             [_labelGzCountRight setText:[Tool getCount:[rightData.dramaOp.collects stringValue]] ];
+            if ([type isEqualToString:@"publish"])
+            {
+                [_labelStateRight setHidden:NO];
+                if ([[rightData.status stringValue] intValue] == 1)
+                    [_labelStateRight setText:@"未审核"];
+                else
+                    [_labelStateRight setText:@"审核通过"];
+            }
         }
+    }
+    else
+        [self showHideRightCtrl:YES ];
         
 //        给图片添加点击事件
-        _labelbgLeft.tag=[[_leftData.id stringValue] intValue];
-        _imageViewLeft.tag=[[_leftData.id stringValue] intValue];
-        if(!gestureLeft)
-        {
-            gestureLeft=[[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(imageClick:)];
-            gestureLeft.numberOfTapsRequired=1;
-            [_labelbgLeft addGestureRecognizer:gestureLeft];
-            [_imageViewLeft addGestureRecognizer:gestureLeft];
-        }
-        
-        _labelbgRight.tag=[[_rightData.id stringValue] intValue];
-        _imageViewRight.tag=[[_leftData.id stringValue] intValue];
-        if(!gestureRight)
-        {
-            gestureRight=[[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(imageClick:)];
-            gestureRight.numberOfTapsRequired=1;
-            [_labelbgRight addGestureRecognizer:gestureRight];
-            [_imageViewRight addGestureRecognizer:gestureRight];
-        }
+    _labelbgLeft.tag=[[_leftData.id stringValue] intValue];
+    if(!gestureLeft)
+    {
+        gestureLeft=[[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(imageClick:)];
+        gestureLeft.numberOfTapsRequired=1;
+        [_labelbgLeft addGestureRecognizer:gestureLeft];
+    }
+    
+    _labelbgRight.tag=[[_rightData.id stringValue] intValue];
+    if(!gestureRight)
+    {
+        gestureRight=[[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(imageClick:)];
+        gestureRight.numberOfTapsRequired=1;
+        [_labelbgRight addGestureRecognizer:gestureRight];
     }
 }
 

@@ -15,8 +15,8 @@
     NSMutableArray      *_arrayBrowse;
     UITableView         *_tableViewBrowse;
 
-    DramaModel *dramaLeft;
-    DramaModel *dramaRight;
+    DramaModel          *dramaLeft;
+    DramaModel          *dramaRight;
 }
 
 
