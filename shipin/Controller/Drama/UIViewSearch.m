@@ -39,7 +39,7 @@
         
         _arrayOne = [[NSMutableArray alloc] init];
         [_arrayOne addObjectsFromArray:[self getTags:@(1)]];
-        for (int i = 0; i < 3; i++)
+        for (int i = 0; i < [_arrayOne count]; i++)
         {
             btnLine1[i] = [[UIButton alloc ] initWithFrame:CGRectMake(10+(i*43), searchBar.frame.size.height+searchBar.frame.origin.y+10, 40, 15)];
             [ btnLine1[i] setTitle:[_arrayOne[i] name] forState:UIControlStateNormal];

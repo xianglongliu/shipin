@@ -17,13 +17,13 @@
 
 @interface UIViewSearch : UIView<UISearchBarDelegate>
 {
-    UIButton    *btnLine1[3];
+    UIButton    *btnLine1[100];
 
-    UIButton    *btnLine2[20];
+    UIButton    *btnLine2[100];
     
-    UIButton    *btnLine3[28];
+    UIButton    *btnLine3[100];
     
-    UIButton    *btnLine4[7];
+    UIButton    *btnLine4[100];
     
     id<pushSearchViewDelegate> delegate;
     
