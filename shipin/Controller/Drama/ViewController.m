@@ -545,12 +545,24 @@
         AllTableViewCell *allCell  = [[AllTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier: @"AllTableViewCell"];
             allCell.selectionStyle = UITableViewCellSelectionStyleNone;
 
-         dramaLeft  =[self._arrayVideo objectAtIndex:(indexPath.row*2)];
-        //最后一条数组不能越界
-        if ((indexPath.row*2+1)<[self._arrayVideo count])
+        
+        if([self._arrayVideo count]%2 == 0)
         {
+            dramaLeft  =[self._arrayVideo objectAtIndex:(indexPath.row*2)];
             dramaRight=[self._arrayVideo objectAtIndex:(indexPath.row*2+1)];
         }
+        else
+        {
+            dramaLeft  =[self._arrayVideo objectAtIndex:(indexPath.row*2)];
+            if ( ((indexPath.row*2)+1) < [self._arrayVideo count] )
+            {
+                dramaRight=[self._arrayVideo objectAtIndex:(indexPath.row*2+1)];
+            }
+            else
+                dramaRight =nil;
+            
+        }
+
         allCell.delegate = self;
         [allCell setControlLeftData:dramaLeft rightData:dramaRight type:@""];
         return allCell;
