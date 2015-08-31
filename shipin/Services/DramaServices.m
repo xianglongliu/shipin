@@ -180,7 +180,7 @@ IMP_SINGLETON(DramaServices)
     httpProtocol.param=nil;
     httpProtocol.method=@"get";
     httpProtocol.token=@"g4TD4B9vO7z8GR3yKYlVwg==";
-//    httpProtocol.token=[Config getToken];
+   // httpProtocol.token=[Config getToken];
 
     [[HttpManager sharedInstance] httpWithRequest:httpProtocol success:^(AFHTTPRequestOperation *operation, id responseObject)
     {
@@ -245,9 +245,11 @@ IMP_SINGLETON(DramaServices)
             NSArray<NSDictionary> *datum = [responseObject objectForKey:@"datum"];
              NSMutableArray *dramaArray= [[NSMutableArray alloc] init];
             if(datum!=nil && [datum count]>0)
-            {  
+            {
+                NSLog(@"dramaCount=%d", [datum count]);
                 for (NSDictionary *drama in datum)
                 {
+
 //                    NSLog(@"dramaJson=%@", [drama JSONString]);
 
                     NSError* err = nil;
