@@ -519,7 +519,10 @@
     }
     if ([ strBtnClick isEqualToString:@"btnAll" ])
     {
-        return [self._arrayVideo count]/2;
+        if([self._arrayVideo count]%2 == 0)
+            return [self._arrayVideo count]/2;
+        else
+            return [self._arrayVideo count]/2+[self._arrayVideo count]%2;
     }
     return 0;
 }
