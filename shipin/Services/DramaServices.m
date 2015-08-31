@@ -184,7 +184,7 @@ IMP_SINGLETON(DramaServices)
 
     [[HttpManager sharedInstance] httpWithRequest:httpProtocol success:^(AFHTTPRequestOperation *operation, id responseObject)
     {
-//        NSLog(@"getDramaTags=%@", [responseObject JSONString]);
+        NSLog(@"getDramaTags=%@", [responseObject JSONString]);
         if([responseObject isKindOfClass:[NSArray class]])
         {
             if(responseObject!=nil && [responseObject count]>0)
@@ -229,7 +229,7 @@ IMP_SINGLETON(DramaServices)
     {
         paramDict[@"tids"] = [tids componentsJoinedByString:@","];
     }
-    
+    NSLog(@"%@",paramDict);
     HttpProtocol *httpProtocol = [[HttpProtocol alloc] init];
     httpProtocol.requestUrl=[NSString stringWithFormat:@"%@",URL_SEARCH];
     httpProtocol.param=paramDict;
@@ -239,6 +239,7 @@ IMP_SINGLETON(DramaServices)
     [[HttpManager sharedInstance] httpWithRequest:httpProtocol success:^(AFHTTPRequestOperation *operation, id responseObject)
     {
         NSLog(@"responseObject=%@", [responseObject JSONString]);
+//        NSLog(@"dramaJson=%@", [responseObject JSONString]);
         if([responseObject isKindOfClass:[NSDictionary class]])
         {
             NSArray<NSDictionary> *datum = [responseObject objectForKey:@"datum"];
@@ -247,7 +248,7 @@ IMP_SINGLETON(DramaServices)
             {  
                 for (NSDictionary *drama in datum)
                 {
-                    NSLog(@"dramaJson=%@", [drama JSONString]);
+//                    NSLog(@"dramaJson=%@", [drama JSONString]);
 
                     NSError* err = nil;
                     DramaModel *dramaModel = [[DramaModel alloc] initWithString:[drama JSONString] error:&err];
