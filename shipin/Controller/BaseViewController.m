@@ -15,7 +15,7 @@
 
 @implementation BaseViewController
 
--(void) viewDidAppear:(BOOL)animated
+-(void) viewWillAppear:(BOOL)animated
 {
     self.navigationController.interactivePopGestureRecognizer.enabled = NO;
 }
@@ -23,6 +23,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+      [[UIApplication  sharedApplication] setStatusBarHidden:NO];
     // Do any additional setup after loading the view.
     [self.view setBackgroundColor:[UIColor whiteColor]];
     [self.navigationController setNavigationBarHidden:YES animated:NO];

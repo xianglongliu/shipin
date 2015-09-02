@@ -23,13 +23,14 @@
 
 -(void)viewWillAppear:(BOOL)animated
 {
-     [[UIApplication sharedApplication] setStatusBarHidden:YES];
-     [self loadUserInfo];
+    [[UIApplication  sharedApplication] setStatusBarHidden:NO];
+    [self loadUserInfo];
 }
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    [[UIApplication  sharedApplication] setStatusBarHidden:NO];
     [self.view setBackgroundColor:[UIColor whiteColor]];
     _myDramaArray= [[NSMutableArray alloc ] initWithCapacity:0];
     mutableArray = [[NSMutableArray alloc ] initWithCapacity:0];

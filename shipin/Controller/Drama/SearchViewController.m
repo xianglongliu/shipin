@@ -19,6 +19,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+      [[UIApplication  sharedApplication] setStatusBarHidden:NO];
     // Do any additional setup after loading the view.
     
     UIView *viewNav = [[ExUINavigationBar alloc ] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, TABBAR_HEIGHT) ];

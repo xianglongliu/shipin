@@ -85,4 +85,17 @@
     [upload synchronize];
 }
 
+
++(NSString *)getFirstLoginState
+{
+    NSUserDefaults *isfirstlogin = [NSUserDefaults standardUserDefaults];
+    return [isfirstlogin objectForKey:@"isfirstlogin"];
+}
++(void)saveFirstLogin:(NSString *)state
+{
+    NSUserDefaults *isfirstlogin = [NSUserDefaults standardUserDefaults];
+    [isfirstlogin setValue:state forKey:@"isfirstlogin"];
+    [isfirstlogin synchronize];
+}
+
 @end

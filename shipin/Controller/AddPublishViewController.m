@@ -20,7 +20,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    
+    [[UIApplication  sharedApplication] setStatusBarHidden:NO];
      _arrayPublish = [[NSMutableArray alloc ] initWithCapacity:0];
     
     [self initViewCtrl];

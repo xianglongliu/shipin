@@ -29,4 +29,8 @@
 +(NSString *)getUpdateUserHeadImage;
 +(void)setUpdateUserHeadImage:(NSString *)flag;
 
++(NSString *)getFirstLoginState;
++(void)saveFirstLogin:(NSString *)state;
+
+
 @end

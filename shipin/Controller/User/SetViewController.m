@@ -29,6 +29,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+      [[UIApplication  sharedApplication] setStatusBarHidden:NO];
     // Do any additional setup after loading the view.
     [self loadUserInfo ];
 }

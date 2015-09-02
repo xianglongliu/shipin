@@ -39,6 +39,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    [[UIApplication  sharedApplication] setStatusBarHidden:NO];
     [self.view setBackgroundColor:RGB(221, 221, 221)];
     strBtnClick = @"btnGood";
     bIsColl = FALSE;

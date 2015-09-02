@@ -18,6 +18,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    [[UIApplication  sharedApplication] setStatusBarHidden:NO];
     _arraySystemMsg = [[NSMutableArray alloc ] initWithCapacity:0];
     
     [self initViewCtrl];

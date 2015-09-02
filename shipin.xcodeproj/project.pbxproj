@@ -65,6 +65,10 @@
 		EE7944FA1B7F57B10032DF3A /* btn_addpublish.png in Resources */ = {isa = PBXBuildFile; fileRef = EE7944F91B7F57B10032DF3A /* btn_addpublish.png */; };
 		EE8069FA1B7F148B0098DA30 /* image_collection.png in Resources */ = {isa = PBXBuildFile; fileRef = EE8069F91B7F148B0098DA30 /* image_collection.png */; };
 		EE8069FC1B7F15850098DA30 /* image_heart.png in Resources */ = {isa = PBXBuildFile; fileRef = EE8069FB1B7F15850098DA30 /* image_heart.png */; };
+		EE8669A21B96F4E300A114B2 /* guide_image1.png in Resources */ = {isa = PBXBuildFile; fileRef = EE86699F1B96F4E300A114B2 /* guide_image1.png */; };
+		EE8669A31B96F4E300A114B2 /* guide_image2.png in Resources */ = {isa = PBXBuildFile; fileRef = EE8669A01B96F4E300A114B2 /* guide_image2.png */; };
+		EE8669A41B96F4E300A114B2 /* guide_image3.png in Resources */ = {isa = PBXBuildFile; fileRef = EE8669A11B96F4E300A114B2 /* guide_image3.png */; };
+		EE8669A71B96F4FE00A114B2 /* GuideViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EE8669A61B96F4FE00A114B2 /* GuideViewController.m */; };
 		EE87D2121B58ADA4002A0DD8 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = EE87D2111B58ADA4002A0DD8 /* main.m */; };
 		EE87D2151B58ADA4002A0DD8 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = EE87D2141B58ADA4002A0DD8 /* AppDelegate.m */; };
 		EE87D21D1B58ADA4002A0DD8 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EE87D21C1B58ADA4002A0DD8 /* Images.xcassets */; };
@@ -244,6 +248,11 @@
 		EE7944F91B7F57B10032DF3A /* btn_addpublish.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = btn_addpublish.png; path = Resource/Button/btn_addpublish.png; sourceTree = "<group>"; };
 		EE8069F91B7F148B0098DA30 /* image_collection.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = image_collection.png; path = Resource/Image/image_collection.png; sourceTree = "<group>"; };
 		EE8069FB1B7F15850098DA30 /* image_heart.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = image_heart.png; path = Resource/Image/image_heart.png; sourceTree = "<group>"; };
+		EE86699F1B96F4E300A114B2 /* guide_image1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = guide_image1.png; path = Resource/GuideImage/guide_image1.png; sourceTree = "<group>"; };
+		EE8669A01B96F4E300A114B2 /* guide_image2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = guide_image2.png; path = Resource/GuideImage/guide_image2.png; sourceTree = "<group>"; };
+		EE8669A11B96F4E300A114B2 /* guide_image3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = guide_image3.png; path = Resource/GuideImage/guide_image3.png; sourceTree = "<group>"; };
+		EE8669A51B96F4FE00A114B2 /* GuideViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GuideViewController.h; path = Controller/GuideViewController.h; sourceTree = "<group>"; };
+		EE8669A61B96F4FE00A114B2 /* GuideViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GuideViewController.m; path = Controller/GuideViewController.m; sourceTree = "<group>"; };
 		EE87D20C1B58ADA4002A0DD8 /* shipin.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = shipin.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EE87D2101B58ADA4002A0DD8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		EE87D2111B58ADA4002A0DD8 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -485,19 +494,20 @@
 		EE71843A1B58F49700C4EF24 /* Resource */ = {
 			isa = PBXGroup;
 			children = (
-				EE625BD91B8EDEFE00DB8C2B /* FVCustomAlertView */,
 				EE6DD5151B8C5C4000348615 /* loading_black_280x180.gif */,
 				EE726FB21B81AEA600C66CF9 /* 640_1136.png */,
 				EE726FB31B81AEA600C66CF9 /* 640.png */,
 				EE726FAF1B81A0C400C66CF9 /* Default-568h@2x.png */,
 				EEDCB5D11B633E4200EB9135 /* navigationbar.png */,
+				E83F3228F43F97E01FB8C42C /* picture_default.png */,
 				EEEE3C9B1B82126D00F87ABE /* use.txt */,
 				EE908C491B7F072500505B82 /* Button */,
 				D5FEE0101B770E7400E8AC03 /* check */,
+				EE625BD91B8EDEFE00DB8C2B /* FVCustomAlertView */,
+				EE86699E1B96F4D900A114B2 /* GuideImage */,
 				EE726F991B819ECB00C66CF9 /* Icon */,
 				EE908C3E1B7F05F700505B82 /* Image */,
 				EE8E0B311B8DAAB3005F4BDF /* Loading */,
-				E83F3228F43F97E01FB8C42C /* picture_default.png */,
 			);
 			name = Resource;
 			sourceTree = "<group>";
@@ -563,6 +573,16 @@
 				EEDC184B1B803EC20013E61B /* WifiViewController.m */,
 			);
 			name = Publish;
+			sourceTree = "<group>";
+		};
+		EE86699E1B96F4D900A114B2 /* GuideImage */ = {
+			isa = PBXGroup;
+			children = (
+				EE86699F1B96F4E300A114B2 /* guide_image1.png */,
+				EE8669A01B96F4E300A114B2 /* guide_image2.png */,
+				EE8669A11B96F4E300A114B2 /* guide_image3.png */,
+			);
+			name = GuideImage;
 			sourceTree = "<group>";
 		};
 		EE87D2031B58ADA4002A0DD8 = {
@@ -634,6 +654,8 @@
 		EE87D2351B58DD42002A0DD8 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				EE8669A51B96F4FE00A114B2 /* GuideViewController.h */,
+				EE8669A61B96F4FE00A114B2 /* GuideViewController.m */,
 				EE908C3B1B7EEBB800505B82 /* BaseViewController.h */,
 				EEDA73D31B8300C1008823CE /* UIWebViewLoad.h */,
 				EE908C3C1B7EEBB800505B82 /* BaseViewController.m */,
@@ -1019,14 +1041,17 @@
 				D5FEE0141B770EB000E8AC03 /* uncheckgoods.png in Resources */,
 				EEEE3C9C1B82126D00F87ABE /* use.txt in Resources */,
 				D5FEE0131B770EB000E8AC03 /* uncheckawardblack.png in Resources */,
+				EE8669A41B96F4E300A114B2 /* guide_image3.png in Resources */,
 				EE908C4C1B7F072F00505B82 /* btn_back.png in Resources */,
 				EE726FB11B81A0C400C66CF9 /* Default-568h@2x.png in Resources */,
+				EE8669A21B96F4E300A114B2 /* guide_image1.png in Resources */,
 				EEDC186E1B805F160013E61B /* blackArrow@2x.png in Resources */,
 				EE7530EB1B81D6B300EA3823 /* ico-down-arrow.png in Resources */,
 				EEDC18761B805F160013E61B /* whiteArrow@2x.png in Resources */,
 				EEDC18491B8038FC0013E61B /* image_mobile.png in Resources */,
 				EE726FAB1B819ED900C66CF9 /* Icon-Small@2x.png in Resources */,
 				EE8E0B3C1B8DAABB005F4BDF /* loading_2.png in Resources */,
+				EE8669A31B96F4E300A114B2 /* guide_image2.png in Resources */,
 				EE726FA91B819ED900C66CF9 /* Icon-76@2x.png in Resources */,
 				EE726FA41B819ED900C66CF9 /* Icon-40.png in Resources */,
 				E83F3ECAC32AF289818AAB6B /* picture_default.png in Resources */,
@@ -1109,6 +1134,7 @@
 				EEDC18721B805F160013E61B /* EGORefreshTableHeaderView.m in Sources */,
 				EE6845B41B7E025800D6D6F5 /* HttpProtocol.m in Sources */,
 				EEDCB6131B63864100EB9135 /* Tool.m in Sources */,
+				EE8669A71B96F4FE00A114B2 /* GuideViewController.m in Sources */,
 				EE625BD11B8EAB3A00DB8C2B /* DramaPostersModel.m in Sources */,
 				EE87D2151B58ADA4002A0DD8 /* AppDelegate.m in Sources */,
 				EEDA73D21B82DDD1008823CE /* BrowseViewController.m in Sources */,

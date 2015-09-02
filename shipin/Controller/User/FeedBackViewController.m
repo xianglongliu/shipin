@@ -17,6 +17,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    [[UIApplication  sharedApplication] setStatusBarHidden:NO];
     [self.view setBackgroundColor:RGB(238, 238, 238)];
     
     [self initViewCtrl];

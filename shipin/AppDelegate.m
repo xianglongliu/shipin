@@ -9,6 +9,7 @@
 #import "AppDelegate.h"
 #import "ViewController.h"
 #import "ExUINavigationController.h"
+#import "GuideViewController.h"
 
 @interface AppDelegate ()
 
@@ -21,9 +22,19 @@
 {
     // Override point for customization after application launch.
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
-    ViewController *mainView = [[ViewController alloc]init];
-    ExUINavigationController *nav =[[ExUINavigationController alloc]initWithRootViewController:mainView];
-    self.window.rootViewController = nav;
+    if(![[Config getFirstLoginState] isEqualToString:@"YES"])
+    {
+        GuideViewController *mainView = [[GuideViewController alloc]init];
+        ExUINavigationController *nav =[[ExUINavigationController alloc]initWithRootViewController:mainView];
+        self.window.rootViewController = nav;
+        [Config saveFirstLogin:@"YES"];
+    }
+    else
+    {
+        ViewController *mainView = [[ViewController alloc]init];
+        ExUINavigationController *nav =[[ExUINavigationController alloc]initWithRootViewController:mainView];
+        self.window.rootViewController = nav;
+    }
     [self.window makeKeyAndVisible];
     return YES;
 

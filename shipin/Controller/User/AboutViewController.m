@@ -17,7 +17,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    
+    [[UIApplication  sharedApplication] setStatusBarHidden:NO];
     [self initViewCtrl];
 }
 

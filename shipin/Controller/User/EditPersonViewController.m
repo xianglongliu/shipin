@@ -19,6 +19,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+      [[UIApplication  sharedApplication] setStatusBarHidden:NO];
     // Do any additional setup after loading the view.
     [self.view setBackgroundColor:[UIColor whiteColor] ];
     mutableArray = [[NSMutableArray alloc ] initWithCapacity:0];

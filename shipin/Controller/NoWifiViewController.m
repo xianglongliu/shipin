@@ -19,6 +19,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    [[UIApplication  sharedApplication] setStatusBarHidden:NO];
     // Do any additional setup after loading the view.
     arrayHeight = [[NSArray alloc ] initWithObjects:@"30",@"40",@"15",@"30",@"80",@"15",@"30",@"40",@"40",@"40",@"40",@"40",@"15",@"30",@"40",@"80", nil];
     _dramaModel = [[DramaModel alloc ] init];

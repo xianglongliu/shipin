@@ -20,6 +20,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+      [[UIApplication  sharedApplication] setStatusBarHidden:NO];
     // Do any additional setup after loading the view.
     arrayAPeoper = [[NSMutableArray alloc ] initWithCapacity:0];
     [self initViewCtrl];
