@@ -249,7 +249,7 @@
             dramaModle =_myDramaArray[i];
             SimilaritiesModel *similarities = [[SimilaritiesModel alloc ] init];
             
-            similarities.Id =dramaModle.id;
+            similarities.sdid =dramaModle.id;
             if([dramaModle.posters count] > 0 )
             {
                 DramaPostersModel *imageItem = [[DramaPostersModel alloc ] init];

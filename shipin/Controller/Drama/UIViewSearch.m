@@ -38,6 +38,7 @@
         [self addSubview:searchBar];
         
         _arrayOne = [[NSMutableArray alloc] init];
+        [_arrayOne addObject:tag];
         [_arrayOne addObjectsFromArray:[self getTags:@(1)]];
         for (int i = 0; i < [_arrayOne count]; i++)
         {

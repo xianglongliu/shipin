@@ -90,7 +90,7 @@ NSString *const cellIdentifier=@"HorzonItemCell";
     self.similaritiedItem =[self.userLogoList objectAtIndex:indexPath.row];
     
     DramaDetialViewController *dramaDetialView=[[DramaDetialViewController alloc]init];
-    dramaDetialView.nId=[[self.similaritiedItem.Id stringValue] intValue];
+    dramaDetialView.nId=[[self.similaritiedItem.sdid stringValue] intValue];
     [self.navigation pushViewController:dramaDetialView animated:YES];
     
 }

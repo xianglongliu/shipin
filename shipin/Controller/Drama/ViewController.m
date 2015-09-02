@@ -69,7 +69,7 @@
 {
     NSMutableArray *array =[notification object];
     
-    [DramaServices searchDrama:1 keyWorld:@"" tids:array success:^(NSArray *array)
+    [DramaServices searchDrama:1 keyWorld:nil tids:array success:^(NSArray *array)
     {
         self._arrayVideo =[[NSMutableArray alloc ] initWithArray:array];
         [_findTableView reloadData];
