@@ -65,7 +65,15 @@
         [_arrayTwo addObject:tag];
         [_arrayTwo addObjectsFromArray:[self getTags:@(2)]];
 
-        for (int row = 0; row <2; row++)
+
+        int rowCount = [_arrayTwo count]%7;
+        if(rowCount != 0){
+            rowCount= [_arrayTwo count]/7+1;
+        } else{
+            rowCount = [_arrayTwo count]/7;
+        }
+
+        for (int row = 0; row < rowCount; row++)
         {
             for (int i = 0; i < 7; i++)
             {
@@ -98,16 +106,22 @@
         _arrayThree = [[NSMutableArray alloc] init];
         [_arrayThree addObject:tag];
         [_arrayThree addObjectsFromArray:[self getTags:@(3)]];
-        
+
+        int threeRowCount = [_arrayThree count]%7;
+        if(threeRowCount != 0){
+            threeRowCount= [_arrayThree count]/7+1;
+        } else{
+            threeRowCount = [_arrayThree count]/7;
+        }
 //       _arrayThree = [[NSArray alloc ] initWithArray:[self getTags:@(3)]];
-        
-        for (int row = 0; row <4; row++)
+
+        for (int row = 0; row <threeRowCount; row++)
         {
             for (int i = 0; i < 7; i++)
             {
                 if ((row*7)+i < [_arrayThree count])
                 {
-                    btnLine3[(row*7)+i] = [[UIButton alloc ] initWithFrame:CGRectMake(10+(i*43),  btnLine2[7].frame.size.height+ btnLine2[7].frame.origin.y+10 +(row*23), 40, 15)];
+                    btnLine3[(row*7)+i] = [[UIButton alloc ] initWithFrame:CGRectMake(10+(i*43),  btnLine2[[_arrayTwo count]-1].frame.size.height+ btnLine2[[_arrayTwo count]-1].frame.origin.y+10 +(row*23), 40, 15)];
                     [btnLine3[(row*7)+i] setTitle:[_arrayThree[(row * 7) + i] name] forState:UIControlStateNormal];
                     btnLine3[(row*7)+i].titleLabel.font = [UIFont systemFontOfSize:10];
                     btnLine3[(row*7)+i].layer.masksToBounds = YES;
@@ -115,7 +129,7 @@
                     btnLine3[(row*7)+i].tag = (row*7)+i;
                     [btnLine3[(row*7)+i] addTarget:self action:@selector(onButtonThree:) forControlEvents:UIControlEventTouchUpInside];
                     [self addSubview:btnLine3[(row*7)+i]];
-                    
+
                     if ((row*7)+i ==0 )
                     {
                         [ btnLine3[(row*7)+i] setBackgroundColor:yellowRgb];
@@ -125,7 +139,7 @@
                         [ btnLine3[(row*7)+i] setBackgroundColor:[UIColor whiteColor]];
                         [ btnLine3[(row*7)+i] setTitleColor:RGB(153, 153, 153) forState:UIControlStateNormal];
                     }
-                    
+
                 }
             }
         }
@@ -133,25 +147,63 @@
         _arrayFour = [[NSMutableArray alloc] init];
         [_arrayFour addObject:tag];
         [_arrayFour addObjectsFromArray:[self getTags:@(4)]];
+
+        int fourRowCount = [_arrayFour count]%7;
+        if(fourRowCount != 0){
+            fourRowCount= [_arrayFour count]/7+1;
+        } else{
+            fourRowCount = [_arrayFour count]/7;
+        }
 //        _arrayFour = [[NSArray alloc ] initWithArray:[self getTags:@(4)]];
-        for (int i = 0; i < [_arrayFour count]; i++)
+//        for (int i = 0; i < fourRowCount; i++)
+//        {
+//            btnLine4[i] = [[UIButton alloc ] initWithFrame:CGRectMake(10+(i*43), btnLine3[[_arrayThree count]-1].frame.size.height+ btnLine3[[_arrayThree count]-1].frame.origin.y+10 , 40, 15)];
+//            [ btnLine4[i] setTitle:[_arrayFour[i] name] forState:UIControlStateNormal];
+//            btnLine4[i].titleLabel.font = [UIFont systemFontOfSize:10];
+//            btnLine4[i].layer.masksToBounds = YES;
+//            btnLine4[i].layer.cornerRadius =2;
+//            btnLine4[i].tag = i;
+//            [btnLine4[i] addTarget:self action:@selector(onButtonFour:) forControlEvents:UIControlEventTouchUpInside];
+//            [self addSubview: btnLine4[i]];
+//            if (i ==0 )
+//            {
+//                [ btnLine4[i] setBackgroundColor:yellowRgb];
+//            }
+//            else
+//            {
+//                [ btnLine4[i] setBackgroundColor:[UIColor whiteColor]];
+//                [ btnLine4[i] setTitleColor:RGB(153, 153, 153) forState:UIControlStateNormal];
+//            }
+//        }
+
+
+
+        for (int row = 0; row <fourRowCount; row++)
         {
-            btnLine4[i] = [[UIButton alloc ] initWithFrame:CGRectMake(10+(i*43), btnLine3[22].frame.size.height+ btnLine3[22].frame.origin.y+10 , 40, 15)];
-            [ btnLine4[i] setTitle:[_arrayFour[i] name] forState:UIControlStateNormal];
-            btnLine4[i].titleLabel.font = [UIFont systemFontOfSize:10];
-            btnLine4[i].layer.masksToBounds = YES;
-            btnLine4[i].layer.cornerRadius =2;
-            btnLine4[i].tag = i;
-            [btnLine4[i] addTarget:self action:@selector(onButtonFour:) forControlEvents:UIControlEventTouchUpInside];
-            [self addSubview: btnLine4[i]];
-            if (i ==0 )
+            for (int i = 0; i < 7; i++)
             {
-                [ btnLine4[i] setBackgroundColor:yellowRgb];
-            }
-            else
-            {
-                [ btnLine4[i] setBackgroundColor:[UIColor whiteColor]];
-                [ btnLine4[i] setTitleColor:RGB(153, 153, 153) forState:UIControlStateNormal];
+                if ((row*7)+i < [_arrayFour count])
+                {
+                    btnLine4[(row*7)+i] = [[UIButton alloc ] initWithFrame:CGRectMake(10+(i*43),  btnLine3[[_arrayThree count]-1].frame.size.height+ btnLine3[[_arrayThree count]-1].frame.origin.y+10 +(row*23), 40, 15)];
+                    [btnLine4[(row*7)+i] setTitle:[_arrayFour[(row * 7) + i] name] forState:UIControlStateNormal];
+                    btnLine4[(row*7)+i].titleLabel.font = [UIFont systemFontOfSize:10];
+                    btnLine4[(row*7)+i].layer.masksToBounds = YES;
+                    btnLine4[(row*7)+i].layer.cornerRadius =2;
+                    btnLine4[(row*7)+i].tag = (row*7)+i;
+                    [btnLine4[(row*7)+i] addTarget:self action:@selector(onButtonFour:) forControlEvents:UIControlEventTouchUpInside];
+                    [self addSubview:btnLine4[(row*7)+i]];
+
+                    if ((row*7)+i ==0 )
+                    {
+                        [ btnLine4[(row*7)+i] setBackgroundColor:yellowRgb];
+                    }
+                    else
+                    {
+                        [ btnLine4[(row*7)+i] setBackgroundColor:[UIColor whiteColor]];
+                        [ btnLine4[(row*7)+i] setTitleColor:RGB(153, 153, 153) forState:UIControlStateNormal];
+                    }
+
+                }
             }
         }
     }
