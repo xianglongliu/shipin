@@ -565,7 +565,7 @@
             //打开播放器
             if([dramaModle.trailer length] > 1)
             {
-                MPMoviePlayerViewController *playerView =[[MPMoviePlayerViewController alloc]initWithContentURL:[NSURL URLWithString:dramaModle.trailerUrl]];
+                MPMoviePlayerViewController *playerView =[[MPMoviePlayerViewController alloc]initWithContentURL:[NSURL URLWithString:dramaModle.trailer]];
                 [self presentMoviePlayerViewControllerAnimated:playerView];
             }
         }
