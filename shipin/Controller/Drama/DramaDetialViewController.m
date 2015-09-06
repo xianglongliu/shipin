@@ -133,7 +133,7 @@
 {
     if( clickIndex == 0)
     {
-        if([dramaModle.trailerUrl length] >1)
+        if([dramaModle.trailer length] >1)
             return 7;
         else
             return 6;
@@ -324,7 +324,7 @@
              }
              else if (  indexPath.row == 5 )
              {
-                 if([dramaModle.trailerUrl length] >1)
+                 if([dramaModle.trailer length] >1)
                  {
                      //图片
                      DramaDetialTableViewCell* cell = [[DramaDetialTableViewCell alloc] initWithReuseIdentifier:CellIdentifier];
@@ -455,7 +455,7 @@
         }
         if( clickIndex == 0)
         {
-            if([dramaModle.trailerUrl length] >1)
+            if([dramaModle.trailer length] >1)
             {
                 if( indexPath.row == 4 )
                 {
@@ -563,7 +563,7 @@
         if( indexPath.row == 5 )
         {
             //打开播放器
-            if([dramaModle.trailerUrl length] > 1)
+            if([dramaModle.trailer length] > 1)
             {
                 MPMoviePlayerViewController *playerView =[[MPMoviePlayerViewController alloc]initWithContentURL:[NSURL URLWithString:dramaModle.trailerUrl]];
                 [self presentMoviePlayerViewControllerAnimated:playerView];
