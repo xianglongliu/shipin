@@ -36,6 +36,7 @@
 
 -(void) viewWillAppear:(BOOL)animated
 {
+
     if([[Config getUpdateUserHeadImage] isEqualToString:@"YES"])
         [self loadUserInfo ];
 }
@@ -75,7 +76,7 @@
     {
         [_tableView removeFromSuperview];
     }
-    _tableView = [[UITableView alloc ] initWithFrame:CGRectMake(0, -20, SCREEN_WIDTH, SCREEN_HEIGHT+20) style:UITableViewStyleGrouped];
+    _tableView = [[UITableView alloc ] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, SCREEN_HEIGHT+20) style:UITableViewStyleGrouped];
     _tableView.delegate = self;
     _tableView.dataSource = self;
     _tableView.separatorColor = RGB(221,221,221);

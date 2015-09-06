@@ -19,5 +19,5 @@
 }
 
 @property (nonatomic,strong) NSString        *_searchName;
-@property (nonatomic,strong) NSString        *_searchNo;
+@property (nonatomic,strong) NSArray        *_searchNo;
 @end

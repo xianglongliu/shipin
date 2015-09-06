@@ -89,7 +89,8 @@
     bIsColl = TRUE;
     [self onButtonSpreadOut];
     SearchViewController *searchView = [[SearchViewController alloc ] init];
-    searchView._searchNo = [NSString stringWithFormat:@"%@,%@,%@,%@",_arraySearch[0],_arraySearch[1],_arraySearch[2],_arraySearch[3]];
+    NSArray *searchIds = [NSArray arrayWithArray:[_arraySearch subarrayWithRange:NSMakeRange(0, 3)]];
+    searchView._searchNo = searchIds; //[NSString stringWithFormat:@"%@,%@,%@,%@",_arraySearch[0],_arraySearch[1],_arraySearch[2],_arraySearch[3]];
     searchView._searchName =[NSString stringWithFormat:@"%@,%@,%@,%@",_arraySearch[4],_arraySearch[5],_arraySearch[6],_arraySearch[7]];
     [self.navigationController pushViewController:searchView animated:YES ];
     

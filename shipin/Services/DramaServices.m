@@ -55,9 +55,10 @@ IMP_SINGLETON(DramaServices)
                     }
                     [dramaArray addObject:dramaModel];
                 }
-                if(success)
-                    success(dramaArray);
+
             }
+            if(success)
+                success(dramaArray);
         }
     } failure:^(AFHTTPRequestOperation *operation, NSError *error){
         failure(@{@"result":error});
@@ -131,13 +132,13 @@ IMP_SINGLETON(DramaServices)
 
     [[HttpManager sharedInstance] httpWithRequest:httpProtocol success:^(AFHTTPRequestOperation *operation, id responseObject)
     {
+        NSMutableArray *dramaArray= [[NSMutableArray alloc] init];
         NSLog(@"dramaJson=%@", [responseObject JSONString]);
         if([responseObject isKindOfClass:[NSDictionary class]])
         {
             NSArray<NSDictionary> *datum = [responseObject objectForKey:@"datum"];
             if(datum!=nil && [datum count]>0)
             {
-                NSMutableArray *dramaArray= [[NSMutableArray alloc] init];
                 for (NSDictionary *drama in datum)
                 {
                     NSLog(@"dramaJson=%@", [drama JSONString]);
@@ -160,10 +161,11 @@ IMP_SINGLETON(DramaServices)
                     }
                     [dramaArray addObject:dramaModel];
                 }
-                if(success)
-                    success(dramaArray);
+
             }
         }
+        if(success)
+            success(dramaArray);
     } failure:^(AFHTTPRequestOperation *operation, NSError *error){
         if(failure)
             failure(@{@"result":error});

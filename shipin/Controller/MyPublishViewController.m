@@ -76,30 +76,34 @@
 
 -(void) loadNetWorkData
 {
-    LKDBHelper *helper = [LKDBHelper getUsingLKDBHelper];
-    NSString *orderBy = @"CAST(id as integer) desc";
-    NSMutableArray * dramaArray = [helper search:[MyDrama class] where:nil orderBy:orderBy offset:0 count:10];
+    if ([NetWorkState getNetWorkState] == NotReachable )
+    {
+        LKDBHelper *helper = [LKDBHelper getUsingLKDBHelper];
+        NSString *orderBy = @"CAST(id as integer) desc";
+        NSMutableArray * dramaArray = [helper search:[MyDrama class] where:nil orderBy:orderBy offset:0 count:10];
 
-    if(dramaArray!=nil && [dramaArray count]>0){
+        if(dramaArray!=nil && [dramaArray count]>0){
 
 
-        NSMutableArray* array = [[NSMutableArray alloc] init];
-        for(MyDrama *drama in dramaArray){
+            NSMutableArray* array = [[NSMutableArray alloc] init];
+            for(MyDrama *drama in dramaArray){
 
-            NSError* err = nil;
-            DramaModel *dramaModel = [[DramaModel alloc] initWithString:drama.content error:&err];
+                NSError* err = nil;
+                DramaModel *dramaModel = [[DramaModel alloc] initWithString:drama.content error:&err];
 
-            if(err!=nil)
-            {
-                NSLog(@"getOldDatasERROR:::%@",err );
+                if(err!=nil)
+                {
+                    NSLog(@"getOldDatasERROR:::%@",err );
+                }
+                [array addObject:dramaModel];
+
             }
-            [array addObject:dramaModel];
 
+            _arrayPublish=array;
+            [_tableView reloadData];
         }
 
-        _arrayPublish=array;
-        [_tableView reloadData];
-    }
+    } else{
 
         [UserService getPublishes:^(NSArray *dramaArray)
         {
@@ -117,6 +121,10 @@
         {
             [Tool showWarningTip:@"加载我的发布失败" view:self.view time:1];
         }];
+    }
+
+
+
 
 
 

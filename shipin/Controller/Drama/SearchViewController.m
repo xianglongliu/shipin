@@ -55,7 +55,7 @@
 -(void) loadHotSearchData
 {
     //关键字搜索
-    [DramaServices searchDrama:1 keyWorld:self._searchNo tids:nil success:^(NSArray *array)
+    [DramaServices searchDrama:1 keyWorld:nil tids:self._searchNo success:^(NSArray *array)
      {
          if ([array count] == 0 )
          {

@@ -256,18 +256,18 @@ IMP_SINGLETON(UserService)
 
 + (void)sendPublish:(DramaModel *)dramaModel success:(void (^)(Boolean *boolean))success failure:(void (^)(NSString *error))failure {
 
-    NSDictionary *paramDict = @{@"name" : dramaModel.name,
-            @"brief" : dramaModel.brief,
-            @"staring" : dramaModel.staring,
-            @"district" : dramaModel.district,
-            @"language" : dramaModel.language,
-            @"premiere" : dramaModel.premiere,
-            @"recommend" : dramaModel.recommend,
-            @"distribution" : dramaModel.distribution,
-            @"present" : dramaModel.present,
-            @"boot" : dramaModel.boot,
-            @"wrap" : dramaModel.wrap,
-            @"episodes" : dramaModel.episodes,
+    NSDictionary *paramDict = @{@"name" : dramaModel.name!=nil?dramaModel.name:@"",
+            @"brief" : dramaModel.brief!=nil?dramaModel.brief:@"",
+            @"staring" : dramaModel.staring!=nil?dramaModel.staring:@"",
+            @"district" : dramaModel.district!=nil?dramaModel.district:@"",
+            @"language" : dramaModel.language!=nil?dramaModel.language:@"",
+            @"premiere" : dramaModel.premiere!=nil?dramaModel.premiere:@"",
+            @"recommend" : dramaModel.recommend!=nil?dramaModel.recommend:@"",
+            @"distribution" : dramaModel.distribution!=nil?dramaModel.distribution:@"",
+            @"present" : dramaModel.present!=nil?dramaModel.present:@"",
+            @"boot" : dramaModel.boot!=nil?dramaModel.boot:@"",
+            @"wrap" : dramaModel.wrap!=nil?dramaModel.wrap:@"",
+            @"episodes" : dramaModel.episodes!=nil?dramaModel.episodes:@"",
 
     };
 
