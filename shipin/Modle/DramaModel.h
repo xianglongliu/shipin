@@ -25,7 +25,7 @@
 @property (nonatomic,strong) NSString<Optional> *recommend; //推荐语
 @property (nonatomic,strong) DramaOpModel<Optional> *dramaOp; //阅读和关注数量
 @property (nonatomic,strong) NSArray<Optional,ScreenShotsModel> *screenShots; //图集
-@property (nonatomic,strong) NSString<Optional> *trailerUrl; //预告片地址
+@property (nonatomic,strong) NSString<Optional> *trailer; //预告片地址
 @property (nonatomic,strong) NSString<Optional> *director; //导演
 @property (nonatomic,strong) NSString<Optional> *staring; //主演
 @property (nonatomic,strong) NSString<Optional> *district; //地区
