@@ -133,7 +133,10 @@
 {
     if( clickIndex == 0)
     {
-        return 7;
+        if([dramaModle.trailerUrl length] >1)
+            return 7;
+        else
+            return 6;
     }
     else if( clickIndex == 1)
     {
@@ -321,18 +324,36 @@
              }
              else if (  indexPath.row == 5 )
              {
-                 //图片
-                 DramaDetialTableViewCell* cell = [[DramaDetialTableViewCell alloc] initWithReuseIdentifier:CellIdentifier];
-                 cell.selectionStyle = UITableViewCellSelectionStyleNone;
-                 
-                 if ([dramaModle.screenShots count] > 0 )
+                 if([dramaModle.trailerUrl length] >1)
                  {
-                     ScreenShotsModel *screenModel =dramaModle.screenShots[0];
-                     NSURL *url =[Tool stringMerge:screenModel.screenshot];
-                     [cell setIntroductionText:@"0" headImage:url imageHeight:SCREEN_WIDTH-106];
+                     //图片
+                     DramaDetialTableViewCell* cell = [[DramaDetialTableViewCell alloc] initWithReuseIdentifier:CellIdentifier];
+                     cell.selectionStyle = UITableViewCellSelectionStyleNone;
+                     
+                     if ([dramaModle.screenShots count] > 0 )
+                     {
+                         ScreenShotsModel *screenModel =dramaModle.screenShots[0];
+                         NSURL *url =[Tool stringMerge:screenModel.screenshot];
+                         [cell setIntroductionText:@"0" headImage:url imageHeight:SCREEN_WIDTH-106];
+                     }
+                     return cell;
                  }
-                 return cell;
-
+                 else
+                 {
+                     UITableViewCell* cellBtn = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
+                     cellBtn.selectionStyle = UITableViewCellSelectionStyleNone;
+                     
+                     UIButton *btnSave = [[UIButton alloc ] initWithFrame:CGRectMake(20, 10, SCREEN_WIDTH-40, 40)];
+                     [btnSave setTitle:@"加入收藏" forState:UIControlStateNormal];
+                     btnSave.titleLabel.font = [UIFont systemFontOfSize:14];
+                     [btnSave  setBackgroundColor:yellowRgb];
+                     btnSave.layer.masksToBounds = YES;
+                     btnSave.layer.cornerRadius = 3;
+                     [btnSave addTarget:self action:@selector(onButtonColloction) forControlEvents:UIControlEventTouchUpInside];
+                     [cellBtn addSubview:btnSave];
+                     return cellBtn;
+                 }
+               
              }
              else if(  indexPath.row == 6 )
              {
@@ -396,7 +417,7 @@
         }
         if( clickIndex == 1)
         {
-            return 285; //项目信息cell 高度
+            return 292; //项目信息cell 高度
         }
         if( clickIndex == 2)
         {
@@ -434,17 +455,31 @@
         }
         if( clickIndex == 0)
         {
-            if( indexPath.row == 4 )
+            if([dramaModle.trailerUrl length] >1)
             {
-                return  SCREEN_WIDTH-100;
+                if( indexPath.row == 4 )
+                {
+                    return  SCREEN_WIDTH-100;
+                }
+                if( indexPath.row == 5 )
+                {
+                    return  SCREEN_WIDTH-100;
+                }
+                if( indexPath.row == 6 )
+                {
+                    return  70;
+                }
             }
-            if( indexPath.row == 5 )
+            else
             {
-                return  SCREEN_WIDTH-100;
-            }
-            if( indexPath.row == 6 )
-            {
-                return  70;
+               if( indexPath.row == 4 )
+                {
+                    return  SCREEN_WIDTH-100;
+                }
+                if( indexPath.row == 5 )
+                {
+                    return  70;
+                }
             }
         }
     }
