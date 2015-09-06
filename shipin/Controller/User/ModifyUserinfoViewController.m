@@ -30,7 +30,7 @@
     [self.view addSubview:btnBack];
 
     
-    self._textContent = [[UITextField alloc ] initWithFrame:CGRectMake(20, TABBAR_HEIGHT+20, SCREEN_WIDTH-40, 30)];
+    self._textContent = [[UITextView alloc ] initWithFrame:CGRectMake(20, TABBAR_HEIGHT+20, SCREEN_WIDTH-40, 100)];
     self._textContent.layer.masksToBounds = YES;
     self._textContent.layer.cornerRadius = 3;
     [self._textContent setBackgroundColor:[UIColor whiteColor] ];
@@ -56,6 +56,14 @@
 //保存用户修改的用户信息
 -(void) onButtonModifyUserInfo
 {
+    if ([self.selModle.strLeftName isEqualToString:@"姓名"])
+    {
+        if([self._textContent.text length ] >9)
+        {
+            [Tool showWarningTip:@"名字不能超过9个字符" view:self.view time:1];
+            return;
+        }
+    }
     curSelModle = [[TextModel alloc ] init];
     
     curSelModle.strLeftName =self.selModle.strLeftName;

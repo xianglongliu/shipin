@@ -79,9 +79,6 @@ IMP_SINGLETON(DramaServices)
         {
             if([responseObject isKindOfClass:[NSDictionary class]])
             {
-
-
-
                 NSLog(@"%@", [responseObject JSONString]);
                 //插入数据库
                 DramaDetail *dramaDetail = [[DramaDetail alloc] init];

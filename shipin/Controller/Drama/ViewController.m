@@ -67,17 +67,31 @@
 
 -(void) SearchDrama: notification
 {
-    NSMutableArray *array =[notification object];
+    _arraySearch =[notification object];
     
-    [DramaServices searchDrama:1 keyWorld:nil tids:array success:^(NSArray *array)
-    {
-        self._arrayVideo =[[NSMutableArray alloc ] initWithArray:array];
-        [_findTableView reloadData];
-        
-    } failure:^(NSDictionary *error) {
-        
-    }];
+//    [DramaServices searchDrama:1 keyWorld:nil tids:array success:^(NSArray *array)
+//    {
+//        self._arrayVideo =[[NSMutableArray alloc ] initWithArray:array];
+//        [_findTableView reloadData];
+//        
+//    } failure:^(NSDictionary *error) {
+//        
+//    }];
     
+    
+}
+
+
+
+#pragma mark push searchViewController
+-(void) pushToSearcheView
+{
+    bIsColl = TRUE;
+    [self onButtonSpreadOut];
+    SearchViewController *searchView = [[SearchViewController alloc ] init];
+    searchView._searchNo = [NSString stringWithFormat:@"%@,%@,%@,%@",_arraySearch[0],_arraySearch[1],_arraySearch[2],_arraySearch[3]];
+    searchView._searchName =[NSString stringWithFormat:@"%@,%@,%@,%@",_arraySearch[4],_arraySearch[5],_arraySearch[6],_arraySearch[7]];
+    [self.navigationController pushViewController:searchView animated:YES ];
     
 }
 
@@ -117,7 +131,7 @@
 
 -(void)createSearcheView
 {
-    viewSearch = [[UIViewSearch alloc] initWithFrame:CGRectMake(0, _findTableView.frame.origin.y, SCREEN_WIDTH, 240)];
+    viewSearch = [[UIViewSearch alloc] initWithFrame:CGRectMake(0, _findTableView.frame.origin.y, SCREEN_WIDTH, SCREEN_HEIGHT-_findTableView.frame.origin.y)];
     viewSearch.delegate = self;
     [self.view addSubview:viewSearch];
 }
@@ -267,7 +281,7 @@
     
     btnGood = [[UIButton alloc ] initWithFrame:CGRectMake(0, TABBAR_HEIGHT, SCREEN_WIDTH/2, 40)];
     [btnGood setBackgroundColor:[UIColor blackColor]];
-    [btnGood setTitle:@"发现好剧" forState:UIControlStateNormal];
+    [btnGood setTitle:@"热剧" forState:UIControlStateNormal];
     [btnGood setTitleColor:yellowRgb forState:UIControlStateNormal];
     btnGood.titleLabel.font = [UIFont systemFontOfSize:14];
     btnGood.tag = 100;
@@ -276,7 +290,7 @@
     
     btnAll = [[UIButton alloc ] initWithFrame:CGRectMake(SCREEN_WIDTH/2, TABBAR_HEIGHT, SCREEN_WIDTH/2, 40)];
     [btnAll setBackgroundColor:[UIColor blackColor]];
-    [btnAll setTitle:@"全部剧目" forState:UIControlStateNormal];
+    [btnAll setTitle:@"发现" forState:UIControlStateNormal];
     [btnAll setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
     [btnAll addTarget:self action:@selector(onButtonSelect:) forControlEvents:UIControlEventTouchUpInside];
     btnAll.tag = 101;
@@ -598,10 +612,6 @@
         [self.navigationController pushViewController:dramaDetialView animated:YES];
     }
 
-//    //打开播放器
-//    MPMoviePlayerViewController *playerView =[[MPMoviePlayerViewController alloc]initWithContentURL:[NSURL URLWithString:itemData.trailerUrl]];
-//    [self presentMoviePlayerViewControllerAnimated:playerView];
-
 }
 
 
@@ -621,16 +631,6 @@
 -(void) touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event
 {
 
-}
-
-#pragma mark push searchViewController
--(void) pushToSearcheView
-{
-    bIsColl = TRUE;
-    [self onButtonSpreadOut];
-    SearchViewController *searchView = [[SearchViewController alloc ] init];
-    [self.navigationController pushViewController:searchView animated:YES ];
-    
 }
 
 - (void)didReceiveMemoryWarning

@@ -34,6 +34,8 @@
     NSURL                       *_urlUser;
     UIButton                    *_btnLogin;
     UILabel                     *_lableNewLine;
+    
+    NSMutableArray              *_arraySearch;
 }
 
 @property (nonatomic,strong)    ExUINavigationBar       *_navigationBar;

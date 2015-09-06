@@ -33,16 +33,14 @@
     [btnBack addTarget:self action:@selector(onButtonBack) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:btnBack];
     
-    UILabel *label = [[UILabel alloc ] initWithFrame:CGRectMake(20, TABBAR_HEIGHT, SCREEN_WIDTH, 16)];
+    UILabel *label = [[UILabel alloc ] initWithFrame:CGRectMake(10, TABBAR_HEIGHT+10, SCREEN_WIDTH, 16)];
     [label setText:@"意见反馈"];
     [label setTextColor :RGB(102, 102, 102)];
     [label setFont:[UIFont systemFontOfSize:12 ]];
     [self.view addSubview:label];
     
     
-    _textView = [[UITextView alloc ] initWithFrame:CGRectMake(1, label.frame.size.height+label.frame.origin.y+5, SCREEN_WIDTH-2, 164)];
-    _textView.layer.borderColor =RGB(221, 221, 221).CGColor;
-    _textView.layer.borderWidth = 1;
+    _textView = [[UITextView alloc ] initWithFrame:CGRectMake(10, label.frame.size.height+label.frame.origin.y+5, SCREEN_WIDTH-20, SCREEN_HEIGHT-TABBAR_HEIGHT*3)];
     [self.view addSubview:_textView];
 
     UIButton *btnSave = [[UIButton alloc ] initWithFrame:CGRectMake(20, SCREEN_HEIGHT-60, SCREEN_WIDTH-40, 40)];

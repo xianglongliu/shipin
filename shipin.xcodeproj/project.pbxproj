@@ -40,6 +40,7 @@
 		EE6DD5161B8C5C4000348615 /* loading_black_280x180.gif in Resources */ = {isa = PBXBuildFile; fileRef = EE6DD5151B8C5C4000348615 /* loading_black_280x180.gif */; };
 		EE6DD51B1B8C752200348615 /* CommentHeaderScrollTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = EE6DD51A1B8C752200348615 /* CommentHeaderScrollTableView.m */; };
 		EE6DD51E1B8C754D00348615 /* CommentHeaderCell.m in Sources */ = {isa = PBXBuildFile; fileRef = EE6DD51D1B8C754D00348615 /* CommentHeaderCell.m */; };
+		EE6FC1921B9BECA4003360D6 /* btn_play.png in Resources */ = {isa = PBXBuildFile; fileRef = EE6FC1911B9BECA4003360D6 /* btn_play.png */; };
 		EE7242821B809C3300ABBAE6 /* btn_share.png in Resources */ = {isa = PBXBuildFile; fileRef = EE7242811B809C3300ABBAE6 /* btn_share.png */; };
 		EE726FA41B819ED900C66CF9 /* Icon-40.png in Resources */ = {isa = PBXBuildFile; fileRef = EE726F9A1B819ED900C66CF9 /* Icon-40.png */; };
 		EE726FA51B819ED900C66CF9 /* Icon-40@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = EE726F9B1B819ED900C66CF9 /* Icon-40@2x.png */; };
@@ -216,6 +217,7 @@
 		EE6DD51A1B8C752200348615 /* CommentHeaderScrollTableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CommentHeaderScrollTableView.m; path = ExView/CommentHeaderScrollTableView.m; sourceTree = "<group>"; };
 		EE6DD51C1B8C754D00348615 /* CommentHeaderCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CommentHeaderCell.h; path = ExView/CommentHeaderCell.h; sourceTree = "<group>"; };
 		EE6DD51D1B8C754D00348615 /* CommentHeaderCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CommentHeaderCell.m; path = ExView/CommentHeaderCell.m; sourceTree = "<group>"; };
+		EE6FC1911B9BECA4003360D6 /* btn_play.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = btn_play.png; path = Resource/Button/btn_play.png; sourceTree = "<group>"; };
 		EE7184301B58EA9D00C4EF24 /* shipin.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = shipin.pch; sourceTree = "<group>"; };
 		EE7242811B809C3300ABBAE6 /* btn_share.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = btn_share.png; path = Resource/Button/btn_share.png; sourceTree = "<group>"; };
 		EE726F9A1B819ED900C66CF9 /* Icon-40.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Icon-40.png"; path = "Resource/Icon/Icon-40.png"; sourceTree = "<group>"; };
@@ -777,6 +779,7 @@
 		EE908C491B7F072500505B82 /* Button */ = {
 			isa = PBXGroup;
 			children = (
+				EE6FC1911B9BECA4003360D6 /* btn_play.png */,
 				EED82F4D1B84A9EC001AC5F3 /* btn_floow.png */,
 				EE6DD5111B8C581600348615 /* btn_toback_selected.png */,
 				EE6DD5121B8C581600348615 /* btn_toback.png */,
@@ -1038,6 +1041,7 @@
 				EE726FB41B81AEA600C66CF9 /* 640_1136.png in Resources */,
 				EE8E0B3D1B8DAABB005F4BDF /* loading_3.png in Resources */,
 				EE7944FA1B7F57B10032DF3A /* btn_addpublish.png in Resources */,
+				EE6FC1921B9BECA4003360D6 /* btn_play.png in Resources */,
 				D5FEE0141B770EB000E8AC03 /* uncheckgoods.png in Resources */,
 				EEEE3C9C1B82126D00F87ABE /* use.txt in Resources */,
 				D5FEE0131B770EB000E8AC03 /* uncheckawardblack.png in Resources */,

@@ -25,6 +25,12 @@
         _strPlot= @"0";
         _strYear= @"0";
         
+        _strTypeName = @"全部";
+        _strCountryName = @"全部";
+        _strPlotName = @"全部";
+        _strYearName = @"全部";
+        
+        
         DramaTags *tag = [[DramaTags alloc] init];
         tag.id=0;
         tag.name=@"全部";
@@ -32,17 +38,17 @@
         // Initialization code
         self.backgroundColor = [UIColor whiteColor];
         
-        UISearchBar *searchBar = [[UISearchBar alloc ] initWithFrame:CGRectMake(10, 10, SCREEN_WIDTH-20, 30)];
-        [searchBar setBackgroundColor:[UIColor whiteColor]];
-        searchBar.delegate = self;
-        [self addSubview:searchBar];
+        _searchBar = [[UISearchBar alloc ] initWithFrame:CGRectMake(10, 10, SCREEN_WIDTH-20, 30)];
+        [_searchBar setBackgroundColor:[UIColor whiteColor]];
+        _searchBar.delegate = self;
+        [self addSubview:_searchBar];
         
         _arrayOne = [[NSMutableArray alloc] init];
         [_arrayOne addObject:tag];
         [_arrayOne addObjectsFromArray:[self getTags:@(1)]];
         for (int i = 0; i < [_arrayOne count]; i++)
         {
-            btnLine1[i] = [[UIButton alloc ] initWithFrame:CGRectMake(10+(i*43), searchBar.frame.size.height+searchBar.frame.origin.y+10, 40, 15)];
+            btnLine1[i] = [[UIButton alloc ] initWithFrame:CGRectMake(10+(i*43), _searchBar.frame.size.height+_searchBar.frame.origin.y+10, 40, 15)];
             [ btnLine1[i] setTitle:[_arrayOne[i] name] forState:UIControlStateNormal];
              btnLine1[i].titleLabel.font = [UIFont systemFontOfSize:10];
              btnLine1[i].layer.masksToBounds = YES;
@@ -66,7 +72,7 @@
         [_arrayTwo addObjectsFromArray:[self getTags:@(2)]];
 
 
-        int rowCount = [_arrayTwo count]%7;
+        NSInteger rowCount = [_arrayTwo count]%7;
         if(rowCount != 0){
             rowCount= [_arrayTwo count]/7+1;
         } else{
@@ -107,7 +113,7 @@
         [_arrayThree addObject:tag];
         [_arrayThree addObjectsFromArray:[self getTags:@(3)]];
 
-        int threeRowCount = [_arrayThree count]%7;
+        NSInteger threeRowCount = [_arrayThree count]%7;
         if(threeRowCount != 0){
             threeRowCount= [_arrayThree count]/7+1;
         } else{
@@ -148,7 +154,7 @@
         [_arrayFour addObject:tag];
         [_arrayFour addObjectsFromArray:[self getTags:@(4)]];
 
-        int fourRowCount = [_arrayFour count]%7;
+        NSInteger fourRowCount = [_arrayFour count]%7;
         if(fourRowCount != 0){
             fourRowCount= [_arrayFour count]/7+1;
         } else{
@@ -210,14 +216,6 @@
     return self;
 }
 
-- (BOOL)searchBarShouldBeginEditing:(UISearchBar *)searchBar
-{
-    if ([delegate respondsToSelector:@selector(pushToSearcheView)])
-    {
-        [delegate pushToSearcheView];
-    }
-    return FALSE;
-}
 
 -(void) onButtonOne:(UIButton *)sender
 {
@@ -228,8 +226,9 @@
         {
             _tagModle =  [_arrayOne objectAtIndex:btnIndex];
             _strType =[_tagModle.id stringValue];
+            _strTypeName =_tagModle.name;
             
-            [self tagClick:_strType Country:_strCountry Plot:_strPlot Year:_strYear];
+            [self tagClick:_strType oneName:_strTypeName Country:_strCountry countryName:_strCountryName Plot:_strPlot plotName:_strPlotName Year:_strYear yearName:_strYearName];
             [ btnLine1[btnIndex] setBackgroundColor:yellowRgb];
             [ btnLine1[btnIndex] setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
         }
@@ -251,8 +250,9 @@
         {
             _tagModle =  [_arrayTwo objectAtIndex:btnIndex];
             _strCountry =[_tagModle.id stringValue];
-
-            [self tagClick:_strType Country:_strCountry Plot:_strPlot Year:_strYear];
+            _strCountryName =_tagModle.name;
+            
+            [self tagClick:_strType oneName:_strTypeName Country:_strCountry countryName:_strCountryName Plot:_strPlot plotName:_strPlotName Year:_strYear yearName:_strYearName];
             [ btnLine2[btnIndex] setBackgroundColor:yellowRgb];
             [ btnLine2[btnIndex] setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
         }
@@ -274,8 +274,9 @@
         {
             _tagModle =  [_arrayThree objectAtIndex:btnIndex];
             _strPlot =[_tagModle.id stringValue];
+            _strPlotName =_tagModle.name;
             
-            [self tagClick:_strType Country:_strCountry Plot:_strPlot Year:_strYear];
+           [self tagClick:_strType oneName:_strTypeName Country:_strCountry countryName:_strCountryName Plot:_strPlot plotName:_strPlotName Year:_strYear yearName:_strYearName];
             [ btnLine3[btnIndex] setBackgroundColor:yellowRgb];
             [ btnLine3[btnIndex] setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
         }
@@ -296,8 +297,9 @@
         {
             _tagModle =  [_arrayFour objectAtIndex:btnIndex];
             _strYear =[_tagModle.id stringValue];
+            _strYearName =_tagModle.name;
             
-            [self tagClick:_strType Country:_strCountry Plot:_strPlot Year:_strYear];
+            [self tagClick:_strType oneName:_strTypeName Country:_strCountry countryName:_strCountryName Plot:_strPlot plotName:_strPlotName Year:_strYear yearName:_strYearName];
             [ btnLine4[btnIndex] setBackgroundColor:yellowRgb];
             [ btnLine4[btnIndex] setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
         }
@@ -309,13 +311,32 @@
     }
 }
 
--(void) tagClick:(NSString *)one Country:(NSString *)country Plot:(NSString *)plot Year:(NSString *)year
+-(void) tagClick:(NSString *)one oneName:(NSString *)OneName
+         Country:(NSString *)country  countryName:(NSString *)CountryName
+            Plot:(NSString *)plot plotName:(NSString *)PlotName
+            Year:(NSString *)year yearName:(NSString *)YearName
 {
-    NSMutableArray *arrayTags = [[NSMutableArray alloc ] initWithObjects:one,country,plot,year, nil];
+    [_searchBar setText:[NSString stringWithFormat:@"%@,%@,%@,%@",OneName,CountryName,PlotName,YearName]];
     
-    [[NSNotificationCenter defaultCenter ] postNotificationName:@"notification_tags" object:arrayTags];
+    _arrayTags = [[NSMutableArray alloc ] initWithObjects:one,country,plot,year,OneName,CountryName,PlotName,YearName, nil];
+    [[NSNotificationCenter defaultCenter ] postNotificationName:@"notification_tags" object:_arrayTags];
 }
 
+- (BOOL)searchBarShouldBeginEditing:(UISearchBar *)searchBar
+{
+    if ([_arrayTags count] >0)
+    {
+        if ([delegate respondsToSelector:@selector(pushToSearcheView)])
+        {
+            [delegate pushToSearcheView];
+        }
+    }
+    else
+    {
+        [Tool showWarningTip:@"请选择要搜索标签" view:self.window time:1];
+    }
+    return FALSE;
+}
 
 -(NSMutableArray *) getTags:(NSNumber *)type{
 

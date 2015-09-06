@@ -21,12 +21,18 @@
     UITextField          *_textViewBrief;
     
     UITextField         *_textFieldDirector;
+    UITextField         *_textFieldBj;
     UITextField         *_textFieldStaring;
     UITextField         *_textFieldDistrict;
     UITextField         *_textFieldLanguage;
     UITextField         *_textFieldPremiere;
     UITextField         *_textFieldRecommend;
     
+    UITextField         *_textFieldJs;
+    UITextField         *_textFieldCpdw;
+    UITextField         *_textFieldZpdw;
+    UITextField         *_textFieldKjsj;
+    UITextField         *_textFieldSqsj;
     
     
 

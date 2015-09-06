@@ -38,7 +38,17 @@
     NSString            *_strPlot;
     NSString            *_strYear;
     
+    
+    NSString            *_strTypeName;
+    NSString            *_strCountryName;
+    NSString            *_strPlotName;
+    NSString            *_strYearName;
+    
     DramaTags           *_tagModle;
+    UISearchBar         *_searchBar;
+    
+    NSMutableArray      *_arrayTags;
+//    NSMutableArray      *_arrayTagsName;
     
 }
 

@@ -16,14 +16,33 @@
 {
     UILabel     *_labelDir;
     UILabel     *_labelDirectorName;
+
+    UILabel     *_labelScenarist;
+    UILabel     *_labelScenaristName;
+
+    UILabel     *_labelProducer;
+    UILabel     *_labelProducerName;
+
     UILabel     *_labelZy;
     UILabel     *_labelZyName;
+    
     UILabel     *_labelPlace;
     UILabel     *_labelPlaceName;
-    UILabel     *_labelLang;
-    UILabel     *_labelLangName;
-    UILabel     *_labelPlayDate;
-    UILabel     *_labelPlayDateName;
+    
+    UILabel     *_labelCount;
+    UILabel     *_labelCountName;
+    
+    UILabel     *_labelProduced;
+    UILabel     *_labelProducedName;
+    
+    UILabel     *_labelZpdw;
+    UILabel     *_labelZpdwName;
+    
+    UILabel     *_labelKjDate;
+    UILabel     *_labelKjDateName;
+    
+    UILabel     *_labelSqDate;
+    UILabel     *_labelSqDateName;
   
 //    相关资料
     UILabel     *_labelTitle;
@@ -35,6 +54,7 @@
     
     
     UILabel *labelTop;
+    UIImageView     *_imageViewPlaybBtn;
     
 }
 @property (nonatomic ,strong) UILabel       *_labelText;

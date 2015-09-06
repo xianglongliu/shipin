@@ -168,7 +168,14 @@
 #pragma mark tableview function
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-       return 11;
+    if (self._uId != [[Config getUserId] intValue])//如果是查看自己的资料则可以编辑
+    {
+        return 11;
+    }
+    else
+    {
+        return 10;
+    }
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -185,18 +192,20 @@
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
         [cell setBackgroundColor:RGB(238, 238, 238)];
         [cell setHeadCellData:self.userModel cellName:@"personinfo"];
-        
-        UIButton *btnFollow = [[UIButton alloc ] initWithFrame:CGRectMake(SCREEN_WIDTH/1.75f, 214, 40, 25)];
-        [btnFollow setTitle:@"关注" forState:UIControlStateNormal];
-        [btnFollow setTitleColor:yellowRgb forState:UIControlStateNormal];
-        btnFollow.titleLabel.font = [UIFont systemFontOfSize:12];
-        [btnFollow addTarget:self action:@selector(onButtonFollow) forControlEvents:UIControlEventTouchUpInside];
-        [cell addSubview:btnFollow];
-        
-        UIButton *btnFollowImage = [[UIButton alloc ] initWithFrame:CGRectMake(btnFollow.frame.origin.x-10, 221, 12, 12)];
-        [btnFollowImage setImage:[UIImage imageNamed:@"btn_floow.png"] forState:UIControlStateNormal];
-        [btnFollowImage addTarget:self action:@selector(onButtonFollow) forControlEvents:UIControlEventTouchUpInside];
-        [cell addSubview:btnFollowImage];
+        if (self._uId != [[Config getUserId] intValue])//如果是查看自己的资料则可以编辑
+        {
+            UIButton *btnFollow = [[UIButton alloc ] initWithFrame:CGRectMake(SCREEN_WIDTH/2.2f, 224, 40, 25)];
+            [btnFollow setTitle:@"关注" forState:UIControlStateNormal];
+            [btnFollow setTitleColor:yellowRgb forState:UIControlStateNormal];
+            btnFollow.titleLabel.font = [UIFont systemFontOfSize:12];
+            [btnFollow addTarget:self action:@selector(onButtonFollow) forControlEvents:UIControlEventTouchUpInside];
+            [cell addSubview:btnFollow];
+       
+            UIButton *btnFollowImage = [[UIButton alloc ] initWithFrame:CGRectMake(btnFollow.frame.origin.x-10, 230, 12, 12)];
+            [btnFollowImage setImage:[UIImage imageNamed:@"btn_floow.png"] forState:UIControlStateNormal];
+            [btnFollowImage addTarget:self action:@selector(onButtonFollow) forControlEvents:UIControlEventTouchUpInside];
+            [cell addSubview:btnFollowImage];
+        }
         
         return cell;
     }
@@ -271,15 +280,18 @@
     }
     else if (indexPath.row == 10)
     {
-        UIButton *btnSave = [[UIButton alloc ] initWithFrame:CGRectMake(20, 20, SCREEN_WIDTH-40, 40)];
-        [btnSave setTitle:@"联系发布者" forState:UIControlStateNormal];
-        btnSave.titleLabel.font = [UIFont systemFontOfSize:14];
-        [btnSave  setBackgroundColor:yellowRgb];
-        btnSave.layer.masksToBounds = YES;
-        btnSave.layer.cornerRadius = 3;
-        [btnSave addTarget:self action:@selector(onButtonTel) forControlEvents:UIControlEventTouchUpInside];
-        [cell addSubview:btnSave];
-        return cell;
+        if (self._uId != [[Config getUserId] intValue])//如果是查看自己的资料则可以编辑
+        {
+            UIButton *btnSave = [[UIButton alloc ] initWithFrame:CGRectMake(20, 20, SCREEN_WIDTH-40, 40)];
+            [btnSave setTitle:@"联系发布者" forState:UIControlStateNormal];
+            btnSave.titleLabel.font = [UIFont systemFontOfSize:14];
+            [btnSave  setBackgroundColor:yellowRgb];
+            btnSave.layer.masksToBounds = YES;
+            btnSave.layer.cornerRadius = 3;
+            [btnSave addTarget:self action:@selector(onButtonTel) forControlEvents:UIControlEventTouchUpInside];
+            [cell addSubview:btnSave];
+            return cell;
+        }
     }
     
     return cell;

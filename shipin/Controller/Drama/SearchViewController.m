@@ -31,6 +31,7 @@
     _searchBar.delegate = self;
     [self.view addSubview:_searchBar];
     
+    [_searchBar setText:self._searchName];
     
     UIButton *btnCanel = [[UIButton alloc ] initWithFrame:CGRectMake(SCREEN_WIDTH-60, _searchBar.frame.origin.y, 60, _searchBar.frame.size.height)];
     [btnCanel setTitle:@"取消" forState:UIControlStateNormal];
@@ -53,7 +54,21 @@
 #pragma mark 热门搜索
 -(void) loadHotSearchData
 {
-    
+    //关键字搜索
+    [DramaServices searchDrama:1 keyWorld:self._searchNo tids:nil success:^(NSArray *array)
+     {
+         if ([array count] == 0 )
+         {
+             [Tool showWarningTip:@"没有相关电影" view:self.view time:1];
+             return ;
+         }
+         _arraySearch = [[NSMutableArray alloc ] initWithArray:array];
+         [_tableViewSearch reloadData];
+         
+     } failure:^(NSDictionary *error) {
+         [Tool showWarningTip:@"搜索失败" view:self.view time:1];
+     }];
+
 }
 
 -(void) onButtonCancel

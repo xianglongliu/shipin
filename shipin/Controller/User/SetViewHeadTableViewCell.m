@@ -37,7 +37,7 @@
             self._labelName = [[FXLabel alloc] initWithFrame:CGRectZero];
             [self._labelName setTextColor:[UIColor whiteColor]];
             [self._labelName setBackgroundColor:[UIColor clearColor]];
-            [self._labelName setFont:[UIFont boldSystemFontOfSize:17]];
+            [self._labelName setFont:[UIFont boldSystemFontOfSize:15]];
             [self._labelName setTextAlignment:NSTextAlignmentLeft];
             [self addSubview:self._labelName];
     }
@@ -74,8 +74,8 @@
         _imageViewHead.layer.borderColor=[UIColor whiteColor].CGColor;
         [_imageViewHead setBackgroundColor:[UIColor grayColor]];
         
-        self._labelName.frame = CGRectMake(0, _imageViewHead.frame.origin.y+_imageViewHead.frame.size.width+8, SCREEN_WIDTH/2, 20);
-        [self._labelName setTextAlignment:NSTextAlignmentRight];
+        self._labelName.frame = CGRectMake(_imageViewHead.frame.origin.x, _imageViewHead.frame.origin.y+_imageViewHead.frame.size.width, _imageViewHead.frame.size.width, 20);
+        [self._labelName setTextAlignment:NSTextAlignmentCenter];
         [self._labelName setTextColor:[UIColor blackColor]];
         self._labelName.shadowColor = RGB(0, 0, 0);
         self._labelName.shadowOffset = CGSizeMake(0.1f, 0.0f);

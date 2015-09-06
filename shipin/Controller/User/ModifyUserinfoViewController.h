@@ -16,6 +16,6 @@
 @property (nonatomic ,strong) TextModel *selModle;
 //@property (nonatomic ,strong) NSString *_strSelItem;
 
-@property (nonatomic ,strong) UITextField *_textContent;
+@property (nonatomic ,strong) UITextView *_textContent;
 
 @end

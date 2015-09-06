@@ -53,7 +53,33 @@
     [_labelDirectorName setTextColor:RGB(102, 102, 102)];
     [self addSubview:_labelDirectorName];
     
-    //    主演
+//    编剧
+    _labelScenarist = [[UILabel alloc ] initWithFrame:CGRectZero];
+    [_labelScenarist setText:@"编剧:"];
+    [_labelScenarist setBackgroundColor:[UIColor clearColor]];
+    [_labelScenarist setFont:[UIFont boldSystemFontOfSize:13]];
+    [self addSubview:_labelScenarist];
+    
+    _labelScenaristName = [[UILabel alloc ] initWithFrame:CGRectZero];
+    [_labelScenaristName setBackgroundColor:[UIColor clearColor]];
+    [_labelScenaristName setFont:[UIFont systemFontOfSize:13]];
+    [_labelScenaristName setTextColor:RGB(102, 102, 102)];
+    [self addSubview:_labelScenaristName];
+
+    //制片
+    _labelProducer = [[UILabel alloc ] initWithFrame:CGRectZero];
+    [_labelProducer setText:@"制片:"];
+    [_labelProducer setBackgroundColor:[UIColor clearColor]];
+    [_labelProducer setFont:[UIFont boldSystemFontOfSize:13]];
+    [self addSubview:_labelProducer];
+    
+    _labelProducerName = [[UILabel alloc ] initWithFrame:CGRectZero];
+    [_labelProducerName setBackgroundColor:[UIColor clearColor]];
+    [_labelProducerName setFont:[UIFont systemFontOfSize:13]];
+    [_labelProducerName setTextColor:RGB(102, 102, 102)];
+    [self addSubview:_labelProducerName];
+    
+    // 主演
     _labelZy = [[UILabel alloc ] initWithFrame:CGRectZero];
     [_labelZy setText:@"主演:"];
     [_labelZy setBackgroundColor:[UIColor clearColor]];
@@ -65,6 +91,7 @@
     [_labelZyName setFont:[UIFont systemFontOfSize:13]];
     [_labelZyName setTextColor:RGB(102, 102, 102)];
     [self addSubview:_labelZyName];
+
     
     //    地区
     _labelPlace = [[UILabel alloc ] initWithFrame:CGRectZero];
@@ -78,32 +105,72 @@
     [_labelPlaceName setFont:[UIFont systemFontOfSize:13]];
     [_labelPlaceName setTextColor:RGB(102, 102, 102)];
     [self addSubview:_labelPlaceName];
+ 
+    //集数
+    _labelCount = [[UILabel alloc ] initWithFrame:CGRectZero];
+    [_labelCount setText:@"集数:"];
+    [_labelCount setBackgroundColor:[UIColor clearColor]];
+    [_labelCount setFont:[UIFont boldSystemFontOfSize:13]];
+    [self addSubview:_labelCount];
     
-    //    语言
-    _labelLang = [[UILabel alloc ] initWithFrame:CGRectZero];
-    [_labelLang setText:@"语言:"];
-    [_labelLang setBackgroundColor:[UIColor clearColor]];
-    [_labelLang setFont:[UIFont boldSystemFontOfSize:13]];
-    [self addSubview:_labelLang];
+    _labelCountName = [[UILabel alloc ] initWithFrame:CGRectZero];
+    [_labelCountName setBackgroundColor:[UIColor clearColor]];
+    [_labelCountName setFont:[UIFont systemFontOfSize:13]];
+    [_labelCountName setTextColor:RGB(102, 102, 102)];
+    [self addSubview:_labelCountName];
     
-    _labelLangName = [[UILabel alloc ] initWithFrame:CGRectZero];
-    [_labelLangName setBackgroundColor:[UIColor clearColor]];
-    [_labelLangName setFont:[UIFont systemFontOfSize:13]];
-    [_labelLangName setTextColor:RGB(102, 102, 102)];
-    [self addSubview:_labelLangName];
+    //
+    _labelProduced = [[UILabel alloc ] initWithFrame:CGRectZero];
+    [_labelProduced setText:@"出品单位:"];
+    [_labelProduced setBackgroundColor:[UIColor clearColor]];
+    [_labelProduced setFont:[UIFont boldSystemFontOfSize:13]];
+    [self addSubview:_labelProduced];
     
-    //    播放时间
-    _labelPlayDate = [[UILabel alloc ] initWithFrame:CGRectZero];
-    [_labelPlayDate setText:@"首播日期:"];
-    [_labelPlayDate setBackgroundColor:[UIColor clearColor]];
-    [_labelPlayDate setFont:[UIFont boldSystemFontOfSize:13]];
-    [self addSubview:_labelPlayDate];
+    _labelProducedName = [[UILabel alloc ] initWithFrame:CGRectZero];
+    [_labelProducedName setBackgroundColor:[UIColor clearColor]];
+    [_labelProducedName setFont:[UIFont systemFontOfSize:13]];
+    [_labelProducedName setTextColor:RGB(102, 102, 102)];
+    [self addSubview:_labelProducedName];
     
-    _labelPlayDateName = [[UILabel alloc ] initWithFrame:CGRectZero];
-    [_labelPlayDateName setBackgroundColor:[UIColor clearColor]];
-    [_labelPlayDateName setFont:[UIFont systemFontOfSize:13]];
-    [_labelPlayDateName setTextColor:RGB(102, 102, 102)];
-    [self addSubview:_labelPlayDateName];
+    //制片单位
+    _labelZpdw = [[UILabel alloc ] initWithFrame:CGRectZero];
+    [_labelZpdw setText:@"制片单位:"];
+    [_labelZpdw setBackgroundColor:[UIColor clearColor]];
+    [_labelZpdw setFont:[UIFont boldSystemFontOfSize:13]];
+    [self addSubview:_labelZpdw];
+    
+    _labelZpdwName = [[UILabel alloc ] initWithFrame:CGRectZero];
+    [_labelZpdwName setBackgroundColor:[UIColor clearColor]];
+    [_labelZpdwName setFont:[UIFont systemFontOfSize:13]];
+    [_labelZpdwName setTextColor:RGB(102, 102, 102)];
+    [self addSubview:_labelZpdwName];
+    
+    //开机时间
+    _labelKjDate = [[UILabel alloc ] initWithFrame:CGRectZero];
+    [_labelKjDate setText:@"开机时间:"];
+    [_labelKjDate setBackgroundColor:[UIColor clearColor]];
+    [_labelKjDate setFont:[UIFont boldSystemFontOfSize:13]];
+    [self addSubview:_labelKjDate];
+    
+    _labelKjDateName = [[UILabel alloc ] initWithFrame:CGRectZero];
+    [_labelKjDateName setBackgroundColor:[UIColor clearColor]];
+    [_labelKjDateName setFont:[UIFont systemFontOfSize:13]];
+    [_labelKjDateName setTextColor:RGB(102, 102, 102)];
+    [self addSubview:_labelKjDateName];
+    
+    //杀青时间
+    _labelSqDate = [[UILabel alloc ] initWithFrame:CGRectZero];
+    [_labelSqDate setText:@"杀青时间:"];
+    [_labelSqDate setBackgroundColor:[UIColor clearColor]];
+    [_labelSqDate setFont:[UIFont boldSystemFontOfSize:13]];
+    [self addSubview:_labelSqDate];
+    
+    _labelSqDateName = [[UILabel alloc ] initWithFrame:CGRectZero];
+    [_labelSqDateName setBackgroundColor:[UIColor clearColor]];
+    [_labelSqDateName setFont:[UIFont systemFontOfSize:13]];
+    [_labelSqDateName setTextColor:RGB(102, 102, 102)];
+    [self addSubview:_labelSqDateName];
+
         
 //    相关资料
     _labelTitle = [[UILabel alloc ] initWithFrame:CGRectZero];
@@ -127,15 +194,28 @@
     [labelTop setBackgroundColor:[UIColor whiteColor]];
     [self addSubview:labelTop];
     
+    
+    _imageViewPlaybBtn = [[UIImageView alloc ] initWithFrame: CGRectZero];
+    [_imageViewPlaybBtn setImage:[UIImage imageNamed:@"btn_play.png"]];
+    [self addSubview:_imageViewPlaybBtn];
+
+    
 }
 
 //剧情简介
 -(void)setIntroductionText:(NSString*)text  headImage:(NSURL*)imageUrl imageHeight:(float)height
-{   
-    //获得当前cell高度
+{
+       //获得当前cell高度
     CGRect frame = [self frame];
     //文本赋值
-    self._labelText.text = text;
+    if([text isEqualToString:@"0"])
+    {
+        _imageViewPlaybBtn.frame =CGRectMake(SCREEN_WIDTH/2-(256/8), height/2-(256/8), 256/4, 256/4);
+    }
+    else
+    {
+        self._labelText.text = text;
+    }
     float textHeight =[Tool CalcString:self._labelText.text fontSize:[UIFont systemFontOfSize:FontSize] andWidth:SCREEN_WIDTH-20].height;
     self._labelText.frame = CGRectMake(20, 0, SCREEN_WIDTH-40,textHeight+20 );
     self._imageView.frame = CGRectMake(20, 0, SCREEN_WIDTH-40,height );
@@ -152,19 +232,35 @@
     _labelDir.frame  = CGRectMake(20, 20, 30, 18);
     _labelDirectorName.frame  = CGRectMake(60, 20, SCREEN_WIDTH, 18);
     
-    _labelZy.frame  = CGRectMake(20, _labelDir.frame.origin.y+_labelDir.frame.size.height+10, 30, 18);
-    _labelZyName.frame  = CGRectMake(60, _labelDir.frame.origin.y+_labelDir.frame.size.height+10, SCREEN_WIDTH, 18);
+    _labelScenarist.frame  = CGRectMake(20, _labelDir.frame.origin.y+_labelDir.frame.size.height+10, 30, 18);
+    _labelScenaristName.frame  = CGRectMake(60, _labelDir.frame.origin.y+_labelDir.frame.size.height+10, SCREEN_WIDTH, 18);
     
-    _labelPlace.frame  = CGRectMake(20, _labelZyName.frame.origin.y+_labelZyName.frame.size.height+10, 30, 18);
+    _labelProducer.frame  = CGRectMake(20, _labelScenaristName.frame.origin.y+_labelScenaristName.frame.size.height+10, 30, 18);
+    _labelProducerName.frame  = CGRectMake(60, _labelScenaristName.frame.origin.y+_labelScenaristName.frame.size.height+10, SCREEN_WIDTH, 18);
+    
+    _labelZy.frame  = CGRectMake(20, _labelProducerName.frame.origin.y+_labelProducerName.frame.size.height+10, 30, 18);
+    _labelZyName.frame  = CGRectMake(60, _labelProducerName.frame.origin.y+_labelProducerName.frame.size.height+10, SCREEN_WIDTH, 18);
+    
+    _labelPlace.frame  = CGRectMake(20, _labelZyName.frame.origin.y+_labelZyName.frame.size.height+10, 60, 18);
     _labelPlaceName.frame  = CGRectMake(60, _labelZyName.frame.origin.y+_labelZyName.frame.size.height+10, SCREEN_WIDTH, 18);
     
-    _labelLang.frame  = CGRectMake(20, _labelPlaceName.frame.origin.y+_labelPlaceName.frame.size.height+10, 30, 18);
-    _labelLangName.frame  = CGRectMake(60, _labelPlaceName.frame.origin.y+_labelPlaceName.frame.size.height+10, SCREEN_WIDTH, 18);
+    _labelCount.frame  = CGRectMake(20, _labelPlaceName.frame.origin.y+_labelPlaceName.frame.size.height+10, 60, 18);
+    _labelCountName.frame  = CGRectMake(60, _labelPlaceName.frame.origin.y+_labelPlaceName.frame.size.height+10, SCREEN_WIDTH, 18);
+   
+    _labelProduced.frame  = CGRectMake(20, _labelCountName.frame.origin.y+_labelCountName.frame.size.height+10, 60, 18);
+    _labelProducedName.frame  = CGRectMake(85, _labelCountName.frame.origin.y+_labelCountName.frame.size.height+10, SCREEN_WIDTH, 18);
+   
+    _labelZpdw.frame  = CGRectMake(20, _labelProducedName.frame.origin.y+_labelProducedName.frame.size.height+10, 60, 18);
+    _labelZpdwName.frame  = CGRectMake(85, _labelProducedName.frame.origin.y+_labelProducedName.frame.size.height+10, SCREEN_WIDTH, 18);
+   
+    _labelKjDate.frame  = CGRectMake(20, _labelZpdwName.frame.origin.y+_labelZpdwName.frame.size.height+10, 60, 18);
+    _labelKjDateName.frame  = CGRectMake(85, _labelZpdwName.frame.origin.y+_labelZpdwName.frame.size.height+10, SCREEN_WIDTH, 18);
     
-    _labelPlayDate.frame  = CGRectMake(20, _labelLang.frame.origin.y+_labelLang.frame.size.height+10, 60, 18);
-    _labelPlayDateName.frame  = CGRectMake(85, _labelLang.frame.origin.y+_labelLang.frame.size.height+10, SCREEN_WIDTH, 18);
+    _labelSqDate.frame  = CGRectMake(20, _labelKjDateName.frame.origin.y+_labelKjDateName.frame.size.height+10, 60, 18);
+    _labelSqDateName.frame  = CGRectMake(85, _labelKjDateName.frame.origin.y+_labelKjDateName.frame.size.height+10, SCREEN_WIDTH, 18);
     
-    _labelLine.frame  = CGRectMake(10, _labelPlayDateName.frame.origin.y+_labelPlayDateName.frame.size.height+20, SCREEN_WIDTH-20, 1);
+    _labelLine.frame  = CGRectMake(10, _labelSqDateName.frame.origin.y+_labelSqDateName.frame.size.height+20, SCREEN_WIDTH-20, 1);
+    
     [_labelLine setBackgroundColor:RGB(238, 238, 238)];
     
      if([dramaModel.similarities count] > 0 )
@@ -174,10 +270,24 @@
      }
     
     [_labelDirectorName setText:dramaModel.director];
+
+    [_labelScenaristName setText:@""];
+
+    [_labelProducerName setText:dramaModel.distribution];
+
     [_labelZyName setText:dramaModel.staring];
+
     [_labelPlaceName setText:dramaModel.district];
-    [_labelLangName setText:dramaModel.language];
-    [_labelPlayDateName setText:dramaModel.premiere];
+ 
+    [_labelCountName setText:dramaModel.episodes];
+
+    [_labelProducedName setText:dramaModel.present];
+ 
+    [_labelZpdwName setText:dramaModel.distribution];
+
+    [_labelKjDateName setText:dramaModel.boot];
+
+    [_labelSqDateName setText:dramaModel.wrap];
 
 }
 

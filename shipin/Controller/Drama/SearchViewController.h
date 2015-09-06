@@ -15,5 +15,9 @@
     UISearchBar     *_searchBar;
     
     DramaModel      *_dramaModle;
+
 }
+
+@property (nonatomic,strong) NSString        *_searchName;
+@property (nonatomic,strong) NSString        *_searchNo;
 @end

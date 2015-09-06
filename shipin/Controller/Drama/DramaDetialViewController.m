@@ -12,6 +12,7 @@
 #import "LKDBHelper.h"
 #import "DramaDetail.h"
 #import "CommentHeaderScrollTableView.h"
+#import "ScreenShotsModel.h"
 
 @interface DramaDetialViewController ()
 
@@ -132,7 +133,7 @@
 {
     if( clickIndex == 0)
     {
-        return 6;
+        return 7;
     }
     else if( clickIndex == 1)
     {
@@ -185,7 +186,7 @@
         
         btnConnect = [[UIButton alloc ] initWithFrame:CGRectMake((SCREEN_WIDTH/3)*2, 10, SCREEN_WIDTH/3, 40)];
         [btnConnect setBackgroundColor:grayRgb];
-        [btnConnect setTitle:@"相关资料" forState:UIControlStateNormal];
+        [btnConnect setTitle:@"相关报道" forState:UIControlStateNormal];
         btnConnect.titleLabel.font = [UIFont systemFontOfSize:13];
         [btnConnect addTarget:self action:@selector(onBtnSwitch:) forControlEvents:UIControlEventTouchUpInside];
         [btnConnect setTitleColor:RGB(102, 102, 102) forState:UIControlStateNormal];
@@ -298,22 +299,7 @@
     {
          if( clickIndex == 0)//剧情简介
          {
-             if (  indexPath.row == 5 )
-             {
-                 UITableViewCell* cellBtn = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
-                 cellBtn.selectionStyle = UITableViewCellSelectionStyleNone;
-
-                 UIButton *btnSave = [[UIButton alloc ] initWithFrame:CGRectMake(20, 10, SCREEN_WIDTH-40, 40)];
-                 [btnSave setTitle:@"加入收藏" forState:UIControlStateNormal];
-                 btnSave.titleLabel.font = [UIFont systemFontOfSize:14];
-                 [btnSave  setBackgroundColor:yellowRgb];
-                 btnSave.layer.masksToBounds = YES;
-                 btnSave.layer.cornerRadius = 3;
-                 [btnSave addTarget:self action:@selector(onButtonColloction) forControlEvents:UIControlEventTouchUpInside];
-                 [cellBtn addSubview:btnSave];
-                return cellBtn;
-             }
-             else
+             if (  indexPath.row == 4 )
              {
                  //图片
                  DramaDetialTableViewCell* cell = [[DramaDetialTableViewCell alloc] initWithReuseIdentifier:CellIdentifier];
@@ -325,7 +311,7 @@
                      NSURL *url =[Tool stringMerge:posterModle.poster];
                      [cell setIntroductionText:@"" headImage:url imageHeight:SCREEN_WIDTH-106];
                  }
-                 UILabel *labelImageCount = [[UILabel alloc ] initWithFrame:CGRectMake(10, 10, 50, 20)];
+                 UILabel *labelImageCount = [[UILabel alloc ] initWithFrame:CGRectMake(20, 10, 50, 20)];
                  [labelImageCount setText:[NSString stringWithFormat:@"共%ld张",(unsigned long)[dramaModle.posters count]]];
                  [labelImageCount setTextColor:[UIColor whiteColor]];
                  [labelImageCount setFont:[UIFont boldSystemFontOfSize:13]];
@@ -333,6 +319,37 @@
                  [cell addSubview:labelImageCount];
                 return cell;
              }
+             else if (  indexPath.row == 5 )
+             {
+                 //图片
+                 DramaDetialTableViewCell* cell = [[DramaDetialTableViewCell alloc] initWithReuseIdentifier:CellIdentifier];
+                 cell.selectionStyle = UITableViewCellSelectionStyleNone;
+                 
+                 if ([dramaModle.screenShots count] > 0 )
+                 {
+                     ScreenShotsModel *screenModel =dramaModle.screenShots[0];
+                     NSURL *url =[Tool stringMerge:screenModel.screenshot];
+                     [cell setIntroductionText:@"0" headImage:url imageHeight:SCREEN_WIDTH-106];
+                 }
+                 return cell;
+
+             }
+             else if(  indexPath.row == 6 )
+             {
+                 UITableViewCell* cellBtn = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
+                 cellBtn.selectionStyle = UITableViewCellSelectionStyleNone;
+                 
+                 UIButton *btnSave = [[UIButton alloc ] initWithFrame:CGRectMake(20, 10, SCREEN_WIDTH-40, 40)];
+                 [btnSave setTitle:@"加入收藏" forState:UIControlStateNormal];
+                 btnSave.titleLabel.font = [UIFont systemFontOfSize:14];
+                 [btnSave  setBackgroundColor:yellowRgb];
+                 btnSave.layer.masksToBounds = YES;
+                 btnSave.layer.cornerRadius = 3;
+                 [btnSave addTarget:self action:@selector(onButtonColloction) forControlEvents:UIControlEventTouchUpInside];
+                 [cellBtn addSubview:btnSave];
+                 return cellBtn;
+             }
+
          }
         if( clickIndex == 2)//相关资料
         {
@@ -379,7 +396,7 @@
         }
         if( clickIndex == 1)
         {
-            return 160; //项目信息cell 高度
+            return 285; //项目信息cell 高度
         }
         if( clickIndex == 2)
         {
@@ -417,13 +434,18 @@
         }
         if( clickIndex == 0)
         {
+            if( indexPath.row == 4 )
+            {
+                return  SCREEN_WIDTH-100;
+            }
             if( indexPath.row == 5 )
             {
-                return 70;
-            }
-            else
                 return  SCREEN_WIDTH-100;
-
+            }
+            if( indexPath.row == 6 )
+            {
+                return  70;
+            }
         }
     }
     return 0;
@@ -502,6 +524,15 @@
                 [arrayImage addObject: [Tool stringMerge:imageItem.poster ] ];
             }
             [self browerPhotoes:arrayImage page:0];
+        }
+        if( indexPath.row == 5 )
+        {
+            //打开播放器
+            if([dramaModle.trailerUrl length] > 1)
+            {
+                MPMoviePlayerViewController *playerView =[[MPMoviePlayerViewController alloc]initWithContentURL:[NSURL URLWithString:dramaModle.trailerUrl]];
+                [self presentMoviePlayerViewControllerAnimated:playerView];
+            }
         }
     }
 }

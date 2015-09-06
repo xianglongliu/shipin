@@ -19,6 +19,11 @@
 
 @implementation MyPublishViewController
 
+-(void) viewDidAppear:(BOOL)animated
+{
+      [self loadNetWorkData];
+}
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
@@ -67,9 +72,6 @@
     _tableView.separatorColor = RGB(221, 221, 221);
     [_tableView setBackgroundColor:RGBA(238, 238, 238, 1)];
     [self.view addSubview:_tableView];
-    
-    //先加载数据
-    [self loadNetWorkData];
 }
 
 -(void) loadNetWorkData

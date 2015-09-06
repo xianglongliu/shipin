@@ -64,10 +64,11 @@ IMP_SINGLETON(UserService)
 
 
 + (void)updateUserDetail:(UserModel *)userModel success:(void (^)(Boolean *boolean))success failure:(void (^)(NSString *error))failure {
-    NSDictionary *paramDict = @{@"name" : userModel.name, @"brief" : userModel.brief,
-            @"corporation" : userModel.corporation,
-            @"position" : userModel.position,
-            @"email" : userModel.email
+    NSDictionary *paramDict = @{@"name" : userModel.name,
+                                @"brief" : userModel.brief,
+                                @"corporation" : userModel.corporation,
+                                @"position" : userModel.position,
+                                @"email" : userModel.email
     };
 
     HttpProtocol *httpProtocol = [[HttpProtocol alloc] init];
