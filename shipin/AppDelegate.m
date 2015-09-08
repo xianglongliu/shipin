@@ -27,7 +27,6 @@
         GuideViewController *mainView = [[GuideViewController alloc]init];
         ExUINavigationController *nav =[[ExUINavigationController alloc]initWithRootViewController:mainView];
         self.window.rootViewController = nav;
-        [Config saveFirstLogin:@"YES"];
     }
     else
     {

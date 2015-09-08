@@ -8,6 +8,7 @@
 
 #import "GuideViewController.h"
 #import "ViewController.h"
+#import "LoginViewController.h"
 
 @interface GuideViewController ()
 
@@ -67,8 +68,8 @@
    _pageCtrl.currentPage = index;
     if (_isOut)
     {
-        ViewController *mainView = [[ViewController alloc]init];
-        [self.navigationController pushViewController:mainView animated:YES];
+        LoginViewController *loginView = [[LoginViewController alloc]init];
+        [self.navigationController pushViewController:loginView animated:YES];
     }
 }
 
