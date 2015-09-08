@@ -34,6 +34,7 @@ IMP_SINGLETON(UserService)
             NSLog(@"%@", [responseObject JSONString]);
             NSError *err = nil;
             UserModel *userModel = [[UserModel alloc] initWithString:[responseObject JSONString] error:&err];
+            userModel.toUid=userModel.id;
 
             if ([[Config getUserName] isEqualToString:userModel.mobile]) {
 

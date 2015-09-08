@@ -14,7 +14,14 @@
 #import "CommentHeaderScrollTableView.h"
 #import "ScreenShotsModel.h"
 
-@interface DramaDetialViewController ()
+@interface DramaDetialViewController (){
+
+    UIColor *btnColor;
+    NSString *btnText;
+}
+
+
+
 
 @end
 
@@ -40,10 +47,10 @@
     [self.view addSubview:btnBack];
 
     //分享
-    UIButton *btnShare = [[UIButton alloc ] initWithFrame:CGRectMake(SCREEN_WIDTH-45, 20, 25, 25)];
-    [btnShare setImage:[UIImage imageNamed:@"btn_share.png"] forState:UIControlStateNormal];
-    [btnShare addTarget:self action:@selector(onButtonShare) forControlEvents:UIControlEventTouchUpInside];
-    [self.view addSubview:btnShare];
+//    UIButton *btnShare = [[UIButton alloc ] initWithFrame:CGRectMake(SCREEN_WIDTH-45, 20, 25, 25)];
+//    [btnShare setImage:[UIImage imageNamed:@"btn_share.png"] forState:UIControlStateNormal];
+//    [btnShare addTarget:self action:@selector(onButtonShare) forControlEvents:UIControlEventTouchUpInside];
+//    [self.view addSubview:btnShare];
     
     _tableView = [[UITableView alloc ] initWithFrame:CGRectMake(0, TABBAR_HEIGHT, SCREEN_WIDTH, SCREEN_HEIGHT-TABBAR_HEIGHT) style:UITableViewStylePlain];
     _tableView.dataSource = self;
@@ -103,8 +110,39 @@
              [Tool showWarningTip:@"加载剧目详情失败" view:self.view time:1];
          }];
     }
+
+    [self checkCollection:_nId];
 }
 
+
+-(void)checkCollection:(int)dId{
+
+    btnText=@"添加收藏";
+    btnColor= yellowRgb;
+
+    [UserService getCollections:^(NSArray *dramaArray)
+    {
+
+        if ([dramaArray count]>0){
+
+            for(int i=0;i< [dramaArray count];i++){
+
+                DramaModel *msgModel= dramaArray[i];
+                if([msgModel.id intValue]==dId){
+                    btnText=@"取消收藏";
+                    btnColor= grayRgb;
+                    break;
+                }
+            }
+        }
+
+
+    } failure:^(NSDictionary *error)
+    {
+        btnText=@"添加收藏";
+        btnColor= yellowRgb;
+    }];
+}
 -(DramaModel *)getLocalData:(int)nId
 {
     LKDBHelper *helper = [LKDBHelper getUsingLKDBHelper];
@@ -344,9 +382,19 @@
                      cellBtn.selectionStyle = UITableViewCellSelectionStyleNone;
                      
                      UIButton *btnSave = [[UIButton alloc ] initWithFrame:CGRectMake(20, 10, SCREEN_WIDTH-40, 40)];
-                     [btnSave setTitle:@"加入收藏" forState:UIControlStateNormal];
+                     [btnSave  setBackgroundColor:btnColor];
+                     [btnSave setTitle:btnText forState:UIControlStateNormal];
+//                     if([self checkCollection:_nId]){
+//
+//                         [btnSave setTitle:@"取消收藏" forState:UIControlStateNormal];
+//                         [btnSave  setBackgroundColor:grayRgb];
+//                     } else
+//                     {
+//                         [btnSave setTitle:@"加入收藏" forState:UIControlStateNormal];
+//                     }
+
                      btnSave.titleLabel.font = [UIFont systemFontOfSize:14];
-                     [btnSave  setBackgroundColor:yellowRgb];
+
                      btnSave.layer.masksToBounds = YES;
                      btnSave.layer.cornerRadius = 3;
                      [btnSave addTarget:self action:@selector(onButtonColloction) forControlEvents:UIControlEventTouchUpInside];
@@ -361,9 +409,20 @@
                  cellBtn.selectionStyle = UITableViewCellSelectionStyleNone;
                  
                  UIButton *btnSave = [[UIButton alloc ] initWithFrame:CGRectMake(20, 10, SCREEN_WIDTH-40, 40)];
-                 [btnSave setTitle:@"加入收藏" forState:UIControlStateNormal];
+
+                 [btnSave  setBackgroundColor:btnColor];
+                 [btnSave setTitle:btnText forState:UIControlStateNormal];
+//                 if([self checkCollection:_nId]){
+//
+//                     [btnSave setTitle:@"取消收藏" forState:UIControlStateNormal];
+//                     [btnSave  setBackgroundColor:grayRgb];
+//                 } else
+//                 {
+//                     [btnSave setTitle:@"加入收藏" forState:UIControlStateNormal];
+//                 }
+//                 [btnSave setTitle:@"加入收藏" forState:UIControlStateNormal];
                  btnSave.titleLabel.font = [UIFont systemFontOfSize:14];
-                 [btnSave  setBackgroundColor:yellowRgb];
+
                  btnSave.layer.masksToBounds = YES;
                  btnSave.layer.cornerRadius = 3;
                  [btnSave addTarget:self action:@selector(onButtonColloction) forControlEvents:UIControlEventTouchUpInside];

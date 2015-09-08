@@ -17,5 +17,6 @@
 @property (nonatomic,strong) NSString<Optional> *updateTime; //修改时间
 @property (nonatomic,strong) NSNumber<Optional> *status; //状态  1未审核 2审核
 @property (nonatomic,strong) NSData<Optional> *hImage; //上传头像
+@property (nonatomic,strong) NSNumber<Optional> *toUid; //关注用户id
 
 @end

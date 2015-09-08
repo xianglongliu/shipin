@@ -15,7 +15,10 @@
 #import "CommentHeaderScrollTableView.h"
 #import "FVCustomAlertView.h"
 
-@interface PersonInfoViewController ()
+@interface PersonInfoViewController (){
+    UIColor *btnColor;
+    NSString *btnText;
+}
 
 @end
 
@@ -60,6 +63,8 @@
 
 -(void) loadUserInfo
 {
+
+    [self checkFollow:__uId];
     if ([NetWorkState getNetWorkState] == NotReachable )
     {
         LKDBHelper *helper = [LKDBHelper getUsingLKDBHelper];
@@ -164,9 +169,48 @@
              [Tool showWarningTip:@"获取用户信息失败" view:self.view time:1];
          }];
     }
+
+
 }
 
+-(void)checkFollow:(int)dId{
 
+    btnText=@"关注";
+    btnColor= yellowRgb;
+
+    [UserService getFollows:^(NSArray *userArray)
+    {
+
+        if ([userArray count]>0){
+
+            for(int i=0;i< [userArray count];i++){
+
+                UserModel *userModel= userArray[i];
+                if(userModel.toUid!=nil){
+
+                    if([userModel.toUid intValue]==dId){
+                        btnText=@"已关注";
+                        btnColor= grayRgb;
+                        break;
+                    }
+
+                } else{
+
+                    if([userModel.id intValue]==dId){
+                        btnText=@"已关注";
+                        btnColor= grayRgb;
+                        break;
+                    }
+                }
+
+            }
+        }
+
+
+    } failure:^(NSDictionary *error)
+    {
+    }];
+}
 #pragma mark tableview function
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
@@ -197,8 +241,8 @@
         if (self._uId != [[Config getUserId] intValue])//如果是查看自己的资料则可以编辑
         {
             UIButton *btnFollow = [[UIButton alloc ] initWithFrame:CGRectMake(SCREEN_WIDTH/2.2f, 224, 40, 25)];
-            [btnFollow setTitle:@"关注" forState:UIControlStateNormal];
-            [btnFollow setTitleColor:yellowRgb forState:UIControlStateNormal];
+            [btnFollow setTitle:btnText forState:UIControlStateNormal];
+            [btnFollow setTitleColor:btnColor forState:UIControlStateNormal];
             btnFollow.titleLabel.font = [UIFont systemFontOfSize:12];
             [btnFollow addTarget:self action:@selector(onButtonFollow) forControlEvents:UIControlEventTouchUpInside];
             [cell addSubview:btnFollow];
