@@ -55,6 +55,8 @@
 		EE726FB11B81A0C400C66CF9 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = EE726FAF1B81A0C400C66CF9 /* Default-568h@2x.png */; };
 		EE726FB41B81AEA600C66CF9 /* 640_1136.png in Resources */ = {isa = PBXBuildFile; fileRef = EE726FB21B81AEA600C66CF9 /* 640_1136.png */; };
 		EE726FB51B81AEA600C66CF9 /* 640.png in Resources */ = {isa = PBXBuildFile; fileRef = EE726FB31B81AEA600C66CF9 /* 640.png */; };
+		EE74D2D91B9E914B00C5EEFF /* HPGrowingTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = EE74D2D61B9E914B00C5EEFF /* HPGrowingTextView.m */; };
+		EE74D2DA1B9E914B00C5EEFF /* HPTextViewInternal.m in Sources */ = {isa = PBXBuildFile; fileRef = EE74D2D81B9E914B00C5EEFF /* HPTextViewInternal.m */; };
 		EE7530E81B81D32100EA3823 /* UIViewSearch.m in Sources */ = {isa = PBXBuildFile; fileRef = EE7530E71B81D32100EA3823 /* UIViewSearch.m */; };
 		EE7530EB1B81D6B300EA3823 /* ico-down-arrow.png in Resources */ = {isa = PBXBuildFile; fileRef = EE7530E91B81D6B300EA3823 /* ico-down-arrow.png */; };
 		EE7530EC1B81D6B300EA3823 /* ico-up-arrow.png in Resources */ = {isa = PBXBuildFile; fileRef = EE7530EA1B81D6B300EA3823 /* ico-up-arrow.png */; };
@@ -233,6 +235,10 @@
 		EE726FAF1B81A0C400C66CF9 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Default-568h@2x.png"; path = "Resource/Default-568h@2x.png"; sourceTree = "<group>"; };
 		EE726FB21B81AEA600C66CF9 /* 640_1136.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = 640_1136.png; path = Resource/640_1136.png; sourceTree = "<group>"; };
 		EE726FB31B81AEA600C66CF9 /* 640.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = 640.png; path = Resource/640.png; sourceTree = "<group>"; };
+		EE74D2D51B9E914B00C5EEFF /* HPGrowingTextView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HPGrowingTextView.h; path = ExView/HPGrowingTextView/HPGrowingTextView.h; sourceTree = "<group>"; };
+		EE74D2D61B9E914B00C5EEFF /* HPGrowingTextView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = HPGrowingTextView.m; path = ExView/HPGrowingTextView/HPGrowingTextView.m; sourceTree = "<group>"; };
+		EE74D2D71B9E914B00C5EEFF /* HPTextViewInternal.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HPTextViewInternal.h; path = ExView/HPGrowingTextView/HPTextViewInternal.h; sourceTree = "<group>"; };
+		EE74D2D81B9E914B00C5EEFF /* HPTextViewInternal.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = HPTextViewInternal.m; path = ExView/HPGrowingTextView/HPTextViewInternal.m; sourceTree = "<group>"; };
 		EE7530E61B81D32100EA3823 /* UIViewSearch.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = UIViewSearch.h; path = Controller/Drama/UIViewSearch.h; sourceTree = "<group>"; };
 		EE7530E71B81D32100EA3823 /* UIViewSearch.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = UIViewSearch.m; path = Controller/Drama/UIViewSearch.m; sourceTree = "<group>"; };
 		EE7530E91B81D6B300EA3823 /* ico-down-arrow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "ico-down-arrow.png"; path = "Resource/Button/ico-down-arrow.png"; sourceTree = "<group>"; };
@@ -529,6 +535,17 @@
 				EE726FA31B819ED900C66CF9 /* iTunesArtwork@2x.png */,
 			);
 			name = Icon;
+			sourceTree = "<group>";
+		};
+		EE74D2D41B9E914300C5EEFF /* HPGrowingTextView */ = {
+			isa = PBXGroup;
+			children = (
+				EE74D2D51B9E914B00C5EEFF /* HPGrowingTextView.h */,
+				EE74D2D61B9E914B00C5EEFF /* HPGrowingTextView.m */,
+				EE74D2D71B9E914B00C5EEFF /* HPTextViewInternal.h */,
+				EE74D2D81B9E914B00C5EEFF /* HPTextViewInternal.m */,
+			);
+			name = HPGrowingTextView;
 			sourceTree = "<group>";
 		};
 		EE7944E61B7F4EC80032DF3A /* About */ = {
@@ -863,6 +880,7 @@
 				EEDCB5CB1B63398D00EB9135 /* ExUINavigationBar.m */,
 				EEDCB5C81B63392700EB9135 /* ExUINavigationController.m */,
 				EE908C4F1B7F0DDF00505B82 /* FXLabel.m */,
+				EE74D2D41B9E914300C5EEFF /* HPGrowingTextView */,
 				EEDC18501B805EFC0013E61B /* MJRefresh */,
 				EE6DD5041B8C557F00348615 /* PhotoBrowser */,
 				EEDC18511B805F010013E61B /* RefreshTableHeaderView */,
@@ -1141,10 +1159,12 @@
 				EE8669A71B96F4FE00A114B2 /* GuideViewController.m in Sources */,
 				EE625BD11B8EAB3A00DB8C2B /* DramaPostersModel.m in Sources */,
 				EE87D2151B58ADA4002A0DD8 /* AppDelegate.m in Sources */,
+				EE74D2DA1B9E914B00C5EEFF /* HPTextViewInternal.m in Sources */,
 				EEDA73D21B82DDD1008823CE /* BrowseViewController.m in Sources */,
 				EEDC18451B8036310013E61B /* AddPublishTableViewCell.m in Sources */,
 				EE7530E81B81D32100EA3823 /* UIViewSearch.m in Sources */,
 				EEDC185E1B805F0A0013E61B /* MJRefreshConst.m in Sources */,
+				EE74D2D91B9E914B00C5EEFF /* HPGrowingTextView.m in Sources */,
 				EEABE39F1B7F3F1F00C06C3A /* AttentionPeoperTableViewCell.m in Sources */,
 				EEABE3991B7F37FF00C06C3A /* ModifyUserinfoViewController.m in Sources */,
 				EE7944F81B7F56C50032DF3A /* AddPublishViewController.m in Sources */,

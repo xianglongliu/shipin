@@ -72,6 +72,7 @@
     _tableView.separatorColor = RGB(221, 221, 221);
     [_tableView setBackgroundColor:RGBA(238, 238, 238, 1)];
     [self.view addSubview:_tableView];
+    [_tableView setHidden:YES];
 }
 
 -(void) loadNetWorkData
@@ -80,9 +81,8 @@
     NSString *orderBy = @"CAST(id as integer) desc";
     NSMutableArray * dramaArray = [helper search:[MyDrama class] where:nil orderBy:orderBy offset:0 count:10];
 
-    if(dramaArray!=nil && [dramaArray count]>0){
-
-
+    if(dramaArray!=nil && [dramaArray count]>0)
+    {
         NSMutableArray* array = [[NSMutableArray alloc] init];
         for(MyDrama *drama in dramaArray){
 
@@ -104,7 +104,10 @@
         [UserService getPublishes:^(NSArray *dramaArray)
         {
             _arrayPublish= [[NSMutableArray alloc ] initWithArray:dramaArray];
-
+            if ([_arrayPublish count] > 0 )
+            {
+                   [_tableView setHidden:NO];
+            }
             //如果我的发布为空
             if ([_arrayPublish count] <= 0)
             {

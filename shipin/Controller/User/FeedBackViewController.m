@@ -8,6 +8,9 @@
 
 #import "FeedBackViewController.h"
 
+#define MinNumberOfLines 1
+#define MaxNumberOfLines 7
+
 @interface FeedBackViewController ()
 
 @end
@@ -39,9 +42,23 @@
     [label setFont:[UIFont systemFontOfSize:12 ]];
     [self.view addSubview:label];
     
+    hpTextView = [[HPGrowingTextView alloc] initWithFrame:CGRectMake(10, label.frame.size.height+label.frame.origin.y+5, SCREEN_WIDTH-20, 100)];
+    hpTextView.isScrollable = NO;
+    [hpTextView.internalTextView.layer setCornerRadius:3];
+    hpTextView.minNumberOfLines = MinNumberOfLines;
+    hpTextView.maxNumberOfLines = MaxNumberOfLines;
+    hpTextView.autoresizingMask = UIViewAutoresizingFlexibleWidth;
+    hpTextView.internalTextView.enablesReturnKeyAutomatically = YES;
+    //    hpTextView.textAlignment = NSTextAlignmentJustified;
+    hpTextView.animateHeightChange = NO;
+    hpTextView.returnKeyType = UIReturnKeyDefault; //just as an example
+    hpTextView.font = [UIFont systemFontOfSize:14.0f];
+    hpTextView.delegate = self;
+    //hpTextView.internalTextView.scrollIndicatorInsets = UIEdgeInsetsMake(0, 5, 0, 5);
+    hpTextView.internalTextView.backgroundColor = [UIColor whiteColor];
+    hpTextView.placeholder = @"请输入反馈意见";
     
-    _textView = [[UITextView alloc ] initWithFrame:CGRectMake(10, label.frame.size.height+label.frame.origin.y+5, SCREEN_WIDTH-20, SCREEN_HEIGHT-TABBAR_HEIGHT*3)];
-    [self.view addSubview:_textView];
+    [self.view addSubview:hpTextView];
 
     UIButton *btnSave = [[UIButton alloc ] initWithFrame:CGRectMake(20, SCREEN_HEIGHT-60, SCREEN_WIDTH-40, 40)];
     [btnSave setTitle:@"提交" forState:UIControlStateNormal];
@@ -63,7 +80,7 @@
 
 -(void) onButtonSubmit
 {
-    if ([_textView.text length] <= 0 )
+    if ([hpTextView.text length] <= 0 )
     {
         [Tool showWarningTip:@"请输入反馈意见" view:self.view time:1];
         return;
@@ -72,7 +89,7 @@
 
 -(void) touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event
 {
-    [_textView resignFirstResponder];
+    [hpTextView resignFirstResponder];
 }
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

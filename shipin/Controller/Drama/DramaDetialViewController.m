@@ -49,7 +49,7 @@
     _tableView.dataSource = self;
     _tableView.delegate = self;
     _tableView.separatorColor = [UIColor clearColor] ;
-    [_tableView setBackgroundColor:RGBA(238, 238, 238, 1)];
+    [_tableView setBackgroundColor:[UIColor whiteColor]];
     [self.view addSubview:_tableView];
     
     
