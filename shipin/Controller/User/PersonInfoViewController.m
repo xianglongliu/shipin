@@ -21,19 +21,20 @@
 
 @implementation PersonInfoViewController
 
--(void)viewWillAppear:(BOOL)animated
+-(void) viewDidAppear:(BOOL)animated
 {
-    [[UIApplication  sharedApplication] setStatusBarHidden:NO];
     [self loadUserInfo];
 }
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    [[UIApplication  sharedApplication] setStatusBarHidden:NO];
     [self.view setBackgroundColor:[UIColor whiteColor]];
     _myDramaArray= [[NSMutableArray alloc ] initWithCapacity:0];
     mutableArray = [[NSMutableArray alloc ] initWithCapacity:0];
+    [self initViewCtrl];
+   
+//    [self loadUserInfo];
 }
 
 
@@ -149,7 +150,8 @@
              [UserService getPublishes:^(NSArray *dramaArray)
               {
                   _myDramaArray = [NSMutableArray arrayWithArray:dramaArray];
-                  [self initViewCtrl];
+//                  [self initViewCtrl];
+                  [_tableView reloadData];
                   
                   [FVCustomAlertView hideAlertFromView:self.view fading:YES];
               } failure:^(NSDictionary *error){
@@ -231,7 +233,8 @@
     else if(indexPath.row == 2 || indexPath.row == 3 || indexPath.row == 4 || indexPath.row == 5 || indexPath.row == 6 )
     {
         TextModel * tModle = [[TextModel alloc ] init];
-        tModle =  mutableArray[indexPath.row-2];
+        if ([mutableArray count] > indexPath.row-2)
+            tModle =  mutableArray[indexPath.row-2];
         
         static NSString *showCell = @"TextTableViewCell";
         TextTableViewCell * cell = [[TextTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:showCell];
@@ -262,7 +265,8 @@
             if([dramaModle.posters count] > 0 )
             {
                 DramaPostersModel *imageItem = [[DramaPostersModel alloc ] init];
-                imageItem = dramaModle.posters[0];
+                if ([dramaModle.posters count] >0)
+                    imageItem = dramaModle.posters[0];
                 similarities.cover =imageItem.poster;
             }
 
