@@ -27,9 +27,10 @@ IMP_SINGLETON(UserService)
     }
 
     httpProtocol.requestUrl = [NSString stringWithFormat:@"%@", URL_USER_DETAIL];
-    [[HttpManager sharedInstance] httpWithRequest:httpProtocol success:^(AFHTTPRequestOperation *operation, id responseObject) {
-
-        if ([responseObject isKindOfClass:[NSDictionary class]]) {
+    [[HttpManager sharedInstance] httpWithRequest:httpProtocol success:^(AFHTTPRequestOperation *operation, id responseObject)
+    {
+        if ([responseObject isKindOfClass:[NSDictionary class]])
+        {
             NSLog(@"%@", [responseObject JSONString]);
             NSError *err = nil;
             UserModel *userModel = [[UserModel alloc] initWithString:[responseObject JSONString] error:&err];
