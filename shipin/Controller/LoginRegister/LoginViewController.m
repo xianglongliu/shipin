@@ -7,6 +7,7 @@
 //
 
 #import "LoginViewController.h"
+#import "ViewController.h"
 
 @interface LoginViewController ()
 
@@ -191,10 +192,19 @@
              [Config saveLoginFlag:@"YES"];
              [Config saveIsLogin:@"YES"];
              
-            if( [[Config getToken] length] > 0  )
-            {
-                [self.navigationController popViewControllerAnimated:YES];
-            }
+             if( [[Config getToken] length] > 0  )
+             {
+                 if(![[Config getFirstLoginState] isEqualToString:@"YES"])
+                 {
+                        [Config saveFirstLogin:@"YES"];
+                        ViewController *mainView = [[ViewController alloc ] init];
+                        [self.navigationController pushViewController:mainView animated:YES];
+                 }
+                 else
+                 {
+                        [self.navigationController popViewControllerAnimated:YES];
+                 }
+             }
              else
              {
                   [Config saveToken: [d objectForKey:@"data"]];
