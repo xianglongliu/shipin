@@ -47,19 +47,15 @@
 
 -(void) loadNetWorkData
 {
-//    MessageModel *systemMsgModle = [[MessageModel alloc ] init];
-//    systemMsgModle.title = @"标题";
-//    systemMsgModle.msg = @"消息内容";
-//    systemMsgModle.createTime = @"2015年00月00日 11：11：11";
-//   
-//    [_arraySystemMsg addObject:systemMsgModle];
-//    [_arraySystemMsg addObject:systemMsgModle];
-//    [_tableViewSystemMsg reloadData];
-    
     [UserService getMessages:^(NSArray *messageArray)
     {
         _arraySystemMsg =[[NSMutableArray alloc ] initWithArray:messageArray];
-         [_tableViewSystemMsg reloadData];
+        [_tableViewSystemMsg reloadData];
+        
+        if ([_arraySystemMsg count] < (SCREEN_HEIGHT-TABBAR_HEIGHT)/64)
+        {
+            _tableViewSystemMsg.frame = CGRectMake(0, TABBAR_HEIGHT, SCREEN_WIDTH, [_arraySystemMsg count]*64);
+        }
         
     } failure:^(NSDictionary *error)
     {

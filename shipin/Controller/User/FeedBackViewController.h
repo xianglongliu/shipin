@@ -7,12 +7,15 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "HPGrowingTextView.h"
 
-@interface FeedBackViewController : BaseViewController
+@interface FeedBackViewController : BaseViewController<HPGrowingTextViewDelegate>
 {
     UITextField     *_textFieldName;
     UITextField     *_textFieldTel;
     UITextField     *_textFieldEmail;
-    UITextView      *_textView;
+//    UITextView      *_textView;
+    
+    HPGrowingTextView *hpTextView;
 }
 @end

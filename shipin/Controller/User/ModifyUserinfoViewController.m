@@ -30,14 +30,16 @@
     [self.view addSubview:btnBack];
 
     
-    self._textContent = [[UITextView alloc ] initWithFrame:CGRectMake(20, TABBAR_HEIGHT+20, SCREEN_WIDTH-40, 100)];
+    self._textContent = [[UITextView alloc ] initWithFrame:CGRectMake(20, TABBAR_HEIGHT+20, SCREEN_WIDTH-40, 30)];
     self._textContent.layer.masksToBounds = YES;
     self._textContent.layer.cornerRadius = 3;
     [self._textContent setBackgroundColor:[UIColor whiteColor] ];
     [ self._textContent setFont:[UIFont systemFontOfSize:14]];
     [self.view addSubview:self._textContent];
+    if([self.selModle.strLeftName isEqualToString:@"个人简介"])
+         self._textContent.frame = CGRectMake(20, TABBAR_HEIGHT+20, SCREEN_WIDTH-40, 100);
     
-    UIButton *btnSave = [[UIButton alloc ] initWithFrame:CGRectMake(20, SCREEN_HEIGHT-60, SCREEN_WIDTH-40, 40)];
+    UIButton *btnSave = [[UIButton alloc ] initWithFrame:CGRectMake(20, self._textContent.frame.size.height+self._textContent.frame.origin.y+30, SCREEN_WIDTH-40, 40)];
     [btnSave setTitle:@"修改" forState:UIControlStateNormal];
     btnSave.titleLabel.font = [UIFont systemFontOfSize:14];
     [btnSave  setBackgroundColor:yellowRgb];

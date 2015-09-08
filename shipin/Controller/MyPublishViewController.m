@@ -72,43 +72,42 @@
     _tableView.separatorColor = RGB(221, 221, 221);
     [_tableView setBackgroundColor:RGBA(238, 238, 238, 1)];
     [self.view addSubview:_tableView];
+    [_tableView setHidden:YES];
 }
 
 -(void) loadNetWorkData
 {
-    if ([NetWorkState getNetWorkState] == NotReachable )
+    LKDBHelper *helper = [LKDBHelper getUsingLKDBHelper];
+    NSString *orderBy = @"CAST(id as integer) desc";
+    NSMutableArray * dramaArray = [helper search:[MyDrama class] where:nil orderBy:orderBy offset:0 count:10];
+
+    if(dramaArray!=nil && [dramaArray count]>0)
     {
-        LKDBHelper *helper = [LKDBHelper getUsingLKDBHelper];
-        NSString *orderBy = @"CAST(id as integer) desc";
-        NSMutableArray * dramaArray = [helper search:[MyDrama class] where:nil orderBy:orderBy offset:0 count:10];
+        NSMutableArray* array = [[NSMutableArray alloc] init];
+        for(MyDrama *drama in dramaArray){
 
-        if(dramaArray!=nil && [dramaArray count]>0){
+            NSError* err = nil;
+            DramaModel *dramaModel = [[DramaModel alloc] initWithString:drama.content error:&err];
 
-
-            NSMutableArray* array = [[NSMutableArray alloc] init];
-            for(MyDrama *drama in dramaArray){
-
-                NSError* err = nil;
-                DramaModel *dramaModel = [[DramaModel alloc] initWithString:drama.content error:&err];
-
-                if(err!=nil)
-                {
-                    NSLog(@"getOldDatasERROR:::%@",err );
-                }
-                [array addObject:dramaModel];
-
+            if(err!=nil)
+            {
+                NSLog(@"getOldDatasERROR:::%@",err );
             }
+            [array addObject:dramaModel];
 
-            _arrayPublish=array;
-            [_tableView reloadData];
         }
 
-    } else{
+        _arrayPublish=array;
+        [_tableView reloadData];
+    }
 
         [UserService getPublishes:^(NSArray *dramaArray)
         {
             _arrayPublish= [[NSMutableArray alloc ] initWithArray:dramaArray];
-
+            if ([_arrayPublish count] > 0 )
+            {
+                   [_tableView setHidden:NO];
+            }
             //如果我的发布为空
             if ([_arrayPublish count] <= 0)
             {
@@ -121,10 +120,6 @@
         {
             [Tool showWarningTip:@"加载我的发布失败" view:self.view time:1];
         }];
-    }
-
-
-
 
 
 
