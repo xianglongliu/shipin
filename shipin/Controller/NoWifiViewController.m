@@ -463,7 +463,7 @@
     }
     if([textField isEqual:_textFieldCpdw])//
     {
-        _dramaModel.present =textField.text;
+        _dramaModel.presentation =textField.text;
     }
     if([textField isEqual:_textFieldZpdw])//
     {

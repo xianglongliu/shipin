@@ -7,9 +7,9 @@
 //
 
 
-#define     URL_SERVERURL   @"http://182.92.102.39/"
+#define     URL_SERVERURL   @"http://182.92.102.39" //@"http://www.17quannei.com/upfiles"
 
-#define     URL_SERVERADDRESS   @"http://182.92.102.39:8080"
+#define     URL_SERVERADDRESS   @"http://182.92.102.39:8080" //@"http://121.199.49.164"  //@"http://182.92.102.39:8080"
 //获取验证码
 #define     URL_VERIFYCODE  [URL_SERVERADDRESS stringByAppendingString:@"/user/verifyCode"]
 //登录

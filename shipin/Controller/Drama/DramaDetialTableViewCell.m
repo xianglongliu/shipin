@@ -54,17 +54,17 @@
     [self addSubview:_labelDirectorName];
     
 //    编剧
-    _labelScenarist = [[UILabel alloc ] initWithFrame:CGRectZero];
-    [_labelScenarist setText:@"编剧:"];
-    [_labelScenarist setBackgroundColor:[UIColor clearColor]];
-    [_labelScenarist setFont:[UIFont boldSystemFontOfSize:13]];
-    [self addSubview:_labelScenarist];
-    
-    _labelScenaristName = [[UILabel alloc ] initWithFrame:CGRectZero];
-    [_labelScenaristName setBackgroundColor:[UIColor clearColor]];
-    [_labelScenaristName setFont:[UIFont systemFontOfSize:13]];
-    [_labelScenaristName setTextColor:RGB(102, 102, 102)];
-    [self addSubview:_labelScenaristName];
+//    _labelScenarist = [[UILabel alloc ] initWithFrame:CGRectZero];
+//    [_labelScenarist setText:@"编剧:"];
+//    [_labelScenarist setBackgroundColor:[UIColor clearColor]];
+//    [_labelScenarist setFont:[UIFont boldSystemFontOfSize:13]];
+//    [self addSubview:_labelScenarist];
+//
+//    _labelScenaristName = [[UILabel alloc ] initWithFrame:CGRectZero];
+//    [_labelScenaristName setBackgroundColor:[UIColor clearColor]];
+//    [_labelScenaristName setFont:[UIFont systemFontOfSize:13]];
+//    [_labelScenaristName setTextColor:RGB(102, 102, 102)];
+//    [self addSubview:_labelScenaristName];
 
     //制片
     _labelProducer = [[UILabel alloc ] initWithFrame:CGRectZero];
@@ -232,11 +232,11 @@
     _labelDir.frame  = CGRectMake(20, 20, 30, 18);
     _labelDirectorName.frame  = CGRectMake(60, 20, SCREEN_WIDTH, 18);
     
-    _labelScenarist.frame  = CGRectMake(20, _labelDir.frame.origin.y+_labelDir.frame.size.height+10, 30, 18);
-    _labelScenaristName.frame  = CGRectMake(60, _labelDir.frame.origin.y+_labelDir.frame.size.height+10, SCREEN_WIDTH, 18);
+    //_labelScenarist.frame  = CGRectMake(20, _labelDir.frame.origin.y+_labelDir.frame.size.height+10, 30, 18);
+   // _labelScenaristName.frame  = CGRectMake(60, _labelDir.frame.origin.y+_labelDir.frame.size.height+10, SCREEN_WIDTH, 18);
     
-    _labelProducer.frame  = CGRectMake(20, _labelScenaristName.frame.origin.y+_labelScenaristName.frame.size.height+10, 30, 18);
-    _labelProducerName.frame  = CGRectMake(60, _labelScenaristName.frame.origin.y+_labelScenaristName.frame.size.height+10, SCREEN_WIDTH, 18);
+    _labelProducer.frame  = CGRectMake(20, _labelDirectorName.frame.origin.y+_labelDirectorName.frame.size.height+10, 30, 18);
+    _labelProducerName.frame  = CGRectMake(60, _labelDirectorName.frame.origin.y+_labelDirectorName.frame.size.height+10, SCREEN_WIDTH, 18);
     
     _labelZy.frame  = CGRectMake(20, _labelProducerName.frame.origin.y+_labelProducerName.frame.size.height+10, 30, 18);
     _labelZyName.frame  = CGRectMake(60, _labelProducerName.frame.origin.y+_labelProducerName.frame.size.height+10, SCREEN_WIDTH, 18);
@@ -271,7 +271,7 @@
     
     [_labelDirectorName setText:dramaModel.director];
 
-    [_labelScenaristName setText:@""];
+//    [_labelScenaristName setText:dramaModel.];
 
     [_labelProducerName setText:dramaModel.distribution];
 
@@ -281,7 +281,7 @@
  
     [_labelCountName setText:dramaModel.episodes];
 
-    [_labelProducedName setText:dramaModel.present];
+    [_labelProducedName setText:dramaModel.presentation];
  
     [_labelZpdwName setText:dramaModel.distribution];
 

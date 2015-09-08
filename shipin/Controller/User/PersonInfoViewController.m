@@ -394,9 +394,22 @@
 -(void)onButtonFollow
 {
     [UserService addFollow:[[self.userModel.id stringValue ] intValue] success:^(Boolean *boolean) {
-        [Tool showWarningTip:@"关注成功" view:self.view time:1];
+
+
+
+        [Tool showWarningTip:@"操作成功" view:self.view time:1];
+
+        if([btnText isEqualToString:@"关注"]){
+
+            btnText=@"已关注";
+            btnColor= grayRgb;
+        }else{
+            btnText=@"关注";
+            btnColor= yellowRgb;
+        }
+        [_tableView reloadData];
     } failure:^(NSString *error) {
-        [Tool showWarningTip:@"已关注" view:self.view time:1];
+        [Tool showWarningTip:@"操作失败" view:self.view time:1];
     }];
 }
 

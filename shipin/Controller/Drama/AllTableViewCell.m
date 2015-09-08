@@ -17,7 +17,7 @@
     self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
     if (self)
     {
-        [self setBackgroundColor:RGB(238, 238, 238)];
+        [self setBackgroundColor:[UIColor whiteColor]]; //RGB(238, 238, 238)
         
         _labelbgLeft = [[UILabel alloc ] initWithFrame:CGRectMake(10, 10, (SCREEN_WIDTH-30)/2, 160)];
         [_labelbgLeft setBackgroundColor:RGB(250, 250, 250)];

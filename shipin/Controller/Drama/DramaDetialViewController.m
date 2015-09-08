@@ -67,11 +67,24 @@
 {
     [UserService addCollection:self.nId success:^(Boolean *boolean)
     {
-        [Tool showWarningTip:@"收藏成功" view:self.view time:1];
+        [Tool showWarningTip:@"操作成功" view:self.view time:1];
+
+        if([btnText isEqualToString:@"添加收藏"])
+        {
+            btnText=@"取消收藏";
+            btnColor= grayRgb;
+
+        } else{
+
+            btnText=@"添加收藏";
+            btnColor= yellowRgb;
+        }
+
+        [_tableView reloadData];
  
     } failure:^(NSString *error)
      {
-        [Tool showWarningTip:@"已收藏" view:self.view time:1];
+        [Tool showWarningTip:@"操作失败" view:self.view time:1];
     }];
 }
 

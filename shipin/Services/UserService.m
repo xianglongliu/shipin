@@ -266,7 +266,7 @@ IMP_SINGLETON(UserService)
             @"premiere" : dramaModel.premiere!=nil?dramaModel.premiere:@"",
             @"recommend" : dramaModel.recommend!=nil?dramaModel.recommend:@"",
             @"distribution" : dramaModel.distribution!=nil?dramaModel.distribution:@"",
-            @"present" : dramaModel.present!=nil?dramaModel.present:@"",
+            @"present" : dramaModel.presentation!=nil?dramaModel.presentation:@"",
             @"boot" : dramaModel.boot!=nil?dramaModel.boot:@"",
             @"wrap" : dramaModel.wrap!=nil?dramaModel.wrap:@"",
             @"episodes" : dramaModel.episodes!=nil?dramaModel.episodes:@"",

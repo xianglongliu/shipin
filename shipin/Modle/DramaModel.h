@@ -33,7 +33,7 @@
 @property (nonatomic,strong) NSString<Optional> *premiere; //首播时间
 
 @property (nonatomic,strong) NSString<Optional> *distribution; //发行
-@property (nonatomic,strong) NSString<Optional> *present; //出品
+@property (nonatomic,strong) NSString<Optional> *presentation; //出品
 @property (nonatomic,strong) NSString<Optional> *boot; //开机时间
 @property (nonatomic,strong) NSString<Optional> *wrap; //杀青时间
 @property (nonatomic,strong) NSString<Optional> *episodes; //集数
