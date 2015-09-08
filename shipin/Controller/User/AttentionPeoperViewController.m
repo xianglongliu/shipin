@@ -40,7 +40,7 @@
     _tableViewPersonInfo.dataSource = self;
     _tableViewPersonInfo.delegate = self;
     _tableViewPersonInfo.separatorColor = RGB(221, 221, 221);
-    [_tableViewPersonInfo setBackgroundColor:RGBA(238, 238, 238, 1)];
+    [_tableViewPersonInfo setBackgroundColor:[UIColor whiteColor] ];
     [self.view addSubview:_tableViewPersonInfo];
 
     [self loadNetWorkData];
@@ -65,7 +65,14 @@
         [UserService getFollows:^(NSArray *followArray)
          {
              arrayAPeoper = [[NSMutableArray alloc ] initWithArray:followArray];
+             
+             if ([arrayAPeoper count] < (SCREEN_HEIGHT-TABBAR_HEIGHT)/64)
+             {
+                 _tableViewPersonInfo.frame = CGRectMake(0, TABBAR_HEIGHT, SCREEN_WIDTH, [arrayAPeoper count]*85);
+             }
              [_tableViewPersonInfo reloadData];
+             
+             
          } failure:^(NSDictionary *error)
          {
              [Tool showWarningTip:@"读取数据失败" view:self.view time:1];
