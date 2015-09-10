@@ -377,5 +377,30 @@ IMP_SINGLETON(UserService)
     }];
 }
 
++ (void)opinion:(NSString *)content success:(void (^)(Boolean *boolean))success failure:(void (^)(NSString *error))failure {
+    NSDictionary *paramDict = @{@"opinion" : content
+    };
+
+    HttpProtocol *httpProtocol = [[HttpProtocol alloc] init];
+    httpProtocol.requestUrl = [NSString stringWithFormat:@"%@", URL_OPINION];
+    httpProtocol.param = paramDict;
+    httpProtocol.method = @"post";
+
+    httpProtocol.token = [Config getToken];
+
+        [[HttpManager sharedInstance] addHttpRequest:httpProtocol success:^(AFHTTPRequestOperation *operation, Boolean *boolean) {
+
+            if (success)
+                success(boolean);
+
+        }                                    failure:^(AFHTTPRequestOperation *operation, NSString *error) {
+            if (failure)
+                failure(error);
+        }];
+
+
+
+
+}
 
 @end

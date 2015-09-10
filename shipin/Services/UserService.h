@@ -47,4 +47,7 @@ DEF_SINGLETON(UserService)
 +(void) getFollows: (void (^)(NSArray * followArray))success
             failure:(void (^)( NSDictionary *error))failure;
 
+//用户反馈
++(void) opinion:(NSString *)content success:(void (^)(Boolean * boolean))success
+                 failure:(void (^)( NSString *error))failure;
 @end
