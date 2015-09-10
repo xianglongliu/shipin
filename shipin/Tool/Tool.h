@@ -26,4 +26,8 @@
 +(NSString *) getCount:(NSString *)count;
 //判断字符串是否为空
 +(NSString *)isNull:(NSString *)sourceString;
+
++(NSString*)clearSpaceAndNewline:(NSString*)oldStr;
++(int)convertToInt:(NSString*)strtemp;
+
 @end

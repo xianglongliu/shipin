@@ -7,10 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "ShareView.h"
 
-@interface SetViewController : BaseViewController<UITableViewDataSource,UITableViewDelegate,UIScrollViewDelegate>
+@interface SetViewController : BaseViewController<UITableViewDataSource,UITableViewDelegate,UIScrollViewDelegate,ShareDelegate>
 {
-    UITableView *_tableView;
+    UITableView     *_tableView;
+    ShareView       *_shareView;
 }
 
 

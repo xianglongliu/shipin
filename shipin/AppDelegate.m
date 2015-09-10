@@ -10,6 +10,7 @@
 #import "ViewController.h"
 #import "ExUINavigationController.h"
 #import "GuideViewController.h"
+#import "ShareView.h"
 
 @interface AppDelegate ()
 
@@ -35,8 +36,46 @@
         self.window.rootViewController = nav;
     }
     [self.window makeKeyAndVisible];
+    
+    [self initShareSdkKey];
+    
     return YES;
 
 }
+
+
+#pragma mark    处理分享
+-(void) initShareSdkKey
+{
+    //微信注册
+    [WXApi registerApp:WeChatAppId withDescription:@"movikr"];
+    //新浪微博注册
+    [WeiboSDK enableDebugMode:NO];
+    [WeiboSDK registerApp:kAppKey];
+    //QQ注册
+    tencentOAuth = [[TencentOAuth alloc] initWithAppId:TencentAppId andDelegate:(id)[ShareView getShareInstance]];
+}
+
+
+-(BOOL)application:(UIApplication *)application openURL:(NSURL *)url sourceApplication:(NSString *)sourceApplication annotation:(id)annotation{
+    if([url.scheme isEqualToString:WeChatAppId]){
+        return [WXApi handleOpenURL:url delegate:(id)[ShareView getShareInstance]];
+    }else if([url.scheme isEqualToString:WeiBoAppId]){
+        return [WeiboSDK handleOpenURL:url delegate:(id)[ShareView getShareInstance]];
+    }else if([url.scheme isEqualToString:QQAppId]){
+        return [QQApiInterface handleOpenURL:url delegate:(id)[ShareView getShareInstance]];
+    }
+    return YES;
+}
+
+-(BOOL)application:(UIApplication *)application handleOpenURL:(NSURL *)url{
+    if([url.scheme isEqualToString:WeiBoAppId]){
+        return [WeiboSDK handleOpenURL:url delegate:(id)[ShareView getShareInstance]];
+    }else if([url.scheme isEqualToString:QQAppId]){
+        return [QQApiInterface handleOpenURL:url delegate:(id)[ShareView getShareInstance]];
+    }
+    return YES;
+}
+
 
 @end

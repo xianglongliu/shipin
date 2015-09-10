@@ -27,5 +27,6 @@
 #import "UserService.h"
 #import "DramaServices.h"
 #import "NetWorkState.h"
+#import "WXApi.h"
 
 #endif

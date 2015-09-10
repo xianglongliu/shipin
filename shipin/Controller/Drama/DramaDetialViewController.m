@@ -20,9 +20,6 @@
     NSString *btnText;
 }
 
-
-
-
 @end
 
 @implementation DramaDetialViewController

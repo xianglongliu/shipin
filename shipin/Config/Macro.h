@@ -47,6 +47,14 @@ blue:((float)(rgbValue & 0xFF))/255.0 alpha:1.0]
 
 
 
-
-
-
+//分享相关
+#define SHARTOWEIBO                    @"ShareToSinaWeiBo"
+#define WeChatAppId                    @"wxd447d04ec517900e"
+#define kAppKey                        @"2064903752"
+#define kAppSecret                     @"cc0963fbc62c27b1528be757425b1f5c"
+#define kRedirectURI                   @"http://app.baidu.com.cn"
+#define WeiBoAppId                     @"wb2064903752"
+#define QQAppId                        @"tencent1104738515"
+#define TencentAppId                   @"1104738515"
+#define ShareToWeiboOfAccount       @"(来自@剧库官微)"
+#define shareImageToWeixinDefaultImageTitle @"剧库"

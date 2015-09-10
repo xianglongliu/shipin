@@ -101,7 +101,49 @@
     else
         return sourceString;
 }
+///清除文本里面的换行和空格字符
++(NSString*)clearSpaceAndNewline:(NSString*)oldStr
+{
+    if(oldStr&&oldStr.length>0){
+        NSString* newStr=@"";
+        //去除掉首尾的空白字符和换行字符
+        newStr = [oldStr stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
+        newStr = [newStr stringByReplacingOccurrencesOfString:@"\r" withString:@""];
+        newStr = [newStr stringByReplacingOccurrencesOfString:@"\n" withString:@""];
+        return newStr;
+    }else{
+        return @"";
+    }
+}
 
+/**
+ *  计算字符串的字数
+ */
++(int)convertToInt:(NSString*)strtemp {
+    
+    int strlength = 0;
+    char* p = (char*)[strtemp cStringUsingEncoding:NSUnicodeStringEncoding];
+    for (int i=0 ; i<[strtemp lengthOfBytesUsingEncoding:NSUnicodeStringEncoding] ;i++) {
+        if (*p) {
+            p++;
+            strlength++;
+        }
+        else {
+            p++;
+        }
+    }
+    
+    //"一"这个字符统计有问题
+    int hasSpecialCount=0;
+    for (NSInteger i=0; i<strtemp.length; i++) {
+        NSString *currChar = [strtemp substringWithRange:NSMakeRange(i, 1)];
+        if([currChar isEqualToString:@"一"]){
+            hasSpecialCount++;
+        }
+    }
+    return (strlength+1+hasSpecialCount)/2;
+    
+}
 
 
 @end

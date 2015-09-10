@@ -19,7 +19,6 @@
 #import "LKDBHelper.h"
 #import "FVCustomAlertView.h"
 
-
 @interface SetViewController ()
 
 @end
@@ -275,7 +274,7 @@
         case 1:
             if (indexPath.row == 0)//分享
             {
-                
+                [self share];
             }
             if (indexPath.row == 1)//意见反馈
             {
@@ -304,6 +303,58 @@
 
 }
 
+-(void) share
+{
+    if(!_shareView)
+    {
+        _shareView=[ShareView getShareInstance];
+        _shareView.backgroundColor = [UIColor clearColor];
+        _shareView.hidden=YES;
+        _shareView.alpha = 0;
+        _shareView.transform = CGAffineTransformMakeScale(1.2, 1.2);
+        
+    }
+    _shareView.shareDelegate=self;
+    [self.view addSubview:_shareView];
+    
+//    //设置分享的数据
+//    _shareView.shareUrl=[Tool getArticleDetailUrl:self._itemContent.url articleId:self._itemContent.actionId isClient:NO sourceName:self._itemContent.actionSource actionId:self._itemContent.actionId];
+//    _shareView.shareTitle=self._itemContent.title;
+//    _shareView.shareDescription=self._itemContent.summary;
+//    if(self._itemContent.imageList&&self._itemContent.imageList.count>0){
+//        ArticleImageInfo *articleImageInfo =self._itemContent.imageList[0];
+//        _shareView.shareImgUrl=articleImageInfo.imageUrl;
+//    }else if(self._itemContent.coverUrl&&self._itemContent.coverUrl.length>0){
+//        _shareView.shareImgUrl=self._itemContent.coverUrl;
+//    }else{
+//        _shareView.shareImgUrl=@"";
+//    }
+//    
+//    _shareView.shareContentType=WeiChatShareContentTypeNews;
+//    _shareView.shareObjectId=self._itemContent.articleId;
+//    _shareView.shareObjectType=ShareContentTypeOfArticle;
+    
+    [UIView animateWithDuration:0.2
+                     animations:^{
+                         _shareView.transform = CGAffineTransformMakeScale(1, 1);
+                         _shareView.hidden=NO;
+                         _shareView.alpha=1;
+                     }completion:^(BOOL finish){
+                     }];
+}
+
+-(void)touchUpCloseShare
+{
+    [_shareView removeFromSuperview];
+    [UIView animateWithDuration:0.3
+                     animations:^{
+                         _shareView.transform = CGAffineTransformMakeScale(1.3, 1.3);
+                         _shareView.alpha=0;
+                     }completion:^(BOOL finish){
+                         _shareView.hidden=YES;
+                     }];
+    
+}
 
 - (void)didReceiveMemoryWarning
 {

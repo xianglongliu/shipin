@@ -84,9 +84,11 @@
     {
         [Tool showWarningTip:@"请输入反馈意见" view:self.view time:1];
         return;
-    } else{
-
-        [UserService opinion:hpTextView.text success:^(Boolean *boolean) {
+    }
+    else
+    {
+        [UserService opinion:hpTextView.text success:^(Boolean *boolean)
+        {
             hpTextView.text=@"";
             [Tool showWarningTip:@"感谢反馈" view:self.view time:1];
         } failure:^(NSString *error) {
