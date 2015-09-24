@@ -98,6 +98,7 @@
 
 -(void) loadNetWorkData
 {
+    [FVCustomAlertView showAlertOnView:self.view withTitle:@"加载中..." titleColor:[UIColor whiteColor] width:90.0 height:90.9 blur:YES backgroundImage:nil backgroundColor:[UIColor blackColor] cornerRadius:15.0 shadowAlpha:0.1 alpha:0.9 contentView:nil type:FVAlertTypeLoading allowTap:YES];
 //    读取本地数据
     if ([NetWorkState getNetWorkState] == NotReachable )
     {
@@ -107,6 +108,7 @@
             dramaModle = drama;
             [_tableView reloadData];
         }
+        [FVCustomAlertView hideAlertFromView:self.view fading:YES];
     }
     else
     {
@@ -114,10 +116,12 @@
          {
              dramaModle = dramaModel;
              [_tableView reloadData];
+             [FVCustomAlertView hideAlertFromView:self.view fading:YES];
              
          } failure:^(NSDictionary *error)
          {
              [Tool showWarningTip:@"加载剧目详情失败" view:self.view time:1];
+             [FVCustomAlertView hideAlertFromView:self.view fading:YES];
          }];
     }
 

@@ -103,7 +103,7 @@
     }
     else
     {
-       return 5;
+       return 4;
     }
     return 0;
 }
@@ -175,15 +175,15 @@
                 {
                     cell.textLabel.text =  @"意见反馈";
                 }
+//                if(indexPath.row == 2)
+//                {
+//                    cell.textLabel.text =  @"使用帮助";
+//                }
                 if(indexPath.row == 2)
-                {
-                    cell.textLabel.text =  @"使用帮助";
-                }
-                if(indexPath.row == 3)
                 {
                     cell.textLabel.text =  @"去给应用评分";
                 }
-                if(indexPath.row == 4)
+                if(indexPath.row == 3)
                 {
                     cell.textLabel.text =  @"关于我们";
                 }
@@ -274,24 +274,24 @@
         case 1:
             if (indexPath.row == 0)//分享
             {
-                [self share];
+//                [self share];
             }
             if (indexPath.row == 1)//意见反馈
             {
                 FeedBackViewController *feedBackView = [[FeedBackViewController alloc ] init];
                 [self.navigationController pushViewController:feedBackView animated:YES];
             }
-            if (indexPath.row == 2)//使用帮助
-            {
-                UseHelpViewController *useHelpView = [[UseHelpViewController alloc ] init];
-                [self.navigationController pushViewController:useHelpView animated:YES];
-            }
-            if (indexPath.row == 3)//去给应用评分
+//            if (indexPath.row == 2)//使用帮助
+//            {
+//                UseHelpViewController *useHelpView = [[UseHelpViewController alloc ] init];
+//                [self.navigationController pushViewController:useHelpView animated:YES];
+//            }
+            if (indexPath.row == 2)//去给应用评分
             {
                 [[UIApplication sharedApplication ] openURL:[NSURL URLWithString:@"http://www.baidu.com"]];
                 
             }
-            if (indexPath.row == 4)//关于我们
+            if (indexPath.row == 3)//关于我们
             {
                 AboutViewController *aboutView = [[AboutViewController alloc ] init];
                 [self.navigationController pushViewController:aboutView animated:YES];

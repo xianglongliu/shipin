@@ -6,6 +6,7 @@
 //  Copyright (c) 2015年 dust.zhang. All rights reserved.
 //
 
+#import <SDWebImage/SDWebImageCompat.h>
 #import "ViewController.h"
 #import "FindTableViewCell.h"
 #import "AllTableViewCell.h"
@@ -17,6 +18,7 @@
 #import "LKDBHelper.h"
 #import "Drama.h"
 #import "FVCustomAlertView.h"
+#import "UIButton+WebCache.h"
 
 
 @protocol Drama;
@@ -99,7 +101,7 @@
 //加载用户头像
 -(void)loadUserInfo
 {
-    [FVCustomAlertView showDefaultLoadingAlertOnView:self.view withTitle:nil withBlur:NO allowTap:YES];
+    [FVCustomAlertView showDefaultLoadingAlertOnView:self.view withTitle:@"加载中..." withBlur:NO allowTap:YES];
     if([Config getUserId]!=nil && ![[Config getUserId] isEqualToString:@""])
     {
         LKDBHelper *helper = [LKDBHelper getUsingLKDBHelper];
@@ -107,10 +109,11 @@
         UserModel *   userModel = [helper searchSingle:[UserModel class] where:where orderBy:nil];
         if(userModel!= nil)
         {
-            if ([userModel.avatar length] == 0)
+            if ([userModel.avatar length] == 0 || userModel.avatar==nil)
                 [_btnLogin setImage:[UIImage imageNamed:@"image_defaulthead.png"] forState:UIControlStateNormal];
             else
-                [_btnLogin setImage:[UIImage imageWithData:[NSData dataWithContentsOfURL:[Tool stringMerge:userModel.avatar]]] forState:UIControlStateNormal];
+                [_btnLogin sd_setImageWithURL:[Tool stringMerge:userModel.avatar] forState:UIControlStateNormal placeholderImage:[UIImage imageNamed:@"image_defaulthead.png"]];
+            //[_btnLogin setImage:[UIImage imageWithData:[NSData dataWithContentsOfURL:[Tool stringMerge:userModel.avatar]]] forState:UIControlStateNormal];
         }
         [FVCustomAlertView hideAlertFromView:self.view fading:YES];
     }
@@ -118,10 +121,11 @@
     {
         [UserService getUserDetail:0 success:^(UserModel *userModel)
         {
-            if ([userModel.avatar length] == 0)
+            if ([userModel.avatar length] == 0 || userModel.avatar==nil)
                 [_btnLogin setImage:[UIImage imageNamed:@"image_defaulthead.png"] forState:UIControlStateNormal];
             else
-                [_btnLogin setImage:[UIImage imageWithData:[NSData dataWithContentsOfURL:[Tool stringMerge:userModel.avatar]]] forState:UIControlStateNormal];
+                [_btnLogin sd_setImageWithURL:[Tool stringMerge:userModel.avatar] forState:UIControlStateNormal placeholderImage:[UIImage imageNamed:@"image_defaulthead.png"]];
+               // [_btnLogin setImage:[UIImage imageWithData:[NSData dataWithContentsOfURL:[Tool stringMerge:userModel.avatar]]] forState:UIControlStateNormal];
             [FVCustomAlertView hideAlertFromView:self.view fading:YES];
         } failure:^(NSDictionary *error)
         {
@@ -397,7 +401,9 @@
 #pragma mark 加载好剧数据
 -(void) loadFindGoodDrama:(int )pageNumber
 {
-    [FVCustomAlertView showDefaultLoadingAlertOnView:self.view withTitle:nil withBlur:NO allowTap:YES];
+//    [FVCustomAlertView showDefaultLoadingAlertOnView:self.view withTitle:@"加载中..." withBlur:NO allowTap:YES];
+
+    [FVCustomAlertView showAlertOnView:self.view withTitle:@"加载中..." titleColor:[UIColor whiteColor] width:90.0 height:90.9 blur:YES backgroundImage:nil backgroundColor:[UIColor blackColor] cornerRadius:15.0 shadowAlpha:0.1 alpha:0.9 contentView:nil type:FVAlertTypeLoading allowTap:YES];
 
     if([ strBtnClick isEqualToString: @"btnAll"])
     {
