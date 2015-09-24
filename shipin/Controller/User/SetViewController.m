@@ -274,7 +274,7 @@
         case 1:
             if (indexPath.row == 0)//分享
             {
-//                [self share];
+                [self showShareView];
             }
             if (indexPath.row == 1)//意见反馈
             {
@@ -303,7 +303,7 @@
 
 }
 
--(void) share
+-(void) showShareView
 {
     if(!_shareView)
     {
@@ -319,7 +319,7 @@
     
 //    //设置分享的数据
 //    _shareView.shareUrl=[Tool getArticleDetailUrl:self._itemContent.url articleId:self._itemContent.actionId isClient:NO sourceName:self._itemContent.actionSource actionId:self._itemContent.actionId];
-//    _shareView.shareTitle=self._itemContent.title;
+    _shareView.shareTitle=@"剧库";
 //    _shareView.shareDescription=self._itemContent.summary;
 //    if(self._itemContent.imageList&&self._itemContent.imageList.count>0){
 //        ArticleImageInfo *articleImageInfo =self._itemContent.imageList[0];

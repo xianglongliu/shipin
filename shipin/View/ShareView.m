@@ -20,11 +20,10 @@
 #define ButtonShareWeiboTag    4
 #define MaxShareToWeiboTextLength    60
 
-
-
 static ShareView *GlobalShareView;
 
-@implementation ShareView{
+@implementation ShareView
+{
     ///图标的高度
     CGFloat logoWidth;
     ///图标的宽度
@@ -36,36 +35,35 @@ static ShareView *GlobalShareView;
     ///图片之间的间距
     CGFloat logoToLogoHeight;
     NSInteger currScence;
-    
     NSTimer *shareConfirmTimer;
 }
 
-+(ShareView*)getShareInstance{
-    if(!GlobalShareView){
++(ShareView*)getShareInstance
+{
+    if(!GlobalShareView)
+    {
         GlobalShareView = [[ShareView alloc]initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, SCREEN_HEIGHT)];
     }
-    
-    NSLog(@"返回了分享对象的实例");
-    
     return GlobalShareView;
 }
 
--(instancetype)initWithFrame:(CGRect)frame{
+-(instancetype)initWithFrame:(CGRect)frame
+{
     self=[super initWithFrame:frame];
-    if(self){
+    if(self)
+    {
         logoHeight=45;
         logoWidth=60;
         labelHeight=15;
         logoToLabelHeight=14;
         logoToLogoHeight=28;
-        
         [self initShareCtrl];
     }
     return self;
 }
 
-
--(void)initShareCtrl{
+-(void)initShareCtrl
+{
     CGFloat basePositionX=30;
     CGFloat lineSpacing=28;
     //CGFloat basePositionY=(SCREEN_HEIGHT/2)-(logoToLogoHeight/2)-labelHeight-logoToLabelHeight-logoHeight;
@@ -205,59 +203,71 @@ static ShareView *GlobalShareView;
 }
 
 -(BOOL)checkIsInstallWX{
-    if(![WXApi isWXAppInstalled]){
-        [FVCustomAlertView showDefaultWarningAlertOnView:self withTitle:@"未安装微信客户端" withBlur:NO allowTap:YES];
+    if(![WXApi isWXAppInstalled])
+    {
+        [Tool showWarningTip:@"未安装微信客户端" view:self time:1];
         return NO;
     }
     return YES;
 }
 
 -(BOOL)checkIsInstallWeiBo{
-    if(![WeiboSDK isWeiboAppInstalled]){
-        [FVCustomAlertView showDefaultWarningAlertOnView:self withTitle:@"未安装新浪微博客户端" withBlur:NO allowTap:YES];
+    if(![WeiboSDK isWeiboAppInstalled])
+    {
+         [Tool showWarningTip:@"未安装新浪微博客户端" view:self time:1];
         return NO;
     }
     return YES;
 }
 
 -(BOOL)checkIsInstallQQ{
-    if (![TencentOAuth iphoneQQInstalled]) {
-        [FVCustomAlertView showDefaultWarningAlertOnView:self withTitle:@"未安装QQ客户端" withBlur:NO allowTap:YES];
+    if (![TencentOAuth iphoneQQInstalled])
+    {
+        [Tool showWarningTip:@"未安装QQ客户端" view:self time:1];
         return NO;
     }
     return YES;
 }
 
 -(BOOL)checkIsInstallQQZone{
-    if (![TencentOAuth iphoneQQInstalled]) {
-        [FVCustomAlertView showDefaultWarningAlertOnView:self withTitle:@"未安装QQ空间客户端" withBlur:NO allowTap:YES];
+    if (![TencentOAuth iphoneQQInstalled])
+    {
+        [Tool showWarningTip:@"未安装QQ空间客户端" view:self time:1];
         return NO;
     }
     return YES;
 }
 
--(void)touchUpShareToWeiChat:(UIButton *)sender{
-    if(![self checkIsInstallWX]){
+-(void)touchUpShareToWeiChat:(UIButton *)sender
+{
+    if(![self checkIsInstallWX])
+    {
         return;
     }
     sender.enabled=NO;
     currScence=WXSceneSession;
-    if(self.shareContentType==WeiChatShareContentTypeImage){
+    if(self.shareContentType==WeiChatShareContentTypeImage)
+    {
         [self sendShareToWeiChatOfImage:WXSceneSession];
-    }else{
+    }
+    else
+    {
         [self sendShareToWeiChatOfNew:WXSceneSession];
     }
     
     sender.enabled=YES;
 }
 
--(void)touchUpShareToFriend:(UIButton *)sender{
-    if(![self checkIsInstallWX]){
+-(void)touchUpShareToFriend:(UIButton *)sender
+{
+    if(![self checkIsInstallWX])
+    {
         return;
     }
     sender.enabled=NO;
     currScence=WXSceneTimeline;
-    if(self.shareContentType==WeiChatShareContentTypeImage) {
+    if(self.shareContentType==WeiChatShareContentTypeImage)
+    {
         [self sendShareToWeiChatOfImage:WXSceneTimeline];
     } else {
         [self sendShareToWeiChatOfNew:WXSceneTimeline];
@@ -266,8 +276,10 @@ static ShareView *GlobalShareView;
     sender.enabled=YES;
 }
 
--(void)touchUpShareToWeibo:(UIButton*)sender{
-    if(![self checkIsInstallWeiBo]){
+-(void)touchUpShareToWeibo:(UIButton*)sender
+{
+    if(![self checkIsInstallWeiBo])
+    {
         return;
     }
     sender.enabled=NO;
@@ -417,7 +429,6 @@ static ShareView *GlobalShareView;
         req = [SendMessageToQQReq reqWithContent:newsObj];
         sent = [QQApiInterface SendReqToQZone:req];
     }
-    [self startShareConfim];
     [self autoCloseView];
     [self handleSendResult:sent];
 }
@@ -441,9 +452,9 @@ static ShareView *GlobalShareView;
         //将内容分享到qq
         SendMessageToQQReq *req = [SendMessageToQQReq reqWithContent:newsObj];
         QQApiSendResultCode sent;
-        if (scence == QQScenceValue) {
+        if (scence == QQScenceValue)
+        {
             sent = [QQApiInterface sendReq:req];
-            [self startShareConfim];
         }
         else if (scence == QzoneScenceValue){
             sent = [QQApiInterface SendReqToQZone:req];
@@ -467,7 +478,6 @@ static ShareView *GlobalShareView;
         else if (scence == QzoneScenceValue){
             sent = [QQApiInterface SendReqToQZone:req];
         }
-        [self startShareConfim];
         [self autoCloseView];
         [self handleSendResult:sent];
     }
@@ -535,7 +545,8 @@ static ShareView *GlobalShareView;
  *
  *  @return 分享的内容可能是包含图片或者纯文本的，所以返回的是基类
  */
--(void)sendShareToWeiChatOfNew:(int) scence{
+-(void)sendShareToWeiChatOfNew:(int) scence
+{
     SendMessageToWXReq* req = [[SendMessageToWXReq alloc] init];
     req.scene=scence;
     WXMediaMessage *message = [WXMediaMessage message];
@@ -545,12 +556,8 @@ static ShareView *GlobalShareView;
     //判断是否分享包含图片
     if(self.shareImgUrl.length>0)
     {
-        [SDWebImageDownloader.sharedDownloader downloadImageWithURL:[NSURL URLWithString:self.shareImgUrl]
-                                                            options:0
-                                                           progress:^(NSInteger receivedSize, NSInteger expectedSize)
-         {
-         }
-                                                          completed:^(UIImage *image, NSData *data, NSError *error, BOOL finished)
+        [SDWebImageDownloader.sharedDownloader downloadImageWithURL:[NSURL URLWithString:self.shareImgUrl] options:0 progress:^(NSInteger receivedSize, NSInteger expectedSize){
+         }completed:^(UIImage *image, NSData *data, NSError *error, BOOL finished)
          {
              if (image && finished)
              {
@@ -564,29 +571,23 @@ static ShareView *GlobalShareView;
                  req.message=message;
                  req.bText=NO;
                  [WXApi sendReq:req];
-                 if(scence==WXSceneSession){
-                     [self startShareConfim];
-                 }
                  [self autoCloseView];
                  
              }
          }];
         
-    }else{
-        UIImage *image=[UIImage imageNamed:@"image_share_weichat_defaut.png"];
+    }
+    else
+    {
+        UIImage *image=[UIImage imageNamed:@"180.png"];
         [message  setThumbImage:image];
         
         WXWebpageObject *ext=[WXWebpageObject object];
-        ext.webpageUrl=self.shareUrl;
+        ext.webpageUrl=@"http://www.baidu.com";
         message.mediaObject=ext;
-        
         req.message=message;
         req.bText=NO;
         [WXApi sendReq:req];
-        
-        if(scence==WXSceneSession){
-            [self startShareConfim];
-        }
         [self autoCloseView];
     }
 }
@@ -631,10 +632,6 @@ static ShareView *GlobalShareView;
     
     [WXApi sendReq:req];
     
-    if(scence==WXSceneSession){
-        [self startShareConfim];
-    }
-    
     [self autoCloseView];
     
 }
@@ -651,119 +648,17 @@ static ShareView *GlobalShareView;
 }
 
 
-#pragma mark 增加分享统计
--(void)addShareCount{
-    AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
-    manager.requestSerializer = [AFJSONRequestSerializer serializer];
-    manager.responseSerializer = [AFJSONResponseSerializer serializer];
-    NSString *shareContentTypeOfString;
-    if(self.shareObjectType==ShareContentTypeOfActivity){
-        shareContentTypeOfString=@"activity";
-    }else if(self.shareObjectType==ShareContentTypeOfArticle){
-        shareContentTypeOfString=@"article";
-    }else if(self.shareObjectType==ShareContentTypeOfTopicImage){
-        shareContentTypeOfString=@"topic";
-    }else{
-        shareContentTypeOfString=@"";
-    }
-    
-    NSString *shareTarget;
-    switch (currScence) {
-        case WXSceneSession:
-            shareTarget=@"WXSceneSession";
-            break;
-        case WXSceneTimeline:
-            shareTarget=@"WXSceneTimeline";
-            break;
-        case WeiBoScenceValue:
-            shareTarget=@"weibo";
-            break;
-        case QQScenceValue:
-            shareTarget=@"qq";
-            break;
-        case QzoneScenceValue:
-            shareTarget=@"qq.qzone";
-            break;
-        default:{
-            NSLog(@"无法找到share target");
-            shareTarget=@"";
-        }
-            break;
-    }
-}
-
-
--(void)startShareConfim{
-    [self endShareConfirm];
-    shareConfirmTimer=[NSTimer scheduledTimerWithTimeInterval:waitShareConfirmTimeLength
-                                                       target:self
-                                                     selector:@selector(autoAddShareCount)
-                                                     userInfo:nil
-                                                      repeats:NO];
-}
-
--(void)endShareConfirm{
-    if (shareConfirmTimer != nil) {
-        [shareConfirmTimer invalidate];
-        shareConfirmTimer = nil;
-        NSLog(@"成销毁计时器");
-    }else{
-        NSLog(@"找不到计时器，不需要销毁");
-    }
-}
-
--(void)autoAddShareCount{
-    if(shareConfirmTimer){
-        NSLog(@"进入了自动增加分享的函数");
-        [self endShareConfirm];
-        [self addShareCount];
-    }else{
-        NSLog(@"无法自动去分享");
-    }
-}
-
-//#pragma mark 微信、QQ回调
--(void) onResp:(NSObject*)resp
-{
-    //微信回调
-    if([resp isKindOfClass:[SendMessageToWXResp class]])
-    {
-        SendMessageToWXResp* wxResp = (SendMessageToWXResp*)resp;
-        [self endShareConfirm];
-        if(wxResp.errCode == WXSuccess){
-            [self addShareCount];
-        }else{
-            NSLog(@"分享取消了：code:%d",wxResp.errCode);
-        }
-    }
-    //QQ回调
-    if([resp isKindOfClass:[SendMessageToQQResp class]])
-    {
-        SendMessageToQQResp* qqResp = (SendMessageToQQResp*)resp;
-        [self endShareConfirm];
-        if([qqResp.result isEqualToString:@"0"]){
-            [self addShareCount];
-        }else{
-            NSLog(@"分享取消了：code:%@",qqResp.errorDescription);
-        }
-    }
-}
-
-- (void)onReq:(QQBaseReq *)req{
-    
-}
-
-
 #pragma mark 新浪微博回调
 - (void)didReceiveWeiboResponse:(WBBaseResponse *)response
 {
     if ([response isKindOfClass:WBSendMessageToWeiboResponse.class])
     {
-        if((int)response.statusCode==WeiboSDKResponseStatusCodeSuccess){
-            [self addShareCount];
-        }else if((int)response.statusCode==WeiboSDKResponseStatusCodeUserCancel){
+        if((int)response.statusCode==WeiboSDKResponseStatusCodeUserCancel)
+        {
             NSLog(@"用户取消了分享");
-        }else{
+        }
+        else
+        {
             NSString *message = [NSString stringWithFormat:@"%@: %d\n%@: %@\n%@: %@", NSLocalizedString(@"响应状态", nil), (int)response.statusCode, NSLocalizedString(@"响应UserInfo数据", nil), response.userInfo, NSLocalizedString(@"原请求UserInfo数据", nil),response.requestUserInfo];
             NSLog(@"%@",message);
         }

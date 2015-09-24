@@ -25,36 +25,27 @@
 
 #define     NOTIFITION_SELECTCURDATE                    @"notifition_date"
 //颜色转换
-#define     kUIColorFromRGB(rgbValue) [UIColor \
-colorWithRed:((float)((rgbValue & 0xFF0000) >> 16))/255.0 \
-green:((float)((rgbValue & 0xFF00) >> 8))/255.0 \
-blue:((float)(rgbValue & 0xFF))/255.0 alpha:1.0]
 #define RGB(r,g,b) [UIColor colorWithRed:r/255.0f green:g/255.0f blue:b/255.0f alpha:1]
 #define RGBA(r,g,b,a) [UIColor colorWithRed:r/255.0f green:g/255.0f blue:b/255.0f alpha:a]
-
 #define yellowRgb   RGB(239, 190, 0)
 //#define grayRgb   RGB(246, 246, 246)
 #define grayRgb   RGB(220, 220, 220)
 #define FontSize    12
-
 //返回按钮宽高
-
 #define backButtonFram  CGRectMake(10, 25, 45, 22)
-
 #define netWorkUrl                      @"image_defaulthead.png"
 //无网络加载默认图片
 #define     DefaultImage                [UIImage imageNamed:@"picture_default.png"]
 
-
-
 //分享相关
-#define SHARTOWEIBO                    @"ShareToSinaWeiBo"
-#define WeChatAppId                    @"wxd447d04ec517900e"
-#define kAppKey                        @"2064903752"
-#define kAppSecret                     @"cc0963fbc62c27b1528be757425b1f5c"
-#define kRedirectURI                   @"http://app.baidu.com.cn"
-#define WeiBoAppId                     @"wb2064903752"
-#define QQAppId                        @"tencent1104738515"
-#define TencentAppId                   @"1104738515"
+//微信
+#define weixinAppId                    @"wx74cfb2a735ee43aa"
+#define weixinAppSecret                @"2e3a3e0434fce84879f8f03cca4b89f6"
+#define kRedirectURI                   @"http://tvpstore.com"
+//微博
+#define weiboAppId                      @"weibo20682885"
+#define weiboAppKey                     @"20682885"
+#define weiboAppSecret                  @"bff0b7ac8f061e3325cef7cecd3ac96c"
+
 #define ShareToWeiboOfAccount       @"(来自@剧库官微)"
 #define shareImageToWeixinDefaultImageTitle @"剧库"

@@ -48,32 +48,42 @@
 -(void) initShareSdkKey
 {
     //微信注册
-    [WXApi registerApp:WeChatAppId withDescription:@"movikr"];
+    [WXApi registerApp:weixinAppId withDescription:@"juku"];
     //新浪微博注册
     [WeiboSDK enableDebugMode:NO];
-    [WeiboSDK registerApp:kAppKey];
+    [WeiboSDK registerApp:weiboAppKey];
     //QQ注册
-    tencentOAuth = [[TencentOAuth alloc] initWithAppId:TencentAppId andDelegate:(id)[ShareView getShareInstance]];
+//    tencentOAuth = [[TencentOAuth alloc] initWithAppId:TencentAppId andDelegate:(id)[ShareView getShareInstance]];
 }
 
 
--(BOOL)application:(UIApplication *)application openURL:(NSURL *)url sourceApplication:(NSString *)sourceApplication annotation:(id)annotation{
-    if([url.scheme isEqualToString:WeChatAppId]){
+-(BOOL)application:(UIApplication *)application openURL:(NSURL *)url sourceApplication:(NSString *)sourceApplication annotation:(id)annotation
+{
+    if([url.scheme isEqualToString:weixinAppId])
+    {
         return [WXApi handleOpenURL:url delegate:(id)[ShareView getShareInstance]];
-    }else if([url.scheme isEqualToString:WeiBoAppId]){
-        return [WeiboSDK handleOpenURL:url delegate:(id)[ShareView getShareInstance]];
-    }else if([url.scheme isEqualToString:QQAppId]){
-        return [QQApiInterface handleOpenURL:url delegate:(id)[ShareView getShareInstance]];
     }
+    else if([url.scheme isEqualToString:weiboAppId])
+    {
+        return [WeiboSDK handleOpenURL:url delegate:(id)[ShareView getShareInstance]];
+    }
+//    else if([url.scheme isEqualToString:QQAppId])
+//    {
+//        return [QQApiInterface handleOpenURL:url delegate:(id)[ShareView getShareInstance]];
+//    }
     return YES;
 }
 
--(BOOL)application:(UIApplication *)application handleOpenURL:(NSURL *)url{
-    if([url.scheme isEqualToString:WeiBoAppId]){
+-(BOOL)application:(UIApplication *)application handleOpenURL:(NSURL *)url
+{
+    if([url.scheme isEqualToString:weiboAppId])
+    {
         return [WeiboSDK handleOpenURL:url delegate:(id)[ShareView getShareInstance]];
-    }else if([url.scheme isEqualToString:QQAppId]){
-        return [QQApiInterface handleOpenURL:url delegate:(id)[ShareView getShareInstance]];
     }
+//    else if([url.scheme isEqualToString:QQAppId])
+//    {
+//        return [QQApiInterface handleOpenURL:url delegate:(id)[ShareView getShareInstance]];
+//    }
     return YES;
 }
 
