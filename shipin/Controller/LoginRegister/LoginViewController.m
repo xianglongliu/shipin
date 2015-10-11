@@ -29,7 +29,7 @@
     [self.view addSubview:imageViewLogo];
     
     UILabel *labelName = [[UILabel alloc ] initWithFrame:CGRectMake(0, imageViewLogo.frame.size.height+imageViewLogo.frame.origin.y+10, SCREEN_WIDTH, 20)];
-    [labelName setText:@"中国首个电视剧交易平台"];
+    [labelName setText:@"电视剧采购人购片神器"];
     [labelName setBackgroundColor:[UIColor clearColor]];
     [labelName setFont:[UIFont boldSystemFontOfSize:14]];
     [labelName setTextAlignment:NSTextAlignmentCenter];
