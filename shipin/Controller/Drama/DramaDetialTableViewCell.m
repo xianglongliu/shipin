@@ -48,6 +48,8 @@
     [self addSubview:_labelDir];
     
     _labelDirectorName = [[UILabel alloc ] initWithFrame:CGRectZero];
+    _labelDirectorName.numberOfLines = 0;
+    [_labelDirectorName setLineBreakMode:NSLineBreakByCharWrapping];
     [_labelDirectorName setBackgroundColor:[UIColor clearColor]];
     [_labelDirectorName setFont:[UIFont systemFontOfSize:13]];
     [_labelDirectorName setTextColor:RGB(102, 102, 102)];
@@ -74,6 +76,8 @@
     [self addSubview:_labelProducer];
     
     _labelProducerName = [[UILabel alloc ] initWithFrame:CGRectZero];
+    _labelProducerName.numberOfLines = 0;
+    [_labelProducerName setLineBreakMode:NSLineBreakByCharWrapping];
     [_labelProducerName setBackgroundColor:[UIColor clearColor]];
     [_labelProducerName setFont:[UIFont systemFontOfSize:13]];
     [_labelProducerName setTextColor:RGB(102, 102, 102)];
@@ -81,12 +85,15 @@
     
     // 主演
     _labelZy = [[UILabel alloc ] initWithFrame:CGRectZero];
+    
     [_labelZy setText:@"主演:"];
     [_labelZy setBackgroundColor:[UIColor clearColor]];
     [_labelZy setFont:[UIFont boldSystemFontOfSize:13]];
     [self addSubview:_labelZy];
     
     _labelZyName = [[UILabel alloc ] initWithFrame:CGRectZero];
+    _labelZyName.numberOfLines = 0;
+    [_labelZyName setLineBreakMode:NSLineBreakByCharWrapping];
     [_labelZyName setBackgroundColor:[UIColor clearColor]];
     [_labelZyName setFont:[UIFont systemFontOfSize:13]];
     [_labelZyName setTextColor:RGB(102, 102, 102)];
@@ -127,6 +134,8 @@
     [self addSubview:_labelProduced];
     
     _labelProducedName = [[UILabel alloc ] initWithFrame:CGRectZero];
+    _labelProducedName.numberOfLines = 0;
+    [_labelProducedName setLineBreakMode:NSLineBreakByCharWrapping];
     [_labelProducedName setBackgroundColor:[UIColor clearColor]];
     [_labelProducedName setFont:[UIFont systemFontOfSize:13]];
     [_labelProducedName setTextColor:RGB(102, 102, 102)];
@@ -140,6 +149,8 @@
     [self addSubview:_labelZpdw];
     
     _labelZpdwName = [[UILabel alloc ] initWithFrame:CGRectZero];
+    _labelZpdwName.numberOfLines = 0;
+    [_labelZpdwName setLineBreakMode:NSLineBreakByCharWrapping];
     [_labelZpdwName setBackgroundColor:[UIColor clearColor]];
     [_labelZpdwName setFont:[UIFont systemFontOfSize:13]];
     [_labelZpdwName setTextColor:RGB(102, 102, 102)];
@@ -228,36 +239,57 @@
 //电影信息
 -(void)setProjectInfo:(DramaModel*)dramaModel
 {
+    
+    [_labelDirectorName setText:dramaModel.director];
+    
+    //    [_labelScenaristName setText:dramaModel.];
+    
+    [_labelProducerName setText:dramaModel.distribution];
+    
+    [_labelZyName setText:dramaModel.staring];
+    
+    [_labelPlaceName setText:dramaModel.district];
+    
+    [_labelCountName setText:dramaModel.episodes];
+    
+    [_labelProducedName setText:dramaModel.presentation];
+    
+    [_labelZpdwName setText:dramaModel.distribution];
+    
+    [_labelKjDateName setText:dramaModel.boot];
+    
+    [_labelSqDateName setText:dramaModel.wrap];
 //    设置坐标
-    _labelDir.frame  = CGRectMake(20, 20, 30, 18);
-    _labelDirectorName.frame  = CGRectMake(60, 20, SCREEN_WIDTH, 18);
+    _labelDir.frame  = CGRectMake(20, 20, 40, [self getTextHeight:_labelZyName]);
+    _labelDirectorName.frame  = CGRectMake(60, 20, SCREEN_WIDTH-40, [self getTextHeight:_labelZyName]);
     
     //_labelScenarist.frame  = CGRectMake(20, _labelDir.frame.origin.y+_labelDir.frame.size.height+10, 30, 18);
    // _labelScenaristName.frame  = CGRectMake(60, _labelDir.frame.origin.y+_labelDir.frame.size.height+10, SCREEN_WIDTH, 18);
     
-    _labelProducer.frame  = CGRectMake(20, _labelDirectorName.frame.origin.y+_labelDirectorName.frame.size.height+10, 30, 18);
-    _labelProducerName.frame  = CGRectMake(60, _labelDirectorName.frame.origin.y+_labelDirectorName.frame.size.height+10, SCREEN_WIDTH, 18);
+    _labelProducer.frame  = CGRectMake(20, _labelDirectorName.frame.origin.y+_labelDirectorName.frame.size.height+10, 60, [self getTextHeight:_labelZyName]);
+    _labelProducerName.frame  = CGRectMake(60, _labelDirectorName.frame.origin.y+_labelDirectorName.frame.size.height+10, SCREEN_WIDTH-80, [self getTextHeight:_labelZyName]);
     
-    _labelZy.frame  = CGRectMake(20, _labelProducerName.frame.origin.y+_labelProducerName.frame.size.height+10, 30, 18);
-    _labelZyName.frame  = CGRectMake(60, _labelProducerName.frame.origin.y+_labelProducerName.frame.size.height+10, SCREEN_WIDTH, 18);
-    
-    _labelPlace.frame  = CGRectMake(20, _labelZyName.frame.origin.y+_labelZyName.frame.size.height+10, 60, 18);
-    _labelPlaceName.frame  = CGRectMake(60, _labelZyName.frame.origin.y+_labelZyName.frame.size.height+10, SCREEN_WIDTH, 18);
-    
-    _labelCount.frame  = CGRectMake(20, _labelPlaceName.frame.origin.y+_labelPlaceName.frame.size.height+10, 60, 18);
-    _labelCountName.frame  = CGRectMake(60, _labelPlaceName.frame.origin.y+_labelPlaceName.frame.size.height+10, SCREEN_WIDTH, 18);
+    _labelZy.frame  = CGRectMake(20, _labelProducerName.frame.origin.y+_labelProducerName.frame.size.height+10, 60, [self getTextHeight:_labelZyName]);
    
-    _labelProduced.frame  = CGRectMake(20, _labelCountName.frame.origin.y+_labelCountName.frame.size.height+10, 60, 18);
-    _labelProducedName.frame  = CGRectMake(85, _labelCountName.frame.origin.y+_labelCountName.frame.size.height+10, SCREEN_WIDTH, 18);
-   
-    _labelZpdw.frame  = CGRectMake(20, _labelProducedName.frame.origin.y+_labelProducedName.frame.size.height+10, 60, 18);
-    _labelZpdwName.frame  = CGRectMake(85, _labelProducedName.frame.origin.y+_labelProducedName.frame.size.height+10, SCREEN_WIDTH, 18);
-   
-    _labelKjDate.frame  = CGRectMake(20, _labelZpdwName.frame.origin.y+_labelZpdwName.frame.size.height+10, 60, 18);
-    _labelKjDateName.frame  = CGRectMake(85, _labelZpdwName.frame.origin.y+_labelZpdwName.frame.size.height+10, SCREEN_WIDTH, 18);
+    _labelZyName.frame  = CGRectMake(60, _labelProducerName.frame.origin.y+_labelProducerName.frame.size.height+10, SCREEN_WIDTH-80, [self getTextHeight:_labelZyName]);
     
-    _labelSqDate.frame  = CGRectMake(20, _labelKjDateName.frame.origin.y+_labelKjDateName.frame.size.height+10, 60, 18);
-    _labelSqDateName.frame  = CGRectMake(85, _labelKjDateName.frame.origin.y+_labelKjDateName.frame.size.height+10, SCREEN_WIDTH, 18);
+    _labelPlace.frame  = CGRectMake(20, _labelZyName.frame.origin.y+_labelZyName.frame.size.height+10, 60, [self getTextHeight:_labelZyName]);
+    _labelPlaceName.frame  = CGRectMake(60, _labelZyName.frame.origin.y+_labelZyName.frame.size.height+10, SCREEN_WIDTH-80, [self getTextHeight:_labelZyName]);
+    
+    _labelCount.frame  = CGRectMake(20, _labelPlaceName.frame.origin.y+_labelPlaceName.frame.size.height+10, 60, [self getTextHeight:_labelZyName]);
+    _labelCountName.frame  = CGRectMake(60, _labelPlaceName.frame.origin.y+_labelPlaceName.frame.size.height+10, SCREEN_WIDTH-80, [self getTextHeight:_labelZyName]);
+   
+    _labelProduced.frame  = CGRectMake(20, _labelCountName.frame.origin.y+_labelCountName.frame.size.height+10, 60, [self getTextHeight:_labelZyName]);
+    _labelProducedName.frame  = CGRectMake(85, _labelCountName.frame.origin.y+_labelCountName.frame.size.height+10, SCREEN_WIDTH-105, [self getTextHeight:_labelZyName]);
+   
+    _labelZpdw.frame  = CGRectMake(20, _labelProducedName.frame.origin.y+_labelProducedName.frame.size.height+10, 60, [self getTextHeight:_labelZyName]);
+    _labelZpdwName.frame  = CGRectMake(85, _labelProducedName.frame.origin.y+_labelProducedName.frame.size.height+10, SCREEN_WIDTH-105, [self getTextHeight:_labelZyName]);
+   
+    _labelKjDate.frame  = CGRectMake(20, _labelZpdwName.frame.origin.y+_labelZpdwName.frame.size.height+10, 60, [self getTextHeight:_labelZyName]);
+    _labelKjDateName.frame  = CGRectMake(85, _labelZpdwName.frame.origin.y+_labelZpdwName.frame.size.height+10, SCREEN_WIDTH-80, [self getTextHeight:_labelZyName]);
+    
+    _labelSqDate.frame  = CGRectMake(20, _labelKjDateName.frame.origin.y+_labelKjDateName.frame.size.height+10, 60, [self getTextHeight:_labelZyName]);
+    _labelSqDateName.frame  = CGRectMake(85, _labelKjDateName.frame.origin.y+_labelKjDateName.frame.size.height+10, SCREEN_WIDTH-80, [self getTextHeight:_labelZyName]);
     
     _labelLine.frame  = CGRectMake(10, _labelSqDateName.frame.origin.y+_labelSqDateName.frame.size.height+20, SCREEN_WIDTH-20, 1);
     
@@ -269,25 +301,10 @@
          [_labelTitle setText:@"相似剧集"];
      }
     
-    [_labelDirectorName setText:dramaModel.director];
+    
+    _labelZyName.frame  = CGRectMake(60, _labelProducerName.frame.origin.y+_labelProducerName.frame.size.height+10, SCREEN_WIDTH-80, [self getTextHeight:_labelZyName]);
 
-//    [_labelScenaristName setText:dramaModel.];
-
-    [_labelProducerName setText:dramaModel.distribution];
-
-    [_labelZyName setText:dramaModel.staring];
-
-    [_labelPlaceName setText:dramaModel.district];
- 
-    [_labelCountName setText:dramaModel.episodes];
-
-    [_labelProducedName setText:dramaModel.presentation];
- 
-    [_labelZpdwName setText:dramaModel.distribution];
-
-    [_labelKjDateName setText:dramaModel.boot];
-
-    [_labelSqDateName setText:dramaModel.wrap];
+    
 
 }
 
@@ -301,4 +318,20 @@
     [_labelTitle setText:dramaRelativesModel.text];
     [_labelContent setText:dramaRelativesModel.from];
 }
+-(CGFloat) getTextHeight:(UILabel *)label
+{
+    
+    if(label.text!=nil && label.text.length>0){
+        NSDictionary *attrs1 = @{NSFontAttributeName:_labelZyName.font};
+        CGSize textMaxSize = CGSizeMake(SCREEN_WIDTH-80, MAXFLOAT);
+        CGSize textSize = [_labelZyName.text boundingRectWithSize:textMaxSize options:NSStringDrawingUsesLineFragmentOrigin attributes:attrs1 context:nil].size;
+        
+        return textSize.height;
+
+    }else{
+    
+        return 18;
+    }
+    
+   }
 @end
