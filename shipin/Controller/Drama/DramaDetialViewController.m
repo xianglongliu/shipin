@@ -196,7 +196,7 @@
     }
     else if ( clickIndex == 2)
     {
-        return 2+[dramaModle.posters count ];
+        return 2+[dramaModle.dramaRelatives count ];
     }
     else
     return 0;
@@ -287,12 +287,12 @@
         }
         if( clickIndex == 2)//相关资料
         {
-            if ( [dramaModle.posters count] == indexPath.row - 1 )
-            {
-                UITableViewCell* cellBtn = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
-                cellBtn.selectionStyle = UITableViewCellSelectionStyleNone;
-                return cellBtn;
-            }
+//            if ( [dramaModle.posters count] == indexPath.row - 1 )
+//            {
+//                UITableViewCell* cellBtn = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
+//                cellBtn.selectionStyle = UITableViewCellSelectionStyleNone;
+//                return cellBtn;
+//            }
             
             DramaDetialTableViewCell* cell = [[DramaDetialTableViewCell alloc] initWithReuseIdentifier:CellIdentifier];
             cell.selectionStyle = UITableViewCellSelectionStyleNone;
@@ -333,13 +333,13 @@
         }
         if( clickIndex == 2)//相关资料
         {
-            if ( [dramaModle.posters count] == indexPath.row - 3 )
-            {
-                UITableViewCell* cellBtn = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
-                cellBtn.selectionStyle = UITableViewCellSelectionStyleNone;
-                
-                return cellBtn;
-            }
+//            if ( [dramaModle.posters count] == indexPath.row - 3 )
+//            {
+//                UITableViewCell* cellBtn = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
+//                cellBtn.selectionStyle = UITableViewCellSelectionStyleNone;
+//
+//                return cellBtn;
+//            }
             DramaDetialTableViewCell* cell = [[DramaDetialTableViewCell alloc] initWithReuseIdentifier:CellIdentifier];
             cell.selectionStyle = UITableViewCellSelectionStyleNone;
             if ([dramaModle.dramaRelatives count] > indexPath.row - 2)
@@ -447,13 +447,13 @@
          }
         if( clickIndex == 2)//相关资料
         {
-            if ( [dramaModle.posters count] == indexPath.row - 3 )
-            {
-                UITableViewCell* cellBtn = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
-                cellBtn.selectionStyle = UITableViewCellSelectionStyleNone;
-                
-                return cellBtn;
-            }
+//            if ( [dramaModle.posters count] == indexPath.row - 3 )
+//            {
+//                UITableViewCell* cellBtn = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
+//                cellBtn.selectionStyle = UITableViewCellSelectionStyleNone;
+//
+//                return cellBtn;
+//            }
 
             DramaDetialTableViewCell* cell = [[DramaDetialTableViewCell alloc] initWithReuseIdentifier:CellIdentifier];
             cell.selectionStyle = UITableViewCellSelectionStyleNone;
